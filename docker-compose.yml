@@ -1,0 +1,47 @@
+version: '3'
+services:
+  blum:
+    container_name: blum
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3030:3030"
+    depends_on:
+      - redis
+      - blum_db
+    restart: always
+    environment:
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - TZ=Asia/Tashkent
+    volumes:
+      - blum_sessions_data:/app/sessions/
+    env_file:
+      - .env
+
+  blum_db:
+    container_name: blum_db
+    image: postgres
+    environment:
+      - POSTGRES_DB=blum
+      - POSTGRES_USER=${POSTGRES_DB_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_DB_PASSWORD}
+      - TZ=Asia/Tashkent
+    ports:
+      - "30033:5432"
+    volumes:
+      - blum_postgres_data:/var/lib/postgresql/data
+
+    restart: always
+
+  redis:
+    image: "redis:latest"
+
+volumes:
+  blum_postgres_data:  # Definition of the named volume
+  blum_sessions_data:  # New named volume for sessions
+
+
+
+
