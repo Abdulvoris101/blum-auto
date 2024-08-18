@@ -52,14 +52,11 @@ class UserManager:
             session.add(userObj)
             await session.commit()
 
-            userScheme = UserScheme(**userObj.to_dict())
             userPaymentScheme = UserPaymentCreateScheme(telegramId=userObj.telegramId, userId=userObj.id)
             userPayment = UserPayment(**userPaymentScheme.model_dump())
-            userPayment.balance += settings.PRICE
             session.add(userPayment)
             await session.commit()
-
-            await sendEvent(text=text.USER_REGISTERED_EVENT_TEMPLATE.format(**userScheme.model_dump()))
+            await sendEvent(text=text.USER_REGISTERED_EVENT_TEMPLATE.format(**userObj.to_dict()))
 
     @classmethod
     async def isValidReferral(cls, telegramId: int, referredBy: str) -> bool:

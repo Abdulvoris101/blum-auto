@@ -102,9 +102,8 @@ async def accountsDetails(callback: types.CallbackQuery, callback_data: AccountC
 async def addAccount(callback: types.CallbackQuery, state: FSMContext):
     await callback.answer("")
     userPayment = await UserPayment.get(callback.from_user.id)
-    user = await User.get(callback.from_user.id)
 
-    if userPayment.balance < settings.PRICE and not user.isFreeTrial:
+    if userPayment.balance < settings.PRICE and userPayment.trialBalance < settings.PRICE:
         return await bot.send_message(callback.from_user.id, text.NOT_ENOUGH_BALANCE.format(price=settings.PRICE))
 
     await state.set_state(AddAccountState.phoneNumber)
@@ -206,12 +205,12 @@ async def processAccountMessage(message: types.Message, state: FSMContext, sessi
         if userPayment.balance >= settings.PRICE:
             await SubscriptionManager.subscribe(message.from_user.id, accountId=account.id, isFreeTrial=False)
             userPayment.balance -= settings.PRICE
-            await userPayment.save()
         else:
             await SubscriptionManager.subscribe(message.from_user.id, accountId=account.id, isFreeTrial=True)
-            user.isFreeTrial = False
-            await user.save()
+            userPayment.trialBalance -= settings.PRICE
 
+        await userPayment.save()
+        await user.save()
         await message.answer(text.PROFILE_INFO.format(**blumAccountScheme.model_dump(),
                                                       sessionName=accountScheme.sessionName))
         await message.answer(text.SUCCESSFUL_ADDED_ACCOUNT.value, reply_markup=startMenuMarkup())

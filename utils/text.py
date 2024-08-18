@@ -16,7 +16,7 @@ SELECT_LANGUAGE = __("""Muloqot tilini tanlang
 Choose language""")
 
 THANKS_FOR_CHOOSING = __("""🎉 Bizni tanlaganiz uchun rahmat
-Bonus sifatida sizga 1.49$ taqdim etildi""")
+Bonus sifatida sizga tekin obuna taqdim etildi""")
 
 # FAQ
 BOT_USAGE_FAQ = __("""<b>Botni qanday ishlataman?</b>
@@ -55,7 +55,8 @@ O'zingiz qiziqtirgan mavzuni tanlang: """)
 # Accounts
 ACCOUNTS_TEXT = __("""Ulangan akkauntlar soni - {accountsCount}""")
 
-DISCLAIMER_OF_ADDING_ACCOUNT = __("""⚠️ Telegram bu akkauntni ulashga ruxsat bermaydi! Boshqa akkauntingizni ulang. | Batafsil
+DISCLAIMER_OF_ADDING_ACCOUNT = __("""⚠️ Telegram aynan shu akkauntni ulashga ruxsat bermaydi! Boshqa akkauntingizni 
+ulang.
 
 Agar boshqa akkauntingiz bo'lmasa, bizdan arzon narxda sotib olishingiz mumkin: @aerkinov1.
 """)
@@ -69,7 +70,7 @@ SUCCESSFUL_ADDED_ACCOUNT = __("""Akkauntingiz muvaffiqiyatli qo'shildi 🎉.
 Akkaunt haqida to'liq ma'lumot uchun 👥 Akkauntlar bo'limiga o'ting""")
 ALREADY_ADDED = __("Bu akkaunt allaqachon qo'shilgan!")
 USER_REGISTERED_EVENT_TEMPLATE = __("""#new\nid: {id}\ntelegramId: {telegramId}
-\nusername: @{username}\nname: {firstName}""")
+\nusername: @{username}\nlanguage: {languageCode}\nname: {firstName}""")
 ENTER_PLAY_PASSES = __("""O'yin o'ynash uchun ruxsat etilgan biletlar sonini kiriting: 
 
 Maksimum biletlar soni: {allPlayPasses}""")
@@ -125,7 +126,9 @@ INSTRUCTION_TO_GET_FREE_TG = __("Test uchun telegram akkaunt olish uchun bizga y
 # Balance
 BALANCE = __("""💵 Balans: {balance}$
 
-👤 Har bir akkauntni ulash narxi: 1.49$ ≈ 18,000 so'm
+👤 Har bir akkauntni ulash oyiga: 1.99$ ≈ 25,000 so'm
+
+✨ 1-akkaunt uchun 3 kunlik tekin obuna taqdim etiladi
 
 ⚠️ Xavfsizlik uchun to'lov faqat kripto orqali qabul qilinadi!
 💡 Kripto haqida bilmasangiz qo'llanma - /help""")
@@ -161,7 +164,7 @@ MINIMAL_AMOUNT = __("Xisobni to'ldirish uchun minimal summa: 1.49$")
 
 NOT_ENOUGH_BALANCE = __("""Akkaunt qo'shish uchun balansingizda mablag' mavjud emas ❌
 
-Akkaunt ulash narxi - {price}$""")
+Akkaunt ulash narxi oyiga - {price}$""")
 # WARNINGS
 BLUM_NOT_LAUNCHED = __("""Akkauntingizda blum ishga tushirilmagan, @BlumCryptoBot botga kirib ro'yxatdan o'ting""")
 # Errors
@@ -172,6 +175,23 @@ ORDER_ERROR_TEMPLATE = __("""#error\norderId: {orderId}\nmessage: {message}""")
 ACCOUNT_REGISTERED = """#register_account\nuserTelegramId: {userTelegramId}\naccountTelegramId: {accountTelegramId}\nsessionName: {sessionName}\nstatus: {status}
 
 ⚠️ Account need proxy to assign"""
+
+SUBSCRIPTION_UPDATED = __("""Salom Qadrli Foydalanuvchi 👋,
+
+{sessionName} akkauntingiz obunasi yangilandi
+
+Bizni tanlaganiz uchun tashakkur 🌟""")
+
+SUBSCRIPTION_END = __("""🚀 Obunani yangilash vaqti keldi!
+
+Salom Qadrli Foydalanuvchi 👋,
+
+{sessionName} akkauntingiz obuna muddati tugadi! Obunani davom ettirish uchun balansingizni {needAmount}$ ga 
+to'ldiring
+
+Bizni tanlaganiz uchun tashakkur 🌟
+""")
+
 SERVER_ERROR = __("Nimadir xatolik ketdi. Iltimos qayta urinib ko'ring!")
 INVALID_PHONE_NUMBER_FORMAT = __("""Nomerni ushbu formatda kiriting +99890103xxxx!""")
 INVALID_PHONE_NUMBER = __("""Notog'ri telefon raqam!""")

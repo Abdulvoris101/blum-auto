@@ -18,9 +18,8 @@ class UserBase(BaseModel):
     username: Optional[str]
     referralUsers: List[int] = []
     languageCode: Language = Language.uz
-    isGrantGiven: bool = False
     referredBy: Optional[str] = 'direct'
-    isFreeTrial: bool = True
+    isGrantGiven: bool = False
     createdAt: datetime = datetime.now()
     lastUpdated: datetime = datetime.now()
 
