@@ -49,7 +49,7 @@ async def accountsHandler(message: types.Message):
 @accountsRouter.callback_query(AccountCallback.filter(F.name == "account_details"))
 async def accountsDetails(callback: types.CallbackQuery, callback_data: AccountCallback):
     account = await Account.get(callback_data.accountId)
-    blumDetails = await BlumAccount.createOrGetByAccountId(account.id)
+    blumAccount = await BlumAccount.createOrGetByAccountId(account.id)
 
     try:
         waitMomentMessage = await bot.send_message(callback.from_user.id, text.WAIT_A_MOMENT.value)
@@ -66,17 +66,17 @@ async def accountsDetails(callback: types.CallbackQuery, callback_data: AccountC
         await blum.login()
         balance = await blum.balance()
 
-        blumDetails.availableBalance = balance.availableBalance
-        blumDetails.allPlayPasses = balance.allPlayPasses
-        blumDetails.status = Status.ACTIVE
+        blumAccount.availableBalance = balance.availableBalance
+        blumAccount.allPlayPasses = balance.allPlayPasses
+        blumAccount.status = Status.ACTIVE
         account.status = Status.ACTIVE
 
-        await blumDetails.save()
+        await blumAccount.save()
         await account.save()
 
         await bot.delete_message(callback.from_user.id, message_id=waitMomentMessage.message_id)
         accountScheme = AccountScheme(**account.to_dict())
-        blumAccountScheme = BlumAccountScheme(**blumDetails.to_dict())
+        blumAccountScheme = BlumAccountScheme(**blumAccount.to_dict())
         PROFILE_INFO = text.PROFILE_INFO.value + text.BOT_COULD_PLAY.value
         await bot.send_message(callback.from_user.id,
                                PROFILE_INFO.format(**blumAccountScheme.model_dump(),

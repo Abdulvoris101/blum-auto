@@ -9,6 +9,9 @@ Bot imkoniyatlari:
 4. Do'stlar bo'limidagi yeg'ilgan blumlarni avtomatik olish
 5. O'yinlarni avtomatik o'ynash
 
+🔒 Xar bir akkaunt uchun shaxsiy proksi ishlatilinadi, blum bilan siz xech qanday muammoga duch kelmaysiz.
+Proksi ma'lumotlarini akkaunt bo'limida ko'rishingiz mumkin
+
 💰 Botdan qancha soqqa ko'tarish mumkinligini /help kommandasi orqali bilib oling""")
 
 SELECT_LANGUAGE = __("""Muloqot tilini tanlang
@@ -115,6 +118,8 @@ INACTIVE_SESSION = __("""☹️ Akkaunt inaktiv xolatda
 
 ⚠️ Siz cpython sessiyasini telegramning sessiyasilar bo'limidan o'chirib yuborgansiz.
 Akkauntni ishlatish uchun qayta qo'shing!""")
+
+SUBSCRIPTION_INACTIVE = __("Ushbu akkaunt uchun obuna mudati tugagan yoki mavjud emas!")
 
 WRONG_PASSWORD = __("""Parol notog'ri""")
 

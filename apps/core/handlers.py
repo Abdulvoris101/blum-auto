@@ -15,7 +15,8 @@ from apps.core.keyboards import startMenuMarkup, languageMenuMarkup, helperMenuM
 from apps.core.managers import UserManager
 from apps.core.models import User
 from apps.core.scheme import UserScheme
-from apps.payment.models import UserPayment
+from apps.payment.managers import SubscriptionManager
+from apps.payment.models import UserPayment, AccountSubscription
 from apps.scripts.blum.blum_bot import BlumBot
 from apps.scripts.blum.main import BlumManager
 from bot import bot, i18n
@@ -110,7 +111,7 @@ async def processFarming(message: types.Message, state: FSMContext):
     await bot.send_message(message.from_user.id, text.WAIT_A_MOMENT.value, reply_markup=startMenuMarkup())
 
     if message.text == text.SELECT_ALL.value:
-        accounts = await AccountManager.getValidAccounts(user.id)
+        accounts = await AccountManager.getValidAccounts(user)
     else:
         isSessionExists = await AccountManager.isExistsBySessionName(message.text)
 
@@ -124,6 +125,9 @@ async def processFarming(message: types.Message, state: FSMContext):
 
         if not isAccountActive:
             return await message.answer(text.INACTIVE_SESSION.value)
+
+        if not await SubscriptionManager.isAccountSubscriptionActive(accountId=account.id):
+            return await message.answer(text.SUBSCRIPTION_INACTIVE.value)
 
         accounts = [account]
 

@@ -28,7 +28,7 @@ class Settings(BaseSettings):
     API_ID: int = 27079535
     API_HASH: str = "73f9a52dddb9472709de963aa68aa0ed"
 
-    REFERRAL_PRICE: float = 0.3725
+    REFERRAL_PRICE: float = 0.5
     PRICE: float = 1.99
     CLIENT_ID: str
     CLIENT_SECRET: str

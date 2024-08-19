@@ -14,6 +14,8 @@ from apps.accounts.models import Account, BlumAccount
 from apps.accounts.scheme import AccountCreateScheme, Status, BlumAccountCreateScheme
 from apps.common.settings import settings
 from apps.core.models import User
+from apps.payment.managers import SubscriptionManager
+from apps.payment.models import AccountSubscription
 from bot import bot, i18n, logger
 from db.setup import AsyncSessionLocal
 from utils import text
@@ -107,7 +109,6 @@ class AccountManager:
 
         try:
             proxy = None
-            print(account.to_dict())
             if account.proxy:
                 parsed_proxy = urlparse(account.proxy)
                 proxy = {
@@ -147,9 +148,9 @@ class AccountManager:
             return True
 
     @classmethod
-    async def getValidAccounts(cls, userId: int):
+    async def getValidAccounts(cls, user: User):
         validAccounts = []
-        accounts = await cls.getUserAccounts(userId)
+        accounts = await cls.getUserAccounts(user.id)
 
         for account in accounts:
             try:
@@ -167,8 +168,9 @@ class AccountManager:
 
                 client = Client(name=account.sessionName, api_id=settings.API_ID, api_hash=settings.API_HASH,
                                 workdir=settings.WORKDIR, proxy=proxy)
-
-                if await client.connect():
+                if not await SubscriptionManager.isAccountSubscriptionActive(account.id):
+                    await bot.send_message(text.NO_ACCOUNTS_TO_FARM.value)
+                if await client.connect() and await SubscriptionManager.isAccountSubscriptionActive(account.id):
                     account.status = Status.ACTIVE
                     validAccounts.append(account)
                 else:
@@ -178,7 +180,7 @@ class AccountManager:
                 await client.disconnect()
 
             except Exception as e:
-                await bot.send_message(userId, text.SESSION_ENDED.format(sessionName=account.sessionName))
+                await bot.send_message(user.telegramId, text.SESSION_ENDED.format(sessionName=account.sessionName))
                 continue
 
         return validAccounts
@@ -209,7 +211,7 @@ class AccountManager:
 
         except Exception as e:
             logger.error(str(e))
-            await sendError(text.ERROR_TEMPLATE.format(error=f"Reminder user - {e}", telegramId=user.telegramId))
+            await sendError(text.ERROR_TEMPLATE.format(message=f"Reminder user - {e}", telegramId=user.telegramId))
 
     @classmethod
     async def getNotUsingAccounts(cls):

@@ -57,7 +57,7 @@ class Farming(BaseModel):
 
 
 class BlumBalanceScheme(BaseModel):
-    availableBalance: str
+    availableBalance: float
     allPlayPasses: int = Field(alias="playPasses")
     timestamp: int
     farming: Optional[Farming]

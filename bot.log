@@ -708,3 +708,291 @@
 2024-08-18 21:12:29,392 - aiogram.event - INFO - Update id=53306713 is not handled. Duration 0 ms by bot id=7144434947
 2024-08-18 22:47:54,650 - aiogram.event - INFO - Update id=53306714 is not handled. Duration 0 ms by bot id=7144434947
 2024-08-19 00:27:42,150 - aiogram.event - INFO - Update id=53306715 is not handled. Duration 0 ms by bot id=7144434947
+2024-08-19 15:00:33,729 - aiogram.event - INFO - Update id=53306723 is handled. Duration 287 ms by bot id=7144434947
+2024-08-19 15:00:41,388 - bot - ERROR - Connection error: Client is already disconnected
+2024-08-19 15:00:41,640 - pyrogram.connection.transport.tcp.tcp - INFO - Using proxy 185.111.25.49
+2024-08-19 15:00:41,640 - pyrogram.connection.connection - INFO - Connecting...
+2024-08-19 15:00:42,091 - pyrogram.connection.connection - INFO - Connected! Production DC2 - IPv4
+2024-08-19 15:00:42,091 - pyrogram.session.session - INFO - NetworkTask started
+2024-08-19 15:00:42,656 - pyrogram.session.session - INFO - Session initialized: Layer 158
+2024-08-19 15:00:42,656 - pyrogram.session.session - INFO - Device: CPython 3.11.6 - Pyrogram 2.0.106
+2024-08-19 15:00:42,656 - pyrogram.session.session - INFO - System: Linux 6.5.0-44-generic (en)
+2024-08-19 15:00:42,656 - pyrogram.session.session - INFO - Session started
+2024-08-19 15:00:42,696 - pyrogram.session.session - INFO - PingTask started
+2024-08-19 15:00:43,031 - pyrogram.dispatcher - INFO - Started 10 HandlerTasks
+2024-08-19 15:00:43,259 - pyrogram.dispatcher - INFO - Stopped 10 HandlerTasks
+2024-08-19 15:00:43,259 - pyrogram.session.session - INFO - PingTask stopped
+2024-08-19 15:00:43,259 - pyrogram.connection.connection - INFO - Disconnected
+2024-08-19 15:00:43,260 - pyrogram.session.session - INFO - NetworkTask stopped
+2024-08-19 15:00:43,260 - pyrogram.session.session - INFO - Session stopped
+2024-08-19 15:00:43,394 - pyrogram.connection.transport.tcp.tcp - INFO - Using proxy 185.111.25.49
+2024-08-19 15:00:43,394 - pyrogram.connection.connection - INFO - Connecting...
+2024-08-19 15:00:43,847 - pyrogram.connection.connection - INFO - Connected! Production DC2 - IPv4
+2024-08-19 15:00:43,847 - pyrogram.session.session - INFO - NetworkTask started
+2024-08-19 15:00:44,419 - pyrogram.session.session - INFO - Session initialized: Layer 158
+2024-08-19 15:00:44,419 - pyrogram.session.session - INFO - Device: CPython 3.11.6 - Pyrogram 2.0.106
+2024-08-19 15:00:44,419 - pyrogram.session.session - INFO - System: Linux 6.5.0-44-generic (en)
+2024-08-19 15:00:44,419 - pyrogram.session.session - INFO - Session started
+2024-08-19 15:00:44,444 - pyrogram.session.session - INFO - PingTask started
+2024-08-19 15:00:44,837 - pyrogram.session.session - INFO - PingTask stopped
+2024-08-19 15:00:44,838 - pyrogram.connection.connection - INFO - Disconnected
+2024-08-19 15:00:44,838 - pyrogram.session.session - INFO - NetworkTask stopped
+2024-08-19 15:00:44,838 - pyrogram.session.session - INFO - Session stopped
+2024-08-19 15:00:45,883 - httpx - INFO - HTTP Request: POST https://gateway.blum.codes/v1/auth/provider/PROVIDER_TELEGRAM_MINI_APP "HTTP/1.1 200 OK"
+2024-08-19 15:01:41,573 - bot - ERROR - Connection error: Client is already disconnected
+2024-08-19 15:01:41,668 - pyrogram.connection.transport.tcp.tcp - INFO - Using proxy 185.111.25.49
+2024-08-19 15:01:41,668 - pyrogram.connection.connection - INFO - Connecting...
+2024-08-19 15:01:42,122 - pyrogram.connection.connection - INFO - Connected! Production DC2 - IPv4
+2024-08-19 15:01:42,123 - pyrogram.session.session - INFO - NetworkTask started
+2024-08-19 15:01:42,729 - pyrogram.session.session - INFO - Session initialized: Layer 158
+2024-08-19 15:01:42,730 - pyrogram.session.session - INFO - Device: CPython 3.11.6 - Pyrogram 2.0.106
+2024-08-19 15:01:42,730 - pyrogram.session.session - INFO - System: Linux 6.5.0-44-generic (en)
+2024-08-19 15:01:42,730 - pyrogram.session.session - INFO - Session started
+2024-08-19 15:01:42,772 - pyrogram.session.session - INFO - PingTask started
+2024-08-19 15:01:43,264 - pyrogram.dispatcher - INFO - Started 10 HandlerTasks
+2024-08-19 15:01:43,569 - pyrogram.dispatcher - INFO - Stopped 10 HandlerTasks
+2024-08-19 15:01:43,569 - pyrogram.session.session - INFO - PingTask stopped
+2024-08-19 15:01:43,569 - pyrogram.connection.connection - INFO - Disconnected
+2024-08-19 15:01:43,569 - pyrogram.session.session - INFO - NetworkTask stopped
+2024-08-19 15:01:43,569 - pyrogram.session.session - INFO - Session stopped
+2024-08-19 15:01:43,716 - pyrogram.connection.transport.tcp.tcp - INFO - Using proxy 185.111.25.49
+2024-08-19 15:01:43,716 - pyrogram.connection.connection - INFO - Connecting...
+2024-08-19 15:01:44,162 - pyrogram.connection.connection - INFO - Connected! Production DC2 - IPv4
+2024-08-19 15:01:44,163 - pyrogram.session.session - INFO - NetworkTask started
+2024-08-19 15:01:44,766 - pyrogram.session.session - INFO - Session initialized: Layer 158
+2024-08-19 15:01:44,766 - pyrogram.session.session - INFO - Device: CPython 3.11.6 - Pyrogram 2.0.106
+2024-08-19 15:01:44,767 - pyrogram.session.session - INFO - System: Linux 6.5.0-44-generic (en)
+2024-08-19 15:01:44,767 - pyrogram.session.session - INFO - Session started
+2024-08-19 15:01:44,792 - pyrogram.session.session - INFO - PingTask started
+2024-08-19 15:01:45,223 - pyrogram.session.session - INFO - PingTask stopped
+2024-08-19 15:01:45,224 - pyrogram.connection.connection - INFO - Disconnected
+2024-08-19 15:01:45,224 - pyrogram.session.session - INFO - NetworkTask stopped
+2024-08-19 15:01:45,224 - pyrogram.session.session - INFO - Session stopped
+2024-08-19 15:01:46,232 - httpx - INFO - HTTP Request: POST https://gateway.blum.codes/v1/auth/provider/PROVIDER_TELEGRAM_MINI_APP "HTTP/1.1 200 OK"
+2024-08-19 15:01:46,322 - bot - ERROR - 
+2024-08-19 15:01:46,554 - aiogram.event - INFO - Update id=53306724 is handled. Duration 65489 ms by bot id=7144434947
+2024-08-19 15:01:46,946 - httpx - INFO - HTTP Request: GET https://game-domain.blum.codes/api/v1/user/balance "HTTP/1.1 200 OK"
+2024-08-19 15:01:48,958 - bot - ERROR - (sqlalchemy.dialects.postgresql.asyncpg.Error) <class 'asyncpg.exceptions.DataError'>: invalid input for query argument $2: '57757.52' (must be real number, not str)
+[SQL: UPDATE blum_account SET "allPlayPasses"=$1::INTEGER, "availableBalance"=$2::FLOAT, status=$3::VARCHAR WHERE blum_account.id = $4::INTEGER]
+[parameters: (164, '57757.52', <Status.ACTIVE: 'ACTIVE'>, 1)]
+(Background on this error at: https://sqlalche.me/e/20/dbapi)
+2024-08-19 15:01:49,185 - aiogram.event - INFO - Update id=53306724 is handled. Duration 8099 ms by bot id=7144434947
+2024-08-19 16:08:52,430 - aiogram.event - INFO - Update id=53306725 is not handled. Duration 0 ms by bot id=7144434947
+2024-08-19 16:54:35,063 - aiogram.event - INFO - Update id=53306726 is handled. Duration 586 ms by bot id=7144434947
+2024-08-19 16:54:38,870 - bot - ERROR - Connection error: Client is already disconnected
+2024-08-19 16:54:39,111 - pyrogram.connection.transport.tcp.tcp - INFO - Using proxy 185.111.25.49
+2024-08-19 16:54:39,111 - pyrogram.connection.connection - INFO - Connecting...
+2024-08-19 16:54:39,556 - pyrogram.connection.connection - INFO - Connected! Production DC2 - IPv4
+2024-08-19 16:54:39,557 - pyrogram.session.session - INFO - NetworkTask started
+2024-08-19 16:54:40,135 - pyrogram.session.session - INFO - Session initialized: Layer 158
+2024-08-19 16:54:40,136 - pyrogram.session.session - INFO - Device: CPython 3.11.6 - Pyrogram 2.0.106
+2024-08-19 16:54:40,136 - pyrogram.session.session - INFO - System: Linux 6.5.0-44-generic (en)
+2024-08-19 16:54:40,136 - pyrogram.session.session - INFO - Session started
+2024-08-19 16:54:40,177 - pyrogram.session.session - INFO - PingTask started
+2024-08-19 16:54:40,513 - pyrogram.dispatcher - INFO - Started 10 HandlerTasks
+2024-08-19 16:54:40,722 - pyrogram.dispatcher - INFO - Stopped 10 HandlerTasks
+2024-08-19 16:54:40,722 - pyrogram.session.session - INFO - PingTask stopped
+2024-08-19 16:54:40,722 - pyrogram.connection.connection - INFO - Disconnected
+2024-08-19 16:54:40,723 - pyrogram.session.session - INFO - NetworkTask stopped
+2024-08-19 16:54:40,723 - pyrogram.session.session - INFO - Session stopped
+2024-08-19 16:54:40,864 - pyrogram.connection.transport.tcp.tcp - INFO - Using proxy 185.111.25.49
+2024-08-19 16:54:40,864 - pyrogram.connection.connection - INFO - Connecting...
+2024-08-19 16:54:41,308 - pyrogram.connection.connection - INFO - Connected! Production DC2 - IPv4
+2024-08-19 16:54:41,308 - pyrogram.session.session - INFO - NetworkTask started
+2024-08-19 16:54:41,846 - pyrogram.session.session - INFO - Session initialized: Layer 158
+2024-08-19 16:54:41,846 - pyrogram.session.session - INFO - Device: CPython 3.11.6 - Pyrogram 2.0.106
+2024-08-19 16:54:41,846 - pyrogram.session.session - INFO - System: Linux 6.5.0-44-generic (en)
+2024-08-19 16:54:41,846 - pyrogram.session.session - INFO - Session started
+2024-08-19 16:54:41,855 - pyrogram.session.session - INFO - PingTask started
+2024-08-19 16:54:42,295 - pyrogram.session.session - INFO - PingTask stopped
+2024-08-19 16:54:42,295 - pyrogram.connection.connection - INFO - Disconnected
+2024-08-19 16:54:42,295 - pyrogram.session.session - INFO - NetworkTask stopped
+2024-08-19 16:54:42,295 - pyrogram.session.session - INFO - Session stopped
+2024-08-19 16:54:43,051 - httpx - INFO - HTTP Request: POST https://gateway.blum.codes/v1/auth/provider/PROVIDER_TELEGRAM_MINI_APP "HTTP/1.1 200 OK"
+2024-08-19 16:54:44,186 - httpx - INFO - HTTP Request: GET https://game-domain.blum.codes/api/v1/user/balance "HTTP/1.1 200 OK"
+2024-08-19 16:54:46,798 - aiogram.event - INFO - Update id=53306727 is handled. Duration 8170 ms by bot id=7144434947
+2024-08-19 16:54:55,180 - aiogram.event - INFO - Update id=53306728 is handled. Duration 565 ms by bot id=7144434947
+2024-08-19 16:57:05,979 - aiogram.event - INFO - Update id=53306729 is handled. Duration 505 ms by bot id=7144434947
+2024-08-19 16:57:12,460 - aiogram.event - INFO - Update id=53306730 is handled. Duration 882 ms by bot id=7144434947
+2024-08-19 16:57:16,296 - bot - ERROR - Session file doesn't exists
+2024-08-19 16:57:16,537 - aiogram.event - INFO - Update id=53306731 is handled. Duration 495 ms by bot id=7144434947
+2024-08-19 16:57:22,793 - aiogram.event - INFO - Update id=53306732 is handled. Duration 1075 ms by bot id=7144434947
+2024-08-19 16:57:25,034 - bot - ERROR - Session file doesn't exists
+2024-08-19 16:57:25,266 - aiogram.event - INFO - Update id=53306733 is handled. Duration 543 ms by bot id=7144434947
+2024-08-19 16:57:29,209 - aiogram.event - INFO - Update id=53306734 is handled. Duration 831 ms by bot id=7144434947
+2024-08-19 16:57:31,351 - aiogram.event - INFO - Update id=53306735 is handled. Duration 271 ms by bot id=7144434947
+2024-08-19 16:57:33,911 - bot - ERROR - Session file doesn't exists
+2024-08-19 16:57:34,378 - aiogram.event - INFO - Update id=53306736 is handled. Duration 729 ms by bot id=7144434947
+2024-08-19 16:58:04,472 - aiogram.event - INFO - Update id=53306737 is handled. Duration 421 ms by bot id=7144434947
+2024-08-19 16:58:07,620 - aiogram.event - INFO - Update id=53306738 is handled. Duration 707 ms by bot id=7144434947
+2024-08-19 16:58:10,316 - bot - ERROR - Connection error: Client is already disconnected
+2024-08-19 16:58:10,417 - pyrogram.connection.transport.tcp.tcp - INFO - Using proxy 185.111.25.49
+2024-08-19 16:58:10,417 - pyrogram.connection.connection - INFO - Connecting...
+2024-08-19 16:58:10,860 - pyrogram.connection.connection - INFO - Connected! Production DC2 - IPv4
+2024-08-19 16:58:10,861 - pyrogram.session.session - INFO - NetworkTask started
+2024-08-19 16:58:11,520 - pyrogram.session.session - INFO - Session initialized: Layer 158
+2024-08-19 16:58:11,520 - pyrogram.session.session - INFO - Device: CPython 3.11.6 - Pyrogram 2.0.106
+2024-08-19 16:58:11,521 - pyrogram.session.session - INFO - System: Linux 6.5.0-44-generic (en)
+2024-08-19 16:58:11,521 - pyrogram.session.session - INFO - Session started
+2024-08-19 16:58:11,562 - pyrogram.session.session - INFO - PingTask started
+2024-08-19 16:58:12,063 - pyrogram.dispatcher - INFO - Started 10 HandlerTasks
+2024-08-19 16:58:12,330 - pyrogram.dispatcher - INFO - Stopped 10 HandlerTasks
+2024-08-19 16:58:12,330 - pyrogram.session.session - INFO - PingTask stopped
+2024-08-19 16:58:12,331 - pyrogram.connection.connection - INFO - Disconnected
+2024-08-19 16:58:12,331 - pyrogram.session.session - INFO - NetworkTask stopped
+2024-08-19 16:58:12,331 - pyrogram.session.session - INFO - Session stopped
+2024-08-19 16:58:12,332 - aiogram.event - INFO - Update id=53306739 is handled. Duration 2349 ms by bot id=7144434947
+2024-08-19 16:58:24,658 - pyrogram.connection.transport.tcp.tcp - INFO - Using proxy 185.111.25.49
+2024-08-19 16:58:24,658 - pyrogram.connection.connection - INFO - Connecting...
+2024-08-19 16:58:25,102 - pyrogram.connection.connection - INFO - Connected! Production DC2 - IPv4
+2024-08-19 16:58:25,103 - pyrogram.session.session - INFO - NetworkTask started
+2024-08-19 16:58:25,704 - pyrogram.session.session - INFO - Session initialized: Layer 158
+2024-08-19 16:58:25,704 - pyrogram.session.session - INFO - Device: CPython 3.11.6 - Pyrogram 2.0.106
+2024-08-19 16:58:25,704 - pyrogram.session.session - INFO - System: Linux 6.5.0-44-generic (en)
+2024-08-19 16:58:25,704 - pyrogram.session.session - INFO - Session started
+2024-08-19 16:58:25,724 - pyrogram.session.session - INFO - PingTask started
+2024-08-19 16:58:26,063 - pyrogram.session.session - INFO - PingTask stopped
+2024-08-19 16:58:26,063 - pyrogram.connection.connection - INFO - Disconnected
+2024-08-19 16:58:26,063 - pyrogram.session.session - INFO - NetworkTask stopped
+2024-08-19 16:58:26,064 - pyrogram.session.session - INFO - Session stopped
+2024-08-19 16:58:26,877 - httpx - INFO - HTTP Request: POST https://gateway.blum.codes/v1/auth/provider/PROVIDER_TELEGRAM_MINI_APP "HTTP/1.1 200 OK"
+2024-08-19 17:04:47,569 - aiogram.event - INFO - Update id=53306740 is handled. Duration 1054 ms by bot id=7144434947
+2024-08-19 17:04:49,840 - bot - ERROR - Connection error: Client is already disconnected
+2024-08-19 17:04:50,072 - pyrogram.connection.transport.tcp.tcp - INFO - Using proxy 185.111.25.49
+2024-08-19 17:04:50,072 - pyrogram.connection.connection - INFO - Connecting...
+2024-08-19 17:04:50,516 - pyrogram.connection.connection - INFO - Connected! Production DC2 - IPv4
+2024-08-19 17:04:50,517 - pyrogram.session.session - INFO - NetworkTask started
+2024-08-19 17:04:51,088 - pyrogram.session.session - INFO - Session initialized: Layer 158
+2024-08-19 17:04:51,088 - pyrogram.session.session - INFO - Device: CPython 3.11.6 - Pyrogram 2.0.106
+2024-08-19 17:04:51,089 - pyrogram.session.session - INFO - System: Linux 6.5.0-44-generic (en)
+2024-08-19 17:04:51,089 - pyrogram.session.session - INFO - Session started
+2024-08-19 17:04:51,130 - pyrogram.session.session - INFO - PingTask started
+2024-08-19 17:04:51,461 - pyrogram.dispatcher - INFO - Started 10 HandlerTasks
+2024-08-19 17:04:51,649 - pyrogram.dispatcher - INFO - Stopped 10 HandlerTasks
+2024-08-19 17:04:51,649 - pyrogram.session.session - INFO - PingTask stopped
+2024-08-19 17:04:51,649 - pyrogram.connection.connection - INFO - Disconnected
+2024-08-19 17:04:51,649 - pyrogram.session.session - INFO - NetworkTask stopped
+2024-08-19 17:04:51,649 - pyrogram.session.session - INFO - Session stopped
+2024-08-19 17:04:51,650 - aiogram.event - INFO - Update id=53306741 is handled. Duration 2063 ms by bot id=7144434947
+2024-08-19 17:05:01,571 - pyrogram.connection.transport.tcp.tcp - INFO - Using proxy 185.111.25.49
+2024-08-19 17:05:01,571 - pyrogram.connection.connection - INFO - Connecting...
+2024-08-19 17:05:02,015 - pyrogram.connection.connection - INFO - Connected! Production DC2 - IPv4
+2024-08-19 17:05:02,016 - pyrogram.session.session - INFO - NetworkTask started
+2024-08-19 17:05:02,668 - pyrogram.session.session - INFO - Session initialized: Layer 158
+2024-08-19 17:05:02,668 - pyrogram.session.session - INFO - Device: CPython 3.11.6 - Pyrogram 2.0.106
+2024-08-19 17:05:02,668 - pyrogram.session.session - INFO - System: Linux 6.5.0-44-generic (en)
+2024-08-19 17:05:02,668 - pyrogram.session.session - INFO - Session started
+2024-08-19 17:05:02,688 - pyrogram.session.session - INFO - PingTask started
+2024-08-19 17:05:03,181 - pyrogram.session.session - INFO - PingTask stopped
+2024-08-19 17:05:03,182 - pyrogram.connection.connection - INFO - Disconnected
+2024-08-19 17:05:03,182 - pyrogram.session.session - INFO - NetworkTask stopped
+2024-08-19 17:05:03,182 - pyrogram.session.session - INFO - Session stopped
+2024-08-19 17:05:03,941 - httpx - INFO - HTTP Request: POST https://gateway.blum.codes/v1/auth/provider/PROVIDER_TELEGRAM_MINI_APP "HTTP/1.1 200 OK"
+2024-08-19 17:05:04,727 - httpx - INFO - HTTP Request: GET https://game-domain.blum.codes/api/v1/user/balance "HTTP/1.1 200 OK"
+2024-08-19 17:05:07,035 - httpx - INFO - HTTP Request: GET https://gateway.blum.codes/v1/friends/balance "HTTP/1.1 200 OK"
+2024-08-19 17:05:09,631 - httpx - INFO - HTTP Request: POST https://game-domain.blum.codes/api/v1/daily-reward?offset=-180 "HTTP/1.1 200 OK"
+2024-08-19 17:05:13,090 - httpx - INFO - HTTP Request: POST https://gateway.blum.codes/v1/friends/claim "HTTP/1.1 200 OK"
+2024-08-19 17:05:13,493 - httpx - INFO - HTTP Request: POST https://gateway.blum.codes/v1/auth/refresh "HTTP/1.1 200 OK"
+2024-08-19 17:05:13,861 - httpx - INFO - HTTP Request: POST https://game-domain.blum.codes/api/v1/farming/claim "HTTP/1.1 200 OK"
+2024-08-19 17:05:19,740 - httpx - INFO - HTTP Request: GET https://game-domain.blum.codes/api/v1/user/balance "HTTP/1.1 200 OK"
+2024-08-19 17:05:46,037 - aiogram.event - INFO - Update id=53306742 is handled. Duration 576 ms by bot id=7144434947
+2024-08-19 17:05:49,970 - bot - ERROR - Connection error: Client is already disconnected
+2024-08-19 17:05:50,209 - pyrogram.connection.transport.tcp.tcp - INFO - Using proxy 185.111.25.49
+2024-08-19 17:05:50,209 - pyrogram.connection.connection - INFO - Connecting...
+2024-08-19 17:05:50,654 - pyrogram.connection.connection - INFO - Connected! Production DC2 - IPv4
+2024-08-19 17:05:50,655 - pyrogram.session.session - INFO - NetworkTask started
+2024-08-19 17:05:51,304 - pyrogram.session.session - INFO - Session initialized: Layer 158
+2024-08-19 17:05:51,304 - pyrogram.session.session - INFO - Device: CPython 3.11.6 - Pyrogram 2.0.106
+2024-08-19 17:05:51,305 - pyrogram.session.session - INFO - System: Linux 6.5.0-44-generic (en)
+2024-08-19 17:05:51,305 - pyrogram.session.session - INFO - Session started
+2024-08-19 17:05:51,347 - pyrogram.session.session - INFO - PingTask started
+2024-08-19 17:05:51,848 - pyrogram.dispatcher - INFO - Started 10 HandlerTasks
+2024-08-19 17:05:52,209 - pyrogram.dispatcher - INFO - Stopped 10 HandlerTasks
+2024-08-19 17:05:52,210 - pyrogram.session.session - INFO - PingTask stopped
+2024-08-19 17:05:52,210 - pyrogram.connection.connection - INFO - Disconnected
+2024-08-19 17:05:52,210 - pyrogram.session.session - INFO - NetworkTask stopped
+2024-08-19 17:05:52,210 - pyrogram.session.session - INFO - Session stopped
+2024-08-19 17:05:52,388 - pyrogram.connection.transport.tcp.tcp - INFO - Using proxy 185.111.25.49
+2024-08-19 17:05:52,388 - pyrogram.connection.connection - INFO - Connecting...
+2024-08-19 17:05:52,831 - pyrogram.connection.connection - INFO - Connected! Production DC2 - IPv4
+2024-08-19 17:05:52,832 - pyrogram.session.session - INFO - NetworkTask started
+2024-08-19 17:05:53,436 - pyrogram.session.session - INFO - Session initialized: Layer 158
+2024-08-19 17:05:53,436 - pyrogram.session.session - INFO - Device: CPython 3.11.6 - Pyrogram 2.0.106
+2024-08-19 17:05:53,436 - pyrogram.session.session - INFO - System: Linux 6.5.0-44-generic (en)
+2024-08-19 17:05:53,436 - pyrogram.session.session - INFO - Session started
+2024-08-19 17:05:53,443 - pyrogram.session.session - INFO - PingTask started
+2024-08-19 17:05:53,978 - pyrogram.session.session - INFO - PingTask stopped
+2024-08-19 17:05:53,978 - pyrogram.connection.connection - INFO - Disconnected
+2024-08-19 17:05:53,978 - pyrogram.session.session - INFO - NetworkTask stopped
+2024-08-19 17:05:53,978 - pyrogram.session.session - INFO - Session stopped
+2024-08-19 17:05:54,699 - httpx - INFO - HTTP Request: POST https://gateway.blum.codes/v1/auth/provider/PROVIDER_TELEGRAM_MINI_APP "HTTP/1.1 200 OK"
+2024-08-19 17:05:55,423 - httpx - INFO - HTTP Request: GET https://game-domain.blum.codes/api/v1/user/balance "HTTP/1.1 200 OK"
+2024-08-19 17:05:57,880 - aiogram.event - INFO - Update id=53306743 is handled. Duration 8154 ms by bot id=7144434947
+2024-08-19 17:06:54,668 - bot - ERROR - Session file doesn't exists
+2024-08-19 17:06:55,123 - aiogram.event - INFO - Update id=53306744 is handled. Duration 932 ms by bot id=7144434947
+2024-08-19 17:07:01,201 - aiogram.event - INFO - Update id=53306745 is handled. Duration 680 ms by bot id=7144434947
+2024-08-19 17:14:31,418 - aiogram.event - INFO - Update id=53306746 is handled. Duration 738 ms by bot id=7144434947
+2024-08-19 17:17:06,797 - aiogram.event - INFO - Update id=53306747 is handled. Duration 283 ms by bot id=7144434947
+2024-08-19 17:17:10,916 - aiogram.event - INFO - Update id=53306748 is handled. Duration 272 ms by bot id=7144434947
+2024-08-19 17:17:19,911 - aiogram.event - INFO - Update id=53306749 is handled. Duration 585 ms by bot id=7144434947
+2024-08-19 17:17:30,971 - aiogram.event - INFO - Update id=53306750 is handled. Duration 456 ms by bot id=7144434947
+2024-08-19 17:17:33,607 - aiogram.event - INFO - Update id=53306751 is handled. Duration 239 ms by bot id=7144434947
+2024-08-19 17:32:50,006 - aiogram.event - INFO - Update id=53306752 is handled. Duration 586 ms by bot id=7144434947
+2024-08-19 17:50:57,882 - aiogram.event - INFO - Update id=53306753 is handled. Duration 713 ms by bot id=7144434947
+2024-08-19 17:51:00,862 - bot - ERROR - Session file doesn't exists
+2024-08-19 17:51:01,081 - aiogram.event - INFO - Update id=53306754 is handled. Duration 492 ms by bot id=7144434947
+2024-08-19 17:51:25,326 - aiogram.event - INFO - Update id=53306755 is handled. Duration 1050 ms by bot id=7144434947
+2024-08-19 17:51:27,481 - bot - ERROR - Connection error: Client is already disconnected
+2024-08-19 17:51:27,729 - pyrogram.connection.transport.tcp.tcp - INFO - Using proxy 185.111.25.49
+2024-08-19 17:51:27,729 - pyrogram.connection.connection - INFO - Connecting...
+2024-08-19 17:51:28,176 - pyrogram.connection.connection - INFO - Connected! Production DC2 - IPv4
+2024-08-19 17:51:28,177 - pyrogram.session.session - INFO - NetworkTask started
+2024-08-19 17:51:28,731 - pyrogram.session.session - INFO - Session initialized: Layer 158
+2024-08-19 17:51:28,731 - pyrogram.session.session - INFO - Device: CPython 3.11.6 - Pyrogram 2.0.106
+2024-08-19 17:51:28,731 - pyrogram.session.session - INFO - System: Linux 6.5.0-44-generic (en)
+2024-08-19 17:51:28,731 - pyrogram.session.session - INFO - Session started
+2024-08-19 17:51:28,743 - pyrogram.session.session - INFO - PingTask started
+2024-08-19 17:51:29,079 - pyrogram.dispatcher - INFO - Started 10 HandlerTasks
+2024-08-19 17:51:29,285 - pyrogram.dispatcher - INFO - Stopped 10 HandlerTasks
+2024-08-19 17:51:29,285 - pyrogram.session.session - INFO - PingTask stopped
+2024-08-19 17:51:29,286 - pyrogram.connection.connection - INFO - Disconnected
+2024-08-19 17:51:29,286 - pyrogram.session.session - INFO - NetworkTask stopped
+2024-08-19 17:51:29,286 - pyrogram.session.session - INFO - Session stopped
+2024-08-19 17:51:29,292 - aiogram.event - INFO - Update id=53306756 is handled. Duration 2075 ms by bot id=7144434947
+2024-08-19 17:51:42,491 - pyrogram.connection.transport.tcp.tcp - INFO - Using proxy 185.111.25.49
+2024-08-19 17:51:42,491 - pyrogram.connection.connection - INFO - Connecting...
+2024-08-19 17:51:42,935 - pyrogram.connection.connection - INFO - Connected! Production DC2 - IPv4
+2024-08-19 17:51:42,936 - pyrogram.session.session - INFO - NetworkTask started
+2024-08-19 17:51:43,540 - pyrogram.session.session - INFO - Session initialized: Layer 158
+2024-08-19 17:51:43,541 - pyrogram.session.session - INFO - Device: CPython 3.11.6 - Pyrogram 2.0.106
+2024-08-19 17:51:43,541 - pyrogram.session.session - INFO - System: Linux 6.5.0-44-generic (en)
+2024-08-19 17:51:43,541 - pyrogram.session.session - INFO - Session started
+2024-08-19 17:51:43,564 - pyrogram.session.session - INFO - PingTask started
+2024-08-19 17:51:43,994 - pyrogram.session.session - INFO - PingTask stopped
+2024-08-19 17:51:43,994 - pyrogram.connection.connection - INFO - Disconnected
+2024-08-19 17:51:43,994 - pyrogram.session.session - INFO - NetworkTask stopped
+2024-08-19 17:51:43,994 - pyrogram.session.session - INFO - Session stopped
+2024-08-19 17:51:44,733 - httpx - INFO - HTTP Request: POST https://gateway.blum.codes/v1/auth/provider/PROVIDER_TELEGRAM_MINI_APP "HTTP/1.1 200 OK"
+2024-08-19 17:51:45,512 - httpx - INFO - HTTP Request: GET https://game-domain.blum.codes/api/v1/user/balance "HTTP/1.1 200 OK"
+2024-08-19 17:51:47,689 - httpx - INFO - HTTP Request: GET https://gateway.blum.codes/v1/friends/balance "HTTP/1.1 200 OK"
+2024-08-19 17:51:49,841 - httpx - INFO - HTTP Request: POST https://game-domain.blum.codes/api/v1/daily-reward?offset=-180 "HTTP/1.1 400 Bad Request"
+2024-08-19 17:51:53,227 - httpx - INFO - HTTP Request: POST https://game-domain.blum.codes/api/v1/farming/start "HTTP/1.1 200 OK"
+2024-08-19 17:51:57,139 - httpx - INFO - HTTP Request: GET https://game-domain.blum.codes/api/v1/user/balance "HTTP/1.1 200 OK"
+2024-08-19 17:53:25,625 - aiogram.event - INFO - Update id=53306757 is handled. Duration 1047 ms by bot id=7144434947
+2024-08-19 17:53:28,122 - bot - ERROR - Connection error: Client is already disconnected
+2024-08-19 17:53:28,359 - pyrogram.connection.transport.tcp.tcp - INFO - Using proxy 185.111.25.49
+2024-08-19 17:53:28,359 - pyrogram.connection.connection - INFO - Connecting...
+2024-08-19 17:53:28,805 - pyrogram.connection.connection - INFO - Connected! Production DC2 - IPv4
+2024-08-19 17:53:28,806 - pyrogram.session.session - INFO - NetworkTask started
+2024-08-19 17:53:29,397 - pyrogram.session.session - INFO - Session initialized: Layer 158
+2024-08-19 17:53:29,398 - pyrogram.session.session - INFO - Device: CPython 3.11.6 - Pyrogram 2.0.106
+2024-08-19 17:53:29,398 - pyrogram.session.session - INFO - System: Linux 6.5.0-44-generic (en)
+2024-08-19 17:53:29,398 - pyrogram.session.session - INFO - Session started
+2024-08-19 17:53:29,440 - pyrogram.session.session - INFO - PingTask started
+2024-08-19 17:53:29,771 - pyrogram.dispatcher - INFO - Started 10 HandlerTasks
+2024-08-19 17:53:29,944 - pyrogram.dispatcher - INFO - Stopped 10 HandlerTasks
+2024-08-19 17:53:29,944 - pyrogram.session.session - INFO - PingTask stopped
+2024-08-19 17:53:29,944 - pyrogram.connection.connection - INFO - Disconnected
+2024-08-19 17:53:29,944 - pyrogram.session.session - INFO - NetworkTask stopped
+2024-08-19 17:53:29,944 - pyrogram.session.session - INFO - Session stopped
+2024-08-19 17:53:30,165 - aiogram.event - INFO - Update id=53306758 is handled. Duration 2293 ms by bot id=7144434947
