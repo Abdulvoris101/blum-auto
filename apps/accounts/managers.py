@@ -168,8 +168,10 @@ class AccountManager:
 
                 client = Client(name=account.sessionName, api_id=settings.API_ID, api_hash=settings.API_HASH,
                                 workdir=settings.WORKDIR, proxy=proxy)
+
                 if not await SubscriptionManager.isAccountSubscriptionActive(account.id):
-                    await bot.send_message(text.NO_ACCOUNTS_TO_FARM.value)
+                    await bot.send_message(user.telegramId, text.SUBSCRIPTION_INACTIVE.format(sessionName=account.sessionName))
+
                 if await client.connect() and await SubscriptionManager.isAccountSubscriptionActive(account.id):
                     account.status = Status.ACTIVE
                     validAccounts.append(account)

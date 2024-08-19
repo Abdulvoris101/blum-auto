@@ -108,6 +108,17 @@ Balans: <b>{availableBalance} blum</b>
 O'yin uchun mavjud biletlar: <b>{allPlayPasses}</b> 🎟
 O'ynash uchun ruxsat etilgan biletlar: <b>{availablePlayPasses}</b> 🎟
 """)
+
+ACCOUNT_PROXY_DETAIL = __("""👤 Akkauntning proksi ma'lumotlari:
+
+- Type: {type}
+- Host: {host}
+- Port: {port}
+- Username: {username}
+- Password: {password}
+
+""")
+
 SUCCESSFULLY_CHANGED_PLAY_PASS = __("""🎟 Ruxsat etilgan biletlar soni - {newPlayPass} taga o'zgardi""")
 BOT_COULD_PLAY = __("""\n⚠️ Bot sizning o'rningizda nechta o'yin o'ynashini o'zgartishingiz mumkin""")
 NOT_ENOUGH_PLAY_PASS = __("""Sizda o'yin uchun biletlar mavjud emas - {playPasses}. Maksimum biletlar soni: {allPlayPasses}""")
@@ -119,7 +130,8 @@ INACTIVE_SESSION = __("""☹️ Akkaunt inaktiv xolatda
 ⚠️ Siz cpython sessiyasini telegramning sessiyasilar bo'limidan o'chirib yuborgansiz.
 Akkauntni ishlatish uchun qayta qo'shing!""")
 
-SUBSCRIPTION_INACTIVE = __("Ushbu akkaunt uchun obuna mudati tugagan yoki mavjud emas!")
+SUBSCRIPTION_INACTIVE = __("""{sessionName} akkaunt uchun obuna mudati tugagan yoki mavjud emas! 🙁
+🔄 Obunani qayta aktivlashtirish uchun akkauntlar bo'limiga o'ting""")
 
 WRONG_PASSWORD = __("""Parol notog'ri""")
 

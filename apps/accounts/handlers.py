@@ -313,3 +313,14 @@ async def changeAvailablePlayPass(message: types.Message, state: FSMContext):
     except ValueError:
         await message.answer(text.NON_ACCEPTABLE_STRING.value)
 
+
+@accountsRouter.callback_query(AccountCallback.filter(F.name == "proxy_info"))
+async def accountProxy(callback: types.CallbackQuery, callback_data: AccountCallback):
+    account = await Account.get(callback_data.accountId)
+    proxy = urlparse(account.proxy)
+
+    return await bot.send_message(callback.from_user.id,
+                            text.ACCOUNT_PROXY_DETAIL.format(type=proxy.scheme, host=proxy.hostname,
+                                                             port=proxy.port, username=proxy.username,
+                                                             password=proxy.password))
+

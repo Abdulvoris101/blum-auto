@@ -44,5 +44,7 @@ def changeAccountMarkup(accountId: int):
     changeAccountBuilder = keyboard.InlineKeyboardBuilder()
     changeAccountBuilder.button(text=_("O'yin biletlari sonini o'zgartirish 🔄"),
                                 callback_data=AccountCallback(accountId=accountId, name="play_pass_change"))
-
+    changeAccountBuilder.button(text=_("Proksi ma'lumotlari 🌐"),
+                                callback_data=AccountCallback(accountId=accountId, name="proxy_info"))
+    changeAccountBuilder.adjust(1, 1)
     return keyboard.InlineKeyboardMarkup(inline_keyboard=changeAccountBuilder.export())
