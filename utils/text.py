@@ -178,8 +178,8 @@ etildi 🎉.""")
 NOT_REGISTERED = __("Botdan foydalanish uchun - /start")
 INCORRECT_AMOUNT = __("Notog'ri summa kiritilindi")
 MINIMAL_AMOUNT = __("Xisobni to'ldirish uchun minimal summa: 1.49$")
-
-NOT_ENOUGH_BALANCE = __("""Akkaunt qo'shish uchun balansingizda mablag' mavjud emas ❌
+SUBSCRIPTION_ALREADY_ACTIVATED = __("Obuna allaqachon faollashtirilgan ✅\n\n")
+NOT_ENOUGH_BALANCE = __("""Akkaunt qo'shish yoki yangilash uchun balansingizda mablag' mavjud emas ❌
 
 Akkaunt ulash narxi oyiga - {price}$""")
 # WARNINGS
@@ -193,7 +193,15 @@ ACCOUNT_REGISTERED = """#register_account\nuserTelegramId: {userTelegramId}\nacc
 
 ⚠️ Account need proxy to assign"""
 
-SUBSCRIPTION_UPDATED = __("""Salom Qadrli Foydalanuvchi 👋,
+SUBSCRIPTION_INFO = __("""⚡️ Obuna turi: Free
+
+🕙 Tugaydigan muddat: {currentPeriodEnd}
+
+""")
+
+SUBSCRIPTION_UPDATED = __("""{sessionName} akkauntingiz obunasi yangilandi\n\n""")
+
+SUBSCRIPTION_UPDATED_SCHEDULE = __("""Salom Qadrli Foydalanuvchi 👋, 
 
 {sessionName} akkauntingiz obunasi yangilandi
 

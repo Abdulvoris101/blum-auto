@@ -1,20 +1,21 @@
 import random
+from datetime import datetime
 from urllib.parse import urlparse
 
 from aiogram import Router, types, F
 from aiogram.exceptions import TelegramBadRequest
 from pydantic import ValidationError
 from pyrogram.errors import BadRequest, SessionPasswordNeeded
-from apps.accounts.keyboards import accountsMarkup, AccountCallback, changeAccountMarkup
+from apps.accounts.keyboards import accountsMarkup, AccountCallback, accountParamsMarkup
 from apps.accounts.managers import AccountManager, BlumAccountManager
 from apps.accounts.models import Account, BlumAccount
 from apps.accounts.scheme import AccountCreateScheme, AccountScheme, Status, BlumAccountScheme, BlumAccountCreateScheme
-from apps.common.exceptions import InvalidRequestException, InternalServerException
+from apps.common.exceptions import InvalidRequestException, InternalServerException, AiogramException
 from apps.common.settings import settings
 from apps.core.keyboards import backMenuMarkup, startMenuMarkup, cancelMenuMarkup
 from apps.core.models import User
 from apps.payment.managers import SubscriptionManager
-from apps.payment.models import UserPayment
+from apps.payment.models import UserPayment, AccountSubscription
 from apps.scripts.blum.blum_bot import BlumBot
 from bot import bot, logger
 from db.states import AddAccountState, AvailablePlayPassState
@@ -81,7 +82,7 @@ async def accountsDetails(callback: types.CallbackQuery, callback_data: AccountC
         await bot.send_message(callback.from_user.id,
                                PROFILE_INFO.format(**blumAccountScheme.model_dump(),
                                                    sessionName=accountScheme.sessionName),
-                               reply_markup=changeAccountMarkup(accountScheme.id))
+                               reply_markup=accountParamsMarkup(accountScheme.id))
     except TelegramBadRequest as e:
         logger.error(f"Tg bad request: {e}")
         logger.error(text.BAD_REQUEST.format(errorMessage=e.message, userId=account.sessionName))
@@ -233,6 +234,10 @@ async def processAccountMessage(message: types.Message, state: FSMContext, sessi
         logger.error(e.messageText)
         await state.clear()
         return await message.answer(e.messageText, reply_markup=startMenuMarkup())
+    except AiogramException as e:
+        logger.error(e.message_text)
+        await state.clear()
+        return await message.answer(e.message_text, reply_markup=startMenuMarkup())
     except InternalServerException as e:
         logger.warn(str(e.message_text))
         return await message.answer(e.message_text)
@@ -290,6 +295,31 @@ async def processPlayPasses(callback: types.CallbackQuery, callback_data: Accoun
     await bot.send_message(callback.from_user.id,
                            text.ENTER_PLAY_PASSES.format(allPlayPasses=account.allPlayPasses),
                            reply_markup=backMenuMarkup())
+
+
+@accountsRouter.callback_query(AccountCallback.filter(F.name == "update_subscription"))
+async def updateSubscription(callback: types.CallbackQuery, callback_data: AccountCallback):
+    account = await Account.get(callback_data.accountId)
+    userPayment = await UserPayment.get(callback.from_user.id)
+    subscription = await AccountSubscription.getByAccountId(account.id)
+
+    currentPeriodEnd = subscription.currentPeriodEnd.strftime("%d %B")
+
+    SUBSCRIPTION_INFO = text.SUBSCRIPTION_INFO.format(currentPeriodEnd=currentPeriodEnd)
+
+    if await SubscriptionManager.isAccountSubscriptionActive(account.id):
+        return await bot.send_message(callback.from_user.id,
+                                      text.SUBSCRIPTION_ALREADY_ACTIVATED.value + SUBSCRIPTION_INFO)
+
+    if userPayment.balance < settings.PRICE:
+        return await bot.send_message(callback.from_user.id, text.NOT_ENOUGH_BALANCE.format(price=settings.PRICE))
+
+    userPayment.balance -= settings.PRICE
+    await userPayment.save()
+
+    await SubscriptionManager.subscribe(callback.from_user.id, accountId=account.id, isFreeTrial=False)
+    return await bot.send_message(callback.from_user.id, text.SUBSCRIPTION_UPDATED.format(
+        sessionName=account.sessionName) + SUBSCRIPTION_INFO)
 
 
 @accountsRouter.message(AvailablePlayPassState.availablePlayPass)
