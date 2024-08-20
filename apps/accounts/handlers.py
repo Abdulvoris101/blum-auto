@@ -7,7 +7,7 @@ from aiogram.exceptions import TelegramBadRequest
 from pydantic import ValidationError
 from pyrogram.errors import BadRequest, SessionPasswordNeeded
 from apps.accounts.keyboards import accountsMarkup, AccountCallback, accountParamsMarkup
-from apps.accounts.managers import AccountManager, BlumAccountManager
+from apps.accounts.managers import AccountManager, BlumAccountManager, sessionManager
 from apps.accounts.models import Account, BlumAccount
 from apps.accounts.scheme import AccountCreateScheme, AccountScheme, Status, BlumAccountScheme, BlumAccountCreateScheme
 from apps.common.exceptions import InvalidRequestException, InternalServerException, AiogramException
@@ -55,7 +55,6 @@ async def accountsDetails(callback: types.CallbackQuery, callback_data: AccountC
     try:
         waitMomentMessage = await bot.send_message(callback.from_user.id, text.WAIT_A_MOMENT.value)
         isActiveAccount = await AccountManager.isActiveAccount(account)
-
         if not isActiveAccount:
             account.status = Status.INACTIVE
             await account.save()
@@ -79,9 +78,19 @@ async def accountsDetails(callback: types.CallbackQuery, callback_data: AccountC
         accountScheme = AccountScheme(**account.to_dict())
         blumAccountScheme = BlumAccountScheme(**blumAccount.to_dict())
         PROFILE_INFO = text.PROFILE_INFO.value + text.BOT_COULD_PLAY.value
+
+        isSubscriptionActive = await SubscriptionManager.isAccountSubscriptionActive(account.id)
+        subscription = await AccountSubscription.getByAccountId(account.id)
+
+        subscriptionStatus = "aktiv" if isSubscriptionActive else "inaktiv"
+        type_ = "Tekin" if subscription.isFreeTrial else "Pullik"
+        currentPeriodEnd = subscription.currentPeriodEnd.strftime("%d %B")
+
         await bot.send_message(callback.from_user.id,
                                PROFILE_INFO.format(**blumAccountScheme.model_dump(),
-                                                   sessionName=accountScheme.sessionName),
+                                                   sessionName=accountScheme.sessionName,
+                                                   subscriptionStatus=subscriptionStatus,
+                                                   type=type_, currentPeriodEnd=currentPeriodEnd),
                                reply_markup=accountParamsMarkup(accountScheme.id))
     except TelegramBadRequest as e:
         logger.error(f"Tg bad request: {e}")
@@ -95,13 +104,13 @@ async def accountsDetails(callback: types.CallbackQuery, callback_data: AccountC
     except Exception as e:
         print(e)
         logger.error(e)
+        await sendEvent(text.ERROR_TEMPLATE.format(message=str(e), telegramId=callback.from_user.id))
         await bot.send_message(callback.from_user.id,
                                text.SOMETHING_WRONG_ON_BLUM.format(sessionName=account.sessionName))
 
 
 @accountsRouter.callback_query(F.data == "add_account")
 async def addAccount(callback: types.CallbackQuery, state: FSMContext):
-    await callback.answer("")
     userPayment = await UserPayment.get(callback.from_user.id)
 
     if userPayment.balance < settings.PRICE and userPayment.trialBalance < settings.PRICE:
@@ -125,9 +134,6 @@ async def processPhoneNumber(message: types.Message, state: FSMContext):
             return await message.answer(text.ALREADY_ADDED.value, reply_markup=startMenuMarkup())
 
     try:
-        global sessions
-        sessions = {}
-
         await validatePhoneNumber(phoneNumber)
 
         proxies = getProxies()
@@ -148,7 +154,7 @@ async def processPhoneNumber(message: types.Message, state: FSMContext):
         inWaitMessage = await message.answer(text.SMS_SENDING.value)
         await session.connect()
         sentCode = await session.send_code(phoneNumber)
-        sessions[message.from_user.id] = session
+        await sessionManager.setSession(message.from_user.id, session)
         await state.update_data(sentCode=sentCode.phone_code_hash)
 
     except InvalidRequestException as e:
@@ -199,7 +205,8 @@ async def processAccountMessage(message: types.Message, state: FSMContext, sessi
 
         await session.disconnect()
         await state.clear()
-        del sessions[message.from_user.id]
+
+        await sessionManager.deleteSession(message.from_user.id)
 
         userPayment = await UserPayment.get(message.from_user.id)
 
@@ -212,8 +219,18 @@ async def processAccountMessage(message: types.Message, state: FSMContext, sessi
 
         await userPayment.save()
         await user.save()
+
+        isSubscriptionActive = await SubscriptionManager.isAccountSubscriptionActive(account.id)
+        subscription = await AccountSubscription.getByAccountId(account.id)
+
+        subscriptionStatus = "aktiv" if isSubscriptionActive else "inaktiv"
+        type_ = "Tekin" if subscription.isFreeTrial else "Pullik"
+        currentPeriodEnd = subscription.currentPeriodEnd.strftime("%d %B")
+
         await message.answer(text.PROFILE_INFO.format(**blumAccountScheme.model_dump(),
-                                                      sessionName=accountScheme.sessionName))
+                                                      sessionName=accountScheme.sessionName,
+                                                      subscriptionStatus=subscriptionStatus,
+                                                      type=type_, currentPeriodEnd=currentPeriodEnd))
         await message.answer(text.SUCCESSFUL_ADDED_ACCOUNT.value, reply_markup=startMenuMarkup())
 
     except bad_request_400.PhoneCodeExpired as e:
@@ -252,7 +269,9 @@ async def processVerificationCode(message: types.Message, state: FSMContext):
         phoneNumber = data.get('phoneNumber')
         sentCode = data.get("sentCode")
         waitMomentMessage = await bot.send_message(message.from_user.id, text.WAIT_A_MOMENT.value)
-        session = sessions.get(message.from_user.id)
+        session = await sessionManager.getSession(message.from_user.id)
+        print("Session: ")
+        print(session)
         await session.sign_in(phoneNumber, sentCode, verificationCode)
         await bot.delete_message(message.from_user.id, message_id=waitMomentMessage.message_id)
     except SessionPasswordNeeded:
@@ -273,7 +292,7 @@ async def processVerificationCode(message: types.Message, state: FSMContext):
 async def processPassword(message: types.Message, state: FSMContext):
     try:
         waitMomentMessage = await bot.send_message(message.from_user.id, text.WAIT_A_MOMENT.value)
-        session = sessions.get(message.from_user.id)
+        session = await sessionManager.getSession(message.from_user.id)
         await session.check_password(message.text)
     except (bad_request_400.PasswordHashInvalid, bad_request_400.PasswordEmpty, bad_request_400.PasswordRequired) as e:
         logger.warn(str(e))
@@ -299,17 +318,13 @@ async def processPlayPasses(callback: types.CallbackQuery, callback_data: Accoun
 
 @accountsRouter.callback_query(AccountCallback.filter(F.name == "update_subscription"))
 async def updateSubscription(callback: types.CallbackQuery, callback_data: AccountCallback):
+    await callback.answer("")
     account = await Account.get(callback_data.accountId)
     userPayment = await UserPayment.get(callback.from_user.id)
-    subscription = await AccountSubscription.getByAccountId(account.id)
-
-    currentPeriodEnd = subscription.currentPeriodEnd.strftime("%d %B")
-
-    SUBSCRIPTION_INFO = text.SUBSCRIPTION_INFO.format(currentPeriodEnd=currentPeriodEnd)
 
     if await SubscriptionManager.isAccountSubscriptionActive(account.id):
         return await bot.send_message(callback.from_user.id,
-                                      text.SUBSCRIPTION_ALREADY_ACTIVATED.value + SUBSCRIPTION_INFO)
+                                      text.SUBSCRIPTION_ALREADY_ACTIVATED.value)
 
     if userPayment.balance < settings.PRICE:
         return await bot.send_message(callback.from_user.id, text.NOT_ENOUGH_BALANCE.format(price=settings.PRICE))
@@ -317,9 +332,9 @@ async def updateSubscription(callback: types.CallbackQuery, callback_data: Accou
     userPayment.balance -= settings.PRICE
     await userPayment.save()
 
-    await SubscriptionManager.subscribe(callback.from_user.id, accountId=account.id, isFreeTrial=False)
+    await SubscriptionManager.updateSubscription(accountId=account.id, isFreeTrial=False)
     return await bot.send_message(callback.from_user.id, text.SUBSCRIPTION_UPDATED.format(
-        sessionName=account.sessionName) + SUBSCRIPTION_INFO)
+        sessionName=account.sessionName))
 
 
 @accountsRouter.message(AvailablePlayPassState.availablePlayPass)
@@ -346,6 +361,8 @@ async def changeAvailablePlayPass(message: types.Message, state: FSMContext):
 
 @accountsRouter.callback_query(AccountCallback.filter(F.name == "proxy_info"))
 async def accountProxy(callback: types.CallbackQuery, callback_data: AccountCallback):
+    await callback.answer("")
+
     account = await Account.get(callback_data.accountId)
     proxy = urlparse(account.proxy)
 

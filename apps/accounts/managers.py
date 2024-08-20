@@ -6,7 +6,7 @@ from typing import Dict, List
 from urllib.parse import urlparse
 
 from pyrogram import Client
-from pyrogram.errors import SessionExpired, Unauthorized
+from pyrogram.errors import SessionExpired, Unauthorized, AuthKeyUnregistered
 from pyrogram.errors.exceptions import unauthorized_401
 from sqlalchemy import exists, select
 
@@ -96,7 +96,7 @@ class AccountManager:
 
     @classmethod
     async def isActiveAccount(cls, account: Account):
-
+        global client
         if account is None:
             logger.error(text.ACCOUNT_NOT_FOUND)
             return False
@@ -121,7 +121,6 @@ class AccountManager:
 
             client = Client(name=account.sessionName, api_id=settings.API_ID, api_hash=settings.API_HASH,
                             workdir=settings.WORKDIR, proxy=proxy)
-            await client.disconnect()
             await client.connect()
             await client.get_me()
             return True
@@ -132,7 +131,7 @@ class AccountManager:
         except (unauthorized_401.AuthKeyInvalid, Unauthorized) as e:
             logger.error(text.SESSION_EXPIRED.format(e=e))
             return False
-        except unauthorized_401.AuthKeyUnregistered as e:
+        except (unauthorized_401.AuthKeyUnregistered, AuthKeyUnregistered) as e:
             logger.error(text.SESSION_EXPIRED.format(e=e))
             account.status = Status.INACTIVE
             await account.save()
@@ -143,12 +142,16 @@ class AccountManager:
             return False
         except ConnectionError as e:
             logger.error(f"Connection error: {e}")
-            async with client:
-                await client.get_me()
-            return True
+            return False
+        finally:
+            try:
+                await client.disconnect()
+            except Exception:
+                pass
 
     @classmethod
     async def getValidAccounts(cls, user: User):
+        global client
         validAccounts = []
         accounts = await cls.getUserAccounts(user.id)
 
@@ -179,11 +182,12 @@ class AccountManager:
                     account.status = Status.INACTIVE
 
                 await account.save()
-                await client.disconnect()
 
             except Exception as e:
                 await bot.send_message(user.telegramId, text.SESSION_ENDED.format(sessionName=account.sessionName))
                 continue
+            finally:
+                await client.disconnect()
 
         return validAccounts
 
@@ -279,11 +283,28 @@ class SessionManager:
         self.storage_dir = "sessions"
         os.makedirs(self.storage_dir, exist_ok=True)
 
+        self._sessions = {}
+        self._lock = asyncio.Lock()
+
+
     def getSessionPath(self, sessionName: str):
         return os.path.join(self.storage_dir, f'{sessionName}.session')
 
     def sessionExists(self, sessionName: str):
         return os.path.exists(self.getSessionPath(sessionName))
+
+    async def setSession(self, userId: int, session: Client):
+        async with self._lock:
+            self._sessions[userId] = session
+
+    async def getSession(self, userId: int) -> Client:
+        async with self._lock:
+            return self._sessions.get(userId)
+
+    async def deleteSession(self, userId: int):
+        async with self._lock:
+            if userId in self._sessions:
+                del self._sessions[userId]
 
 
 sessionManager = SessionManager()

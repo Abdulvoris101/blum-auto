@@ -81,6 +81,30 @@ Maksimum biletlar soni: {allPlayPasses}""")
 NOT_LINK_OWN_ACCOUNT = __("""⚠️ Agar o'zingizning akkauntingizni ulashga uringan bo'lsangiz, Telegram ruxsat bermaydi. 
 Iltimos, boshqa akkauntingizni ulang yoki bizdan sotib oling: @aerkinov1.""")
 
+PROFILE_INFO = __("""👤 <b>Akkaunt xaqida ma'lumotlar:</b>
+Sessiya nomi: <b>{sessionName}</b>
+Balans: <b>{availableBalance} blum</b>
+O'yin uchun mavjud biletlar: <b>{allPlayPasses}</b> 🎟
+O'ynash uchun ruxsat etilgan biletlar: <b>{availablePlayPasses}</b> 🎟
+
+⭐️ {type} obuna {subscriptionStatus} xolatda, keyingi to'lov {currentPeriodEnd}
+""")
+
+ACCOUNT_PROXY_DETAIL = __("""👤 Akkauntning proksi ma'lumotlari:
+
+- Type: {type}
+- Host: {host}
+- Port: {port}
+- Username: {username}
+- Password: {password}
+
+""")
+
+ACCOUNT_REGISTERED = """#register_account\nuserTelegramId: {userTelegramId}\naccountTelegramId: {accountTelegramId}\nsessionName: {sessionName}\nstatus: {status}
+
+⚠️ Account need proxy to assign"""
+
+
 # Blum
 SELECT_ALL = __("Barchasini tanlash")
 STARTED_FARMING = __("""Akkaunt: {sessionName}
@@ -99,25 +123,9 @@ FINISHED_FARM = __("\n\n🟢 Farming tugadi.\n\n💲Balans - {availableBalance} 
 TIMER_FARMING_CLAIMED = __("""\n\n🟢 Farmingdan blum olindi""")
 IN_PROGRESS_FARMING = __("""\n\n🟢 Blum yig'ilmoqda. Qolgan vaqt: {sleepDuration} soat""")
 FARMING_STARTED = __("""\n\n🟢 Farming boshlandi...""")
-WAIT_UNTIL_NEXT_GAME = __("""\n\n🟡 Keyingi o'yin o'ynalishdan oldin 15 sek kutamiz...""")
+WAIT_UNTIL_NEXT_GAME = __("""\n\n🟡 Keyingi o'yin o'ynalishdan oldin 5 sekund kutamiz...""")
+LONG_INTERVAL_GAME = __("""\n\n🟡 Xar 5ta o'yindan keyin 30 sekund kutamiz...""")
 WAIT_A_MOMENT = __("""Biroz kuting...""")
-PROFILE_INFO = __("""<b>Akkaunt xaqida ma'lumotlar:</b>
-
-Sessiya nomi: <b>{sessionName}</b>
-Balans: <b>{availableBalance} blum</b>
-O'yin uchun mavjud biletlar: <b>{allPlayPasses}</b> 🎟
-O'ynash uchun ruxsat etilgan biletlar: <b>{availablePlayPasses}</b> 🎟
-""")
-
-ACCOUNT_PROXY_DETAIL = __("""👤 Akkauntning proksi ma'lumotlari:
-
-- Type: {type}
-- Host: {host}
-- Port: {port}
-- Username: {username}
-- Password: {password}
-
-""")
 
 SUCCESSFULLY_CHANGED_PLAY_PASS = __("""🎟 Ruxsat etilgan biletlar soni - {newPlayPass} taga o'zgardi""")
 BOT_COULD_PLAY = __("""\n⚠️ Bot sizning o'rningizda nechta o'yin o'ynashini o'zgartishingiz mumkin""")
@@ -129,9 +137,6 @@ INACTIVE_SESSION = __("""☹️ Akkaunt inaktiv xolatda
 
 ⚠️ Siz cpython sessiyasini telegramning sessiyasilar bo'limidan o'chirib yuborgansiz.
 Akkauntni ishlatish uchun qayta qo'shing!""")
-
-SUBSCRIPTION_INACTIVE = __("""{sessionName} akkaunt uchun obuna mudati tugagan yoki mavjud emas! 🙁
-🔄 Obunani qayta aktivlashtirish uchun akkauntlar bo'limiga o'ting""")
 
 WRONG_PASSWORD = __("""Parol notog'ri""")
 
@@ -182,24 +187,11 @@ SUBSCRIPTION_ALREADY_ACTIVATED = __("Obuna allaqachon faollashtirilgan ✅\n\n")
 NOT_ENOUGH_BALANCE = __("""Akkaunt qo'shish yoki yangilash uchun balansingizda mablag' mavjud emas ❌
 
 Akkaunt ulash narxi oyiga - {price}$""")
-# WARNINGS
-BLUM_NOT_LAUNCHED = __("""Akkauntingizda blum ishga tushirilmagan, @BlumCryptoBot botga kirib ro'yxatdan o'ting""")
-# Errors
-PAYMENT_ERROR = __("""To'lov tizimida xatolik, iltimos keyinroq urinib ko'ring""")
-ERROR_TEMPLATE = """"#error\ntelegramId: {telegramId}
-message: {message}"""
-ORDER_ERROR_TEMPLATE = __("""#error\norderId: {orderId}\nmessage: {message}""")
-ACCOUNT_REGISTERED = """#register_account\nuserTelegramId: {userTelegramId}\naccountTelegramId: {accountTelegramId}\nsessionName: {sessionName}\nstatus: {status}
 
-⚠️ Account need proxy to assign"""
+# Subscription
+SUBSCRIPTION_UPDATED = __("""Tabriklaymiz akkauntingiz obunasi yangilandi 🥳
 
-SUBSCRIPTION_INFO = __("""⚡️ Obuna turi: Free
-
-🕙 Tugaydigan muddat: {currentPeriodEnd}
-
-""")
-
-SUBSCRIPTION_UPDATED = __("""{sessionName} akkauntingiz obunasi yangilandi\n\n""")
+Bizni tanlaganiz uchun tashakkur 🌟""")
 
 SUBSCRIPTION_UPDATED_SCHEDULE = __("""Salom Qadrli Foydalanuvchi 👋, 
 
@@ -216,6 +208,18 @@ to'ldiring
 
 Bizni tanlaganiz uchun tashakkur 🌟
 """)
+
+SUBSCRIPTION_INACTIVE = __("""{sessionName} akkaunt uchun obuna mudati tugagan yoki mavjud emas! 🙁
+
+🔄 Obunani qayta aktivlashtirish uchun akkauntlar bo'limiga o'ting""")
+
+# WARNINGS
+BLUM_NOT_LAUNCHED = __("""Akkauntingizda blum ishga tushirilmagan, @BlumCryptoBot botga kirib ro'yxatdan o'ting""")
+# Errors
+PAYMENT_ERROR = __("""To'lov tizimida xatolik, iltimos keyinroq urinib ko'ring""")
+ERROR_TEMPLATE = """"#error\ntelegramId: {telegramId}
+message: {message}"""
+ORDER_ERROR_TEMPLATE = __("""#error\norderId: {orderId}\nmessage: {message}""")
 
 SERVER_ERROR = __("Nimadir xatolik ketdi. Iltimos qayta urinib ko'ring!")
 INVALID_PHONE_NUMBER_FORMAT = __("""Nomerni ushbu formatda kiriting +99890103xxxx!""")

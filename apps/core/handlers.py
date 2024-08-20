@@ -127,7 +127,7 @@ async def processFarming(message: types.Message, state: FSMContext):
             return await message.answer(text.INACTIVE_SESSION.value)
 
         if not await SubscriptionManager.isAccountSubscriptionActive(accountId=account.id):
-            return await message.answer(text.SUBSCRIPTION_INACTIVE.format(account.sessionName))
+            return await message.answer(text.SUBSCRIPTION_INACTIVE.format(sessionName=account.sessionName))
 
         accounts = [account]
 

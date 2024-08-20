@@ -41,8 +41,7 @@ class Account(Base):
         async with AsyncSessionLocal() as session:
             result = await session.execute(select(Account).filter_by(id=accountId))
             user = result.scalar_one_or_none()
-
-        return user
+            return user
 
     @classmethod
     async def getByPhoneNumber(cls, phoneNumber):
@@ -108,7 +107,7 @@ class BlumAccount(Base):
             async with session.begin():
                 session.add(self)
 
-        return self
+            return self
 
     @classmethod
     async def get(cls, id):
@@ -131,12 +130,12 @@ class BlumAccount(Base):
             result = await session.execute(select(BlumAccount).filter_by(accountId=accountId))
             blumAccount = result.scalar_one_or_none()
 
-        if blumAccount is None:
-            blumAccount = BlumAccount(accountId=accountId, availableBalance=0.0, availablePlayPasses=0,
-                                      farmingFreezeHours=8, needRemind=True, allPlayPasses=0, status="INACTIVE")
-            await blumAccount.save()
+            if blumAccount is None:
+                blumAccount = BlumAccount(accountId=accountId, availableBalance=0.0, availablePlayPasses=0,
+                                          farmingFreezeHours=8, needRemind=True, allPlayPasses=0, status="INACTIVE")
+                await blumAccount.save()
 
-        return blumAccount
+            return blumAccount
 
     @classmethod
     async def update(cls, instance, column, value):
