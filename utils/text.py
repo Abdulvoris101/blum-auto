@@ -4,13 +4,12 @@ from aiogram.utils.i18n import gettext as _
 START_WELCOME = __("""👋 Salom fren, bot bilan pul ishlab topishga tayyormisiz?
 
 Bot imkoniyatlari:
-1. Telegram akkauntlarni birgina botdan boshqarish 
+1. Barcha akkauntlarni birgina botdan boshqarish 
 2. Kunlik yeg'ilgan blumlarni avtomatik olish
-4. Do'stlar bo'limidagi yeg'ilgan blumlarni avtomatik olish
-5. O'yinlarni avtomatik o'ynash
+3. O'yinlarni avtomatik o'ynash
+4. Xar bir akkaunt uchun shaxsiy proksi 🔒
 
-🔒 Xar bir akkaunt uchun shaxsiy proksi ishlatilinadi, blum bilan siz xech qanday muammoga duch kelmaysiz.
-Proksi ma'lumotlarini akkaunt bo'limida ko'rishingiz mumkin
+ℹ️ Proksi ma'lumotlarini akkaunt bo'limida ko'rishingiz mumkin
 
 💰 Botdan qancha soqqa ko'tarish mumkinligini /help kommandasi orqali bilib oling""")
 
@@ -66,7 +65,7 @@ Agar boshqa akkauntingiz bo'lmasa, bizdan arzon narxda sotib olishingiz mumkin: 
 
 ENTER_PHONE_NUMBER = __("""<b>Ulamoqchi bo'lgan telefon raqamingizni kiriting:</b> """)
 ENTER_VERIFICATION_CODE = __("""Telegramingizga kelgan tasdiqlash kodini kiriting: """)
-ENTER_PASSWORD = __("""🔒 2-bosqichli parolingizni kiriting: """)
+ENTER_2FA_PASSWORD = __("""🔒 2-bosqichli parolingizni kiriting: """)
 SMS_SENDING = __("Telegram kod yuborilmoqda....")
 SUCCESSFUL_ADDED_ACCOUNT = __("""Akkauntingiz muvaffiqiyatli qo'shildi 🎉. 
 
@@ -177,12 +176,12 @@ ENTER_AMOUNT = __("""To'lov summasini kiriting: """)
 INCORRECT_LANGUAGE_CODE = __("""Notog'ri tilni kiritingiz, Iltimos menyudagi tillardan birini kiriting!""")
 
 
-CONGRATS_GAVE_REQUESTS = __("""Do'stingizni taklif etganingiz uchun sizga {referralPrice}$ taqdim 
+CONGRATS_GAVE_REQUESTS = __("""Do'stingiz balansini to'ldirgani uchun sizga {referralPrice}$ taqdim 
 etildi 🎉.""")
 
 NOT_REGISTERED = __("Botdan foydalanish uchun - /start")
 INCORRECT_AMOUNT = __("Notog'ri summa kiritilindi")
-MINIMAL_AMOUNT = __("Xisobni to'ldirish uchun minimal summa: 1.49$")
+MINIMAL_AMOUNT = __("Xisobni to'ldirish uchun minimal summa: 1$")
 SUBSCRIPTION_ALREADY_ACTIVATED = __("Obuna allaqachon faollashtirilgan ✅\n\n")
 NOT_ENOUGH_BALANCE = __("""Akkaunt qo'shish yoki yangilash uchun balansingizda mablag' mavjud emas ❌
 
@@ -213,9 +212,31 @@ SUBSCRIPTION_INACTIVE = __("""{sessionName} akkaunt uchun obuna mudati tugagan y
 
 🔄 Obunani qayta aktivlashtirish uchun akkauntlar bo'limiga o'ting""")
 
+
+# Admin | not need i18n
+
+INLINE_BUTTONS_GUIDE = """Inline knopkalarni kiriting. 
+Misol uchun\n <code>./Test-t.me//texnomasters\n./Test2-t.me//texnomasters</code> """
+
+SELECT_MESSAGE_TYPE = "Xabar/Rasm/Video kiriting"
+MESSAGE_SENT = "Xabar yuborildi!"
+SEND_MESSAGE = "Xabar yuborish!"
+ENTER_TYPE_MESSAGE = "Xabar turini kiriting"
+WELCOME_ADMIN = "Xush kelibsiz admin!"
+ENTER_USER_ID = "User id kiriting"
+ENTER_MESSAGE = "Xabarni kiriting"
+USER_BLOCKED = "Foydalanuvchi bloklangan!"
+ENTER_PASSWORD = "Parolni kiriting"
+
 # WARNINGS
 BLUM_NOT_LAUNCHED = __("""Akkauntingizda blum ishga tushirilmagan, @BlumCryptoBot botga kirib ro'yxatdan o'ting""")
 # Errors
+CANCELED_TEXT = "Bekor qilindi!"
+
+SENT_USER_REPORT_TEXT = """Message sent to {receivedUsersCount} users
+Bot was blocked by {blockedUsersCount} users"""
+
+
 PAYMENT_ERROR = __("""To'lov tizimida xatolik, iltimos keyinroq urinib ko'ring""")
 ERROR_TEMPLATE = """"#error\ntelegramId: {telegramId}
 message: {message}"""
@@ -244,3 +265,5 @@ ACCOUNT_NOT_FOUND = """Account not found"""
 SESSION_FILE_NOT_EXISTS = """Session file doesn't exists"""
 SESSION_EXPIRED = """Session expired - {e}"""
 SESSION_ENDED = __("""{sessionName} - sessiya tugatilgan!""")
+
+ONLY_ACCEPTS_TEXT = "Faqatgina text turi qabul qilinadi!"

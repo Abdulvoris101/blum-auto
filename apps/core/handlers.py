@@ -29,6 +29,12 @@ coreRouter = Router(name="coreRouter")
 taskManager = UserTaskManager()
 
 
+@coreRouter.message(F.text == __("❌ Bekor qilish"))
+async def cancelHandler(message: types.Message, state: FSMContext):
+    await state.clear()
+    await message.answer(text.CANCELED.value, reply_markup=startMenuMarkup())
+
+
 @coreRouter.message(F.text == __("🌐 Tilni o'zgartirish"))
 async def selectUserLanguage(message: types.Message, state: FSMContext):
     await state.set_state(UserRegisterState.language)
@@ -43,19 +49,6 @@ async def startWelcome(message: types.Message, command: CommandObject, state: FS
     if not await UserManager.isExistsByUserId(message.from_user.id):
         await UserManager.register(message.from_user)
         await UserManager.assignReferredBy(message.from_user.id, referral)
-
-        if await UserManager.isValidReferral(message.from_user.id, referral):
-            referral = int(referral)
-            referralUser = await User.get(referral)
-            userPayment = await UserPayment.getByUserId(referralUser.id)
-            await UserManager.addUserToReferrals(referral, message.from_user.id)
-
-            await bot.send_message(referralUser.telegramId,
-                                   text.CONGRATS_GAVE_REQUESTS.format(referralPrice=settings.REFERRAL_PRICE))
-
-            userPayment.balance += settings.REFERRAL_PRICE
-            await userPayment.save()
-
         return await selectUserLanguage(message=message, state=state)
 
     return await message.answer(text.START_WELCOME.value, reply_markup=startMenuMarkup())

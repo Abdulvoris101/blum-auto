@@ -70,7 +70,7 @@ class AccountManager:
         if isAccount:
             account = await Account.getByPhoneNumber(scheme.phoneNumber)
             account.status = Status.ACTIVE
-            account.userId = scheme.userId
+            account.telegramId = scheme.userId
             await account.save()
 
             return account
@@ -204,7 +204,7 @@ class AccountManager:
                     duration = datetime.datetime.now() - account.lastUpdated
 
                     if duration >= datetime.timedelta(hours=blumDetail.farmingFreezeHours):
-                        user = await User.getById(account.userId)
+                        user = await User.getById(account.telegramId)
                         i18n.ctx_locale.set(user.languageCode)
                         with i18n.context():
                             await bot.send_message(user.telegramId,

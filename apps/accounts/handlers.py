@@ -32,12 +32,6 @@ from aiogram.utils.i18n import gettext as _
 accountsRouter = Router(name="accountsRouter")
 
 
-@accountsRouter.message(F.text == __("❌ Bekor qilish"))
-async def cancelHandler(message: types.Message, state: FSMContext):
-    await state.clear()
-    await message.answer(text.CANCELED.value, reply_markup=startMenuMarkup())
-
-
 @accountsRouter.message(F.text == __("👥 Akkauntlar"))
 async def accountsHandler(message: types.Message):
     user = await User.get(message.from_user.id)
@@ -276,7 +270,7 @@ async def processVerificationCode(message: types.Message, state: FSMContext):
         await bot.delete_message(message.from_user.id, message_id=waitMomentMessage.message_id)
     except SessionPasswordNeeded:
         await state.set_state(AddAccountState.password)
-        return await message.answer(text.ENTER_PASSWORD.value)
+        return await message.answer(text.ENTER_2FA_PASSWORD.value)
     except bad_request_400.PhoneCodeExpired as e:
         logger.warn(str(e))
         await message.answer(text.EXPIRED_VERIFICATION_CODE.value)

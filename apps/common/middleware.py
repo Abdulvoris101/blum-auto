@@ -41,8 +41,9 @@ class MessageMiddleware(BaseMiddleware):
 
         bypass_commands = ["/start", "/set_language", _("🌐 Tilni o'zgartirish")]
 
-        if not event.text in bypass_commands and not event.text.startswith("/start"):
-            if not await User.isExistsByUserId(event.from_user.id):
-                return await bot.send_message(event.from_user.id, text.NOT_REGISTERED.value)
+        if event.text is not None:
+            if not event.text in bypass_commands and not event.text.startswith("/start"):
+                if not await User.isExistsByUserId(event.from_user.id):
+                    return await bot.send_message(event.from_user.id, text.NOT_REGISTERED.value)
 
         return await handler(event, data)

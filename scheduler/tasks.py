@@ -22,7 +22,7 @@ async def reminderNotUsingAccounts():
     accounts = await AccountManager.getNotUsingAccounts()
 
     for account in accounts:
-        user = await User.getById(account.userId)
+        user = await User.getById(account.telegramId)
         i18n.ctx_locale.set(user.languageCode)
         with i18n.context():
             await bot.send_message(user.telegramId, text.ACCOUNT_AVAILABLE_TO_FARM

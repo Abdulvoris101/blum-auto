@@ -5,6 +5,7 @@ from sqlalchemy import pool
 from db.setup import Base
 from apps.accounts.models import Base
 from apps.payment.models import Base
+from apps.admin.models import Base
 from apps.core.models import Base
 from alembic import context
 from apps.common.settings import settings
