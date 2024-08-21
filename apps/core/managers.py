@@ -47,15 +47,12 @@ class UserManager:
 
         userData = user.model_dump()
         scheme = UserCreateScheme(**userData)
-        async with AsyncSessionLocal() as session:
-            userObj = User(**scheme.model_dump())
-            session.add(userObj)
-
-            userPaymentScheme = UserPaymentCreateScheme(telegramId=userObj.telegramId, userId=userObj.id)
-            userPayment = UserPayment(**userPaymentScheme.model_dump())
-            session.add(userPayment)
-            await session.commit()
-            await sendEvent(text=text.USER_REGISTERED_EVENT_TEMPLATE.format(**userObj.to_dict()))
+        userObj = User(**scheme.model_dump())
+        await userObj.save()
+        userPaymentScheme = UserPaymentCreateScheme(telegramId=userObj.telegramId, userId=userObj.id)
+        userPayment = UserPayment(**userPaymentScheme.model_dump())
+        await userPayment.save()
+        await sendEvent(text=text.USER_REGISTERED_EVENT_TEMPLATE.format(**userObj.to_dict()))
 
     @classmethod
     async def assignReferredBy(cls, telegramId: int, referredBy: str):

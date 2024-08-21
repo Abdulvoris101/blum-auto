@@ -80,6 +80,12 @@ Maksimum biletlar soni: {allPlayPasses}""")
 NOT_LINK_OWN_ACCOUNT = __("""⚠️ Agar o'zingizning akkauntingizni ulashga uringan bo'lsangiz, Telegram ruxsat bermaydi. 
 Iltimos, boshqa akkauntingizni ulang yoki bizdan sotib oling: @aerkinov1.""")
 
+FREE_TYPE = __("Tekin")
+PREMIUM_TYPE = __("Pullik")
+
+ACTIVE_STATUS = __("aktiv")
+INACTIVE_STATUS = __("🔴 inaktiv")
+
 PROFILE_INFO = __("""👤 <b>Akkaunt xaqida ma'lumotlar:</b>
 Sessiya nomi: <b>{sessionName}</b>
 Balans: <b>{availableBalance} blum</b>
@@ -116,6 +122,7 @@ CLAIMED_FRIENDS_REWARD =__("\n\n🟢 Do'stlar bo'limidan {amount} blum olindi")
 NO_REWARD_FRIENDS = __("""\n\n🔴 Do'stlar uchun blum mavjud emas!""")
 NO_ACTIVE_FARMS = __("🔍 Aktiv farming topilmadi")
 FARM_STOPPED = __("🔴 Farming toxtadi")
+PLAYING_GAME = __("""\n\n🟢 O'yin o'ynalmoqda...""")
 SUCCESSFULLY_PLAYED_GAMES = __("""\n\n🟢 O'yin muvaffiqiyatli o'ynaldi! Berilgan mukofot: {points}""")
 PLAYING_NOT_AVAILABLE = __("""\n\n🟡 Ushbu akkaunt uchun o'yin uchun ruxsat etilgan biletlar mavjud emas!""")
 FINISHED_FARM = __("\n\n🟢 Farming tugadi.\n\n💲Balans - {availableBalance} blum\n🎟O'yin uchun mavjud biletlar: {playPasses}\n")
@@ -151,14 +158,15 @@ BALANCE = __("""💵 Balans: {balance}$
 
 ✨ 1-akkaunt uchun 3 kunlik tekin obuna taqdim etiladi
 
-⚠️ Xavfsizlik uchun to'lov faqat kripto orqali qabul qilinadi!
+💳 To'lov kripto va visa/mastercard orqali qabul qilinadi!
+
 💡 Kripto haqida bilmasangiz qo'llanma - /help""")
 
 REFERRAL_INFO = __("""Sizning referalingiz: https://t.me/{botUsername}?start={referralId}
 
 Referallar soni: {referralsCount}
 
-Ushbu referal orqali xar bir taklif etilgan do'stingiz uchun {referralPrice}$ qo'lga kiriting!""")
+Ushbu referal orqali do'stingizni taklif eting va u balansiga pul to'ldirishi bilan {referralPrice}$ qo'lga kiriting!""")
 
 INVOICE_DETAILS = __(""" To'lov tafsilotlari:
 
@@ -167,7 +175,6 @@ To'lov havolasi: {invoiceUrl}
 
 To'lovni amalga oshirgandan so'ng taxminan 1-2 minut atrofida balansingizga pul kelib qo'shiladi
 
-Kelajak puli kripto-ni bilmasangiz qo'llanmani ko'rib chiqing - /help
 Toʻlov jarayonida biror muammoga duch kelsangiz yoki savollaringiz boʻlsa, bizga murojat qiling - @aerkinov1
 """)
 SUCCESSFULLY_PAYED = __("""{amount}$ balansingizga kelib qo'shildi, bizni tanlaganingiz uchun rahmat fren 😊""")
@@ -176,8 +183,7 @@ ENTER_AMOUNT = __("""To'lov summasini kiriting: """)
 INCORRECT_LANGUAGE_CODE = __("""Notog'ri tilni kiritingiz, Iltimos menyudagi tillardan birini kiriting!""")
 
 
-CONGRATS_GAVE_REQUESTS = __("""Do'stingiz balansini to'ldirgani uchun sizga {referralPrice}$ taqdim 
-etildi 🎉.""")
+CONGRATS_GAVE_REQUESTS = __("""Do'stingiz balansini to'ldirgani uchun sizga {referralPrice}$ taqdim etildi 🎉.""")
 
 NOT_REGISTERED = __("Botdan foydalanish uchun - /start")
 INCORRECT_AMOUNT = __("Notog'ri summa kiritilindi")
@@ -200,10 +206,9 @@ Bizni tanlaganiz uchun tashakkur 🌟""")
 
 SUBSCRIPTION_END = __("""🚀 Obunani yangilash vaqti keldi!
 
-Salom Qadrli Foydalanuvchi 👋,
+Salom Qadrli Foydalanuvchi 👋
 
-{sessionName} akkauntingiz obuna muddati tugadi! Obunani davom ettirish uchun balansingizni {needAmount}$ ga 
-to'ldiring
+{sessionName} akkauntingiz obuna muddati tugadi! Obunani davom ettirish uchun balansingizni {needAmount}$ ga to'ldiring
 
 Bizni tanlaganiz uchun tashakkur 🌟
 """)

@@ -19,7 +19,7 @@ from apps.payment.models import AccountSubscription
 from bot import bot, i18n, logger
 from db.setup import AsyncSessionLocal
 from utils import text
-from utils.events import sendError
+from utils.events import sendError, sendToUser
 
 
 class AccountManager:
@@ -207,12 +207,14 @@ class AccountManager:
                         user = await User.getById(account.telegramId)
                         i18n.ctx_locale.set(user.languageCode)
                         with i18n.context():
-                            await bot.send_message(user.telegramId,
-                                                   text.ACCOUNT_AVAILABLE_TO_FARM.format(sessionName=account.sessionName))
+                            await sendToUser(user.telegramId, text.ACCOUNT_AVAILABLE_TO_FARM.format(
+                                sessionName=account.sessionName))
                         blumDetail.farmingFreezeHours = 0
                         blumDetail.needRemind = False
-                        await blumDetail.save()
-                        await account.save()
+
+                        session.add(blumDetail)
+                        session.add(account)
+
                         await session.commit()
 
         except Exception as e:

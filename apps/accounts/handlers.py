@@ -76,8 +76,8 @@ async def accountsDetails(callback: types.CallbackQuery, callback_data: AccountC
         isSubscriptionActive = await SubscriptionManager.isAccountSubscriptionActive(account.id)
         subscription = await AccountSubscription.getByAccountId(account.id)
 
-        subscriptionStatus = "aktiv" if isSubscriptionActive else "inaktiv"
-        type_ = "Tekin" if subscription.isFreeTrial else "Pullik"
+        subscriptionStatus = text.ACTIVE_STATUS.value if isSubscriptionActive else text.INACTIVE_STATUS.value
+        type_ = text.FREE_TYPE.value if subscription.isFreeTrial else text.PREMIUM_TYPE.value
         currentPeriodEnd = subscription.currentPeriodEnd.strftime("%d %B")
 
         await bot.send_message(callback.from_user.id,
@@ -217,8 +217,8 @@ async def processAccountMessage(message: types.Message, state: FSMContext, sessi
         isSubscriptionActive = await SubscriptionManager.isAccountSubscriptionActive(account.id)
         subscription = await AccountSubscription.getByAccountId(account.id)
 
-        subscriptionStatus = "aktiv" if isSubscriptionActive else "inaktiv"
-        type_ = "Tekin" if subscription.isFreeTrial else "Pullik"
+        subscriptionStatus = text.ACTIVE_STATUS.value if isSubscriptionActive else text.INACTIVE_STATUS.value
+        type_ = text.FREE_TYPE.value if subscription.isFreeTrial else text.PREMIUM_TYPE.value
         currentPeriodEnd = subscription.currentPeriodEnd.strftime("%d %B")
 
         await message.answer(text.PROFILE_INFO.format(**blumAccountScheme.model_dump(),
@@ -287,6 +287,8 @@ async def processPassword(message: types.Message, state: FSMContext):
     try:
         waitMomentMessage = await bot.send_message(message.from_user.id, text.WAIT_A_MOMENT.value)
         session = await sessionManager.getSession(message.from_user.id)
+        print("Session: ")
+        print(session)
         await session.check_password(message.text)
     except (bad_request_400.PasswordHashInvalid, bad_request_400.PasswordEmpty, bad_request_400.PasswordRequired) as e:
         logger.warn(str(e))
@@ -303,10 +305,11 @@ async def processPassword(message: types.Message, state: FSMContext):
 async def processPlayPasses(callback: types.CallbackQuery, callback_data: AccountCallback, state: FSMContext):
     await callback.answer("")
     account = await Account.get(callback_data.accountId)
+    blumAccount = await BlumAccount.getByAccountId(account.id)
     await state.set_state(AvailablePlayPassState.availablePlayPass)
     await state.update_data(accountId=account.id)
     await bot.send_message(callback.from_user.id,
-                           text.ENTER_PLAY_PASSES.format(allPlayPasses=account.allPlayPasses),
+                           text.ENTER_PLAY_PASSES.format(allPlayPasses=blumAccount.allPlayPasses),
                            reply_markup=backMenuMarkup())
 
 
