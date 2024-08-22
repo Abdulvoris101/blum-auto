@@ -63,7 +63,10 @@ ulang.
 Agar boshqa akkauntingiz bo'lmasa, bizdan arzon narxda sotib olishingiz mumkin: @aerkinov1.
 """)
 
-ENTER_PHONE_NUMBER = __("""<b>Ulamoqchi bo'lgan telefon raqamingizni kiriting:</b> """)
+ENTER_PHONE_NUMBER = __("""<b>Ulamoqchi bo'lgan telefon raqamingizni kiriting:</b>
+
+Telefon raqam formati: +99890xxxxxxx""")
+
 ENTER_VERIFICATION_CODE = __("""Telegramingizga kelgan tasdiqlash kodini kiriting: """)
 ENTER_2FA_PASSWORD = __("""🔒 2-bosqichli parolingizni kiriting: """)
 SMS_SENDING = __("Telegram kod yuborilmoqda....")
@@ -105,9 +108,11 @@ ACCOUNT_PROXY_DETAIL = __("""👤 Akkauntning proksi ma'lumotlari:
 
 """)
 
+PROXY_NOT_AVAILABLE = __("Proksi ma'lumotlari vaqtinchalik mavjud emas!")
+
 ACCOUNT_REGISTERED = """#register_account\nuserTelegramId: {userTelegramId}\naccountTelegramId: {accountTelegramId}\nsessionName: {sessionName}\nstatus: {status}
 
-⚠️ Account need proxy to assign"""
+{proxyInfo}"""
 
 
 # Blum
@@ -132,6 +137,7 @@ FARMING_STARTED = __("""\n\n🟢 Farming boshlandi...""")
 WAIT_UNTIL_NEXT_GAME = __("""\n\n🟡 Keyingi o'yin o'ynalishdan oldin 5 sekund kutamiz...""")
 LONG_INTERVAL_GAME = __("""\n\n🟡 Xar 5ta o'yindan keyin 30 sekund kutamiz...""")
 WAIT_A_MOMENT = __("""Biroz kuting...""")
+LOADING_ACCOUNT_INFORMATION = __("""⏳ Akkaunt ma'lumotlari olinmoqda...""")
 
 SUCCESSFULLY_CHANGED_PLAY_PASS = __("""🎟 Ruxsat etilgan biletlar soni - {newPlayPass} taga o'zgardi""")
 BOT_COULD_PLAY = __("""\n⚠️ Bot sizning o'rningizda nechta o'yin o'ynashini o'zgartishingiz mumkin""")
@@ -272,3 +278,6 @@ SESSION_EXPIRED = """Session expired - {e}"""
 SESSION_ENDED = __("""{sessionName} - sessiya tugatilgan!""")
 
 ONLY_ACCEPTS_TEXT = "Faqatgina text turi qabul qilinadi!"
+PROXY_BUY_ERROR = """#proxy
+error: {error}
+code: {errorCode}"""

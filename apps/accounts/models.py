@@ -7,11 +7,11 @@ from sqlalchemy.orm import relationship, class_mapper
 class Proxy(Base):
     __tablename__ = 'proxy'
     id = Column(Integer, primary_key=True)
-    telegramId = Column(BigInteger, unique=True)
+    telegramId = Column(BigInteger)
     proxyId = Column(String, nullable=True)
     ip = Column(String, nullable=True)
     host = Column(String)
-    port = Column(String)
+    port = Column(Integer)
     user = Column(String)
     password = Column(String)
     type = Column(String)

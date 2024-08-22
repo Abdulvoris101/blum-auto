@@ -3,7 +3,8 @@ import datetime
 import os
 import random
 import urllib
-from typing import Dict, List
+from multiprocessing.managers import BaseManager
+from typing import Dict, List, Tuple
 from urllib.parse import urlparse
 
 import httpx
@@ -75,7 +76,7 @@ class AccountManager:
         if isAccount:
             account = await Account.getByPhoneNumber(scheme.phoneNumber)
             account.status = Status.ACTIVE
-            account.telegramId = scheme.userId
+            account.telegramId = scheme.telegramId
             await account.save()
 
             return account
@@ -114,14 +115,15 @@ class AccountManager:
 
         try:
             proxy = None
-            if account.proxy:
-                parsed_proxy = urlparse(account.proxy)
+
+            if account.proxyId is not None:
+                proxy = await Proxy.get(account.proxyId)
                 proxy = {
-                    "scheme": parsed_proxy.scheme,
-                    "hostname": parsed_proxy.hostname,
-                    "port": parsed_proxy.port,
-                    "username": parsed_proxy.username,
-                    "password": parsed_proxy.password
+                    "scheme": proxy.type,
+                    "hostname": proxy.host,
+                    "port": proxy.port,
+                    "username": proxy.user,
+                    "password": proxy.password
                 }
 
             client = Client(name=account.sessionName, api_id=settings.API_ID, api_hash=settings.API_HASH,
@@ -130,7 +132,7 @@ class AccountManager:
             await client.get_me()
             return True
 
-        except (SessionExpired, AttributeError) as e:
+        except (SessionExpired) as e:
             logger.error(text.SESSION_EXPIRED.format(e=e))
             return False
         except (unauthorized_401.AuthKeyInvalid, Unauthorized) as e:
@@ -164,14 +166,14 @@ class AccountManager:
             try:
                 proxy = None
 
-                if account.proxy:
-                    parsed_proxy = urlparse(account.proxy)
+                if account.proxyId is not None:
+                    proxy = await Proxy.get(account.proxyId)
                     proxy = {
-                        "scheme": parsed_proxy.scheme,
-                        "hostname": parsed_proxy.hostname,
-                        "port": parsed_proxy.port,
-                        "username": parsed_proxy.username,
-                        "password": parsed_proxy.password
+                        "scheme": proxy.type,
+                        "hostname": proxy.host,
+                        "port": proxy.port,
+                        "username": proxy.user,
+                        "password": proxy.password
                     }
 
                 client = Client(name=account.sessionName, api_id=settings.API_ID, api_hash=settings.API_HASH,
@@ -291,29 +293,30 @@ class ProxyManager:
             return result.scalar()
 
     @classmethod
-    async def buyProxy(cls, telegramId: int) -> Proxy:
-        url = f"{cls.baseUrl}/{cls.apiKey}/buy?count=1&period=3&version=4&type=socks&descr={telegramId}&country=pl"
-
-        headers = {'User-Agent': UserAgent(os='android').random}
-        webSession = httpx.AsyncClient(headers=headers, timeout=httpx.Timeout(timeout=60))
-
-        response = await webSession.post(url)
-        responseJson = response.json()
-        status = responseJson.get("status")
-
-        if status is None and status != "yes":
-            raise InvalidRequestException(messageText="Can't buy proxy", exceptionText="")
-
-        proxyResponse = ProxyResponseScheme(**responseJson)
-        print(proxyResponse)
+    async def createByJson(cls, telegramId: int, response: dict) -> Proxy:
+        proxyResponse = ProxyResponseScheme(**response)
         firstKey = next(iter(proxyResponse.list))
         proxyDetail = proxyResponse.list[firstKey]
+        proxyDetail.port = int(proxyDetail.port)
+        proxyDetail.type = 'socks5' if proxyDetail.type == 'socks' else 'http'
         proxyCreateScheme = ProxyCreateScheme(telegramId=telegramId, **proxyDetail.model_dump())
 
         proxy = Proxy(**proxyCreateScheme.model_dump())
         await proxy.save()
 
         return proxy
+
+    @classmethod
+    async def buyProxy(cls, telegramId: int) -> dict:
+        url = f"{cls.baseUrl}/{cls.apiKey}/buy?count=1&period=30&version=3&type=socks&descr={telegramId}&country=ru"
+
+        headers = {'User-Agent': UserAgent(os='android').random}
+        webSession = httpx.AsyncClient(headers=headers, timeout=httpx.Timeout(timeout=60))
+
+        response = await webSession.post(url)
+        responseJson = response.json()
+
+        return responseJson
 
 
 class UserTaskManager:

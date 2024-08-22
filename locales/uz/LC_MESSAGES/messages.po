@@ -199,7 +199,10 @@ msgid ""
 msgstr ""
 
 #: utils/text.py:66
-msgid "<b>Ulamoqchi bo'lgan telefon raqamingizni kiriting:</b> "
+msgid ""
+"<b>Ulamoqchi bo'lgan telefon raqamingizni kiriting:</b>\n"
+"\n"
+"Telefon raqam formati: +99890xxxxxxx"
 msgstr ""
 
 #: utils/text.py:67
@@ -288,6 +291,10 @@ msgid ""
 "- Username: {username}\n"
 "- Password: {password}\n"
 "\n"
+msgstr ""
+
+#: utils/text.py:115
+msgid "Proksi ma'lumotlari vaqtinchalik mavjud emas!"
 msgstr ""
 
 #: utils/text.py:115
@@ -432,6 +439,10 @@ msgstr ""
 
 #: utils/text.py:140
 msgid "Qaysi akkauntlarni farm qilamiz ⚡️"
+msgstr ""
+
+#: utils/text.py:140
+msgid "⏳ Akkaunt ma'lumotlari olinmoqda..."
 msgstr ""
 
 #: utils/text.py:141
@@ -1281,5 +1292,10 @@ msgstr ""
 #~ "\n"
 #~ "💳 To'lov kripto va visa/mastercard orqali qabul qilinadi!\n"
 #~ "💡 Kripto haqida bilmasangiz qo'llanma - /help"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "<b>Ulamoqchi bo'lgan telefon raqamingizni kiriting:</b> \n"
+#~ "Telefon raqam formati: +99890xxxxxxx"
 #~ msgstr ""
 

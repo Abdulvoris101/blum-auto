@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-08-21 22:45+0500\n"
-"PO-Revision-Date: 2024-08-22 00:27+0500\n"
+"PO-Revision-Date: 2024-08-23 00:09+0500\n"
 "Last-Translator: \n"
 "Language-Team: ru <LL@li.org>\n"
 "Language: ru\n"
@@ -214,8 +214,12 @@ msgstr "⚠️Телеграм не позволяет подключить эт
 "Если у вас нет другого аккаунта, вы можете купить у нас по низкой цене: @aerkinov1.\n"
 
 #: utils/text.py:66
-msgid "<b>Ulamoqchi bo'lgan telefon raqamingizni kiriting:</b> "
-msgstr "<b>Введите номер телефона, который хотите подключить:</b>"
+msgid "<b>Ulamoqchi bo'lgan telefon raqamingizni kiriting:</b>\n"
+"\n"
+"Telefon raqam formati: +99890xxxxxxx"
+msgstr "<b>Введите номер телефона, который хотите подключить:</b>\n"
+"\n"
+"Формат номера телефона: +99890xxxxxxx."
 
 #: utils/text.py:67
 msgid "Telegramingizga kelgan tasdiqlash kodini kiriting: "
@@ -313,6 +317,10 @@ msgstr "👤 Информация о прокси-сервере аккаунт�
 "- Порт: {port}\n"
 "- Имя пользователя: {username}\n"
 "- Пароль: {password}\n"
+
+#: utils/text.py:115
+msgid "Proksi ma'lumotlari vaqtinchalik mavjud emas!"
+msgstr "Информация о прокси временно недоступна!"
 
 #: utils/text.py:115
 msgid "Akkaunt: {sessionName}\n"
@@ -475,6 +483,10 @@ msgstr "Выбран неправильный аккаунт!"
 #: utils/text.py:140
 msgid "Qaysi akkauntlarni farm qilamiz ⚡️"
 msgstr "Какие аккаунты будем фармит ⚡️"
+
+#: utils/text.py:140
+msgid "⏳ Akkaunt ma'lumotlari olinmoqda..."
+msgstr "⏳ Получаем информации об аккаунте..."
 
 #: utils/text.py:141
 msgid "☹️ Akkaunt inaktiv xolatda\n"

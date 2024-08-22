@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-08-21 22:45+0500\n"
-"PO-Revision-Date: 2024-08-22 00:26+0500\n"
+"PO-Revision-Date: 2024-08-23 00:09+0500\n"
 "Last-Translator: \n"
 "Language-Team: en <LL@li.org>\n"
 "Language: en\n"
@@ -213,8 +213,12 @@ msgstr "⚠️ Telegram does not allow connecting this exact account! Connect ot
 "If you don't have another account, you can buy from us at a low price: @aerkinov1.\n"
 
 #: utils/text.py:66
-msgid "<b>Ulamoqchi bo'lgan telefon raqamingizni kiriting:</b> "
-msgstr "<b>Enter the phone number you want to connect:</b>"
+msgid "<b>Ulamoqchi bo'lgan telefon raqamingizni kiriting:</b>\n"
+"\n"
+"Telefon raqam formati: +99890xxxxxxx"
+msgstr "<b>Enter the phone number you want to connect:</b>\n"
+"\n"
+"Phone number format: +99890xxxxxxx"
 
 #: utils/text.py:67
 msgid "Telegramingizga kelgan tasdiqlash kodini kiriting: "
@@ -312,6 +316,10 @@ msgstr "👤 Account proxy information:\n"
 "- Port: {port}\n"
 "- Username: {username}\n"
 "- Password: {password}\n"
+
+#: utils/text.py:115
+msgid "Proksi ma'lumotlari vaqtinchalik mavjud emas!"
+msgstr "Proxy information is temporarily unavailable!"
 
 #: utils/text.py:115
 msgid "Akkaunt: {sessionName}\n"
@@ -471,6 +479,10 @@ msgstr "Wrong account selected!"
 #: utils/text.py:140
 msgid "Qaysi akkauntlarni farm qilamiz ⚡️"
 msgstr "Which accounts we farm ⚡️"
+
+#: utils/text.py:140
+msgid "⏳ Akkaunt ma'lumotlari olinmoqda..."
+msgstr "⏳ Retrieving account information..."
 
 #: utils/text.py:141
 msgid "☹️ Akkaunt inaktiv xolatda\n"

@@ -17,7 +17,7 @@ class AccountBase(BaseModel):
     phoneNumber: str
     sessionName: str
     status: Status = Status.ACTIVE
-    proxyId: int
+    proxyId: Optional[int]
     createdAt: datetime = datetime.now()
 
 
@@ -60,11 +60,10 @@ class BlumAccountCreateScheme(BlumAccountBase):
 
 
 class ProxyBaseScheme(BaseModel):
-    proxyId: Optional[str] = Field(alias="id")
     telegramId: Optional[int]
     ip: Optional[str]
     host: Optional[str]
-    port: Optional[str]
+    port: Optional[int]
     user: Optional[str]
     password: Optional[str]
     type: Optional[str]
@@ -73,11 +72,11 @@ class ProxyBaseScheme(BaseModel):
 
 
 class ProxyDetailScheme(ProxyBaseScheme):
-    id: int
-
+    id: Optional[int]
+    proxyId: Optional[str]
 
 class ProxyCreateScheme(ProxyBaseScheme):
-    pass
+    proxyId: Optional[str] = Field(alias="id")
 
 
 class ProxyDetailJson(BaseModel):
