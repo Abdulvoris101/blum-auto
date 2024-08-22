@@ -34,6 +34,9 @@ class Settings(BaseSettings):
     CLIENT_SECRET: str
     APP_ID: str
 
+    PROXY_KEY: str
+    PROXY_BASE_URL: str = "https://proxy6.net/api"
+
     class Config:
         env_file = os.environ.get("ENV_DIR")
         env_file_encoding = 'utf-8'

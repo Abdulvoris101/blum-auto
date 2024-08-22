@@ -21,7 +21,7 @@ from apps.scripts.blum.blum_bot import BlumBot
 from apps.scripts.blum.main import BlumManager
 from bot import bot, i18n
 from db.states import AccountSelectionState, UserRegisterState
-from utils import text, getProxies
+from utils import text
 from aiogram.utils.i18n import lazy_gettext as __
 from aiogram.utils.i18n import gettext as _
 

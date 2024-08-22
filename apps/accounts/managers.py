@@ -1,19 +1,24 @@
 import asyncio
 import datetime
 import os
+import random
 import urllib
 from typing import Dict, List
 from urllib.parse import urlparse
 
+import httpx
+from fake_useragent import UserAgent
 from pyrogram import Client
 from pyrogram.errors import SessionExpired, Unauthorized, AuthKeyUnregistered
 from pyrogram.errors.exceptions import unauthorized_401
-from sqlalchemy import exists, select
+from sqlalchemy import exists, select, and_
 
-from apps.accounts.models import Account, BlumAccount
+from apps.accounts.models import Account, BlumAccount, Proxy
 from apps.accounts.scheme import AccountCreateScheme, Status, BlumAccountCreateScheme
+from apps.common.exceptions import InvalidRequestException
 from apps.common.settings import settings
 from apps.core.models import User
+from apps.accounts.scheme import ProxyResponseScheme, ProxyCreateScheme
 from apps.payment.managers import SubscriptionManager
 from apps.payment.models import AccountSubscription
 from bot import bot, i18n, logger
@@ -255,6 +260,60 @@ class BlumAccountManager:
         await account.save()
 
         return account
+
+
+class ProxyManager:
+    apiKey = settings.PROXY_KEY
+    baseUrl = settings.PROXY_BASE_URL
+
+    @classmethod
+    def getProxies(cls):
+        proxies = []
+
+        with open("apps/common/src/proxies.txt", 'r') as file:
+            for line in file:
+                proxies.append(line.strip())
+
+        return proxies
+
+    @classmethod
+    async def isExistsBySessionName(cls, sessionName: str) -> bool:
+        async with AsyncSessionLocal() as session:
+            result = await session.execute(select(exists().where(Account.sessionName == sessionName)))
+            return result.scalar()
+
+    @classmethod
+    async def isExistsByProxyHostAndPort(cls, host: str, port: str) -> bool:
+        async with AsyncSessionLocal() as session:
+            result = await session.execute(
+                select(exists().where(and_(Proxy.host == host, Proxy.port == port)))
+            )
+            return result.scalar()
+
+    @classmethod
+    async def buyProxy(cls, telegramId: int) -> Proxy:
+        url = f"{cls.baseUrl}/{cls.apiKey}/buy?count=1&period=3&version=4&type=socks&descr={telegramId}&country=pl"
+
+        headers = {'User-Agent': UserAgent(os='android').random}
+        webSession = httpx.AsyncClient(headers=headers, timeout=httpx.Timeout(timeout=60))
+
+        response = await webSession.post(url)
+        responseJson = response.json()
+        status = responseJson.get("status")
+
+        if status is None and status != "yes":
+            raise InvalidRequestException(messageText="Can't buy proxy", exceptionText="")
+
+        proxyResponse = ProxyResponseScheme(**responseJson)
+        print(proxyResponse)
+        firstKey = next(iter(proxyResponse.list))
+        proxyDetail = proxyResponse.list[firstKey]
+        proxyCreateScheme = ProxyCreateScheme(telegramId=telegramId, **proxyDetail.model_dump())
+
+        proxy = Proxy(**proxyCreateScheme.model_dump())
+        await proxy.save()
+
+        return proxy
 
 
 class UserTaskManager:

@@ -7,9 +7,10 @@ from aiogram.exceptions import TelegramBadRequest
 from pydantic import ValidationError
 from pyrogram.errors import BadRequest, SessionPasswordNeeded
 from apps.accounts.keyboards import accountsMarkup, AccountCallback, accountParamsMarkup
-from apps.accounts.managers import AccountManager, BlumAccountManager, sessionManager
+from apps.accounts.managers import AccountManager, BlumAccountManager, sessionManager, ProxyManager
 from apps.accounts.models import Account, BlumAccount
-from apps.accounts.scheme import AccountCreateScheme, AccountScheme, Status, BlumAccountScheme, BlumAccountCreateScheme
+from apps.accounts.scheme import AccountCreateScheme, AccountScheme, Status, BlumAccountScheme, BlumAccountCreateScheme, \
+    ProxyCreateScheme
 from apps.common.exceptions import InvalidRequestException, InternalServerException, AiogramException
 from apps.common.settings import settings
 from apps.core.keyboards import backMenuMarkup, startMenuMarkup, cancelMenuMarkup
@@ -19,7 +20,7 @@ from apps.payment.models import UserPayment, AccountSubscription
 from apps.scripts.blum.blum_bot import BlumBot
 from bot import bot, logger
 from db.states import AddAccountState, AvailablePlayPassState
-from utils import text, getProxies
+from utils import text
 from aiogram.fsm.context import FSMContext
 from pyrogram import Client
 from pyrogram.errors.exceptions import bad_request_400, not_acceptable_406, flood_420
@@ -130,7 +131,7 @@ async def processPhoneNumber(message: types.Message, state: FSMContext):
     try:
         await validatePhoneNumber(phoneNumber)
 
-        proxies = getProxies()
+        proxies = ProxyManager.getProxies()
         proxy = random.choice(proxies)
         proxyParsed = urlparse(proxy)
 
@@ -177,7 +178,7 @@ async def processAccountMessage(message: types.Message, state: FSMContext, sessi
     sessionName = data.get("sessionName")
 
     try:
-        proxies = getProxies()
+        proxies = ProxyManager.getProxies()
         proxy = random.choice(proxies)
 
         blum = BlumBot(sessionName=sessionName, proxy=proxy)
@@ -187,6 +188,7 @@ async def processAccountMessage(message: types.Message, state: FSMContext, sessi
         accountInfo = await session.get_me()
 
         user = await User.get(message.from_user.id)
+        proxyModel = await ProxyManager.buyProxy(telegramId=user.telegramId)
         accountScheme = AccountCreateScheme(sessionName=sessionName, phoneNumber=phoneNumber, userId=user.id,
                                             telegramId=accountInfo.id)
 
