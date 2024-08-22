@@ -4,6 +4,60 @@ from db.setup import Base, AsyncSessionLocal
 from sqlalchemy.orm import relationship, class_mapper
 
 
+class Proxy(Base):
+    __tablename__ = 'proxy'
+    id = Column(Integer, primary_key=True)
+    telegramId = Column(BigInteger)
+    proxyId = Column(String, nullable=True)
+    ip = Column(String, nullable=True)
+    host = Column(String)
+    port = Column(Integer)
+    user = Column(String)
+    password = Column(String)
+    type = Column(String)
+    date = Column(String)
+    dateEnd = Column(String, nullable=True)
+
+    def __init__(self, telegramId, proxyId,
+                 ip, host, port, user, password, type, date, dateEnd):
+        self.telegramId = telegramId
+        self.proxyId = proxyId
+        self.ip = ip
+        self.host = host
+        self.port = port
+        self.user = user
+        self.password = password
+        self.type = type
+        self.date = date
+        self.dateEnd = dateEnd
+        super().__init__()
+
+    async def save(self):
+        async with AsyncSessionLocal() as session:
+            async with session.begin():
+                session.add(self)
+
+        return self
+
+    @classmethod
+    async def get(cls, proxyId: int):
+        async with AsyncSessionLocal() as session:
+            result = await session.execute(select(Proxy).filter_by(id=proxyId))
+            user = result.scalar_one_or_none()
+            return user
+
+    @classmethod
+    async def update(cls, instance, column, value):
+        setattr(instance, column, value)
+        async with AsyncSessionLocal() as session:
+            async with session.begin():
+                await session.commit()
+
+    def to_dict(self):
+        """Converts SQL Alchemy model instance to dictionary."""
+        return {c.key: getattr(self, c.key) for c in class_mapper(self.__class__).mapped_table.c}
+
+
 class Account(Base):
     __tablename__ = 'account'
 
@@ -13,12 +67,12 @@ class Account(Base):
     userId = Column(Integer)
     sessionName = Column(String)
     status = Column(String)
-    proxy = Column(String, nullable=True)
+    proxyId = Column(BigInteger, nullable=True)
     createdAt = Column(DateTime, nullable=True)
     lastUpdated = Column(DateTime, nullable=True)
 
     def __init__(self, telegramId, userId, sessionName,
-                 phoneNumber, status, createdAt):
+                 phoneNumber, status, proxyId, createdAt):
         self.userId = userId
         self.telegramId = telegramId
         self.sessionName = sessionName
@@ -26,6 +80,7 @@ class Account(Base):
         self.createdAt = createdAt
         self.lastUpdated = createdAt
         self.status = status
+        self.proxyId = proxyId
 
         super().__init__()
 
@@ -41,8 +96,7 @@ class Account(Base):
         async with AsyncSessionLocal() as session:
             result = await session.execute(select(Account).filter_by(id=accountId))
             user = result.scalar_one_or_none()
-
-        return user
+            return user
 
     @classmethod
     async def getByPhoneNumber(cls, phoneNumber):
@@ -108,7 +162,7 @@ class BlumAccount(Base):
             async with session.begin():
                 session.add(self)
 
-        return self
+            return self
 
     @classmethod
     async def get(cls, id):
@@ -131,12 +185,12 @@ class BlumAccount(Base):
             result = await session.execute(select(BlumAccount).filter_by(accountId=accountId))
             blumAccount = result.scalar_one_or_none()
 
-        if blumAccount is None:
-            blumAccount = BlumAccount(accountId=accountId, availableBalance=0.0, availablePlayPasses=0,
-                                      farmingFreezeHours=8, needRemind=True, allPlayPasses=0, status="INACTIVE")
-            await blumAccount.save()
+            if blumAccount is None:
+                blumAccount = BlumAccount(accountId=accountId, availableBalance=0.0, availablePlayPasses=0,
+                                          farmingFreezeHours=8, needRemind=True, allPlayPasses=0, status="INACTIVE")
+                await blumAccount.save()
 
-        return blumAccount
+            return blumAccount
 
     @classmethod
     async def update(cls, instance, column, value):

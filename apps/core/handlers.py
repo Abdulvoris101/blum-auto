@@ -15,17 +15,24 @@ from apps.core.keyboards import startMenuMarkup, languageMenuMarkup, helperMenuM
 from apps.core.managers import UserManager
 from apps.core.models import User
 from apps.core.scheme import UserScheme
-from apps.payment.models import UserPayment
+from apps.payment.managers import SubscriptionManager
+from apps.payment.models import UserPayment, AccountSubscription
 from apps.scripts.blum.blum_bot import BlumBot
 from apps.scripts.blum.main import BlumManager
 from bot import bot, i18n
 from db.states import AccountSelectionState, UserRegisterState
-from utils import text, getProxies
+from utils import text
 from aiogram.utils.i18n import lazy_gettext as __
 from aiogram.utils.i18n import gettext as _
 
 coreRouter = Router(name="coreRouter")
 taskManager = UserTaskManager()
+
+
+@coreRouter.message(F.text == __("❌ Bekor qilish"))
+async def cancelHandler(message: types.Message, state: FSMContext):
+    await state.clear()
+    await message.answer(text.CANCELED.value, reply_markup=startMenuMarkup())
 
 
 @coreRouter.message(F.text == __("🌐 Tilni o'zgartirish"))
@@ -42,19 +49,6 @@ async def startWelcome(message: types.Message, command: CommandObject, state: FS
     if not await UserManager.isExistsByUserId(message.from_user.id):
         await UserManager.register(message.from_user)
         await UserManager.assignReferredBy(message.from_user.id, referral)
-
-        if await UserManager.isValidReferral(message.from_user.id, referral):
-            referral = int(referral)
-            referralUser = await User.get(referral)
-            userPayment = await UserPayment.getByUserId(referralUser.id)
-            await UserManager.addUserToReferrals(referral, message.from_user.id)
-
-            await bot.send_message(referralUser.telegramId,
-                                   text.CONGRATS_GAVE_REQUESTS.format(referralPrice=settings.REFERRAL_PRICE))
-
-            userPayment.balance += settings.REFERRAL_PRICE
-            await userPayment.save()
-
         return await selectUserLanguage(message=message, state=state)
 
     return await message.answer(text.START_WELCOME.value, reply_markup=startMenuMarkup())
@@ -110,7 +104,7 @@ async def processFarming(message: types.Message, state: FSMContext):
     await bot.send_message(message.from_user.id, text.WAIT_A_MOMENT.value, reply_markup=startMenuMarkup())
 
     if message.text == text.SELECT_ALL.value:
-        accounts = await AccountManager.getValidAccounts(user.id)
+        accounts = await AccountManager.getValidAccounts(user)
     else:
         isSessionExists = await AccountManager.isExistsBySessionName(message.text)
 
@@ -124,6 +118,9 @@ async def processFarming(message: types.Message, state: FSMContext):
 
         if not isAccountActive:
             return await message.answer(text.INACTIVE_SESSION.value)
+
+        if not await SubscriptionManager.isAccountSubscriptionActive(accountId=account.id):
+            return await message.answer(text.SUBSCRIPTION_INACTIVE.format(sessionName=account.sessionName))
 
         accounts = [account]
 

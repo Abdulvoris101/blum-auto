@@ -23,7 +23,7 @@ def upgrade() -> None:
     sa.Column('telegramId', sa.Integer(), nullable=True),
     sa.Column('accountId', sa.BigInteger(), nullable=True),
     sa.Column('isPaid', sa.Boolean(), nullable=True),
-    sa.Column('isFreeTrial', sa.Boolean(), nullable=True),
+    sa.Column('isGrantGiven', sa.Boolean(), nullable=True),
     sa.Column('currentPeriodStart', sa.DateTime(), nullable=True),
     sa.Column('currentPeriodEnd', sa.DateTime(), nullable=True),
     sa.PrimaryKeyConstraint('id')

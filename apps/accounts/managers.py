@@ -1,23 +1,31 @@
 import asyncio
 import datetime
 import os
+import random
 import urllib
-from typing import Dict, List
+from multiprocessing.managers import BaseManager
+from typing import Dict, List, Tuple
 from urllib.parse import urlparse
 
+import httpx
+from fake_useragent import UserAgent
 from pyrogram import Client
-from pyrogram.errors import SessionExpired, Unauthorized
+from pyrogram.errors import SessionExpired, Unauthorized, AuthKeyUnregistered
 from pyrogram.errors.exceptions import unauthorized_401
-from sqlalchemy import exists, select
+from sqlalchemy import exists, select, and_
 
-from apps.accounts.models import Account, BlumAccount
+from apps.accounts.models import Account, BlumAccount, Proxy
 from apps.accounts.scheme import AccountCreateScheme, Status, BlumAccountCreateScheme
+from apps.common.exceptions import InvalidRequestException
 from apps.common.settings import settings
 from apps.core.models import User
+from apps.accounts.scheme import ProxyResponseScheme, ProxyCreateScheme
+from apps.payment.managers import SubscriptionManager
+from apps.payment.models import AccountSubscription
 from bot import bot, i18n, logger
 from db.setup import AsyncSessionLocal
 from utils import text
-from utils.events import sendError
+from utils.events import sendError, sendToUser
 
 
 class AccountManager:
@@ -68,7 +76,7 @@ class AccountManager:
         if isAccount:
             account = await Account.getByPhoneNumber(scheme.phoneNumber)
             account.status = Status.ACTIVE
-            account.userId = scheme.userId
+            account.telegramId = scheme.telegramId
             await account.save()
 
             return account
@@ -94,7 +102,7 @@ class AccountManager:
 
     @classmethod
     async def isActiveAccount(cls, account: Account):
-
+        global client
         if account is None:
             logger.error(text.ACCOUNT_NOT_FOUND)
             return False
@@ -107,31 +115,30 @@ class AccountManager:
 
         try:
             proxy = None
-            print(account.to_dict())
-            if account.proxy:
-                parsed_proxy = urlparse(account.proxy)
+
+            if account.proxyId is not None:
+                proxy = await Proxy.get(account.proxyId)
                 proxy = {
-                    "scheme": parsed_proxy.scheme,
-                    "hostname": parsed_proxy.hostname,
-                    "port": parsed_proxy.port,
-                    "username": parsed_proxy.username,
-                    "password": parsed_proxy.password
+                    "scheme": proxy.type,
+                    "hostname": proxy.host,
+                    "port": proxy.port,
+                    "username": proxy.user,
+                    "password": proxy.password
                 }
 
             client = Client(name=account.sessionName, api_id=settings.API_ID, api_hash=settings.API_HASH,
                             workdir=settings.WORKDIR, proxy=proxy)
-            await client.disconnect()
             await client.connect()
             await client.get_me()
             return True
 
-        except (SessionExpired, AttributeError) as e:
+        except (SessionExpired) as e:
             logger.error(text.SESSION_EXPIRED.format(e=e))
             return False
         except (unauthorized_401.AuthKeyInvalid, Unauthorized) as e:
             logger.error(text.SESSION_EXPIRED.format(e=e))
             return False
-        except unauthorized_401.AuthKeyUnregistered as e:
+        except (unauthorized_401.AuthKeyUnregistered, AuthKeyUnregistered) as e:
             logger.error(text.SESSION_EXPIRED.format(e=e))
             account.status = Status.INACTIVE
             await account.save()
@@ -142,44 +149,52 @@ class AccountManager:
             return False
         except ConnectionError as e:
             logger.error(f"Connection error: {e}")
-            async with client:
-                await client.get_me()
-            return True
+            return False
+        finally:
+            try:
+                await client.disconnect()
+            except Exception:
+                pass
 
     @classmethod
-    async def getValidAccounts(cls, userId: int):
+    async def getValidAccounts(cls, user: User):
+        global client
         validAccounts = []
-        accounts = await cls.getUserAccounts(userId)
+        accounts = await cls.getUserAccounts(user.id)
 
         for account in accounts:
             try:
                 proxy = None
 
-                if account.proxy:
-                    parsed_proxy = urlparse(account.proxy)
+                if account.proxyId is not None:
+                    proxy = await Proxy.get(account.proxyId)
                     proxy = {
-                        "scheme": parsed_proxy.scheme,
-                        "hostname": parsed_proxy.hostname,
-                        "port": parsed_proxy.port,
-                        "username": parsed_proxy.username,
-                        "password": parsed_proxy.password
+                        "scheme": proxy.type,
+                        "hostname": proxy.host,
+                        "port": proxy.port,
+                        "username": proxy.user,
+                        "password": proxy.password
                     }
 
                 client = Client(name=account.sessionName, api_id=settings.API_ID, api_hash=settings.API_HASH,
                                 workdir=settings.WORKDIR, proxy=proxy)
 
-                if await client.connect():
+                if not await SubscriptionManager.isAccountSubscriptionActive(account.id):
+                    await bot.send_message(user.telegramId, text.SUBSCRIPTION_INACTIVE.format(sessionName=account.sessionName))
+
+                if await client.connect() and await SubscriptionManager.isAccountSubscriptionActive(account.id):
                     account.status = Status.ACTIVE
                     validAccounts.append(account)
                 else:
                     account.status = Status.INACTIVE
 
                 await account.save()
-                await client.disconnect()
 
             except Exception as e:
-                await bot.send_message(userId, text.SESSION_ENDED.format(sessionName=account.sessionName))
+                await bot.send_message(user.telegramId, text.SESSION_ENDED.format(sessionName=account.sessionName))
                 continue
+            finally:
+                await client.disconnect()
 
         return validAccounts
 
@@ -196,20 +211,22 @@ class AccountManager:
                     duration = datetime.datetime.now() - account.lastUpdated
 
                     if duration >= datetime.timedelta(hours=blumDetail.farmingFreezeHours):
-                        user = await User.getById(account.userId)
+                        user = await User.getById(account.telegramId)
                         i18n.ctx_locale.set(user.languageCode)
                         with i18n.context():
-                            await bot.send_message(user.telegramId,
-                                                   text.ACCOUNT_AVAILABLE_TO_FARM.format(sessionName=account.sessionName))
+                            await sendToUser(user.telegramId, text.ACCOUNT_AVAILABLE_TO_FARM.format(
+                                sessionName=account.sessionName))
                         blumDetail.farmingFreezeHours = 0
                         blumDetail.needRemind = False
-                        await blumDetail.save()
-                        await account.save()
+
+                        session.add(blumDetail)
+                        session.add(account)
+
                         await session.commit()
 
         except Exception as e:
             logger.error(str(e))
-            await sendError(text.ERROR_TEMPLATE.format(error=f"Reminder user - {e}", telegramId=user.telegramId))
+            await sendError(text.ERROR_TEMPLATE.format(message=f"Reminder user - {e}", telegramId=user.telegramId))
 
     @classmethod
     async def getNotUsingAccounts(cls):
@@ -247,6 +264,61 @@ class BlumAccountManager:
         return account
 
 
+class ProxyManager:
+    apiKey = settings.PROXY_KEY
+    baseUrl = settings.PROXY_BASE_URL
+
+    @classmethod
+    def getProxies(cls):
+        proxies = []
+
+        with open("apps/common/src/proxies.txt", 'r') as file:
+            for line in file:
+                proxies.append(line.strip())
+
+        return proxies
+
+    @classmethod
+    async def isExistsBySessionName(cls, sessionName: str) -> bool:
+        async with AsyncSessionLocal() as session:
+            result = await session.execute(select(exists().where(Account.sessionName == sessionName)))
+            return result.scalar()
+
+    @classmethod
+    async def isExistsByProxyHostAndPort(cls, host: str, port: str) -> bool:
+        async with AsyncSessionLocal() as session:
+            result = await session.execute(
+                select(exists().where(and_(Proxy.host == host, Proxy.port == port)))
+            )
+            return result.scalar()
+
+    @classmethod
+    async def createByJson(cls, telegramId: int, response: dict) -> Proxy:
+        proxyResponse = ProxyResponseScheme(**response)
+        firstKey = next(iter(proxyResponse.list))
+        proxyDetail = proxyResponse.list[firstKey]
+        proxyDetail.port = int(proxyDetail.port)
+        proxyDetail.type = 'socks5' if proxyDetail.type == 'socks' else 'http'
+        proxyCreateScheme = ProxyCreateScheme(telegramId=telegramId, **proxyDetail.model_dump())
+
+        proxy = Proxy(**proxyCreateScheme.model_dump())
+        await proxy.save()
+
+        return proxy
+
+    @classmethod
+    async def buyProxy(cls, telegramId: int) -> dict:
+        url = f"{cls.baseUrl}/{cls.apiKey}/buy?count=1&period=30&version=3&type=socks&descr={telegramId}&country=ru"
+
+        headers = {'User-Agent': UserAgent(os='android').random}
+        webSession = httpx.AsyncClient(headers=headers, timeout=httpx.Timeout(timeout=60))
+
+        response = await webSession.post(url)
+        responseJson = response.json()
+
+        return responseJson
+
+
 class UserTaskManager:
     def __init__(self):
         self.userTasks: Dict[int, List[asyncio.Task]] = {}
@@ -275,11 +347,28 @@ class SessionManager:
         self.storage_dir = "sessions"
         os.makedirs(self.storage_dir, exist_ok=True)
 
+        self._sessions = {}
+        self._lock = asyncio.Lock()
+
+
     def getSessionPath(self, sessionName: str):
         return os.path.join(self.storage_dir, f'{sessionName}.session')
 
     def sessionExists(self, sessionName: str):
         return os.path.exists(self.getSessionPath(sessionName))
+
+    async def setSession(self, userId: int, session: Client):
+        async with self._lock:
+            self._sessions[userId] = session
+
+    async def getSession(self, userId: int) -> Client:
+        async with self._lock:
+            return self._sessions.get(userId)
+
+    async def deleteSession(self, userId: int):
+        async with self._lock:
+            if userId in self._sessions:
+                del self._sessions[userId]
 
 
 sessionManager = SessionManager()

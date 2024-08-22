@@ -40,9 +40,13 @@ def accountsListMarkup(accounts: List[Account]):
     return keyboard.ReplyKeyboardMarkup(keyboard=accountsBuilder.export(), resize_keyboard=True)
 
 
-def changeAccountMarkup(accountId: int):
-    changeAccountBuilder = keyboard.InlineKeyboardBuilder()
-    changeAccountBuilder.button(text=_("O'yin biletlari sonini o'zgartirish 🔄"),
+def accountParamsMarkup(accountId: int):
+    paramsAccountBuilder = keyboard.InlineKeyboardBuilder()
+    paramsAccountBuilder.button(text=_("🎟️ O'yin biletlari sonini o'zgartirish"),
                                 callback_data=AccountCallback(accountId=accountId, name="play_pass_change"))
-
-    return keyboard.InlineKeyboardMarkup(inline_keyboard=changeAccountBuilder.export())
+    paramsAccountBuilder.button(text=_("🌐 Proksi ma'lumotlari"),
+                                callback_data=AccountCallback(accountId=accountId, name="proxy_info"))
+    paramsAccountBuilder.button(text=_("🔰 Obunani yangilash"),
+                                callback_data=AccountCallback(accountId=accountId, name="update_subscription"))
+    paramsAccountBuilder.adjust(1, 1)
+    return keyboard.InlineKeyboardMarkup(inline_keyboard=paramsAccountBuilder.export())

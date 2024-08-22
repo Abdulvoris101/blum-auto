@@ -18,7 +18,7 @@ def validateAmount(amount) -> float:
     except ValueError:
         raise InvalidRequestException(messageText=text.INCORRECT_AMOUNT.value)
 
-    if amount < 1.49:
+    if amount < 1:
         raise InvalidRequestException(messageText=text.MINIMAL_AMOUNT.value)
 
     return amount

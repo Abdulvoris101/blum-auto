@@ -47,42 +47,12 @@ class UserManager:
 
         userData = user.model_dump()
         scheme = UserCreateScheme(**userData)
-        async with AsyncSessionLocal() as session:
-            userObj = User(**scheme.model_dump())
-            session.add(userObj)
-            await session.commit()
-
-            userScheme = UserScheme(**userObj.to_dict())
-            userPaymentScheme = UserPaymentCreateScheme(telegramId=userObj.telegramId, userId=userObj.id)
-            userPayment = UserPayment(**userPaymentScheme.model_dump())
-            userPayment.balance += settings.PRICE
-            session.add(userPayment)
-            await session.commit()
-
-            await sendEvent(text=text.USER_REGISTERED_EVENT_TEMPLATE.format(**userScheme.model_dump()))
-
-    @classmethod
-    async def isValidReferral(cls, telegramId: int, referredBy: str) -> bool:
-        try:
-            referredUserId = int(referredBy)
-        except Exception:
-            return False
-
-        if telegramId == referredUserId:
-            return False
-
-        async with (AsyncSessionLocal() as session):
-            referredUser = await session.execute(
-                select(User).filter(User.telegramId == referredUserId)
-            )
-            referredUser = referredUser.scalar_one_or_none()
-
-            if not referredUser:
-                return False
-
-            referredChatScheme = UserScheme(**referredUser.to_dict())
-
-            return telegramId not in referredChatScheme.referralUsers
+        userObj = User(**scheme.model_dump())
+        await userObj.save()
+        userPaymentScheme = UserPaymentCreateScheme(telegramId=userObj.telegramId, userId=userObj.id)
+        userPayment = UserPayment(**userPaymentScheme.model_dump())
+        await userPayment.save()
+        await sendEvent(text=text.USER_REGISTERED_EVENT_TEMPLATE.format(**userObj.to_dict()))
 
     @classmethod
     async def assignReferredBy(cls, telegramId: int, referredBy: str):
@@ -90,16 +60,29 @@ class UserManager:
             user = await session.execute(select(User).filter(User.telegramId == telegramId))
             user = user.scalar_one_or_none()
 
-            if user is not None:
-                if referredBy is None:
-                    if user.referredBy is None:
-                        user.referredBy = 'direct'
-                        session.add(user)
+            if user is None:
+                return
 
-                elif referredBy != str(telegramId):
+            if referredBy is None:
+                if user.referredBy is None:
+                    user.referredBy = 'direct'
+                    session.add(user)
+
+            elif referredBy != str(telegramId):
+                referredUser = await session.execute(
+                    select(User).filter(User.telegramId == int(referredBy))
+                )
+                referredUser = referredUser.scalar_one_or_none()
+
+                if not referredUser:
+                    user.referredBy = 'direct'
+
+                referredChatScheme = UserScheme(**referredUser.to_dict())
+
+                if telegramId not in referredChatScheme.referralUsers:
                     user.referredBy = referredBy
 
-                await session.commit()
+            await session.commit()
 
     @classmethod
     async def addUserToReferrals(cls, userId: int, referralId: int):
@@ -112,3 +95,21 @@ class UserManager:
                 user.referralUsers = userScheme.model_dump().get("referralUsers")
                 await session.commit()
 
+    @classmethod
+    async def isActiveReferral(cls, userId: str, referralId: int) -> bool:
+        try:
+            userId = int(userId)
+        except ValueError:
+            return False
+
+        if userId != 'direct':
+            async with AsyncSessionLocal() as session:
+                user = await session.execute(select(User).filter(User.telegramId == userId))
+                user = user.scalar_one_or_none()
+
+                if user:
+                    userScheme = UserScheme(**user.to_dict())
+                    if referralId not in userScheme.referralUsers:
+                        return True
+                    return False
+        return False

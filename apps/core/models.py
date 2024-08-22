@@ -17,7 +17,7 @@ class User(Base):
     referredBy = Column(String, nullable=True)
     referralUsers = Column(JSON, nullable=True)
     createdAt = Column(DateTime, nullable=True)
-    isFreeTrial = Column(Boolean, default=True)
+    isGrantGiven = Column(Boolean, default=True)
     lastUpdated = Column(DateTime, nullable=True)
 
     def __init__(self, telegramId, firstName, lastName, username, referralUsers, languageCode, isGrantGiven,

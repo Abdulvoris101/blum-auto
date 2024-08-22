@@ -1,6 +1,6 @@
 from datetime import datetime
 from enum import Enum
-from typing import Optional, List
+from typing import Optional, List, Dict
 from pydantic import BaseModel, Field, field_validator
 import json
 
@@ -18,9 +18,8 @@ class UserBase(BaseModel):
     username: Optional[str]
     referralUsers: List[int] = []
     languageCode: Language = Language.uz
-    isGrantGiven: bool = False
     referredBy: Optional[str] = 'direct'
-    isFreeTrial: bool = True
+    isGrantGiven: bool = False
     createdAt: datetime = datetime.now()
     lastUpdated: datetime = datetime.now()
 
@@ -58,7 +57,7 @@ class Farming(BaseModel):
 
 
 class BlumBalanceScheme(BaseModel):
-    availableBalance: str
+    availableBalance: float
     allPlayPasses: int = Field(alias="playPasses")
     timestamp: int
     farming: Optional[Farming]
