@@ -70,10 +70,10 @@ async def processChangingLanguage(message: types.Message, state: FSMContext):
 
     i18n.ctx_locale.set(languageCode)
     await state.clear()
-    await sendEvent(text=text.USER_REGISTERED_EVENT_TEMPLATE.format(**user.to_dict()))
     await message.answer(text.START_WELCOME.value, reply_markup=startMenuMarkup())
 
     if not user.isGrantGiven:
+        await sendEvent(text=text.USER_REGISTERED_EVENT_TEMPLATE.format(**user.to_dict()))
         user.isGrantGiven = True
         await user.save()
         return await message.answer(text.THANKS_FOR_CHOOSING.value)
