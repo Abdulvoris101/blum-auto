@@ -52,7 +52,6 @@ class UserManager:
         userPaymentScheme = UserPaymentCreateScheme(telegramId=userObj.telegramId, userId=userObj.id)
         userPayment = UserPayment(**userPaymentScheme.model_dump())
         await userPayment.save()
-        await sendEvent(text=text.USER_REGISTERED_EVENT_TEMPLATE.format(**userObj.to_dict()))
 
     @classmethod
     async def assignReferredBy(cls, telegramId: int, referredBy: str):

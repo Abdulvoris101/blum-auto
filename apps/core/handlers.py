@@ -25,6 +25,8 @@ from utils import text
 from aiogram.utils.i18n import lazy_gettext as __
 from aiogram.utils.i18n import gettext as _
 
+from utils.events import sendEvent
+
 coreRouter = Router(name="coreRouter")
 taskManager = UserTaskManager()
 
@@ -68,6 +70,7 @@ async def processChangingLanguage(message: types.Message, state: FSMContext):
 
     i18n.ctx_locale.set(languageCode)
     await state.clear()
+    await sendEvent(text=text.USER_REGISTERED_EVENT_TEMPLATE.format(**user.to_dict()))
     await message.answer(text.START_WELCOME.value, reply_markup=startMenuMarkup())
 
     if not user.isGrantGiven:
