@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-08-23 18:11+0500\n"
-"PO-Revision-Date: 2024-08-23 18:18+0500\n"
+"POT-Creation-Date: 2024-08-23 23:22+0500\n"
+"PO-Revision-Date: 2024-08-23 23:33+0500\n"
 "Last-Translator: \n"
 "Language-Team: en <LL@li.org>\n"
 "Language: en\n"
@@ -650,63 +650,71 @@ msgstr "Subscription for {sessionName} account has expired or is not available! 
 "\n"
 "🔄 To reactivate your subscription, go to the Accounts section"
 
-#: utils/text.py:250
+#: utils/text.py:233
+msgid "⭕️ Bepul obunada siz bot orqali 5tadan ortiq o'yin o'ynolmaysiz. Botdan to'liq foydalanib xoxlagancha o'yin o'ynash uchun pullik obunani aktivlashtiring\n"
+"\n"
+"Pullik obunani aktivlashtirish uchun akkauntlar bo'limiga o'tib akkauntingizni tanlang va obunani yangilash tugmasini bosing!"
+msgstr "⭕️ You can't play more than 5 games with a bot on a trial subscription. Activate a paid subscription to take full advantage of the bot and play as many games as you want\n"
+"\n"
+"To activate a paid subscription, go to the accounts section, select your account and click the renew subscription button!"
+
+#: utils/text.py:253
 msgid "Akkauntingizda blum ishga tushirilmagan, @BlumCryptoBot botga kirib ro'yxatdan o'ting"
 msgstr "You don't launched blum, log in to the bot @BlumCryptoBot and register"
 
-#: utils/text.py:258
+#: utils/text.py:261
 msgid "To'lov tizimida xatolik, iltimos keyinroq urinib ko'ring"
 msgstr "Blum Error Please try again"
 
-#: utils/text.py:261
+#: utils/text.py:264
 msgid "#error\n"
 "orderId: {orderId}\n"
 "message: {message}"
 msgstr ""
 
-#: utils/text.py:263
+#: utils/text.py:266
 msgid "Nimadir xatolik ketdi. Iltimos qayta urinib ko'ring!"
 msgstr "Something went wrong. Please try again!"
 
-#: utils/text.py:264
+#: utils/text.py:267
 msgid "Nomerni ushbu formatda kiriting +99890103xxxx!"
 msgstr "Enter the number in this format +99890103xxxx!"
 
-#: utils/text.py:265
+#: utils/text.py:268
 msgid "Notog'ri telefon raqam!"
 msgstr "Wrong phone number!"
 
-#: utils/text.py:266
+#: utils/text.py:269
 msgid "Notog'ri tasdiqlash kodi"
 msgstr "Invalid verification code"
 
-#: utils/text.py:267
+#: utils/text.py:270
 msgid "🔴 Tasdiqlash kodi eskirgan"
 msgstr "🔴 Verification code is outdated"
 
-#: utils/text.py:268
+#: utils/text.py:271
 msgid "Tasdiqlash kodi eskirgan. Qayta urinib ko'ring"
 msgstr "The verification code is outdated. Try again"
 
-#: utils/text.py:269
+#: utils/text.py:272
 msgid "⚠️ Agar o'zingizning akkauntingizni ulashga uringan bo'lsangiz, Telegram ruxsat bermaydi. Iltimos, boshqa akkauntingizni ulang yoki bizdan sotib oling: @aerkinov1."
 msgstr "⚠️ If you tried to connect your exactly this account, Telegram will not allow it. Please connect your other account or buy from us: @aerkinov1."
 
-#: utils/text.py:270
+#: utils/text.py:273
 msgid "Nimadir xato ketdi, Iltimos qayta urinib ko'ring!"
 msgstr "Something went wrong, please try again!"
 
-#: utils/text.py:271
+#: utils/text.py:274
 msgid "Telegramga bog'lanib bo'lmadi, qayta urinib ko'ring"
 msgstr "Failed to connect to Telegram, please try again"
 
-#: utils/text.py:272
+#: utils/text.py:275
 msgid "Telegramingizga juda xam ko'p so'rovlar bo'lgani uchun telegram 15 soatlik tannafusga tushdi. \n"
 "Iltimos 15 soatdan so'ng qayta urinib ko'ring!"
 msgstr "Because there were too many requests to your telegram, the telegram went on a 15-hour break.\n"
 "Please try again in 15 hours!"
 
-#: utils/text.py:274
+#: utils/text.py:277
 msgid "🔴 Blum farming mavjud emas \n"
 "\n"
 "Siz xali akkaunt qo'shmagansiz akkaunt qo'shish uchun \"👥 Akkauntlar\" bo'limiga o'ting"
@@ -714,23 +722,23 @@ msgstr "🔴 Blum farming is not available\n"
 "\n"
 "You have not added an account yet To add an account, go to \"👥 Accounts\" section"
 
-#: utils/text.py:277
+#: utils/text.py:280
 msgid "{sessionName} | Akkauntda xatolik, iltimos qayta urinib ko'ring!"
 msgstr "{sessionName} | Account error, please try again!"
 
-#: utils/text.py:278
+#: utils/text.py:281
 msgid "Iltimos to'g'ri raqam kiriting"
 msgstr "Please enter a valid number"
 
-#: utils/text.py:279
+#: utils/text.py:282
 msgid "Blumda xatolik iltimos qayta urinib ko'ring!"
 msgstr "Blum Error Please try again!"
 
-#: utils/text.py:280
+#: utils/text.py:283
 msgid "Bekor qilindi"
 msgstr "Canceled"
 
-#: utils/text.py:285
+#: utils/text.py:288
 msgid "{sessionName} - sessiya tugatilgan!"
 msgstr "{sessionName} - session is end!"
 
@@ -1321,4 +1329,29 @@ msgstr "{sessionName} - session is end!"
 #~ "{playPasses}🎟 O'yin uchun ruxsat etilgan "
 #~ "biletlar: {availablePlayPasses}\n"
 #~ "👾 Balans - {availableBalance} blum"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "\n"
+#~ "\n"
+#~ "Bepul obunada siz bot orqali 5tadan "
+#~ "ortiq o'yin o'ynolmaysiz. Botdan to'liq "
+#~ "foydalanib xoxlagancha o'yin o'ynash uchu\n"
+#~ ""
+#~ "Pullik obunani aktivlashtirish uchun 👥 "
+#~ "akkauntlar bo'limiga o'tib akkauntingizni "
+#~ "tanlang va 🔰 obunani yangilas"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "\n"
+#~ "\n"
+#~ "Bepul obunada siz bot orqali 5tadan "
+#~ "ortiq o'yin o'ynolmaysiz. Botdan to'liq "
+#~ "foydalanib xoxlagancha o'yin o'ynash uchun "
+#~ "pullik obunani aktivlashtiring \n"
+#~ "\n"
+#~ "Pullik obunani aktivlashtirish uchun 👥 "
+#~ "akkauntlar bo'limiga o'tib akkauntingizni "
+#~ "tanlang va 🔰 obunani yangilas"
 #~ msgstr ""

@@ -8,7 +8,7 @@ from sqlalchemy.orm import relationship, class_mapper
 class User(Base):
     __tablename__ = 'user'
 
-    id = Column(Integer, primary_key=True)
+    id = Column(Integer, primary_key=True, autoincrement=True)
     telegramId = Column(BigInteger, unique=True)
     firstName = Column(String)
     lastName = Column(String)

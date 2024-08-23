@@ -142,11 +142,12 @@ class BlumAccount(Base):
     availableBalance = Column(Float)
     farmingFreezeHours = Column(Integer)
     needRemind = Column(Boolean, default=True)
+    playedGames = Column(Integer, nullable=True)
     status = Column(String)
 
     def __init__(self, accountId: int, availableBalance: float, availablePlayPasses: int,
                  farmingFreezeHours: int, needRemind: bool,
-                 allPlayPasses: int, status: str):
+                 allPlayPasses: int, playedGames: int, status: str):
         self.accountId = accountId
         self.availablePlayPasses = availablePlayPasses
         self.availableBalance = availableBalance
@@ -154,6 +155,7 @@ class BlumAccount(Base):
         self.needRemind = needRemind
         self.status = status
         self.farmingFreezeHours = farmingFreezeHours
+        self.playedGames = playedGames
 
         super().__init__()
 
@@ -187,7 +189,8 @@ class BlumAccount(Base):
 
             if blumAccount is None:
                 blumAccount = BlumAccount(accountId=accountId, availableBalance=0.0, availablePlayPasses=0,
-                                          farmingFreezeHours=8, needRemind=True, allPlayPasses=0, status="INACTIVE")
+                                          farmingFreezeHours=8, needRemind=True, allPlayPasses=0, status="INACTIVE",
+                                          playedGames=0)
                 await blumAccount.save()
 
             return blumAccount
