@@ -207,7 +207,8 @@ class AccountManager:
                 blumDetails = result.scalars().all()
 
                 for blumDetail in blumDetails:
-                    account = blumDetail.account
+                    accountId = blumDetail.accountId
+                    account = await Account.get(accountId)
                     duration = datetime.datetime.now() - account.lastUpdated
 
                     if duration >= datetime.timedelta(hours=blumDetail.farmingFreezeHours):
@@ -226,7 +227,7 @@ class AccountManager:
 
         except Exception as e:
             logger.error(str(e))
-            await sendError(text.ERROR_TEMPLATE.format(message=f"Reminder user - {e}", telegramId=user.telegramId))
+            await sendError(text.ERROR_TEMPLATE.format(message=f"Reminder user - {e}", telegramId="no"))
 
     @classmethod
     async def getNotUsingAccounts(cls):
