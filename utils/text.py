@@ -230,6 +230,9 @@ SUBSCRIPTION_INACTIVE = __("""{sessionName} akkaunt uchun obuna mudati tugagan y
 
 🔄 Obunani qayta aktivlashtirish uchun akkauntlar bo'limiga o'ting""")
 
+FORBIDDEN_TO_PLAY_GAMES = __("""⭕️ Bepul obunada siz bot orqali 5tadan ortiq o'yin o'ynolmaysiz. Botdan to'liq foydalanib xoxlagancha o'yin o'ynash uchun pullik obunani aktivlashtiring
+
+Pullik obunani aktivlashtirish uchun akkauntlar bo'limiga o'tib akkauntingizni tanlang va obunani yangilash tugmasini bosing!""")
 
 # Admin | not need i18n
 

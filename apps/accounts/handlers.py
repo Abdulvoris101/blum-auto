@@ -369,7 +369,7 @@ async def updateSubscription(callback: types.CallbackQuery, callback_data: Accou
     account = await Account.get(callback_data.accountId)
     userPayment = await UserPayment.get(callback.from_user.id)
 
-    if await SubscriptionManager.isAccountSubscriptionActive(account.id):
+    if await SubscriptionManager.isAccountSubscriptionActiveOrPremium(account.id):
         return await bot.send_message(callback.from_user.id,
                                       text.SUBSCRIPTION_ALREADY_ACTIVATED.value)
 
@@ -379,7 +379,7 @@ async def updateSubscription(callback: types.CallbackQuery, callback_data: Accou
     userPayment.balance -= settings.PRICE
     await userPayment.save()
 
-    await SubscriptionManager.updateSubscription(accountId=account.id, isFreeTrial=False)
+    await SubscriptionManager.updateSubscription(accountId=account.id)
     return await bot.send_message(callback.from_user.id, text.SUBSCRIPTION_UPDATED.format(
         sessionName=account.sessionName))
 

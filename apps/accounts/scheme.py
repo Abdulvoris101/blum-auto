@@ -43,11 +43,12 @@ class AccountGetScheme(AccountBase):
 
 class BlumAccountBase(BaseModel):
     accountId: int
-    availablePlayPasses: int = 0
+    availablePlayPasses: int = 1
     allPlayPasses: int = 0
     availableBalance: Optional[float] = 0.0
     farmingFreezeHours: int = 0
     needRemind: Optional[bool] = True
+    playedGames: Optional[int] = 0
     status: Status = Status.ACTIVE
 
 

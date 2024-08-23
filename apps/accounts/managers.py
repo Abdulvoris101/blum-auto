@@ -212,7 +212,7 @@ class AccountManager:
                     duration = datetime.datetime.now() - account.lastUpdated
 
                     if duration >= datetime.timedelta(hours=blumDetail.farmingFreezeHours):
-                        user = await User.getById(account.telegramId)
+                        user = await User.get(account.telegramId)
                         i18n.ctx_locale.set(user.languageCode)
                         with i18n.context():
                             await sendToUser(user.telegramId, text.ACCOUNT_AVAILABLE_TO_FARM.format(
