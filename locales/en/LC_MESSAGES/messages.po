@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-08-21 22:45+0500\n"
-"PO-Revision-Date: 2024-08-23 00:09+0500\n"
+"POT-Creation-Date: 2024-08-23 18:11+0500\n"
+"PO-Revision-Date: 2024-08-23 18:18+0500\n"
 "Last-Translator: \n"
 "Language-Team: en <LL@li.org>\n"
 "Language: en\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Generated-By: Babel 2.15.0\n"
 "X-Generator: Poedit 3.4.3\n"
 
-#: apps/accounts/handlers.py:35 apps/core/keyboards.py:25
+#: apps/accounts/handlers.py:38 apps/core/keyboards.py:25
 msgid "👥 Akkauntlar"
 msgstr "👥 Accounts"
 
@@ -31,11 +31,11 @@ msgstr "{sessionName} | {balance}"
 msgid "➕ Akkaunt qo'shish"
 msgstr "➕ Add an account"
 
-#: apps/accounts/keyboards.py:37 utils/text.py:114
+#: apps/accounts/keyboards.py:37 utils/text.py:119
 msgid "Barchasini tanlash"
 msgstr "Select all"
 
-#: apps/accounts/keyboards.py:38 apps/core/handlers.py:79
+#: apps/accounts/keyboards.py:38 apps/core/handlers.py:82
 #: apps/core/keyboards.py:8 apps/core/keyboards.py:51
 msgid "⬅️ Bosh sahifa"
 msgstr "⬅️ Home page"
@@ -52,36 +52,36 @@ msgstr "🌐 Proxy informations"
 msgid "🔰 Obunani yangilash"
 msgstr "🔰 Subscription renewal"
 
-#: apps/common/middleware.py:42 apps/core/handlers.py:38
+#: apps/common/middleware.py:42 apps/core/handlers.py:40
 #: apps/core/keyboards.py:27
 msgid "🌐 Tilni o'zgartirish"
 msgstr "🌐 Change language"
 
-#: apps/core/handlers.py:32 apps/core/keyboards.py:15
+#: apps/core/handlers.py:34 apps/core/keyboards.py:15
 msgid "❌ Bekor qilish"
 msgstr "❌ Cancel"
 
-#: apps/core/handlers.py:84 apps/core/keyboards.py:24
+#: apps/core/handlers.py:87 apps/core/keyboards.py:24
 msgid "👾 Blum ishlash"
 msgstr "👾 Farming blum"
 
-#: apps/core/handlers.py:154 apps/core/keyboards.py:47
+#: apps/core/handlers.py:157 apps/core/keyboards.py:47
 msgid "🤔 Botni qanday ishlataman?"
 msgstr "🤔 How do I use the bot?"
 
-#: apps/core/handlers.py:159 apps/core/keyboards.py:48
+#: apps/core/handlers.py:162 apps/core/keyboards.py:48
 msgid "🪄 Bot imkoniyatlari"
 msgstr "🪄 Bot capabilities"
 
-#: apps/core/handlers.py:164 apps/core/keyboards.py:49
+#: apps/core/handlers.py:167 apps/core/keyboards.py:49
 msgid "💸 Bot bilan qancha ishlashim mumkin?"
 msgstr "💸 How much can earn with the bot?"
 
-#: apps/core/handlers.py:169 apps/core/keyboards.py:50
+#: apps/core/handlers.py:172 apps/core/keyboards.py:50
 msgid "🎱 Kriptoni qayerdan olaman?"
 msgstr "🎱 Where can I get crypto?"
 
-#: apps/core/handlers.py:174 apps/core/keyboards.py:28
+#: apps/core/handlers.py:177 apps/core/keyboards.py:28
 msgid "🚫 Farmingni to'xtatish"
 msgstr "🚫 Stop Farming"
 
@@ -220,19 +220,19 @@ msgstr "<b>Enter the phone number you want to connect:</b>\n"
 "\n"
 "Phone number format: +99890xxxxxxx"
 
-#: utils/text.py:67
+#: utils/text.py:70
 msgid "Telegramingizga kelgan tasdiqlash kodini kiriting: "
 msgstr "Enter the confirmation code received in your telegram:"
 
-#: utils/text.py:68
+#: utils/text.py:71
 msgid "🔒 2-bosqichli parolingizni kiriting: "
 msgstr "🔒 Enter your 2-step password:"
 
-#: utils/text.py:69
+#: utils/text.py:72
 msgid "Telegram kod yuborilmoqda...."
 msgstr "Telegram code is being sent...."
 
-#: utils/text.py:70
+#: utils/text.py:73
 msgid "Akkauntingiz muvaffiqiyatli qo'shildi 🎉. \n"
 "\n"
 "Akkaunt haqida to'liq ma'lumot uchun 👥 Akkauntlar bo'limiga o'ting"
@@ -240,11 +240,11 @@ msgstr "Your account has been successfully added 🎉.\n"
 "\n"
 "For complete account information, go to 👥 Accounts"
 
-#: utils/text.py:73
+#: utils/text.py:76
 msgid "Bu akkaunt allaqachon qo'shilgan!"
 msgstr "This account has already been added!"
 
-#: utils/text.py:74
+#: utils/text.py:77
 msgid "#new\n"
 "id: {id}\n"
 "telegramId: {telegramId}\n"
@@ -254,7 +254,7 @@ msgid "#new\n"
 "name: {firstName}"
 msgstr ""
 
-#: utils/text.py:76
+#: utils/text.py:79
 msgid "O'yin o'ynash uchun ruxsat etilgan biletlar sonini kiriting: \n"
 "\n"
 "Maksimum biletlar soni: {allPlayPasses}"
@@ -262,29 +262,29 @@ msgstr "Enter the number of tickets allowed to play the game:\n"
 "\n"
 "Maximum number of passes: {allPlayPasses}"
 
-#: utils/text.py:80
+#: utils/text.py:83
 msgid "⚠️ Agar o'zingizning akkauntingizni ulashga uringan bo'lsangiz, Telegram ruxsat bermaydi. \n"
 "Iltimos, boshqa akkauntingizni ulang yoki bizdan sotib oling: @aerkinov1."
 msgstr "⚠️ If you tried to connect your exactly telegram account, Telegram will not allow it.\n"
 "Please connect your other account or buy from us if you don't have: @aerkinov1."
 
-#: utils/text.py:83
+#: utils/text.py:86
 msgid "Tekin"
 msgstr "Free"
 
-#: utils/text.py:84
+#: utils/text.py:87
 msgid "Pullik"
 msgstr "Paid"
 
-#: utils/text.py:86
+#: utils/text.py:89
 msgid "aktiv"
 msgstr "active"
 
-#: utils/text.py:87
+#: utils/text.py:90
 msgid "🔴 inaktiv"
 msgstr "🔴 inactive"
 
-#: utils/text.py:89
+#: utils/text.py:92
 msgid "👤 <b>Akkaunt xaqida ma'lumotlar:</b>\n"
 "Sessiya nomi: <b>{sessionName}</b>\n"
 "Balans: <b>{availableBalance} blum</b>\n"
@@ -300,7 +300,7 @@ msgstr "👤 <b>Account information:</b>\n"
 "\n"
 "⭐️ {type} subscription in {subscriptionStatus} status, next payment {currentPeriodEnd}\n"
 
-#: utils/text.py:98
+#: utils/text.py:101
 msgid "👤 Akkauntning proksi ma'lumotlari:\n"
 "\n"
 "- Type: {type}\n"
@@ -317,11 +317,11 @@ msgstr "👤 Account proxy information:\n"
 "- Username: {username}\n"
 "- Password: {password}\n"
 
-#: utils/text.py:115
+#: utils/text.py:111
 msgid "Proksi ma'lumotlari vaqtinchalik mavjud emas!"
 msgstr "Proxy information is temporarily unavailable!"
 
-#: utils/text.py:115
+#: utils/text.py:120
 msgid "Akkaunt: {sessionName}\n"
 "\n"
 "🟢 Jarayon boshlandi..."
@@ -329,7 +329,7 @@ msgstr "Account: {sessionName}\n"
 "\n"
 "🟢 The process has started..."
 
-#: utils/text.py:118
+#: utils/text.py:123
 msgid "\n"
 "\n"
 "🔴 O'yinni o'ynab bo'lmadi! O'yin uchun mavjud biletlar soni: {playPasses}"
@@ -337,7 +337,7 @@ msgstr "\n"
 "\n"
 "🔴 The game could not be played! Number of tickets available for the game: {playPasses}"
 
-#: utils/text.py:119
+#: utils/text.py:124
 msgid "\n"
 "\n"
 "🟢 Kunlik blum olindi"
@@ -345,7 +345,7 @@ msgstr "\n"
 "\n"
 "🟢 Daily blum claimed"
 
-#: utils/text.py:120
+#: utils/text.py:125
 msgid "\n"
 "\n"
 "🔴 Kunlik blum olib bo'lingan!"
@@ -353,7 +353,7 @@ msgstr "\n"
 "\n"
 "🔴 Daily blum has been claimed!"
 
-#: utils/text.py:121
+#: utils/text.py:126
 msgid "\n"
 "\n"
 "🟢 Do'stlar bo'limidan {amount} blum olindi"
@@ -361,23 +361,23 @@ msgstr "\n"
 "\n"
 "🟢 Claimed {amount} blum from friends section"
 
-#: utils/text.py:122
+#: utils/text.py:127
 msgid "\n"
 "\n"
 "🔴 Do'stlar uchun blum mavjud emas!"
 msgstr "\n"
 "\n"
-"🔴 BLum is not available for friends!"
+"🔴 Blum is not available for friends!"
 
-#: utils/text.py:123
+#: utils/text.py:128
 msgid "🔍 Aktiv farming topilmadi"
 msgstr "🔍 No active farm found"
 
-#: utils/text.py:124
+#: utils/text.py:129
 msgid "🔴 Farming toxtadi"
 msgstr "🔴 Farm stopped"
 
-#: utils/text.py:125
+#: utils/text.py:130
 msgid "\n"
 "\n"
 "🟢 O'yin o'ynalmoqda..."
@@ -385,7 +385,7 @@ msgstr "\n"
 "\n"
 "🟢 Playing game..."
 
-#: utils/text.py:126
+#: utils/text.py:131
 msgid "\n"
 "\n"
 "🟢 O'yin muvaffiqiyatli o'ynaldi! Berilgan mukofot: {points}"
@@ -393,7 +393,7 @@ msgstr "\n"
 "\n"
 "🟢 Game played successfully! Reward awarded: {points}"
 
-#: utils/text.py:126
+#: utils/text.py:132
 msgid "\n"
 "\n"
 "🟡 Ushbu akkaunt uchun o'yin uchun ruxsat etilgan biletlar mavjud emas!"
@@ -401,21 +401,29 @@ msgstr "\n"
 "\n"
 "🟡 There are no tickets allowed for the game for this account!"
 
-#: utils/text.py:127
+#: utils/text.py:133
 msgid "\n"
 "\n"
 "🟢 Farming tugadi.\n"
 "\n"
-"💲Balans - {availableBalance} blum\n"
-"🎟O'yin uchun mavjud biletlar: {playPasses}\n"
+"👤 Akkauntlar bo'limida bot sizning o'rningizda nechta o'yin o'ynashini o'zgartishingiz mumkin\n"
+"\n"
+"🎟 O'yin uchun mavjud biletlar: {playPasses}\n"
+"🎟 O'yin uchun ruxsat etilgan biletlar: {availablePlayPasses}\n"
+"\n"
+"👾 Balans - {availableBalance} blum"
 msgstr "\n"
 "\n"
 "🟢 Farming is over.\n"
 "\n"
-"💲Balance - {availableBalance} blum\n"
-"🎟Available tickets for the game: {playPasses}\n"
+"👤 In the accounts section, you can change how many games bot can play for you\n"
+"\n"
+"🎟 Tickets available for the game: {playPasses}\n"
+"🎟 Tickets available bot can play : {availablePlayPasses}\n"
+"\n"
+"👾 Balance - {availableBalance} blum"
 
-#: utils/text.py:128
+#: utils/text.py:141
 msgid "\n"
 "\n"
 "🟢 Farmingdan blum olindi"
@@ -423,15 +431,15 @@ msgstr "\n"
 "\n"
 "🟢 Claimed blum from farming"
 
-#: utils/text.py:129
+#: utils/text.py:142
 msgid "\n"
 "\n"
 "🟢 Blum yig'ilmoqda. Qolgan vaqt: {sleepDuration} soat"
 msgstr "\n"
 "\n"
-"🟢 blum is being claimed. Time left: {sleepDuration} hours"
+"🟢 Blum is being claimed. Time left: {sleepDuration} hours"
 
-#: utils/text.py:130
+#: utils/text.py:143
 msgid "\n"
 "\n"
 "🟢 Farming boshlandi..."
@@ -439,7 +447,7 @@ msgstr "\n"
 "\n"
 "🟢 Farming has started..."
 
-#: utils/text.py:131
+#: utils/text.py:144
 msgid "\n"
 "\n"
 "🟡 Keyingi o'yin o'ynalishdan oldin 5 sekund kutamiz..."
@@ -447,7 +455,7 @@ msgstr "\n"
 "\n"
 "🟡 Waiting 5 seconds before playing the next game..."
 
-#: utils/text.py:132
+#: utils/text.py:145
 msgid "\n"
 "\n"
 "🟡 Xar 5ta o'yindan keyin 30 sekund kutamiz..."
@@ -455,36 +463,36 @@ msgstr "\n"
 "\n"
 "🟡 Waiting 30 seconds after every 5 games..."
 
-#: utils/text.py:133
+#: utils/text.py:146
 msgid "Biroz kuting..."
 msgstr "Wait a minute..."
 
-#: utils/text.py:135
+#: utils/text.py:147
+msgid "⏳ Akkaunt ma'lumotlari olinmoqda..."
+msgstr "⏳ Retrieving account information..."
+
+#: utils/text.py:149
 msgid "🎟 Ruxsat etilgan biletlar soni - {newPlayPass} taga o'zgardi"
 msgstr "🎟 The number of tickets allowed has changed to {newPlayPass}"
 
-#: utils/text.py:136
+#: utils/text.py:150
 msgid "\n"
 "⚠️ Bot sizning o'rningizda nechta o'yin o'ynashini o'zgartishingiz mumkin"
 msgstr "⚠️ You can change how many games the bot plays for you"
 
-#: utils/text.py:137
+#: utils/text.py:151
 msgid "Sizda o'yin uchun biletlar mavjud emas - {playPasses}. Maksimum biletlar soni: {allPlayPasses}"
 msgstr "You do not have any tickets for the game - {playPasses}. Maximum number of passes: {allPlayPasses}"
 
-#: utils/text.py:139
+#: utils/text.py:153
 msgid "Notog'ri akkaunt tanlandi!"
 msgstr "Wrong account selected!"
 
-#: utils/text.py:140
+#: utils/text.py:154
 msgid "Qaysi akkauntlarni farm qilamiz ⚡️"
 msgstr "Which accounts we farm ⚡️"
 
-#: utils/text.py:140
-msgid "⏳ Akkaunt ma'lumotlari olinmoqda..."
-msgstr "⏳ Retrieving account information..."
-
-#: utils/text.py:141
+#: utils/text.py:155
 msgid "☹️ Akkaunt inaktiv xolatda\n"
 "\n"
 "⚠️ Siz cpython sessiyasini telegramning sessiyasilar bo'limidan o'chirib yuborgansiz.\n"
@@ -494,19 +502,19 @@ msgstr "☹️ The account is inactive\n"
 "⚠️ You have deleted cpython session from telegram sessions section.\n"
 "Please re-add your account to use it!"
 
-#: utils/text.py:146
+#: utils/text.py:160
 msgid "Parol notog'ri"
 msgstr "The password is incorrect"
 
-#: utils/text.py:148
+#: utils/text.py:162
 msgid "{sessionName} akkauntingiz farming uchun mavjud"
 msgstr "Your {sessionName} account is available for farming"
 
-#: utils/text.py:151
+#: utils/text.py:165
 msgid "Test uchun telegram akkaunt olish uchun bizga yozing - @aerkinov1"
 msgstr "To get a testing telegram account, write to us - @aerkinov1"
 
-#: utils/text.py:154
+#: utils/text.py:168
 msgid "💵 Balans: {balance}$\n"
 "\n"
 "👤 Har bir akkauntni ulash oyiga: 1.99$ ≈ 25,000 so'm\n"
@@ -526,7 +534,7 @@ msgstr "💵 Balance: {balance}$\n"
 "\n"
 "💡 Guide if you don't know about crypto - /help"
 
-#: utils/text.py:163
+#: utils/text.py:178
 msgid "Sizning referalingiz: https://t.me/{botUsername}?start={referralId}\n"
 "\n"
 "Referallar soni: {referralsCount}\n"
@@ -538,7 +546,7 @@ msgstr "Your referral: https://t.me/{botUsername}?start={referralId}\n"
 "\n"
 "Refer a friend with this referral and earn {referralPrice}$ as soon as they top up their balance!"
 
-#: utils/text.py:169
+#: utils/text.py:184
 msgid " To'lov tafsilotlari:\n"
 "\n"
 "Summa: {amount}$\n"
@@ -556,41 +564,41 @@ msgstr "Payment Details:\n"
 "\n"
 "If you have any problems or questions during the payment process, contact us - @aerkinov1\n"
 
-#: utils/text.py:179
+#: utils/text.py:193
 msgid "{amount}$ balansingizga kelib qo'shildi, bizni tanlaganingiz uchun rahmat fren 😊"
 msgstr "{amount}$ has been added to your balance, thank you for choosing us fren 😊"
 
-#: utils/text.py:180
+#: utils/text.py:194
 msgid "To'lov summasini kiriting: "
 msgstr "Enter the amount to topup: "
 
-#: utils/text.py:182
+#: utils/text.py:196
 msgid "Notog'ri tilni kiritingiz, Iltimos menyudagi tillardan birini kiriting!"
 msgstr "Invalid language Please enter one of the languages ​​in the menu!"
 
-#: utils/text.py:185
+#: utils/text.py:199
 msgid "Do'stingiz balansini to'ldirgani uchun sizga {referralPrice}$ taqdim etildi 🎉."
 msgstr "You get {referralPrice}$ for topping up your friend's balance 🎉."
 
-#: utils/text.py:188
+#: utils/text.py:201
 msgid "Botdan foydalanish uchun - /start"
 msgstr "To use the bot - /start"
 
-#: utils/text.py:189
+#: utils/text.py:202
 msgid "Notog'ri summa kiritilindi"
 msgstr "Invalid amount entered"
 
-#: utils/text.py:190
+#: utils/text.py:203
 msgid "Xisobni to'ldirish uchun minimal summa: 1$"
 msgstr "Minimum amount to top up the account: $1"
 
-#: utils/text.py:191
+#: utils/text.py:204
 msgid "Obuna allaqachon faollashtirilgan ✅\n"
 "\n"
 msgstr "The subscription is already activated ✅\n"
 "\n"
 
-#: utils/text.py:192
+#: utils/text.py:205
 msgid "Akkaunt qo'shish yoki yangilash uchun balansingizda mablag' mavjud emas ❌\n"
 "\n"
 "Akkaunt ulash narxi oyiga - {price}$"
@@ -598,7 +606,7 @@ msgstr "There are no funds in your balance to add or update an account ❌\n"
 "\n"
 "The cost of connecting an account is {price}$ per month"
 
-#: utils/text.py:197
+#: utils/text.py:210
 msgid "Tabriklaymiz akkauntingiz obunasi yangilandi 🥳\n"
 "\n"
 "Bizni tanlaganiz uchun tashakkur 🌟"
@@ -606,7 +614,7 @@ msgstr "Congratulations, your account subscription has been updated 🥳\n"
 "\n"
 "Thank you for choosing us 🌟"
 
-#: utils/text.py:201
+#: utils/text.py:214
 msgid "Salom Qadrli Foydalanuvchi 👋, \n"
 "\n"
 "{sessionName} akkauntingiz obunasi yangilandi\n"
@@ -618,7 +626,7 @@ msgstr "Hello Dear User 👋,\n"
 "\n"
 "Thank you for choosing us 🌟"
 
-#: utils/text.py:207
+#: utils/text.py:220
 msgid "🚀 Obunani yangilash vaqti keldi!\n"
 "\n"
 "Salom Qadrli Foydalanuvchi 👋\n"
@@ -634,7 +642,7 @@ msgstr "🚀 It's time to renew your subscription!\n"
 "\n"
 "Thank you for choosing us 🌟\n"
 
-#: utils/text.py:216
+#: utils/text.py:229
 msgid "{sessionName} akkaunt uchun obuna mudati tugagan yoki mavjud emas! 🙁\n"
 "\n"
 "🔄 Obunani qayta aktivlashtirish uchun akkauntlar bo'limiga o'ting"
@@ -642,63 +650,63 @@ msgstr "Subscription for {sessionName} account has expired or is not available! 
 "\n"
 "🔄 To reactivate your subscription, go to the Accounts section"
 
-#: utils/text.py:237
+#: utils/text.py:250
 msgid "Akkauntingizda blum ishga tushirilmagan, @BlumCryptoBot botga kirib ro'yxatdan o'ting"
 msgstr "You don't launched blum, log in to the bot @BlumCryptoBot and register"
 
-#: utils/text.py:245
+#: utils/text.py:258
 msgid "To'lov tizimida xatolik, iltimos keyinroq urinib ko'ring"
-msgstr "BLum Error Please try again"
+msgstr "Blum Error Please try again"
 
-#: utils/text.py:248
+#: utils/text.py:261
 msgid "#error\n"
 "orderId: {orderId}\n"
 "message: {message}"
 msgstr ""
 
-#: utils/text.py:250
+#: utils/text.py:263
 msgid "Nimadir xatolik ketdi. Iltimos qayta urinib ko'ring!"
 msgstr "Something went wrong. Please try again!"
 
-#: utils/text.py:251
+#: utils/text.py:264
 msgid "Nomerni ushbu formatda kiriting +99890103xxxx!"
 msgstr "Enter the number in this format +99890103xxxx!"
 
-#: utils/text.py:252
+#: utils/text.py:265
 msgid "Notog'ri telefon raqam!"
 msgstr "Wrong phone number!"
 
-#: utils/text.py:253
+#: utils/text.py:266
 msgid "Notog'ri tasdiqlash kodi"
 msgstr "Invalid verification code"
 
-#: utils/text.py:254
+#: utils/text.py:267
 msgid "🔴 Tasdiqlash kodi eskirgan"
 msgstr "🔴 Verification code is outdated"
 
-#: utils/text.py:255
+#: utils/text.py:268
 msgid "Tasdiqlash kodi eskirgan. Qayta urinib ko'ring"
 msgstr "The verification code is outdated. Try again"
 
-#: utils/text.py:256
+#: utils/text.py:269
 msgid "⚠️ Agar o'zingizning akkauntingizni ulashga uringan bo'lsangiz, Telegram ruxsat bermaydi. Iltimos, boshqa akkauntingizni ulang yoki bizdan sotib oling: @aerkinov1."
 msgstr "⚠️ If you tried to connect your exactly this account, Telegram will not allow it. Please connect your other account or buy from us: @aerkinov1."
 
-#: utils/text.py:257
+#: utils/text.py:270
 msgid "Nimadir xato ketdi, Iltimos qayta urinib ko'ring!"
 msgstr "Something went wrong, please try again!"
 
-#: utils/text.py:258
+#: utils/text.py:271
 msgid "Telegramga bog'lanib bo'lmadi, qayta urinib ko'ring"
 msgstr "Failed to connect to Telegram, please try again"
 
-#: utils/text.py:259
+#: utils/text.py:272
 msgid "Telegramingizga juda xam ko'p so'rovlar bo'lgani uchun telegram 15 soatlik tannafusga tushdi. \n"
 "Iltimos 15 soatdan so'ng qayta urinib ko'ring!"
 msgstr "Because there were too many requests to your telegram, the telegram went on a 15-hour break.\n"
 "Please try again in 15 hours!"
 
-#: utils/text.py:261
+#: utils/text.py:274
 msgid "🔴 Blum farming mavjud emas \n"
 "\n"
 "Siz xali akkaunt qo'shmagansiz akkaunt qo'shish uchun \"👥 Akkauntlar\" bo'limiga o'ting"
@@ -706,23 +714,23 @@ msgstr "🔴 Blum farming is not available\n"
 "\n"
 "You have not added an account yet To add an account, go to \"👥 Accounts\" section"
 
-#: utils/text.py:264
+#: utils/text.py:277
 msgid "{sessionName} | Akkauntda xatolik, iltimos qayta urinib ko'ring!"
 msgstr "{sessionName} | Account error, please try again!"
 
-#: utils/text.py:265
+#: utils/text.py:278
 msgid "Iltimos to'g'ri raqam kiriting"
 msgstr "Please enter a valid number"
 
-#: utils/text.py:266
+#: utils/text.py:279
 msgid "Blumda xatolik iltimos qayta urinib ko'ring!"
-msgstr "BLum Error Please try again!"
+msgstr "Blum Error Please try again!"
 
-#: utils/text.py:267
+#: utils/text.py:280
 msgid "Bekor qilindi"
 msgstr "Canceled"
 
-#: utils/text.py:272
+#: utils/text.py:285
 msgid "{sessionName} - sessiya tugatilgan!"
 msgstr "{sessionName} - session is end!"
 
@@ -1273,3 +1281,44 @@ msgstr "{sessionName} - session is end!"
 
 #~ msgid "💸 Blum narxi qancha?"
 #~ msgstr "💸 How much does blum cost?"
+
+#~ msgid ""
+#~ "\n"
+#~ "\n"
+#~ "🟢 Farming tugadi.\n"
+#~ "🟡 Akkauntlar bo'limida bot sizning "
+#~ "o'rningizda nechta o'yin o'ynashini "
+#~ "o'zgartishingiz mumkin\n"
+#~ "🎟O'yin uchun mavjud biletlar: "
+#~ "{playPasses}🎟O'yin uchun ruxsat etilgan "
+#~ "biletlar: {availablePlayPasses}\n"
+#~ "👾 Balans - {availableBalance} blum"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "\n"
+#~ "\n"
+#~ "🟢 Farming tugadi.\n"
+#~ "🟡 Akkauntlar bo'limida bot sizning "
+#~ "o'rningizda nechta o'yin o'ynashini "
+#~ "o'zgartishingiz mumkin\n"
+#~ "\n"
+#~ "🎟O'yin uchun mavjud biletlar: "
+#~ "{playPasses}🎟O'yin uchun ruxsat etilgan "
+#~ "biletlar: {availablePlayPasses}\n"
+#~ "👾 Balans - {availableBalance} blum"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "\n"
+#~ "\n"
+#~ "🟢 Farming tugadi.\n"
+#~ "🟡 Akkauntlar bo'limida bot sizning "
+#~ "o'rningizda nechta o'yin o'ynashini "
+#~ "o'zgartishingiz mumkin\n"
+#~ "\n"
+#~ "🎟 O'yin uchun mavjud biletlar: "
+#~ "{playPasses}🎟 O'yin uchun ruxsat etilgan "
+#~ "biletlar: {availablePlayPasses}\n"
+#~ "👾 Balans - {availableBalance} blum"
+#~ msgstr ""

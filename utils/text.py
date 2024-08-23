@@ -130,7 +130,14 @@ FARM_STOPPED = __("🔴 Farming toxtadi")
 PLAYING_GAME = __("""\n\n🟢 O'yin o'ynalmoqda...""")
 SUCCESSFULLY_PLAYED_GAMES = __("""\n\n🟢 O'yin muvaffiqiyatli o'ynaldi! Berilgan mukofot: {points}""")
 PLAYING_NOT_AVAILABLE = __("""\n\n🟡 Ushbu akkaunt uchun o'yin uchun ruxsat etilgan biletlar mavjud emas!""")
-FINISHED_FARM = __("\n\n🟢 Farming tugadi.\n\n💲Balans - {availableBalance} blum\n🎟O'yin uchun mavjud biletlar: {playPasses}\n")
+FINISHED_FARM = __("""\n\n🟢 Farming tugadi.\n
+👤 Akkauntlar bo'limida bot sizning o'rningizda nechta o'yin o'ynashini o'zgartishingiz mumkin
+
+🎟 O'yin uchun mavjud biletlar: {playPasses}
+🎟 O'yin uchun ruxsat etilgan biletlar: {availablePlayPasses}
+
+👾 Balans - {availableBalance} blum""")
+
 TIMER_FARMING_CLAIMED = __("""\n\n🟢 Farmingdan blum olindi""")
 IN_PROGRESS_FARMING = __("""\n\n🟢 Blum yig'ilmoqda. Qolgan vaqt: {sleepDuration} soat""")
 FARMING_STARTED = __("""\n\n🟢 Farming boshlandi...""")
