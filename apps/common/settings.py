@@ -30,7 +30,7 @@ class Settings(BaseSettings):
 
     REFERRAL_PRICE: float = 0.5
     PRICE: float = 1.99
-    ALLOWED_FREE_GAMES: int = 2
+    ALLOWED_FREE_GAMES: int = 5
     CLIENT_ID: str
     CLIENT_SECRET: str
     APP_ID: str
