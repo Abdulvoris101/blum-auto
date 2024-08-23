@@ -15,5 +15,6 @@ schedule.every().day.at("00:00").do(rq_queue.enqueue, cancelOrUpdateSubscription
 schedule.every().day.at("20:00").do(rq_queue.enqueue, cancelOrUpdateSubscriptions)
 
 while True:
+    rq_queue.empty()
     schedule.run_pending()
     time.sleep(1)
