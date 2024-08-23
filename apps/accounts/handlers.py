@@ -163,6 +163,7 @@ class AccountCreationHandler:
             await self.session.connect()
             sentCode = await self.session.send_code(phoneNumber)
             await state.update_data(sentCode=sentCode.phone_code_hash)
+            await bot.delete_message(message.from_user.id, inWaitMessage.message_id)
 
         except InvalidRequestException as e:
             logger.error(e.messageText)
@@ -181,8 +182,6 @@ class AccountCreationHandler:
             filePath = os.path.join("sessions/", f"{sessionName}.session")
             fullPath = os.path.abspath(filePath)
             os.remove(fullPath)
-        finally:
-            await bot.delete_message(message.from_user.id, inWaitMessage.message_id)
 
         await state.update_data(sessionName=sessionName)
         await state.update_data(phoneNumber=phoneNumber)
@@ -258,8 +257,6 @@ async def processAccountMessage(message: types.Message, state: FSMContext, sessi
         user = await User.get(message.from_user.id)
         isAccount = await AccountManager.isExistsByPhoneNumber(phoneNumber)
         proxyId = None
-
-        print(isAccount)
 
         if not isAccount:
             response = await ProxyManager.buyProxy(telegramId=user.telegramId)
