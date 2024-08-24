@@ -147,6 +147,7 @@ class AccountCreationHandler:
             proxies = ProxyManager.getProxies()
             proxy = random.choice(proxies)
             proxyParsed = urlparse(proxy)
+            print(proxyParsed)
 
             proxy = {
                 "scheme": proxyParsed.scheme,
@@ -243,6 +244,7 @@ async def processAccountMessage(message: types.Message, state: FSMContext, sessi
         proxies = ProxyManager.getProxies()
         proxy = random.choice(proxies)
         proxyParsed = urlparse(proxy)
+        print(proxyParsed)
 
         proxy = ProxyDetailScheme(id=None, telegramId=None, ip=None, proxyId=None, dateEnd=None,
                                   host=proxyParsed.hostname, port=str(proxyParsed.port),
