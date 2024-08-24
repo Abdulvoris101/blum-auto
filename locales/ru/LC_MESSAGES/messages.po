@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-08-23 23:22+0500\n"
-"PO-Revision-Date: 2024-08-23 23:40+0500\n"
+"POT-Creation-Date: 2024-08-25 00:40+0500\n"
+"PO-Revision-Date: 2024-08-25 00:42+0500\n"
 "Last-Translator: \n"
 "Language-Team: ru <LL@li.org>\n"
 "Language: ru\n"
@@ -85,7 +85,7 @@ msgstr "🎱 Где взять крипто?"
 msgid "🚫 Farmingni to'xtatish"
 msgstr "🚫 Остановить фарминг"
 
-#: apps/core/keyboards.py:26 apps/payment/handlers.py:1
+#: apps/core/keyboards.py:26
 msgid "💰 Balans"
 msgstr "💰 Баланс"
 
@@ -96,6 +96,14 @@ msgstr "💵 Попольнить счета"
 #: apps/payment/keyboards.py:1
 msgid "🆓 Bepul qo'lga kiritish"
 msgstr "🆓 Получить бесплатно"
+
+#: apps/payment/keyboards.py:1
+msgid "💳 Visa/Mastercard/Crypto"
+msgstr "💳 Visa/Mastercard/Crypto"
+
+#: apps/payment/keyboards.py:1
+msgid "🌟 Telegram stars"
+msgstr "🌟 Telegram stars"
 
 #: utils/text.py:4
 msgid "👋 Salom fren, bot bilan pul ishlab topishga tayyormisiz?\n"
@@ -129,9 +137,9 @@ msgstr ""
 
 #: utils/text.py:20
 msgid "🎉 Bizni tanlaganiz uchun rahmat\n"
-"Bonus sifatida sizga tekin obuna taqdim etildi"
+"Bonus sifatida 1-akkaunt uchun 3 kunlik tekin obuna taqdim etiladi"
 msgstr "🎉Спасибо, что выбрали нас\n"
-"В качестве бонуса вам предоставляется бесплатная подписка"
+"В качестве бонуса предоставляется 3-дневная бесплатная подписка для 1-й аккаунт."
 
 #: utils/text.py:24
 msgid "<b>Botni qanday ishlataman?</b>\n"
@@ -518,27 +526,45 @@ msgstr "Ваша аккаунт {sessionName} доступна для фарм."
 msgid "Test uchun telegram akkaunt olish uchun bizga yozing - @aerkinov1"
 msgstr "Напишите нам, чтобы получить тестовый телеграм аккаунт - @aerkinov1"
 
-#: utils/text.py:168
+#: utils/text.py:166
+msgid "To'lov turini tanlang: "
+msgstr "Выберите тип оплаты:"
+
+#: utils/text.py:167
+msgid "🌟 To'lov summasini stars valyutasida kiriting:\n"
+"\n"
+"Stars narxlarini telegram sozlamalardan ko'rishingiz mumkin"
+msgstr "🌟 Введите сумму платежа в валюте stars:\n"
+"\n"
+"Цены на stars вы можете посмотреть в настройках телеграма."
+
+#: utils/text.py:171
 msgid "💵 Balans: {balance}$\n"
 "\n"
-"👤 Har bir akkauntni ulash oyiga: 1.99$ ≈ 25,000 so'm\n"
+"🌟 Stars: {stars}\n"
 "\n"
-"✨ 1-akkaunt uchun 3 kunlik tekin obuna taqdim etiladi\n"
+"👤 Har bir akkauntni ulash oyiga: 1.99$ yoki 100 stars\n"
 "\n"
-"💳 To'lov kripto va visa/mastercard orqali qabul qilinadi!\n"
+"Qabul qilinadigan to'lov turlari: \n"
+"- 💳 visa/mastercard\n"
+"- 🪙 crypto\n"
+"- 🌟 telegram stars\n"
 "\n"
 "💡 Kripto haqida bilmasangiz qo'llanma - /help"
 msgstr "💵 Баланс: {balance}$\n"
 "\n"
-"👤 Подключение каждого аккаунта в месяц: 1,99$ ≈ 25 000 сум.\n"
+"🌟 Stars: {stars}\n"
 "\n"
-"✨ На 1-й аккаунт предоставляется бесплатная подписка на 3 дня\n"
+"👤 Подключения аккаунта в месяц: 1,99$ или 100 stars.\n"
 "\n"
-"💳 Оплата принимается криптовалютой или картой Visa/Mastercard!\n"
+"Принимаемые виды оплаты:\n"
+"- 💳 виза/мастеркард\n"
+"- 🪙 крипто\n"
+"- 🌟 телеграм старс\n"
 "\n"
 "💡 Руководство, если вы не знаете о криптовалюте - /help"
 
-#: utils/text.py:178
+#: utils/text.py:184
 msgid "Sizning referalingiz: https://t.me/{botUsername}?start={referralId}\n"
 "\n"
 "Referallar soni: {referralsCount}\n"
@@ -550,8 +576,8 @@ msgstr "Ваш реферал: https://t.me/{botUsername}?start={referralId}\n"
 "\n"
 "Пригласите друга по этому рефералу и заработайте {referralPrice}$ как только он пополнит свой баланс!"
 
-#: utils/text.py:184
-msgid " To'lov tafsilotlari:\n"
+#: utils/text.py:190
+msgid "To'lov tafsilotlari:\n"
 "\n"
 "Summa: {amount}$\n"
 "To'lov havolasi: {invoiceUrl}\n"
@@ -568,49 +594,62 @@ msgstr "Детали оплаты:\n"
 "\n"
 "Если у вас возникли проблемы или вопросы в процессе оплаты, свяжитесь с нами - @aerkinov1\n"
 
-#: utils/text.py:193
+#: utils/text.py:200
+msgid "Balansni to'ldirish"
+msgstr "Попольнить счета"
+
+#: utils/text.py:201
+msgid "Balansni to'ldirish uchun {stars} 🌟 stars to'lov amalga oshiring"
+msgstr "Заплатите {stars} 🌟 stars, чтобы пополнить свой баланс."
+
+#: utils/text.py:203
 msgid "{amount}$ balansingizga kelib qo'shildi, bizni tanlaganingiz uchun rahmat fren 😊"
 msgstr "Баланс пополнен на сумму {amount}$, спасибо, что выбрали нас fren 😊"
 
-#: utils/text.py:194
-msgid "To'lov summasini kiriting: "
-msgstr "Введите сумму платежа: "
+#: utils/text.py:204
+msgid "To'lov summasini dollarda kiriting kiriting $"
+msgstr "Введите сумму платежа в долларах $"
 
-#: utils/text.py:196
+#: utils/text.py:205
+msgid "{amount} stars balansingizga kelib qo'shildi, bizni tanlaganingiz uchun rahmat \n"
+"fren"
+msgstr "На ваш баланс добавлено {amount} stars, спасибо, что выбрали нас."
+
+#: utils/text.py:208
 msgid "Notog'ri tilni kiritingiz, Iltimos menyudagi tillardan birini kiriting!"
 msgstr "Неверный язык Пожалуйста, введите один из языков в меню!"
 
-#: utils/text.py:199
+#: utils/text.py:211
 msgid "Do'stingiz balansini to'ldirgani uchun sizga {referralPrice}$ taqdim etildi 🎉."
 msgstr "Вы получили {referralPrice}$ за пополнение баланса вашего друга 🎉."
 
-#: utils/text.py:201
+#: utils/text.py:213
 msgid "Botdan foydalanish uchun - /start"
 msgstr "Чтобы использовать бота - /start"
 
-#: utils/text.py:202
+#: utils/text.py:214
 msgid "Notog'ri summa kiritilindi"
 msgstr "Введена неверная сумма"
 
-#: utils/text.py:203
+#: utils/text.py:215
 msgid "Xisobni to'ldirish uchun minimal summa: 1$"
 msgstr "Минимальная сумма для пополнения счета: $1"
 
-#: utils/text.py:204
+#: utils/text.py:216
 msgid "Obuna allaqachon faollashtirilgan ✅\n"
 "\n"
 msgstr "Подписка уже активирована ✅\n"
 "\n"
 
-#: utils/text.py:205
+#: utils/text.py:217
 msgid "Akkaunt qo'shish yoki yangilash uchun balansingizda mablag' mavjud emas ❌\n"
 "\n"
-"Akkaunt ulash narxi oyiga - {price}$"
+"Akkaunt ulash oyiga - {price}$ yoki {stars} stars 🌟"
 msgstr "На вашем балансе нет средств для добавления или обновления аккаунта ❌\n"
 "\n"
-"Стоимость подключения аккаунта — {price}$ в месяц."
+"Подключения аккаунта на месяц — {price}$ или {stars} stars 🌟"
 
-#: utils/text.py:210
+#: utils/text.py:223
 msgid "Tabriklaymiz akkauntingiz obunasi yangilandi 🥳\n"
 "\n"
 "Bizni tanlaganiz uchun tashakkur 🌟"
@@ -618,7 +657,7 @@ msgstr "Поздравляем, подписка на ваш аккаунт об
 "\n"
 "Спасибо, что выбрали нас 🌟"
 
-#: utils/text.py:214
+#: utils/text.py:227
 msgid "Salom Qadrli Foydalanuvchi 👋, \n"
 "\n"
 "{sessionName} akkauntingiz obunasi yangilandi\n"
@@ -630,7 +669,7 @@ msgstr "Здравствуйте, уважаемый пользователь �
 "\n"
 "Спасибо, что выбрали нас 🌟"
 
-#: utils/text.py:220
+#: utils/text.py:233
 msgid "🚀 Obunani yangilash vaqti keldi!\n"
 "\n"
 "Salom Qadrli Foydalanuvchi 👋\n"
@@ -646,7 +685,7 @@ msgstr "🚀 Пришло время продлить подписку!\n"
 "\n"
 "Спасибо, что выбрали нас 🌟\n"
 
-#: utils/text.py:229
+#: utils/text.py:242
 msgid "{sessionName} akkaunt uchun obuna mudati tugagan yoki mavjud emas! 🙁\n"
 "\n"
 "🔄 Obunani qayta aktivlashtirish uchun akkauntlar bo'limiga o'ting"
@@ -654,7 +693,7 @@ msgstr "Срок действия подписки для учетной зап�
 "\n"
 "🔄 Чтобы повторно активировать подписку, перейдите в раздел «Аккаунты»."
 
-#: utils/text.py:233
+#: utils/text.py:246
 msgid "⭕️ Bepul obunada siz bot orqali 5tadan ortiq o'yin o'ynolmaysiz. Botdan to'liq foydalanib xoxlagancha o'yin o'ynash uchun pullik obunani aktivlashtiring\n"
 "\n"
 "Pullik obunani aktivlashtirish uchun akkauntlar bo'limiga o'tib akkauntingizni tanlang va obunani yangilash tugmasini bosing!"
@@ -662,63 +701,63 @@ msgstr "⭕️ По бесплатной подписке вы не сможет
 "\n"
 "Чтобы активировать платную подписку, зайдите в раздел аккаунты, выберите свою учетную запись и нажмите кнопку продлить подписку!"
 
-#: utils/text.py:253
+#: utils/text.py:266
 msgid "Akkauntingizda blum ishga tushirilmagan, @BlumCryptoBot botga kirib ro'yxatdan o'ting"
 msgstr "Вы не запускали blum в этого тг аккаунте, войдите в бот @BlumCryptoBot и зарегистрируйтесь."
 
-#: utils/text.py:261
+#: utils/text.py:274
 msgid "To'lov tizimida xatolik, iltimos keyinroq urinib ko'ring"
 msgstr "Ошибка в платежной системе, повторите попытку позже"
 
-#: utils/text.py:264
+#: utils/text.py:277
 msgid "#error\n"
 "orderId: {orderId}\n"
 "message: {message}"
 msgstr ""
 
-#: utils/text.py:266
+#: utils/text.py:279
 msgid "Nimadir xatolik ketdi. Iltimos qayta urinib ko'ring!"
 msgstr "Что-то пошло не так. Пожалуйста, попробуйте еще раз!"
 
-#: utils/text.py:267
+#: utils/text.py:280
 msgid "Nomerni ushbu formatda kiriting +99890103xxxx!"
 msgstr "Введите номер в формате +99890103xxxx!"
 
-#: utils/text.py:268
+#: utils/text.py:281
 msgid "Notog'ri telefon raqam!"
 msgstr "Неправильный номер телефона!"
 
-#: utils/text.py:269
+#: utils/text.py:282
 msgid "Notog'ri tasdiqlash kodi"
 msgstr "Неверный код подтверждения"
 
-#: utils/text.py:270
+#: utils/text.py:283
 msgid "🔴 Tasdiqlash kodi eskirgan"
 msgstr "🔴 Код подтверждения устарел."
 
-#: utils/text.py:271
+#: utils/text.py:284
 msgid "Tasdiqlash kodi eskirgan. Qayta urinib ko'ring"
 msgstr "Код подтверждения устарел. Попробуйте еще раз"
 
-#: utils/text.py:272
+#: utils/text.py:285
 msgid "⚠️ Agar o'zingizning akkauntingizni ulashga uringan bo'lsangiz, Telegram ruxsat bermaydi. Iltimos, boshqa akkauntingizni ulang yoki bizdan sotib oling: @aerkinov1."
 msgstr "⚠️ Если вы попытались подключить свой аккаунт, телеграм не позволит этого сделать. Пожалуйста, подключите другой аккаунт или купите у нас: @aerkinov1."
 
-#: utils/text.py:273
+#: utils/text.py:286
 msgid "Nimadir xato ketdi, Iltimos qayta urinib ko'ring!"
 msgstr "Что-то пошло не так. Пожалуйста, попробуйте еще раз!"
 
-#: utils/text.py:274
+#: utils/text.py:287
 msgid "Telegramga bog'lanib bo'lmadi, qayta urinib ko'ring"
 msgstr "Не удалось подключиться к Telegram, попробуйте еще раз."
 
-#: utils/text.py:275
+#: utils/text.py:288
 msgid "Telegramingizga juda xam ko'p so'rovlar bo'lgani uchun telegram 15 soatlik tannafusga tushdi. \n"
 "Iltimos 15 soatdan so'ng qayta urinib ko'ring!"
 msgstr "Поскольку запросов на ваш телеграмм было слишком много, телеграм сделала 15-часовой перерыв.\n"
 "Пожалуйста, повторите попытку через 15 часов!"
 
-#: utils/text.py:277
+#: utils/text.py:290
 msgid "🔴 Blum farming mavjud emas \n"
 "\n"
 "Siz xali akkaunt qo'shmagansiz akkaunt qo'shish uchun \"👥 Akkauntlar\" bo'limiga o'ting"
@@ -726,23 +765,23 @@ msgstr "🔴 Блум фарминг недоступно.\n"
 "\n"
 "Вы еще не добавили аккаунт. Чтобы добавить аккаунт, перейдите в раздел «👥 Аккаунты»."
 
-#: utils/text.py:280
+#: utils/text.py:293
 msgid "{sessionName} | Akkauntda xatolik, iltimos qayta urinib ko'ring!"
 msgstr "{sessionName} | Ошибка аккаунта, попробуйте еще раз!"
 
-#: utils/text.py:281
+#: utils/text.py:294
 msgid "Iltimos to'g'ri raqam kiriting"
 msgstr "Пожалуйста, введите корректное номер"
 
-#: utils/text.py:282
+#: utils/text.py:295
 msgid "Blumda xatolik iltimos qayta urinib ko'ring!"
 msgstr "Ошибка Блума. Пожалуйста, попробуйте еще раз!"
 
-#: utils/text.py:283
+#: utils/text.py:296
 msgid "Bekor qilindi"
 msgstr "Отменено"
 
-#: utils/text.py:288
+#: utils/text.py:301
 msgid "{sessionName} - sessiya tugatilgan!"
 msgstr "{sessionName} - сессия завершен!"
 

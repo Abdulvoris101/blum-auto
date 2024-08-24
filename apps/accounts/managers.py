@@ -209,10 +209,11 @@ class AccountManager:
                 for blumDetail in blumDetails:
                     accountId = blumDetail.accountId
                     account = await Account.get(accountId)
+                    user = await User.getById(account.userId)
                     duration = datetime.datetime.now() - account.lastUpdated
 
                     if duration >= datetime.timedelta(hours=blumDetail.farmingFreezeHours):
-                        user = await User.get(account.telegramId)
+                        user = await User.get(user.telegramId)
                         i18n.ctx_locale.set(user.languageCode)
                         with i18n.context():
                             await sendToUser(user.telegramId, text.ACCOUNT_AVAILABLE_TO_FARM.format(

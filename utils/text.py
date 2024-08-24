@@ -163,7 +163,10 @@ ACCOUNT_AVAILABLE_TO_FARM = __("""{sessionName} akkauntingiz farming uchun mavju
 
 # Bonus
 INSTRUCTION_TO_GET_FREE_TG = __("Test uchun telegram akkaunt olish uchun bizga yozing - @aerkinov1")
+ENTER_TYPE_OF_METHOD = __("To'lov turini tanlang: ")
+ENTER_STARS_AMOUNT = __("""🌟 To'lov summasini stars valyutasida kiriting:
 
+Stars narxlarini telegram sozlamalardan ko'rishingiz mumkin""")
 # Balance
 BALANCE = __("""💵 Balans: {balance}$
 
@@ -214,6 +217,7 @@ SUBSCRIPTION_ALREADY_ACTIVATED = __("Obuna allaqachon faollashtirilgan ✅\n\n")
 NOT_ENOUGH_BALANCE = __("""Akkaunt qo'shish yoki yangilash uchun balansingizda mablag' mavjud emas ❌
 
 Akkaunt ulash oyiga - {price}$ yoki {stars} stars 🌟""")
+
 
 # Subscription
 SUBSCRIPTION_UPDATED = __("""Tabriklaymiz akkauntingiz obunasi yangilandi 🥳

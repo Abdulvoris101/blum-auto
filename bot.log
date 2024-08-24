@@ -1877,3 +1877,208 @@
 2024-08-24 16:24:29,650 - aiogram.event - INFO - Update id=53307929 is handled. Duration 462 ms by bot id=7144434947
 2024-08-24 16:24:31,226 - aiogram.event - INFO - Update id=53307930 is handled. Duration 304 ms by bot id=7144434947
 2024-08-24 16:24:35,622 - aiogram.event - INFO - Update id=53307931 is handled. Duration 257 ms by bot id=7144434947
+2024-08-24 16:33:55,106 - aiogram.event - INFO - Update id=53307932 is handled. Duration 356 ms by bot id=7144434947
+2024-08-24 16:33:56,549 - aiogram.event - INFO - Update id=53307933 is handled. Duration 268 ms by bot id=7144434947
+2024-08-24 16:33:58,057 - aiogram.event - INFO - Update id=53307934 is handled. Duration 242 ms by bot id=7144434947
+2024-08-24 16:34:07,230 - aiogram.event - INFO - Update id=53307935 is handled. Duration 603 ms by bot id=7144434947
+2024-08-24 17:10:19,386 - aiogram.event - INFO - Update id=53307936 is not handled. Duration 1 ms by bot id=7144434947
+2024-08-24 21:56:55,129 - aiogram.event - INFO - Update id=53307937 is not handled. Duration 0 ms by bot id=7144434947
+2024-08-25 00:09:45,138 - aiogram.event - INFO - Update id=53307938 is not handled. Duration 0 ms by bot id=7144434947
+2024-08-25 00:32:02,528 - aiogram.event - INFO - Update id=53307939 is handled. Duration 640 ms by bot id=7144434947
+2024-08-25 00:32:04,893 - aiogram.event - INFO - Update id=53307940 is handled. Duration 557 ms by bot id=7144434947
+2024-08-25 00:32:06,595 - aiogram.event - INFO - Update id=53307941 is not handled. Duration 326 ms by bot id=7144434947
+2024-08-25 00:32:07,108 - aiogram.event - INFO - Update id=53307941 is not handled. Duration 387 ms by bot id=7144434947
+2024-08-25 00:32:09,813 - aiogram.event - INFO - Update id=53307941 is not handled. Duration 561 ms by bot id=7144434947
+2024-08-25 00:34:15,592 - aiogram.event - INFO - Update id=53307942 is handled. Duration 989 ms by bot id=7144434947
+2024-08-25 00:34:17,456 - aiogram.event - INFO - Update id=53307943 is handled. Duration 508 ms by bot id=7144434947
+2024-08-25 00:34:19,446 - aiogram.event - INFO - Update id=53307944 is handled. Duration 552 ms by bot id=7144434947
+2024-08-25 00:38:40,188 - aiogram.event - INFO - Update id=53307945 is handled. Duration 639 ms by bot id=7144434947
+2024-08-25 00:38:50,191 - aiogram.event - INFO - Update id=53307946 is handled. Duration 549 ms by bot id=7144434947
+2024-08-25 00:38:53,143 - aiogram.event - INFO - Update id=53307947 is handled. Duration 229 ms by bot id=7144434947
+2024-08-25 00:38:53,640 - aiogram.event - INFO - Update id=53307948 is handled. Duration 328 ms by bot id=7144434947
+2024-08-25 00:39:00,773 - aiogram.event - INFO - Update id=53307949 is handled. Duration 483 ms by bot id=7144434947
+2024-08-25 00:39:28,463 - aiogram.event - INFO - Update id=53307950 is handled. Duration 513 ms by bot id=7144434947
+2024-08-25 00:39:32,670 - pyrogram.connection.transport.tcp.tcp - INFO - Using proxy 46.161.47.127
+2024-08-25 00:39:32,670 - pyrogram.connection.connection - INFO - Connecting...
+2024-08-25 00:39:33,055 - pyrogram.connection.connection - INFO - Connected! Production DC2 - IPv4
+2024-08-25 00:39:33,056 - pyrogram.session.session - INFO - NetworkTask started
+2024-08-25 00:39:33,631 - pyrogram.session.session - INFO - Session initialized: Layer 158
+2024-08-25 00:39:33,631 - pyrogram.session.session - INFO - Device: CPython 3.10.6 - Pyrogram 2.0.106
+2024-08-25 00:39:33,631 - pyrogram.session.session - INFO - System: Linux 6.2.0-76060200-generic (en)
+2024-08-25 00:39:33,632 - pyrogram.session.session - INFO - Session started
+2024-08-25 00:39:33,654 - pyrogram.session.session - INFO - PingTask started
+2024-08-25 00:39:33,794 - pyrogram.session.session - INFO - PingTask stopped
+2024-08-25 00:39:33,794 - pyrogram.connection.connection - INFO - Disconnected
+2024-08-25 00:39:33,794 - pyrogram.session.session - INFO - NetworkTask stopped
+2024-08-25 00:39:33,794 - pyrogram.session.session - INFO - Session stopped
+2024-08-25 00:39:34,131 - pyrogram.connection.transport.tcp.tcp - INFO - Using proxy 46.161.47.127
+2024-08-25 00:39:34,131 - pyrogram.connection.connection - INFO - Connecting...
+2024-08-25 00:39:34,486 - pyrogram.connection.connection - INFO - Connected! Production DC2 - IPv4
+2024-08-25 00:39:34,487 - pyrogram.session.session - INFO - NetworkTask started
+2024-08-25 00:39:35,063 - pyrogram.session.session - INFO - Session initialized: Layer 158
+2024-08-25 00:39:35,063 - pyrogram.session.session - INFO - Device: CPython 3.10.6 - Pyrogram 2.0.106
+2024-08-25 00:39:35,063 - pyrogram.session.session - INFO - System: Linux 6.2.0-76060200-generic (en)
+2024-08-25 00:39:35,063 - pyrogram.session.session - INFO - Session started
+2024-08-25 00:39:35,076 - pyrogram.session.session - INFO - PingTask started
+2024-08-25 00:39:35,351 - pyrogram.session.session - INFO - PingTask stopped
+2024-08-25 00:39:35,351 - pyrogram.connection.connection - INFO - Disconnected
+2024-08-25 00:39:35,351 - pyrogram.session.session - INFO - NetworkTask stopped
+2024-08-25 00:39:35,351 - pyrogram.session.session - INFO - Session stopped
+2024-08-25 00:39:36,055 - httpx - INFO - HTTP Request: POST https://gateway.blum.codes/v1/auth/provider/PROVIDER_TELEGRAM_MINI_APP "HTTP/1.1 200 OK"
+2024-08-25 00:39:36,947 - httpx - INFO - HTTP Request: GET https://game-domain.blum.codes/api/v1/user/balance "HTTP/1.1 200 OK"
+2024-08-25 00:39:39,439 - aiogram.event - INFO - Update id=53307951 is handled. Duration 7610 ms by bot id=7144434947
+2024-08-25 00:39:53,537 - aiogram.event - INFO - Update id=53307952 is handled. Duration 611 ms by bot id=7144434947
+2024-08-25 00:39:58,686 - aiogram.event - INFO - Update id=53307953 is handled. Duration 730 ms by bot id=7144434947
+2024-08-25 00:40:12,889 - aiogram.event - INFO - Update id=53307954 is handled. Duration 1122 ms by bot id=7144434947
+2024-08-25 00:40:14,856 - pyrogram.connection.transport.tcp.tcp - INFO - Using proxy 46.161.47.127
+2024-08-25 00:40:14,856 - pyrogram.connection.connection - INFO - Connecting...
+2024-08-25 00:40:15,206 - pyrogram.connection.connection - INFO - Connected! Production DC2 - IPv4
+2024-08-25 00:40:15,206 - pyrogram.session.session - INFO - NetworkTask started
+2024-08-25 00:40:15,673 - pyrogram.session.session - INFO - Session initialized: Layer 158
+2024-08-25 00:40:15,673 - pyrogram.session.session - INFO - Device: CPython 3.10.6 - Pyrogram 2.0.106
+2024-08-25 00:40:15,674 - pyrogram.session.session - INFO - System: Linux 6.2.0-76060200-generic (en)
+2024-08-25 00:40:15,674 - pyrogram.session.session - INFO - Session started
+2024-08-25 00:40:15,695 - pyrogram.session.session - INFO - PingTask started
+2024-08-25 00:40:15,872 - pyrogram.session.session - INFO - PingTask stopped
+2024-08-25 00:40:15,872 - pyrogram.connection.connection - INFO - Disconnected
+2024-08-25 00:40:15,872 - pyrogram.session.session - INFO - NetworkTask stopped
+2024-08-25 00:40:15,872 - pyrogram.session.session - INFO - Session stopped
+2024-08-25 00:40:15,881 - aiogram.event - INFO - Update id=53307955 is handled. Duration 1758 ms by bot id=7144434947
+2024-08-25 00:40:30,510 - pyrogram.connection.transport.tcp.tcp - INFO - Using proxy 46.161.47.127
+2024-08-25 00:40:30,510 - pyrogram.connection.connection - INFO - Connecting...
+2024-08-25 00:40:30,909 - pyrogram.connection.connection - INFO - Connected! Production DC2 - IPv4
+2024-08-25 00:40:30,909 - pyrogram.session.session - INFO - NetworkTask started
+2024-08-25 00:40:31,355 - pyrogram.session.session - INFO - Session initialized: Layer 158
+2024-08-25 00:40:31,355 - pyrogram.session.session - INFO - Device: CPython 3.10.6 - Pyrogram 2.0.106
+2024-08-25 00:40:31,355 - pyrogram.session.session - INFO - System: Linux 6.2.0-76060200-generic (en)
+2024-08-25 00:40:31,355 - pyrogram.session.session - INFO - Session started
+2024-08-25 00:40:31,368 - pyrogram.session.session - INFO - PingTask started
+2024-08-25 00:40:31,803 - pyrogram.session.session - INFO - PingTask stopped
+2024-08-25 00:40:31,804 - pyrogram.connection.connection - INFO - Disconnected
+2024-08-25 00:40:31,804 - pyrogram.session.session - INFO - NetworkTask stopped
+2024-08-25 00:40:31,804 - pyrogram.session.session - INFO - Session stopped
+2024-08-25 00:40:32,723 - httpx - INFO - HTTP Request: POST https://gateway.blum.codes/v1/auth/provider/PROVIDER_TELEGRAM_MINI_APP "HTTP/1.1 200 OK"
+2024-08-25 00:40:33,676 - httpx - INFO - HTTP Request: GET https://game-domain.blum.codes/api/v1/user/balance "HTTP/1.1 200 OK"
+2024-08-25 00:40:35,821 - httpx - INFO - HTTP Request: GET https://gateway.blum.codes/v1/friends/balance "HTTP/1.1 200 OK"
+2024-08-25 00:40:38,090 - httpx - INFO - HTTP Request: POST https://game-domain.blum.codes/api/v1/daily-reward?offset=-180 "HTTP/1.1 400 Bad Request"
+2024-08-25 00:40:41,880 - httpx - INFO - HTTP Request: POST https://gateway.blum.codes/v1/auth/refresh "HTTP/1.1 200 OK"
+2024-08-25 00:40:42,278 - httpx - INFO - HTTP Request: POST https://game-domain.blum.codes/api/v1/farming/claim "HTTP/1.1 200 OK"
+2024-08-25 00:40:47,411 - httpx - INFO - HTTP Request: GET https://game-domain.blum.codes/api/v1/user/balance "HTTP/1.1 200 OK"
+2024-08-25 00:44:10,088 - aiogram.event - INFO - Update id=53307956 is handled. Duration 442 ms by bot id=7144434947
+2024-08-25 00:44:12,595 - aiogram.event - INFO - Update id=53307957 is handled. Duration 251 ms by bot id=7144434947
+2024-08-25 00:44:14,255 - aiogram.event - INFO - Update id=53307958 is handled. Duration 510 ms by bot id=7144434947
+2024-08-25 00:44:16,718 - aiogram.event - INFO - Update id=53307959 is handled. Duration 619 ms by bot id=7144434947
+2024-08-25 00:44:22,143 - aiogram.event - INFO - Update id=53307960 is handled. Duration 2047 ms by bot id=7144434947
+2024-08-25 00:44:33,545 - aiogram.event - INFO - Update id=53307961 is handled. Duration 656 ms by bot id=7144434947
+2024-08-25 00:44:34,970 - aiogram.event - INFO - Update id=53307962 is handled. Duration 540 ms by bot id=7144434947
+2024-08-25 00:44:36,881 - aiogram.event - INFO - Update id=53307963 is handled. Duration 506 ms by bot id=7144434947
+2024-08-25 00:44:44,465 - aiogram.event - INFO - Update id=53307964 is handled. Duration 407 ms by bot id=7144434947
+2024-08-25 00:44:53,678 - aiogram.event - INFO - Update id=53307965 is handled. Duration 500 ms by bot id=7144434947
+2024-08-25 00:44:54,078 - aiogram.event - INFO - Update id=53307966 is handled. Duration 266 ms by bot id=7144434947
+2024-08-25 00:45:00,690 - aiogram.event - INFO - Update id=53307967 is handled. Duration 250 ms by bot id=7144434947
+2024-08-25 00:45:13,444 - aiogram.event - INFO - Update id=53307968 is handled. Duration 809 ms by bot id=7144434947
+2024-08-25 00:45:18,090 - aiogram.event - INFO - Update id=53307969 is handled. Duration 237 ms by bot id=7144434947
+2024-08-25 00:45:19,548 - aiogram.event - INFO - Update id=53307970 is handled. Duration 264 ms by bot id=7144434947
+2024-08-25 00:45:21,122 - aiogram.event - INFO - Update id=53307971 is handled. Duration 308 ms by bot id=7144434947
+2024-08-25 00:45:22,761 - aiogram.event - INFO - Update id=53307972 is handled. Duration 514 ms by bot id=7144434947
+2024-08-25 00:45:24,378 - aiogram.event - INFO - Update id=53307973 is handled. Duration 477 ms by bot id=7144434947
+2024-08-25 00:45:28,357 - aiogram.event - INFO - Update id=53307974 is handled. Duration 271 ms by bot id=7144434947
+2024-08-25 00:45:30,883 - aiogram.event - INFO - Update id=53307975 is handled. Duration 235 ms by bot id=7144434947
+2024-08-25 00:45:31,468 - aiogram.event - INFO - Update id=53307976 is handled. Duration 411 ms by bot id=7144434947
+2024-08-25 00:45:38,832 - aiogram.event - INFO - Update id=53307977 is handled. Duration 300 ms by bot id=7144434947
+2024-08-25 00:45:41,805 - aiogram.event - INFO - Update id=53307978 is handled. Duration 300 ms by bot id=7144434947
+2024-08-25 00:46:06,110 - aiogram.event - INFO - Update id=53307979 is handled. Duration 574 ms by bot id=7144434947
+2024-08-25 00:46:09,758 - aiogram.event - INFO - Update id=53307980 is handled. Duration 351 ms by bot id=7144434947
+2024-08-25 00:46:11,831 - pyrogram.connection.transport.tcp.tcp - INFO - Using proxy 185.80.148.173
+2024-08-25 00:46:11,831 - pyrogram.connection.connection - INFO - Connecting...
+2024-08-25 00:46:12,134 - pyrogram.connection.connection - INFO - Connected! Production DC2 - IPv4
+2024-08-25 00:46:12,135 - pyrogram.session.session - INFO - NetworkTask started
+2024-08-25 00:46:12,648 - pyrogram.session.session - INFO - Session initialized: Layer 158
+2024-08-25 00:46:12,648 - pyrogram.session.session - INFO - Device: CPython 3.10.6 - Pyrogram 2.0.106
+2024-08-25 00:46:12,648 - pyrogram.session.session - INFO - System: Linux 6.2.0-76060200-generic (en)
+2024-08-25 00:46:12,648 - pyrogram.session.session - INFO - Session started
+2024-08-25 00:46:12,668 - pyrogram.session.session - INFO - PingTask started
+2024-08-25 00:46:12,806 - pyrogram.session.session - INFO - PingTask stopped
+2024-08-25 00:46:12,807 - pyrogram.connection.connection - INFO - Disconnected
+2024-08-25 00:46:12,807 - pyrogram.session.session - INFO - NetworkTask stopped
+2024-08-25 00:46:12,807 - pyrogram.session.session - INFO - Session stopped
+2024-08-25 00:46:13,062 - pyrogram.connection.transport.tcp.tcp - INFO - Using proxy 185.80.148.173
+2024-08-25 00:46:13,062 - pyrogram.connection.connection - INFO - Connecting...
+2024-08-25 00:46:13,364 - pyrogram.connection.connection - INFO - Connected! Production DC2 - IPv4
+2024-08-25 00:46:13,364 - pyrogram.session.session - INFO - NetworkTask started
+2024-08-25 00:46:13,961 - pyrogram.session.session - INFO - Session initialized: Layer 158
+2024-08-25 00:46:13,962 - pyrogram.session.session - INFO - Device: CPython 3.10.6 - Pyrogram 2.0.106
+2024-08-25 00:46:13,962 - pyrogram.session.session - INFO - System: Linux 6.2.0-76060200-generic (en)
+2024-08-25 00:46:13,962 - pyrogram.session.session - INFO - Session started
+2024-08-25 00:46:13,974 - pyrogram.session.session - INFO - PingTask started
+2024-08-25 00:46:14,468 - pyrogram.session.session - INFO - PingTask stopped
+2024-08-25 00:46:14,469 - pyrogram.connection.connection - INFO - Disconnected
+2024-08-25 00:46:14,469 - pyrogram.session.session - INFO - NetworkTask stopped
+2024-08-25 00:46:14,469 - pyrogram.session.session - INFO - Session stopped
+2024-08-25 00:46:15,293 - httpx - INFO - HTTP Request: POST https://gateway.blum.codes/v1/auth/provider/PROVIDER_TELEGRAM_MINI_APP "HTTP/1.1 200 OK"
+2024-08-25 00:46:16,494 - httpx - INFO - HTTP Request: GET https://game-domain.blum.codes/api/v1/user/balance "HTTP/1.1 200 OK"
+2024-08-25 00:46:19,172 - aiogram.event - INFO - Update id=53307981 is handled. Duration 7979 ms by bot id=7144434947
+2024-08-25 00:46:23,836 - aiogram.event - INFO - Update id=53307982 is handled. Duration 596 ms by bot id=7144434947
+2024-08-25 00:46:27,912 - aiogram.event - INFO - Update id=53307983 is handled. Duration 250 ms by bot id=7144434947
+2024-08-25 00:46:51,402 - aiogram.event - INFO - Update id=53307984 is handled. Duration 514 ms by bot id=7144434947
+2024-08-25 00:46:55,883 - aiogram.event - INFO - Update id=53307985 is handled. Duration 546 ms by bot id=7144434947
+2024-08-25 00:46:59,633 - aiogram.event - INFO - Update id=53307986 is handled. Duration 343 ms by bot id=7144434947
+2024-08-25 00:47:07,819 - aiogram.event - INFO - Update id=53307987 is handled. Duration 300 ms by bot id=7144434947
+2024-08-25 00:47:24,519 - aiogram.event - INFO - Update id=53307988 is handled. Duration 703 ms by bot id=7144434947
+2024-08-25 00:47:26,566 - aiogram.event - INFO - Update id=53307989 is handled. Duration 239 ms by bot id=7144434947
+2024-08-25 00:47:28,101 - aiogram.event - INFO - Update id=53307990 is handled. Duration 351 ms by bot id=7144434947
+2024-08-25 00:49:35,938 - aiogram.event - INFO - Update id=53307991 is handled. Duration 589 ms by bot id=7144434947
+2024-08-25 00:50:16,370 - bot - INFO - reminder worked!
+2024-08-25 00:50:16,372 - rq.worker - INFO - [32mdefault[39;49;00m: [34mJob OK[39;49;00m (35be87d8-249d-428d-9aa5-c8a53d3e9734)
+2024-08-25 00:50:16,372 - rq.worker - INFO - Result is kept for 500 seconds
+2024-08-25 00:50:21,480 - bot - INFO - reminder worked!
+2024-08-25 00:50:21,482 - rq.worker - INFO - [32mdefault[39;49;00m: [34mJob OK[39;49;00m (6b0b7b47-8440-4f34-8a7e-e6b618f56333)
+2024-08-25 00:50:21,482 - rq.worker - INFO - Result is kept for 500 seconds
+2024-08-25 00:50:26,784 - bot - INFO - reminder worked!
+2024-08-25 00:50:26,785 - rq.worker - INFO - [32mdefault[39;49;00m: [34mJob OK[39;49;00m (d7a7dc0a-bae4-4e8c-95e5-914eeeb71cb2)
+2024-08-25 00:50:26,785 - rq.worker - INFO - Result is kept for 500 seconds
+2024-08-25 00:50:31,933 - bot - INFO - reminder worked!
+2024-08-25 00:50:31,935 - rq.worker - INFO - [32mdefault[39;49;00m: [34mJob OK[39;49;00m (62309d36-70a7-41fc-a353-4511f2f3b958)
+2024-08-25 00:50:31,936 - rq.worker - INFO - Result is kept for 500 seconds
+2024-08-25 00:50:36,650 - bot - INFO - reminder worked!
+2024-08-25 00:50:36,651 - rq.worker - INFO - [32mdefault[39;49;00m: [34mJob OK[39;49;00m (aed198cf-eac7-4b0c-a538-926d7032556e)
+2024-08-25 00:50:36,652 - rq.worker - INFO - Result is kept for 500 seconds
+2024-08-25 00:50:41,805 - bot - INFO - reminder worked!
+2024-08-25 00:50:41,807 - rq.worker - INFO - [32mdefault[39;49;00m: [34mJob OK[39;49;00m (f37ee67b-782c-4521-a5c4-cd552b3294f5)
+2024-08-25 00:50:41,808 - rq.worker - INFO - Result is kept for 500 seconds
+2024-08-25 00:50:46,343 - bot - INFO - reminder worked!
+2024-08-25 00:50:46,345 - rq.worker - INFO - [32mdefault[39;49;00m: [34mJob OK[39;49;00m (dc368360-a2e5-4499-ac8c-335a16ede6c7)
+2024-08-25 00:50:46,345 - rq.worker - INFO - Result is kept for 500 seconds
+2024-08-25 00:50:50,926 - bot - INFO - reminder worked!
+2024-08-25 00:50:50,928 - rq.worker - INFO - [32mdefault[39;49;00m: [34mJob OK[39;49;00m (bc3ae1a9-745c-46f9-a9ff-9248adba8ce8)
+2024-08-25 00:50:50,928 - rq.worker - INFO - Result is kept for 500 seconds
+2024-08-25 00:50:55,916 - bot - INFO - reminder worked!
+2024-08-25 00:50:55,918 - rq.worker - INFO - [32mdefault[39;49;00m: [34mJob OK[39;49;00m (e36bd811-ec03-429e-b54b-25c77bddfb52)
+2024-08-25 00:50:55,918 - rq.worker - INFO - Result is kept for 500 seconds
+2024-08-25 00:51:00,659 - bot - INFO - reminder worked!
+2024-08-25 00:51:00,661 - rq.worker - INFO - [32mdefault[39;49;00m: [34mJob OK[39;49;00m (c4218d04-44dd-4742-967a-7ec9e0a24e11)
+2024-08-25 00:51:00,661 - rq.worker - INFO - Result is kept for 500 seconds
+2024-08-25 00:51:05,753 - bot - INFO - reminder worked!
+2024-08-25 00:51:05,755 - rq.worker - INFO - [32mdefault[39;49;00m: [34mJob OK[39;49;00m (1e29ea0d-d16f-4d0d-909a-aa629e40ab6b)
+2024-08-25 00:51:05,755 - rq.worker - INFO - Result is kept for 500 seconds
+2024-08-25 00:51:10,899 - bot - INFO - reminder worked!
+2024-08-25 00:51:10,901 - rq.worker - INFO - [32mdefault[39;49;00m: [34mJob OK[39;49;00m (7becd5fd-6981-4ab4-a5cd-5ea176cb4abe)
+2024-08-25 00:51:10,901 - rq.worker - INFO - Result is kept for 500 seconds
+2024-08-25 00:51:16,097 - bot - INFO - reminder worked!
+2024-08-25 00:51:16,099 - rq.worker - INFO - [32mdefault[39;49;00m: [34mJob OK[39;49;00m (5f9c9069-9b35-43f0-9eba-5e4abad4b0a6)
+2024-08-25 00:51:16,099 - rq.worker - INFO - Result is kept for 500 seconds
+2024-08-25 00:51:21,060 - bot - INFO - reminder worked!
+2024-08-25 00:51:21,061 - rq.worker - INFO - [32mdefault[39;49;00m: [34mJob OK[39;49;00m (a4e12e51-2039-4e08-ab7f-b3cb637dc6f8)
+2024-08-25 00:51:21,062 - rq.worker - INFO - Result is kept for 500 seconds
+2024-08-25 00:51:26,290 - bot - INFO - reminder worked!
+2024-08-25 00:51:26,292 - rq.worker - INFO - [32mdefault[39;49;00m: [34mJob OK[39;49;00m (c69ae1bd-d4b3-4ffe-93e9-f15eaba68021)
+2024-08-25 00:51:26,292 - rq.worker - INFO - Result is kept for 500 seconds
+2024-08-25 00:51:31,439 - bot - INFO - reminder worked!
+2024-08-25 00:51:31,441 - rq.worker - INFO - [32mdefault[39;49;00m: [34mJob OK[39;49;00m (d320be1e-5e36-44fc-bc6c-984dd95f4797)
+2024-08-25 00:51:31,441 - rq.worker - INFO - Result is kept for 500 seconds
+2024-08-25 00:51:36,612 - bot - INFO - reminder worked!
+2024-08-25 00:51:36,616 - rq.worker - INFO - [32mdefault[39;49;00m: [34mJob OK[39;49;00m (496e4b5b-b2e7-4632-94df-53ff36cd356e)
+2024-08-25 00:51:36,617 - rq.worker - INFO - Result is kept for 500 seconds
+2024-08-25 00:51:41,668 - bot - INFO - reminder worked!
+2024-08-25 00:51:41,669 - rq.worker - INFO - [32mdefault[39;49;00m: [34mJob OK[39;49;00m (630e8c71-9ea8-4430-9385-e4b270ea2874)
+2024-08-25 00:51:41,669 - rq.worker - INFO - Result is kept for 500 seconds
