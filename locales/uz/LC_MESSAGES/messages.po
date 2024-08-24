@@ -583,6 +583,10 @@ msgid ""
 "\n"
 msgstr ""
 
+#: utils/text.py:216
+msgid "Xisobni to'ldirish uchun minimal summma: 100 stars 🌟"
+msgstr ""
+
 #: utils/text.py:217
 msgid ""
 "Akkaunt qo'shish yoki yangilash uchun balansingizda mablag' mavjud emas ❌"

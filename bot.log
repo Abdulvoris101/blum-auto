@@ -2082,3 +2082,21 @@
 2024-08-25 00:51:41,668 - bot - INFO - reminder worked!
 2024-08-25 00:51:41,669 - rq.worker - INFO - [32mdefault[39;49;00m: [34mJob OK[39;49;00m (630e8c71-9ea8-4430-9385-e4b270ea2874)
 2024-08-25 00:51:41,669 - rq.worker - INFO - Result is kept for 500 seconds
+2024-08-25 00:53:43,537 - aiogram.event - INFO - Update id=53307992 is not handled. Duration 26 ms by bot id=7144434947
+2024-08-25 00:53:44,672 - aiogram.event - INFO - Update id=53307992 is handled. Duration 998 ms by bot id=7144434947
+2024-08-25 00:53:47,960 - aiogram.event - INFO - Update id=53307993 is handled. Duration 254 ms by bot id=7144434947
+2024-08-25 00:53:51,293 - aiogram.event - INFO - Update id=53307994 is handled. Duration 1319 ms by bot id=7144434947
+2024-08-25 00:54:07,484 - aiogram.event - INFO - Update id=53307995 is not handled. Duration 12 ms by bot id=7144434947
+2024-08-25 00:54:10,669 - aiogram.event - INFO - Update id=53307995 is handled. Duration 947 ms by bot id=7144434947
+2024-08-25 00:55:22,533 - aiogram.event - INFO - Update id=53307996 is handled. Duration 374 ms by bot id=7144434947
+2024-08-25 00:55:25,910 - aiogram.event - INFO - Update id=53307997 is handled. Duration 1127 ms by bot id=7144434947
+2024-08-25 00:55:34,000 - aiogram.event - INFO - Update id=53307998 is handled. Duration 790 ms by bot id=7144434947
+2024-08-25 00:55:39,011 - aiogram.event - INFO - Update id=53307999 is handled. Duration 737 ms by bot id=7144434947
+2024-08-25 01:00:23,349 - aiogram.event - INFO - Update id=53308000 is handled. Duration 1040 ms by bot id=7144434947
+2024-08-25 01:00:25,733 - aiogram.event - INFO - Update id=53308001 is handled. Duration 493 ms by bot id=7144434947
+2024-08-25 01:00:29,972 - aiogram.event - INFO - Update id=53308002 is handled. Duration 245 ms by bot id=7144434947
+2024-08-25 01:00:35,396 - aiogram.event - INFO - Update id=53308003 is handled. Duration 264 ms by bot id=7144434947
+2024-08-25 01:00:57,808 - aiogram.event - INFO - Update id=53308004 is handled. Duration 737 ms by bot id=7144434947
+2024-08-25 01:00:59,421 - aiogram.event - INFO - Update id=53308005 is handled. Duration 508 ms by bot id=7144434947
+2024-08-25 01:01:02,493 - aiogram.event - INFO - Update id=53308006 is handled. Duration 300 ms by bot id=7144434947
+2024-08-25 01:01:04,645 - aiogram.event - INFO - Update id=53308007 is handled. Duration 308 ms by bot id=7144434947

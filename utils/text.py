@@ -213,6 +213,7 @@ CONGRATS_GAVE_REQUESTS = __("""Do'stingiz balansini to'ldirgani uchun sizga {ref
 NOT_REGISTERED = __("Botdan foydalanish uchun - /start")
 INCORRECT_AMOUNT = __("Notog'ri summa kiritilindi")
 MINIMAL_AMOUNT = __("Xisobni to'ldirish uchun minimal summa: 1$")
+MINIMAL_AMOUNT_STARS = __("Xisobni to'ldirish uchun minimal summma: 100 stars 🌟")
 SUBSCRIPTION_ALREADY_ACTIVATED = __("Obuna allaqachon faollashtirilgan ✅\n\n")
 NOT_ENOUGH_BALANCE = __("""Akkaunt qo'shish yoki yangilash uchun balansingizda mablag' mavjud emas ❌
 

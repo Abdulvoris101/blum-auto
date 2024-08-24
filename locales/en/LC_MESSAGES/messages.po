@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-08-25 00:40+0500\n"
-"PO-Revision-Date: 2024-08-25 00:41+0500\n"
+"PO-Revision-Date: 2024-08-25 00:59+0500\n"
 "Last-Translator: \n"
 "Language-Team: en <LL@li.org>\n"
 "Language: en\n"
@@ -637,6 +637,10 @@ msgid "Obuna allaqachon faollashtirilgan ✅\n"
 "\n"
 msgstr "The subscription is already activated ✅\n"
 "\n"
+
+#: utils/text.py:216
+msgid "Xisobni to'ldirish uchun minimal summma: 100 stars 🌟"
+msgstr "Minimum amount to top up the account: 100 stars 🌟"
 
 #: utils/text.py:217
 msgid "Akkaunt qo'shish yoki yangilash uchun balansingizda mablag' mavjud emas ❌\n"
