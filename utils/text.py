@@ -4,9 +4,9 @@ from aiogram.utils.i18n import gettext as _
 START_WELCOME = __("""👋 Salom fren, bot bilan pul ishlab topishga tayyormisiz?
 
 Bot imkoniyatlari:
-1. Barcha akkauntlarni birgina botdan boshqarish 
-2. Kunlik yeg'ilgan blumlarni avtomatik olish
-3. O'yinlarni avtomatik o'ynash
+1. Barcha blum akkauntlarni birgina botdan boshqarish 
+2. Kunlik va do'stlar bo'limidan yeg'ilgan blumlarni avtomatik olish
+3. O'yinlarni avtomatik va aniqlik bilan o'ynash
 4. Xar bir akkaunt uchun shaxsiy proksi 🔒
 
 ℹ️ Proksi ma'lumotlarini akkaunt bo'limida ko'rishingiz mumkin
