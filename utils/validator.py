@@ -22,3 +22,15 @@ def validateAmount(amount) -> float:
         raise InvalidRequestException(messageText=text.MINIMAL_AMOUNT.value)
 
     return amount
+
+
+def validateStarsAmount(amount) -> int:
+    try:
+        amount = int(amount)
+    except ValueError:
+        raise InvalidRequestException(messageText=text.INCORRECT_AMOUNT.value)
+
+    if amount < 100:
+        raise InvalidRequestException(messageText=text.MINIMAL_AMOUNT_STARS.value)
+
+    return amount

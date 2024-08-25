@@ -115,10 +115,9 @@ async def accountsDetails(callback: types.CallbackQuery, callback_data: AccountC
 
 @accountsRouter.callback_query(F.data == "add_account")
 async def addAccount(callback: types.CallbackQuery, state: FSMContext):
-    userPayment = await UserPayment.get(callback.from_user.id)
-
-    if userPayment.balance < settings.PRICE and userPayment.trialBalance < settings.PRICE:
-        return await bot.send_message(callback.from_user.id, text.NOT_ENOUGH_BALANCE.format(price=settings.PRICE))
+    if not await SubscriptionManager.isEnoughBalance(callback.from_user.id):
+        return await bot.send_message(callback.from_user.id, text.NOT_ENOUGH_BALANCE.format(price=settings.PRICE,
+                                                                                            stars=settings.STARS_PRICE))
 
     await state.set_state(AddAccountState.phoneNumber)
     await bot.send_message(callback.from_user.id, text.DISCLAIMER_OF_ADDING_ACCOUNT.value)
@@ -292,6 +291,9 @@ async def processAccountMessage(message: types.Message, state: FSMContext, sessi
         if userPayment.balance >= settings.PRICE:
             await SubscriptionManager.subscribe(message.from_user.id, accountId=account.id, isFreeTrial=False)
             userPayment.balance -= settings.PRICE
+        elif userPayment.stars >= settings.PRICE:
+            await SubscriptionManager.subscribe(message.from_user.id, accountId=account.id, isFreeTrial=False)
+            userPayment.stars -= settings.STARS_PRICE
         else:
             await SubscriptionManager.subscribe(message.from_user.id, accountId=account.id, isFreeTrial=True)
             userPayment.trialBalance -= settings.PRICE
@@ -373,11 +375,16 @@ async def updateSubscription(callback: types.CallbackQuery, callback_data: Accou
         return await bot.send_message(callback.from_user.id,
                                       text.SUBSCRIPTION_ALREADY_ACTIVATED.value)
 
-    if userPayment.balance < settings.PRICE:
-        return await bot.send_message(callback.from_user.id, text.NOT_ENOUGH_BALANCE.format(price=settings.PRICE))
-
-    userPayment.balance -= settings.PRICE
-    await userPayment.save()
+    if userPayment.balance >= settings.PRICE:
+        userPayment.balance -= settings.PRICE
+        await userPayment.save()
+    elif userPayment.stars >= settings.STARS_PRICE:
+        userPayment.stars -= settings.STARS_PRICE
+        await userPayment.save()
+    else:
+        return await bot.send_message(callback.from_user.id,
+                                      text.NOT_ENOUGH_BALANCE.format(price=settings.PRICE,
+                                                                     stars=settings.STARS_PRICE))
 
     await SubscriptionManager.updateSubscription(accountId=account.id)
     return await bot.send_message(callback.from_user.id, text.SUBSCRIPTION_UPDATED.format(

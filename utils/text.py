@@ -18,7 +18,7 @@ SELECT_LANGUAGE = __("""Muloqot tilini tanlang
 Choose language""")
 
 THANKS_FOR_CHOOSING = __("""🎉 Bizni tanlaganiz uchun rahmat
-Bonus sifatida sizga tekin obuna taqdim etildi""")
+Bonus sifatida 1-akkaunt uchun 3 kunlik tekin obuna taqdim etiladi""")
 
 # FAQ
 BOT_USAGE_FAQ = __("""<b>Botni qanday ishlataman?</b>
@@ -163,15 +163,21 @@ ACCOUNT_AVAILABLE_TO_FARM = __("""{sessionName} akkauntingiz farming uchun mavju
 
 # Bonus
 INSTRUCTION_TO_GET_FREE_TG = __("Test uchun telegram akkaunt olish uchun bizga yozing - @aerkinov1")
+ENTER_TYPE_OF_METHOD = __("To'lov turini tanlang: ")
+ENTER_STARS_AMOUNT = __("""🌟 To'lov summasini stars valyutasida kiriting:
 
+Stars narxlarini telegram sozlamalardan ko'rishingiz mumkin""")
 # Balance
 BALANCE = __("""💵 Balans: {balance}$
 
-👤 Har bir akkauntni ulash oyiga: 1.99$ ≈ 25,000 so'm
+🌟 Stars: {stars}
 
-✨ 1-akkaunt uchun 3 kunlik tekin obuna taqdim etiladi
+👤 Har bir akkauntni ulash oyiga: 1.99$ yoki 100 stars
 
-💳 To'lov kripto va visa/mastercard orqali qabul qilinadi!
+Qabul qilinadigan to'lov turlari: 
+- 💳 visa/mastercard
+- 🪙 crypto
+- 🌟 telegram stars
 
 💡 Kripto haqida bilmasangiz qo'llanma - /help""")
 
@@ -181,7 +187,7 @@ Referallar soni: {referralsCount}
 
 Ushbu referal orqali do'stingizni taklif eting va u balansiga pul to'ldirishi bilan {referralPrice}$ qo'lga kiriting!""")
 
-INVOICE_DETAILS = __(""" To'lov tafsilotlari:
+INVOICE_DETAILS = __("""To'lov tafsilotlari:
 
 Summa: {amount}$
 To'lov havolasi: {invoiceUrl}
@@ -190,8 +196,14 @@ To'lovni amalga oshirgandan so'ng taxminan 1-2 minut atrofida balansingizga pul 
 
 Toʻlov jarayonida biror muammoga duch kelsangiz yoki savollaringiz boʻlsa, bizga murojat qiling - @aerkinov1
 """)
+
+STARS_TITLE = __("Balansni to'ldirish")
+STARS_INVOICE_DETAILS = __("""Balansni to'ldirish uchun {stars} 🌟 stars to'lov amalga oshiring""")
+
 SUCCESSFULLY_PAYED = __("""{amount}$ balansingizga kelib qo'shildi, bizni tanlaganingiz uchun rahmat fren 😊""")
-ENTER_AMOUNT = __("""To'lov summasini kiriting: """)
+ENTER_AMOUNT = __("""To'lov summasini dollarda kiriting kiriting $""")
+SUCCESSFULLY_STARS_PAYED = __("""{amount} stars balansingizga kelib qo'shildi, bizni tanlaganingiz uchun rahmat 
+fren""")
 
 INCORRECT_LANGUAGE_CODE = __("""Notog'ri tilni kiritingiz, Iltimos menyudagi tillardan birini kiriting!""")
 
@@ -201,10 +213,12 @@ CONGRATS_GAVE_REQUESTS = __("""Do'stingiz balansini to'ldirgani uchun sizga {ref
 NOT_REGISTERED = __("Botdan foydalanish uchun - /start")
 INCORRECT_AMOUNT = __("Notog'ri summa kiritilindi")
 MINIMAL_AMOUNT = __("Xisobni to'ldirish uchun minimal summa: 1$")
+MINIMAL_AMOUNT_STARS = __("Xisobni to'ldirish uchun minimal summma: 100 stars 🌟")
 SUBSCRIPTION_ALREADY_ACTIVATED = __("Obuna allaqachon faollashtirilgan ✅\n\n")
 NOT_ENOUGH_BALANCE = __("""Akkaunt qo'shish yoki yangilash uchun balansingizda mablag' mavjud emas ❌
 
-Akkaunt ulash narxi oyiga - {price}$""")
+Akkaunt ulash oyiga - {price}$ yoki {stars} stars 🌟""")
+
 
 # Subscription
 SUBSCRIPTION_UPDATED = __("""Tabriklaymiz akkauntingiz obunasi yangilandi 🥳
