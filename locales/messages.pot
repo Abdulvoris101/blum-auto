@@ -545,7 +545,7 @@ msgid ""
 msgstr ""
 
 #: utils/text.py:204
-msgid "To'lov summasini dollarda kiriting kiriting $"
+msgid "To'lov summasini dollar valyutasida kiriting: "
 msgstr ""
 
 #: utils/text.py:205
@@ -649,7 +649,7 @@ msgid ""
 msgstr ""
 
 #: utils/text.py:274
-msgid "To'lov tizimida xatolik, iltimos keyinroq urinib ko'ring"
+msgid "To'lov tizimida xatolik yuz bermoqda, to'lov uchun bizga yozing - @aerkinov1"
 msgstr ""
 
 #: utils/text.py:277

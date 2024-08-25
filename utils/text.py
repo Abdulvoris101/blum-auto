@@ -202,7 +202,7 @@ STARS_TITLE = __("Balansni to'ldirish")
 STARS_INVOICE_DETAILS = __("""Balansni to'ldirish uchun {stars} 🌟 stars to'lov amalga oshiring""")
 
 SUCCESSFULLY_PAYED = __("""{amount}$ balansingizga kelib qo'shildi, bizni tanlaganingiz uchun rahmat fren 😊""")
-ENTER_AMOUNT = __("""To'lov summasini dollarda kiriting kiriting $""")
+ENTER_AMOUNT = __("""To'lov summasini dollar valyutasida kiriting: """)
 SUCCESSFULLY_STARS_PAYED = __("""{amount} stars balansingizga kelib qo'shildi, bizni tanlaganingiz uchun rahmat 
 fren""")
 
@@ -273,7 +273,7 @@ SENT_USER_REPORT_TEXT = """Message sent to {receivedUsersCount} users
 Bot was blocked by {blockedUsersCount} users"""
 
 
-PAYMENT_ERROR = __("""To'lov tizimida xatolik, iltimos keyinroq urinib ko'ring""")
+PAYMENT_ERROR = __("""To'lov tizimida xatolik yuz bermoqda, to'lov uchun bizga yozing - @aerkinov1""")
 ERROR_TEMPLATE = """"#error\ntelegramId: {telegramId}
 message: {message}"""
 ORDER_ERROR_TEMPLATE = __("""#error\norderId: {orderId}\nmessage: {message}""")

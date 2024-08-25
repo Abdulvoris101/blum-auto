@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-08-25 00:40+0500\n"
-"PO-Revision-Date: 2024-08-25 13:09+0500\n"
+"PO-Revision-Date: 2024-08-25 17:59+0500\n"
 "Last-Translator: \n"
 "Language-Team: ru <LL@li.org>\n"
 "Language: ru\n"
@@ -609,8 +609,8 @@ msgid "{amount}$ balansingizga kelib qo'shildi, bizni tanlaganingiz uchun rahmat
 msgstr "Баланс пополнен на сумму {amount}$, спасибо, что выбрали нас fren 😊"
 
 #: utils/text.py:204
-msgid "To'lov summasini dollarda kiriting kiriting $"
-msgstr "Введите сумму платежа в долларах $"
+msgid "To'lov summasini dollar valyutasida kiriting: "
+msgstr "Введите сумму платежа в долларовой валюте:"
 
 #: utils/text.py:205
 msgid "{amount} stars balansingizga kelib qo'shildi, bizni tanlaganingiz uchun rahmat \n"
@@ -712,8 +712,8 @@ msgid "Akkauntingizda blum ishga tushirilmagan, @BlumCryptoBot botga kirib ro'yx
 msgstr "Вы не запускали blum в этого тг аккаунте, войдите в бот @BlumCryptoBot и зарегистрируйтесь."
 
 #: utils/text.py:274
-msgid "To'lov tizimida xatolik, iltimos keyinroq urinib ko'ring"
-msgstr "Ошибка в платежной системе, повторите попытку позже"
+msgid "To'lov tizimida xatolik yuz bermoqda, to'lov uchun bizga yozing - @aerkinov1"
+msgstr "В платежной системе произошла ошибка, для оплаты напишите нам - @aerkinov1"
 
 #: utils/text.py:277
 msgid "#error\n"
@@ -1384,3 +1384,6 @@ msgstr "{sessionName} - сессия завершен!"
 #~ "akkauntlar bo'limiga o'tib akkauntingizni "
 #~ "tanlang va 🔰 obunani yangilas"
 #~ msgstr ""
+
+#~ msgid "To'lov tizimida xatolik, iltimos keyinroq urinib ko'ring"
+#~ msgstr "Ошибка в платежной системе, повторите попытку позже"
