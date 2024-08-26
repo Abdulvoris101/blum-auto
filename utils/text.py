@@ -141,8 +141,7 @@ FINISHED_FARM = __("""\n\n🟢 Farming tugadi.\n
 TIMER_FARMING_CLAIMED = __("""\n\n🟢 Farmingdan blum olindi""")
 IN_PROGRESS_FARMING = __("""\n\n🟢 Blum yig'ilmoqda. Qolgan vaqt: {sleepDuration} soat""")
 FARMING_STARTED = __("""\n\n🟢 Farming boshlandi...""")
-WAIT_UNTIL_NEXT_GAME = __("""\n\n🟡 Keyingi o'yin o'ynalishdan oldin 5 sekund kutamiz...""")
-LONG_INTERVAL_GAME = __("""\n\n🟡 Xar 5ta o'yindan keyin 30 sekund kutamiz...""")
+LONG_INTERVAL_GAME = __("""\n\n🟡 Xar 10ta o'yindan keyin 10 sekund kutamiz...""")
 WAIT_A_MOMENT = __("""Biroz kuting...""")
 LOADING_ACCOUNT_INFORMATION = __("""⏳ Akkaunt ma'lumotlari olinmoqda...""")
 

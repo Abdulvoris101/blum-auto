@@ -75,6 +75,9 @@ async def accountsDetails(callback: types.CallbackQuery, callback_data: AccountC
         blumAccount.status = Status.ACTIVE
         account.status = Status.ACTIVE
 
+        if balance.allPlayPasses < blumAccount.availablePlayPasses:
+            blumAccount.availablePlayPasses = balance.allPlayPasses
+
         await blumAccount.save()
         await account.save()
 
@@ -156,7 +159,7 @@ class AccountCreationHandler:
             }
 
             self.session = Client(name=sessionName, api_id=settings.API_ID, api_hash=settings.API_HASH,
-                                  workdir=settings.WORKDIR, proxy=proxy)
+                                  workdir=settings.WORKDIR, proxy=proxy, device_model="Blum auto", app_version="2v")
             await bot.delete_message(message.from_user.id, message_id=waitMomentMessage.message_id)
             inWaitMessage = await message.answer(text.SMS_SENDING.value)
             await self.session.connect()

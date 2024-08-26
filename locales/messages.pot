@@ -422,7 +422,7 @@ msgstr ""
 msgid ""
 "\n"
 "\n"
-"🟡 Xar 5ta o'yindan keyin 30 sekund kutamiz..."
+"🟡 Xar 10ta o'yindan keyin 10 sekund kutamiz..."
 msgstr ""
 
 #: utils/text.py:146
