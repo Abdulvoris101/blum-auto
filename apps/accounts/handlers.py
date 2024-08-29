@@ -19,7 +19,7 @@ from apps.common.settings import settings
 from apps.core.keyboards import backMenuMarkup, startMenuMarkup, cancelMenuMarkup
 from apps.core.models import User
 from apps.core.scheme import BlumBalanceScheme
-from apps.payment.managers import SubscriptionManager
+from apps.payment.managers import SubscriptionManager, UserPaymentManager
 from apps.payment.models import UserPayment, AccountSubscription
 from apps.scripts.blum.blum_bot import BlumBot
 from bot import bot, logger, redis
@@ -61,16 +61,17 @@ async def accountsDetails(callback: types.CallbackQuery, callback_data: AccountC
             await bot.delete_message(callback.from_user.id, message_id=waitMomentMessage.message_id)
             return await bot.send_message(callback.from_user.id, text.INACTIVE_SESSION.value)
 
-        proxy = None
+        proxyScheme = None
 
         if account.proxyId is not None:
             proxy = await Proxy.get(account.proxyId)
-            proxy = ProxyDetailScheme(**proxy.to_dict())
+            proxy.inUse = True
+            await proxy.save()
+            proxyScheme = ProxyDetailScheme(**proxy.to_dict())
 
-        blum = BlumBot(sessionName=account.sessionName, proxy=proxy)
-        await blum.initWebSession()
-        await blum.login()
-        balance = await blum.balance()
+        balance = await BlumAccountManager.getUserBlumBalance(telegramId=callback.from_user.id,
+                                                              sessionName=account.sessionName,
+                                                              proxy=proxyScheme)
 
         blumAccount.availableBalance = balance.availableBalance
         blumAccount.allPlayPasses = balance.allPlayPasses
@@ -96,8 +97,7 @@ async def accountsDetails(callback: types.CallbackQuery, callback_data: AccountC
         currentPeriodEnd = subscription.currentPeriodEnd.strftime("%d %B")
 
         await bot.send_message(callback.from_user.id,
-                               PROFILE_INFO.format(**blumAccountScheme.model_dump(),
-                                                   sessionName=accountScheme.sessionName,
+                               PROFILE_INFO.format(**blumAccountScheme.model_dump(), sessionName=accountScheme.sessionName,
                                                    subscriptionStatus=subscriptionStatus,
                                                    type=type_, currentPeriodEnd=currentPeriodEnd),
                                reply_markup=accountParamsMarkup(accountScheme.id))
@@ -238,100 +238,58 @@ async def processPhoneNumber(message: types.Message, state: FSMContext):
     await accountHandler.processPhoneNumber(message, state)
 
 
+async def sendAccountInfo(message: types.Message, account: Account, blumBalance: BlumBalanceScheme):
+    isSubscriptionActive = await SubscriptionManager.isAccountSubscriptionActive(account.id)
+    subscription = await AccountSubscription.getByAccountId(account.id)
+
+    subscription_status = text.ACTIVE_STATUS.value if isSubscriptionActive else text.INACTIVE_STATUS.value
+    type_ = text.FREE_TYPE.value if subscription.isFreeTrial else text.PREMIUM_TYPE.value
+    currentPeriodEnd = subscription.currentPeriodEnd.strftime("%d %B")
+
+    await message.answer(text.PROFILE_INFO.format(
+        **blumBalance.model_dump(),
+        sessionName=account.sessionName,
+        subscriptionStatus=subscription_status,
+        type=type_, currentPeriodEnd=currentPeriodEnd
+    ))
+
+    await message.answer(text.SUCCESSFUL_ADDED_ACCOUNT.value, reply_markup=startMenuMarkup())
+
+
 async def processAccountMessage(message: types.Message, state: FSMContext, session: Client, message_id: int):
     data = await state.get_data()
     phoneNumber = data.get('phoneNumber')
     sessionName = data.get("sessionName")
 
     try:
-        proxies = ProxyManager.getProxies()
-        proxy = random.choice(proxies)
-        proxyParsed = urlparse(proxy)
-
-        proxy = ProxyDetailScheme(id=None, telegramId=None, ip=None, proxyId=None, dateEnd=None,
-                                  host=proxyParsed.hostname, port=str(proxyParsed.port),
-                                  user=proxyParsed.username, password=proxyParsed.password, type=proxyParsed.scheme)
-        try:
-            blum = BlumBot(sessionName=sessionName, proxy=proxy)
-            await blum.initWebSession()
-            await blum.login()
-            balance = await blum.balance()
-        except (InvalidRequestException, JSONDecodeError) as e:
-            logger.error(e)
-            await bot.send_message(message.from_user.id, text.CANT_GET_BLUM_BALANCE.value)
-            balance = BlumBalanceScheme(availableBalance=0, allPlayPasses=0, timestamp=datetime.timestamp)
-
+        proxyScheme = await ProxyManager.getRandomProxy()
+        blumBalance = await BlumAccountManager.getUserBlumBalance(telegramId=message.from_user.id,
+                                                              sessionName=sessionName, proxy=proxyScheme)
         accountInfo = await session.get_me()
-
         user = await User.get(message.from_user.id)
-        isAccount = await AccountManager.isExistsByPhoneNumber(phoneNumber)
-        proxyId = None
 
-        if not isAccount:
-            availableProxy = await ProxyManager.getNotUsingProxy()
-
-            if availableProxy is not None:
-                proxyId = availableProxy.id
-                availableProxy.telegramId = user.telegramId
-                await availableProxy.save()
-            else:
-                response = await ProxyManager.buyProxy(telegramId=user.telegramId)
-                status = response.get("status")
-
-                if status is not None and status == "yes":
-                    proxyObj = await ProxyManager.createByJson(telegramId=user.telegramId, response=response)
-                    proxyId = proxyObj.id
-                else:
-                    await sendError(text.PROXY_BUY_ERROR.format(error=response.get("error"),
-                                                                errorCode=response.get("error_id")))
-
-        accountScheme = AccountCreateScheme(sessionName=sessionName, phoneNumber=phoneNumber, userId=user.id,
-                                            telegramId=accountInfo.id, proxyId=proxyId)
-
-        account = await AccountManager.createOrActivate(accountScheme)
-        blumAccountScheme = BlumAccountCreateScheme(accountId=account.id, **balance.model_dump())
-
+        isAccountExists = await AccountManager.isExistsByPhoneNumber(phoneNumber)
+        accountCreateScheme = await AccountManager.getAccountCreateScheme(user, phoneNumber,
+                                                                          sessionName, accountInfo, isAccountExists)
+        account = await AccountManager.createOrActivate(accountCreateScheme)
+        blumAccountScheme = BlumAccountCreateScheme(accountId=account.id, **blumBalance.model_dump())
         await BlumAccountManager.createOrActivate(scheme=blumAccountScheme)
-        proxyInfo = "⚠️ Account need proxy to assign" if proxyId is None else "Proxy successfully assigned ✅"
-        await sendEvent(text.ACCOUNT_REGISTERED.format(userTelegramId=user.telegramId, accountTelegramId=accountInfo.id,
-                                                       status=accountScheme.status,
-                                                       sessionName=accountScheme.sessionName,
-                                                       proxyInfo=proxyInfo))
 
-        await session.disconnect()
-        await state.clear()
+        proxyInfo = "⚠️ Account need proxy to assign" if account.proxyId is None else "Proxy successfully assigned ✅"
 
-        await sessionManager.deleteSession(message.from_user.id)
+        await sendEvent(text.ACCOUNT_REGISTERED.format(
+            userTelegramId=account.userId, accountTelegramId=account.telegramId,
+            status=account.status, sessionName=account.sessionName, proxyInfo=proxyInfo
+        ))
 
-        userPayment = await UserPayment.get(message.from_user.id)
-
-        if userPayment.balance >= settings.PRICE:
-            await SubscriptionManager.subscribe(message.from_user.id, accountId=account.id, isFreeTrial=False)
-            userPayment.balance -= settings.PRICE
-        elif userPayment.stars >= settings.PRICE:
-            await SubscriptionManager.subscribe(message.from_user.id, accountId=account.id, isFreeTrial=False)
-            userPayment.stars -= settings.STARS_PRICE
-        else:
-            await SubscriptionManager.subscribe(message.from_user.id, accountId=account.id, isFreeTrial=True)
-            userPayment.trialBalance -= settings.PRICE
-
-        await userPayment.save()
-        await user.save()
+        await UserPaymentManager.chargeUserBalance(user=user, accountId=account.id)
 
         await bot.delete_message(message.from_user.id, message_id=message_id)
+        await session.disconnect()
+        await state.clear()
+        await sessionManager.deleteSession(message.from_user.id)
 
-        isSubscriptionActive = await SubscriptionManager.isAccountSubscriptionActive(account.id)
-        subscription = await AccountSubscription.getByAccountId(account.id)
-
-        subscriptionStatus = text.ACTIVE_STATUS.value if isSubscriptionActive else text.INACTIVE_STATUS.value
-        type_ = text.FREE_TYPE.value if subscription.isFreeTrial else text.PREMIUM_TYPE.value
-        currentPeriodEnd = subscription.currentPeriodEnd.strftime("%d %B")
-
-        await message.answer(text.PROFILE_INFO.format(**blumAccountScheme.model_dump(),
-                                                      sessionName=accountScheme.sessionName,
-                                                      subscriptionStatus=subscriptionStatus,
-                                                      type=type_, currentPeriodEnd=currentPeriodEnd))
-        await message.answer(text.SUCCESSFUL_ADDED_ACCOUNT.value, reply_markup=startMenuMarkup())
+        await sendAccountInfo(message, account, blumBalance)
 
     except bad_request_400.PhoneCodeExpired as e:
         logger.error(e.MESSAGE)
@@ -358,9 +316,9 @@ async def processAccountMessage(message: types.Message, state: FSMContext, sessi
     except InternalServerException as e:
         logger.warn(str(e.message_text))
         return await message.answer(e.message_text)
-    except Exception as e:
-        logger.error(str(e))
-        return await message.answer(text.SOMETHING_WRONG.value)
+    # except Exception as e:
+    #     logger.error(str(e))
+    #     return await message.answer(text.SOMETHING_WRONG.value)
 
 
 @accountsRouter.message(AddAccountState.verificationCode)

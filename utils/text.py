@@ -129,6 +129,7 @@ NO_ACTIVE_FARMS = __("🔍 Aktiv farming topilmadi")
 FARM_STOPPED = __("🔴 Farming toxtadi")
 PLAYING_GAME = __("""\n\n🟢 O'yin o'ynalmoqda...""")
 SUCCESSFULLY_PLAYED_GAMES = __("""\n\n🟢 O'yin muvaffiqiyatli o'ynaldi! Berilgan mukofot: {points}""")
+NOT_AVAILABLE_GAME_INTERNAL = __("\n\n🔴 O'yin o'ynab bo'lmadi! @blum bot javob bermadi")
 PLAYING_NOT_AVAILABLE = __("""\n\n🟡 Ushbu akkaunt uchun o'yin uchun ruxsat etilgan biletlar mavjud emas!""")
 FINISHED_FARM = __("""\n\n🟢 Farming tugadi.\n
 👤 Akkauntlar bo'limida bot sizning o'rningizda nechta o'yin o'ynashini o'zgartishingiz mumkin
@@ -294,7 +295,6 @@ Siz xali akkaunt qo'shmagansiz akkaunt qo'shish uchun "👥 Akkauntlar" bo'limig
 SOMETHING_WRONG_ON_BLUM = __("{sessionName} | Akkauntda xatolik, iltimos qayta urinib ko'ring!")
 BLUM_NOT_WORKING = __("""@blum bot ishlamayapti! Xavotir olmang blum dasturchilari yaqin orada bu xatolikni bartaraf etishadi!""")
 CANT_GET_BLUM_BALANCE = __("@blum bot-da nosozliklar kuzatilmoqda shu sababli blum ma'lumotlarini olish imkoni bo'lmadi!")
-NOT_AVAILABLE_GAME_INTERNAL = __("🔴 O'yin o'ynab bo'lmadi! @blum bot javob bermadi")
 NON_ACCEPTABLE_STRING = __("""Iltimos to'g'ri raqam kiriting""")
 BLUM_ERROR = __("""Blumda xatolik iltimos qayta urinib ko'ring!""")
 CANCELED = __("Bekor qilindi")

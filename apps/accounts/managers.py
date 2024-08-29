@@ -3,8 +3,9 @@ import datetime
 import os
 import random
 import urllib
+from json import JSONDecodeError
 from multiprocessing.managers import BaseManager
-from typing import Dict, List, Tuple
+from typing import Dict, List, Tuple, Any
 from urllib.parse import urlparse
 
 import httpx
@@ -12,16 +13,18 @@ from fake_useragent import UserAgent
 from pyrogram import Client
 from pyrogram.errors import SessionExpired, Unauthorized, AuthKeyUnregistered
 from pyrogram.errors.exceptions import unauthorized_401
-from sqlalchemy import exists, select, and_
+from sqlalchemy import exists, select, and_, Column
 
 from apps.accounts.models import Account, BlumAccount, Proxy
-from apps.accounts.scheme import AccountCreateScheme, Status, BlumAccountCreateScheme
+from apps.accounts.scheme import AccountCreateScheme, Status, BlumAccountCreateScheme, ProxyDetailScheme
 from apps.common.exceptions import InvalidRequestException
 from apps.common.settings import settings
 from apps.core.models import User
 from apps.accounts.scheme import ProxyResponseScheme, ProxyCreateScheme
+from apps.core.scheme import BlumBalanceScheme
 from apps.payment.managers import SubscriptionManager
 from apps.payment.models import AccountSubscription
+from apps.scripts.blum.blum_bot import BlumBot
 from bot import bot, i18n, logger
 from db.setup import AsyncSessionLocal
 from utils import text
@@ -79,6 +82,8 @@ class AccountManager:
             account.telegramId = scheme.telegramId
             await account.save()
 
+            # Set account's proxy inUse to true
+            await ProxyManager.activateProxyInUse(account.proxyId)
             return account
 
         account = Account(**scheme.model_dump())
@@ -99,6 +104,16 @@ class AccountManager:
             result = await session.execute(select(Account).filter_by(telegramId=telegramId, status=Status.ACTIVE))
             accounts = result.scalars().all()
         return accounts
+
+    @classmethod
+    async def getAccountCreateScheme(cls, user, phoneNumber, sessionName, accountInfo, isAccountExists):
+        # Assign none if account exists bcs account has already proxy assigned
+        proxyId = None if isAccountExists else await ProxyManager.getOrCreateProxy(user)
+
+        return AccountCreateScheme(
+            sessionName=sessionName, phoneNumber=phoneNumber,
+            userId=user.id, telegramId=accountInfo.id, proxyId=proxyId
+        )
 
     @classmethod
     async def isActiveAccount(cls, account: Account):
@@ -257,13 +272,23 @@ class BlumAccountManager:
             blumAccount = await BlumAccount.getByAccountId(scheme.accountId)
             blumAccount.status = Status.ACTIVE
             await blumAccount.save()
-
             return blumAccount
 
         account = BlumAccount(**scheme.model_dump())
         await account.save()
-
         return account
+
+    @classmethod
+    async def getUserBlumBalance(cls, telegramId: int, sessionName, proxy):
+        try:
+            blum = BlumBot(sessionName=sessionName, proxy=proxy)
+            await blum.initWebSession()
+            await blum.login()
+            return await blum.balance()
+        except (InvalidRequestException, JSONDecodeError) as e:
+            logger.error(e)
+            await bot.send_message(telegramId, text.CANT_GET_BLUM_BALANCE.value)
+            return BlumBalanceScheme(availableBalance=0, allPlayPasses=0, timestamp=datetime.datetime.timestamp())
 
 
 class ProxyManager:
@@ -321,11 +346,62 @@ class ProxyManager:
         return responseJson
 
     @classmethod
-    async def getNotUsingProxy(cls):
+    async def buyAndCreateProxy(cls, user: User) -> int | None:
+        response = await ProxyManager.buyProxy(telegramId=user.telegramId)
+
+        if response.get("status") == "yes":
+            proxy_obj = await ProxyManager.createByJson(telegramId=user.telegramId, response=response)
+            return proxy_obj.id
+
+        await sendError(text.PROXY_BUY_ERROR.format(
+            error=response.get("error"),
+            errorCode=response.get("error_id")
+        ))
+
+        return None
+
+    @classmethod
+    async def assignProxy(cls, proxyId: int, user: User) -> int:
+        proxy = await Proxy.get(proxyId)
+        proxy.telegramId = user.telegramId
+        proxy.inUse = True
+        await proxy.save()
+        return proxy.id
+
+    @classmethod
+    async def activateProxyInUse(cls, proxyId: int) -> int:
+        proxy = await Proxy.get(proxyId)
+        proxy.inUse = True
+        await proxy.save()
+        return proxy.id
+
+    @classmethod
+    async def getOrCreateProxy(cls, user) -> int:
+        availableProxy = await ProxyManager.getNotUsingProxy()
+
+        if availableProxy:
+            return await cls.assignProxy(availableProxy.id, user)
+
+        return await cls.buyAndCreateProxy(user)
+
+    @classmethod
+    async def getNotUsingProxy(cls) -> Proxy:
         async with AsyncSessionLocal() as session:
             query = select(Proxy).where(Proxy.inUse == False).limit(1)
             result = await session.execute(query)
             return result.scalar_one_or_none()
+
+    @classmethod
+    async def getRandomProxy(cls) -> ProxyDetailScheme:
+        proxies = ProxyManager.getProxies()
+        proxy = random.choice(proxies)
+        proxy_parsed = urlparse(proxy)
+
+        return ProxyDetailScheme(
+            id=None, telegramId=None, ip=None, proxyId=None, dateEnd=None,
+            host=proxy_parsed.hostname, port=str(proxy_parsed.port),
+            user=proxy_parsed.username, password=proxy_parsed.password, type=proxy_parsed.scheme
+        )
 
 
 class UserTaskManager:
