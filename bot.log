@@ -327,3 +327,149 @@
 2024-08-28 22:27:51,149 - httpx - INFO - HTTP Request: GET https://gateway.blum.codes/v1/friends/balance "HTTP/1.1 200 OK"
 2024-08-28 22:27:53,882 - httpx - INFO - HTTP Request: POST https://gateway.blum.codes/v1/friends/claim "HTTP/1.1 200 OK"
 2024-08-28 22:27:54,532 - httpx - INFO - HTTP Request: POST https://gateway.blum.codes/v1/auth/refresh "HTTP/1.1 200 OK"
+2024-08-29 11:24:27,936 - aiogram.event - INFO - Update id=53308404 is not handled. Duration 0 ms by bot id=7144434947
+2024-08-29 11:24:47,417 - aiogram.event - INFO - Update id=53308405 is handled. Duration 574 ms by bot id=7144434947
+2024-08-29 11:36:21,939 - aiogram.event - INFO - Update id=53308406 is not handled. Duration 572 ms by bot id=7144434947
+2024-08-29 11:36:22,365 - aiogram.event - INFO - Update id=53308406 is not handled. Duration 309 ms by bot id=7144434947
+2024-08-29 11:36:24,906 - aiogram.event - INFO - Update id=53308406 is not handled. Duration 425 ms by bot id=7144434947
+2024-08-29 11:39:37,183 - aiogram.event - INFO - Update id=53308407 is not handled. Duration 0 ms by bot id=7144434947
+2024-08-29 11:41:23,087 - aiogram.event - INFO - Update id=53308408 is not handled. Duration 1 ms by bot id=7144434947
+2024-08-29 11:51:45,159 - aiogram.event - INFO - Update id=53308409 is not handled. Duration 0 ms by bot id=7144434947
+2024-08-29 12:02:25,254 - aiogram.event - INFO - Update id=53308410 is not handled. Duration 0 ms by bot id=7144434947
+2024-08-29 12:11:53,788 - aiogram.event - INFO - Update id=53308411 is not handled. Duration 0 ms by bot id=7144434947
+2024-08-29 12:19:08,181 - aiogram.event - INFO - Update id=53308412 is not handled. Duration 0 ms by bot id=7144434947
+2024-08-29 12:19:43,427 - aiogram.event - INFO - Update id=53308413 is handled. Duration 501 ms by bot id=7144434947
+2024-08-29 12:19:46,526 - aiogram.event - INFO - Update id=53308414 is handled. Duration 778 ms by bot id=7144434947
+2024-08-29 12:19:47,645 - aiogram.event - INFO - Update id=53308415 is handled. Duration 231 ms by bot id=7144434947
+2024-08-29 12:19:50,087 - aiogram.event - INFO - Update id=53308416 is handled. Duration 453 ms by bot id=7144434947
+2024-08-29 12:19:57,927 - pyrogram.connection.transport.tcp.tcp - INFO - Using proxy 194.67.214.3
+2024-08-29 12:19:57,928 - pyrogram.connection.connection - INFO - Connecting...
+2024-08-29 12:19:58,338 - pyrogram.connection.connection - INFO - Connected! Production DC2 - IPv4
+2024-08-29 12:19:58,339 - pyrogram.session.session - INFO - NetworkTask started
+2024-08-29 12:19:58,901 - pyrogram.session.session - INFO - Session initialized: Layer 158
+2024-08-29 12:19:58,901 - pyrogram.session.session - INFO - Device: Blum auto - 2v
+2024-08-29 12:19:58,901 - pyrogram.session.session - INFO - System: Linux 6.5.0-44-generic (en)
+2024-08-29 12:19:58,901 - pyrogram.session.session - INFO - Session started
+2024-08-29 12:19:58,910 - pyrogram.session.session - INFO - PingTask started
+2024-08-29 12:19:59,075 - pyrogram.session.session - INFO - [1] Retrying "auth.SendCode" due to: Telegram says: [500 AUTH_RESTART] - User authorization has restarted (caused by "auth.SendCode")
+2024-08-29 12:20:00,238 - aiogram.event - INFO - Update id=53308417 is handled. Duration 3527 ms by bot id=7144434947
+2024-08-29 12:20:08,336 - aiogram.event - INFO - Update id=53308418 is handled. Duration 641 ms by bot id=7144434947
+2024-08-29 12:20:14,640 - pyrogram.connection.transport.tcp.tcp - INFO - Using proxy 194.67.214.82
+2024-08-29 12:20:14,640 - pyrogram.connection.connection - INFO - Connecting...
+2024-08-29 12:20:15,052 - pyrogram.connection.connection - INFO - Connected! Production DC2 - IPv4
+2024-08-29 12:20:15,052 - pyrogram.session.session - INFO - NetworkTask started
+2024-08-29 12:20:15,574 - pyrogram.session.session - INFO - Session initialized: Layer 158
+2024-08-29 12:20:15,574 - pyrogram.session.session - INFO - Device: CPython 3.11.6 - Pyrogram 2.0.106
+2024-08-29 12:20:15,574 - pyrogram.session.session - INFO - System: Linux 6.5.0-44-generic (en)
+2024-08-29 12:20:15,574 - pyrogram.session.session - INFO - Session started
+2024-08-29 12:20:15,583 - pyrogram.session.session - INFO - PingTask started
+2024-08-29 12:20:15,913 - pyrogram.session.session - INFO - PingTask stopped
+2024-08-29 12:20:15,913 - pyrogram.connection.connection - INFO - Disconnected
+2024-08-29 12:20:15,913 - pyrogram.session.session - INFO - NetworkTask stopped
+2024-08-29 12:20:15,913 - pyrogram.session.session - INFO - Session stopped
+2024-08-29 12:20:16,706 - httpx - INFO - HTTP Request: POST https://gateway.blum.codes/v1/auth/provider/PROVIDER_TELEGRAM_MINI_APP "HTTP/1.1 200 OK"
+2024-08-29 12:20:16,706 - bot - ERROR - 'Response' object has no attribute 'status'
+2024-08-29 12:20:16,930 - aiogram.event - INFO - Update id=53308419 is handled. Duration 4079 ms by bot id=7144434947
+2024-08-29 12:21:16,041 - aiogram.event - INFO - Update id=53308420 is handled. Duration 307 ms by bot id=7144434947
+2024-08-29 12:21:17,360 - aiogram.event - INFO - Update id=53308421 is handled. Duration 228 ms by bot id=7144434947
+2024-08-29 12:21:18,629 - aiogram.event - INFO - Update id=53308422 is handled. Duration 454 ms by bot id=7144434947
+2024-08-29 12:21:25,081 - pyrogram.connection.transport.tcp.tcp - INFO - Using proxy 46.161.47.127
+2024-08-29 12:21:25,081 - pyrogram.connection.connection - INFO - Connecting...
+2024-08-29 12:21:25,396 - pyrogram.connection.connection - INFO - Connected! Production DC2 - IPv4
+2024-08-29 12:21:25,397 - pyrogram.session.session - INFO - NetworkTask started
+2024-08-29 12:21:25,861 - pyrogram.session.session - INFO - Session initialized: Layer 158
+2024-08-29 12:21:25,861 - pyrogram.session.session - INFO - Device: Blum auto - 2v
+2024-08-29 12:21:25,861 - pyrogram.session.session - INFO - System: Linux 6.5.0-44-generic (en)
+2024-08-29 12:21:25,861 - pyrogram.session.session - INFO - Session started
+2024-08-29 12:21:25,868 - pyrogram.session.session - INFO - PingTask started
+2024-08-29 12:21:26,041 - pyrogram.session.session - INFO - [1] Retrying "auth.SendCode" due to: Telegram says: [500 AUTH_RESTART] - User authorization has restarted (caused by "auth.SendCode")
+2024-08-29 12:21:27,183 - aiogram.event - INFO - Update id=53308423 is handled. Duration 3018 ms by bot id=7144434947
+2024-08-29 12:21:40,274 - aiogram.event - INFO - Update id=53308424 is not handled. Duration 547 ms by bot id=7144434947
+2024-08-29 12:21:41,084 - aiogram.event - INFO - Update id=53308424 is handled. Duration 636 ms by bot id=7144434947
+2024-08-29 12:21:48,184 - pyrogram.connection.transport.tcp.tcp - INFO - Using proxy 46.161.47.127
+2024-08-29 12:21:48,184 - pyrogram.connection.connection - INFO - Connecting...
+2024-08-29 12:21:48,489 - pyrogram.connection.connection - INFO - Connected! Production DC2 - IPv4
+2024-08-29 12:21:48,489 - pyrogram.session.session - INFO - NetworkTask started
+2024-08-29 12:21:49,000 - pyrogram.session.session - INFO - Session initialized: Layer 158
+2024-08-29 12:21:49,001 - pyrogram.session.session - INFO - Device: CPython 3.11.6 - Pyrogram 2.0.106
+2024-08-29 12:21:49,001 - pyrogram.session.session - INFO - System: Linux 6.5.0-44-generic (en)
+2024-08-29 12:21:49,001 - pyrogram.session.session - INFO - Session started
+2024-08-29 12:21:49,010 - pyrogram.session.session - INFO - PingTask started
+2024-08-29 12:21:49,363 - pyrogram.session.session - INFO - PingTask stopped
+2024-08-29 12:21:49,363 - pyrogram.connection.connection - INFO - Disconnected
+2024-08-29 12:21:49,363 - pyrogram.session.session - INFO - NetworkTask stopped
+2024-08-29 12:21:49,363 - pyrogram.session.session - INFO - Session stopped
+2024-08-29 12:21:59,791 - aiogram.event - INFO - Update id=53308425 is not handled. Duration 13269 ms by bot id=7144434947
+2024-08-29 12:22:00,332 - aiogram.event - INFO - Update id=53308425 is not handled. Duration 441 ms by bot id=7144434947
+2024-08-29 12:22:02,662 - aiogram.event - INFO - Update id=53308425 is not handled. Duration 231 ms by bot id=7144434947
+2024-08-29 12:22:08,323 - pyrogram.connection.transport.tcp.tcp - INFO - Using proxy 194.67.216.1
+2024-08-29 12:22:08,323 - pyrogram.connection.connection - INFO - Connecting...
+2024-08-29 12:22:08,751 - pyrogram.connection.connection - INFO - Connected! Production DC2 - IPv4
+2024-08-29 12:22:08,751 - pyrogram.session.session - INFO - NetworkTask started
+2024-08-29 12:22:09,561 - pyrogram.session.session - INFO - Session initialized: Layer 158
+2024-08-29 12:22:09,561 - pyrogram.session.session - INFO - Device: CPython 3.11.6 - Pyrogram 2.0.106
+2024-08-29 12:22:09,561 - pyrogram.session.session - INFO - System: Linux 6.5.0-44-generic (en)
+2024-08-29 12:22:09,561 - pyrogram.session.session - INFO - Session started
+2024-08-29 12:22:09,568 - pyrogram.session.session - INFO - PingTask started
+2024-08-29 12:22:10,399 - pyrogram.session.session - INFO - PingTask stopped
+2024-08-29 12:22:10,399 - pyrogram.connection.connection - INFO - Disconnected
+2024-08-29 12:22:10,399 - pyrogram.session.session - INFO - NetworkTask stopped
+2024-08-29 12:22:10,399 - pyrogram.session.session - INFO - Session stopped
+2024-08-29 12:22:21,046 - aiogram.event - INFO - Update id=53308425 is not handled. Duration 14283 ms by bot id=7144434947
+2024-08-29 12:22:29,592 - aiogram.event - INFO - Update id=53308425 is not handled. Duration 447 ms by bot id=7144434947
+2024-08-29 12:25:19,165 - aiogram.event - INFO - Update id=53308426 is handled. Duration 510 ms by bot id=7144434947
+2024-08-29 12:25:20,478 - aiogram.event - INFO - Update id=53308427 is handled. Duration 235 ms by bot id=7144434947
+2024-08-29 12:25:21,678 - aiogram.event - INFO - Update id=53308428 is handled. Duration 452 ms by bot id=7144434947
+2024-08-29 12:25:26,311 - pyrogram.connection.transport.tcp.tcp - INFO - Using proxy 194.67.214.3
+2024-08-29 12:25:26,311 - pyrogram.connection.connection - INFO - Connecting...
+2024-08-29 12:25:26,653 - pyrogram.connection.connection - INFO - Connected! Production DC2 - IPv4
+2024-08-29 12:25:26,653 - pyrogram.session.session - INFO - NetworkTask started
+2024-08-29 12:25:27,093 - pyrogram.session.session - INFO - Session initialized: Layer 158
+2024-08-29 12:25:27,093 - pyrogram.session.session - INFO - Device: Blum auto - 2v
+2024-08-29 12:25:27,093 - pyrogram.session.session - INFO - System: Linux 6.5.0-44-generic (en)
+2024-08-29 12:25:27,093 - pyrogram.session.session - INFO - Session started
+2024-08-29 12:25:27,100 - pyrogram.session.session - INFO - PingTask started
+2024-08-29 12:25:27,227 - pyrogram.session.session - INFO - [1] Retrying "auth.SendCode" due to: Telegram says: [500 AUTH_RESTART] - User authorization has restarted (caused by "auth.SendCode")
+2024-08-29 12:25:28,338 - aiogram.event - INFO - Update id=53308429 is handled. Duration 3152 ms by bot id=7144434947
+2024-08-29 12:25:29,286 - aiogram.event - INFO - Update id=53308430 is not handled. Duration 0 ms by bot id=7144434947
+2024-08-29 12:25:33,048 - aiogram.event - INFO - Update id=53308431 is handled. Duration 572 ms by bot id=7144434947
+2024-08-29 12:25:39,018 - pyrogram.connection.transport.tcp.tcp - INFO - Using proxy 194.67.214.82
+2024-08-29 12:25:39,018 - pyrogram.connection.connection - INFO - Connecting...
+2024-08-29 12:25:39,344 - pyrogram.connection.connection - INFO - Connected! Production DC2 - IPv4
+2024-08-29 12:25:39,345 - pyrogram.session.session - INFO - NetworkTask started
+2024-08-29 12:25:39,800 - pyrogram.session.session - INFO - Session initialized: Layer 158
+2024-08-29 12:25:39,801 - pyrogram.session.session - INFO - Device: CPython 3.11.6 - Pyrogram 2.0.106
+2024-08-29 12:25:39,801 - pyrogram.session.session - INFO - System: Linux 6.5.0-44-generic (en)
+2024-08-29 12:25:39,801 - pyrogram.session.session - INFO - Session started
+2024-08-29 12:25:39,807 - pyrogram.session.session - INFO - PingTask started
+2024-08-29 12:25:40,172 - pyrogram.session.session - INFO - PingTask stopped
+2024-08-29 12:25:40,172 - pyrogram.connection.connection - INFO - Disconnected
+2024-08-29 12:25:40,172 - pyrogram.session.session - INFO - NetworkTask stopped
+2024-08-29 12:25:40,172 - pyrogram.session.session - INFO - Session stopped
+2024-08-29 12:25:50,736 - httpx - INFO - HTTP Request: POST https://gateway.blum.codes/v1/auth/provider/PROVIDER_TELEGRAM_MINI_APP "HTTP/1.1 520 "
+2024-08-29 12:25:50,796 - aiogram.event - INFO - Update id=53308432 is not handled. Duration 13260 ms by bot id=7144434947
+2024-08-29 12:25:52,430 - pyrogram.connection.transport.tcp.tcp - INFO - Using proxy 194.67.214.3
+2024-08-29 12:25:52,430 - pyrogram.connection.connection - INFO - Connecting...
+2024-08-29 12:25:52,749 - pyrogram.connection.connection - INFO - Connected! Production DC2 - IPv4
+2024-08-29 12:25:52,750 - pyrogram.session.session - INFO - NetworkTask started
+2024-08-29 12:25:53,187 - pyrogram.session.session - INFO - Session initialized: Layer 158
+2024-08-29 12:25:53,187 - pyrogram.session.session - INFO - Device: CPython 3.11.6 - Pyrogram 2.0.106
+2024-08-29 12:25:53,187 - pyrogram.session.session - INFO - System: Linux 6.5.0-44-generic (en)
+2024-08-29 12:25:53,187 - pyrogram.session.session - INFO - Session started
+2024-08-29 12:25:53,215 - pyrogram.session.session - INFO - PingTask started
+2024-08-29 12:25:53,461 - pyrogram.session.session - INFO - PingTask stopped
+2024-08-29 12:25:53,461 - pyrogram.connection.connection - INFO - Disconnected
+2024-08-29 12:25:53,461 - pyrogram.session.session - INFO - NetworkTask stopped
+2024-08-29 12:25:53,461 - pyrogram.session.session - INFO - Session stopped
+2024-08-29 12:26:53,729 - aiogram.event - INFO - Update id=53308432 is not handled. Duration 62824 ms by bot id=7144434947
+2024-08-29 12:39:52,195 - aiogram.event - INFO - Update id=53308436 is handled. Duration 271 ms by bot id=7144434947
+2024-08-29 12:44:27,725 - aiogram.event - INFO - Update id=53308437 is not handled. Duration 0 ms by bot id=7144434947
+2024-08-29 12:56:28,448 - aiogram.event - INFO - Update id=53308438 is not handled. Duration 0 ms by bot id=7144434947
+2024-08-29 13:42:28,837 - aiogram.event - INFO - Update id=53308439 is not handled. Duration 0 ms by bot id=7144434947
+2024-08-29 13:43:40,945 - aiogram.event - INFO - Update id=53308440 is not handled. Duration 0 ms by bot id=7144434947
+2024-08-29 14:11:53,291 - aiogram.event - INFO - Update id=53308441 is not handled. Duration 0 ms by bot id=7144434947
+2024-08-29 14:14:12,831 - aiogram.event - INFO - Update id=53308442 is not handled. Duration 0 ms by bot id=7144434947
+2024-08-29 14:15:59,239 - aiogram.event - INFO - Update id=53308443 is not handled. Duration 0 ms by bot id=7144434947
+2024-08-29 14:33:54,808 - aiogram.event - INFO - Update id=53308444 is not handled. Duration 0 ms by bot id=7144434947
+2024-08-29 15:15:00,862 - aiogram.event - INFO - Update id=53308445 is not handled. Duration 0 ms by bot id=7144434947
+2024-08-29 15:23:28,669 - aiogram.event - INFO - Update id=53308446 is not handled. Duration 0 ms by bot id=7144434947

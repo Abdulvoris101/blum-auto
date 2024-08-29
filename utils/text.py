@@ -292,8 +292,9 @@ NO_ACCOUNTS_TO_FARM = __("""🔴 Blum farming mavjud emas
 
 Siz xali akkaunt qo'shmagansiz akkaunt qo'shish uchun "👥 Akkauntlar" bo'limiga o'ting""")
 SOMETHING_WRONG_ON_BLUM = __("{sessionName} | Akkauntda xatolik, iltimos qayta urinib ko'ring!")
-BLUM_NOT_WORKING = __("""@blum bot ishlamayapti! Xavotir olmang blum assochilari yaqin orada bu xatolikni bartaraf 
-etishadi!""")
+BLUM_NOT_WORKING = __("""@blum bot ishlamayapti! Xavotir olmang blum dasturchilari yaqin orada bu xatolikni bartaraf etishadi!""")
+CANT_GET_BLUM_BALANCE = __("@blum bot-da nosozliklar kuzatilmoqda shu sababli blum ma'lumotlarini olish imkoni bo'lmadi!")
+NOT_AVAILABLE_GAME_INTERNAL = __("🔴 O'yin o'ynab bo'lmadi! @blum bot javob bermadi")
 NON_ACCEPTABLE_STRING = __("""Iltimos to'g'ri raqam kiriting""")
 BLUM_ERROR = __("""Blumda xatolik iltimos qayta urinib ko'ring!""")
 CANCELED = __("Bekor qilindi")

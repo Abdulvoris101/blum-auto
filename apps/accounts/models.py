@@ -16,10 +16,11 @@ class Proxy(Base):
     password = Column(String)
     type = Column(String)
     date = Column(String)
+    inUse = Column(Boolean, default=True)
     dateEnd = Column(String, nullable=True)
 
     def __init__(self, telegramId, proxyId,
-                 ip, host, port, user, password, type, date, dateEnd):
+                 ip, host, port, user, password, type, inUse, date, dateEnd):
         self.telegramId = telegramId
         self.proxyId = proxyId
         self.ip = ip
@@ -29,6 +30,7 @@ class Proxy(Base):
         self.password = password
         self.type = type
         self.date = date
+        self.inUse = inUse
         self.dateEnd = dateEnd
         super().__init__()
 

@@ -2,6 +2,7 @@ import os
 import pickle
 import random
 from datetime import datetime
+from json import JSONDecodeError
 from urllib.parse import urlparse
 
 from aiogram import Router, types, F
@@ -17,6 +18,7 @@ from apps.common.exceptions import InvalidRequestException, InternalServerExcept
 from apps.common.settings import settings
 from apps.core.keyboards import backMenuMarkup, startMenuMarkup, cancelMenuMarkup
 from apps.core.models import User
+from apps.core.scheme import BlumBalanceScheme
 from apps.payment.managers import SubscriptionManager
 from apps.payment.models import UserPayment, AccountSubscription
 from apps.scripts.blum.blum_bot import BlumBot
@@ -249,11 +251,16 @@ async def processAccountMessage(message: types.Message, state: FSMContext, sessi
         proxy = ProxyDetailScheme(id=None, telegramId=None, ip=None, proxyId=None, dateEnd=None,
                                   host=proxyParsed.hostname, port=str(proxyParsed.port),
                                   user=proxyParsed.username, password=proxyParsed.password, type=proxyParsed.scheme)
+        try:
+            blum = BlumBot(sessionName=sessionName, proxy=proxy)
+            await blum.initWebSession()
+            await blum.login()
+            balance = await blum.balance()
+        except (InvalidRequestException, JSONDecodeError) as e:
+            logger.error(e)
+            await bot.send_message(message.from_user.id, text.CANT_GET_BLUM_BALANCE.value)
+            balance = BlumBalanceScheme(availableBalance=0, allPlayPasses=0, timestamp=datetime.timestamp)
 
-        blum = BlumBot(sessionName=sessionName, proxy=proxy)
-        await blum.initWebSession()
-        await blum.login()
-        balance = await blum.balance()
         accountInfo = await session.get_me()
 
         user = await User.get(message.from_user.id)
@@ -261,15 +268,22 @@ async def processAccountMessage(message: types.Message, state: FSMContext, sessi
         proxyId = None
 
         if not isAccount:
-            response = await ProxyManager.buyProxy(telegramId=user.telegramId)
-            status = response.get("status")
+            availableProxy = await ProxyManager.getNotUsingProxy()
 
-            if status is not None and status == "yes":
-                proxyObj = await ProxyManager.createByJson(telegramId=user.telegramId, response=response)
-                proxyId = proxyObj.id
+            if availableProxy is not None:
+                proxyId = availableProxy.id
+                availableProxy.telegramId = user.telegramId
+                await availableProxy.save()
             else:
-                await sendError(text.PROXY_BUY_ERROR.format(error=response.get("error"),
-                                                            errorCode=response.get("error_id")))
+                response = await ProxyManager.buyProxy(telegramId=user.telegramId)
+                status = response.get("status")
+
+                if status is not None and status == "yes":
+                    proxyObj = await ProxyManager.createByJson(telegramId=user.telegramId, response=response)
+                    proxyId = proxyObj.id
+                else:
+                    await sendError(text.PROXY_BUY_ERROR.format(error=response.get("error"),
+                                                                errorCode=response.get("error_id")))
 
         accountScheme = AccountCreateScheme(sessionName=sessionName, phoneNumber=phoneNumber, userId=user.id,
                                             telegramId=accountInfo.id, proxyId=proxyId)
@@ -344,6 +358,9 @@ async def processAccountMessage(message: types.Message, state: FSMContext, sessi
     except InternalServerException as e:
         logger.warn(str(e.message_text))
         return await message.answer(e.message_text)
+    except Exception as e:
+        logger.error(str(e))
+        return await message.answer(text.SOMETHING_WRONG.value)
 
 
 @accountsRouter.message(AddAccountState.verificationCode)

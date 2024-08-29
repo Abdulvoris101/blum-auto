@@ -320,6 +320,13 @@ class ProxyManager:
 
         return responseJson
 
+    @classmethod
+    async def getNotUsingProxy(cls):
+        async with AsyncSessionLocal() as session:
+            query = select(Proxy).where(Proxy.inUse == False).limit(1)
+            result = await session.execute(query)
+            return result.scalar_one_or_none()
+
 
 class UserTaskManager:
     def __init__(self):
