@@ -120,7 +120,7 @@ SELECT_ALL = __("Barchasini tanlash")
 STARTED_FARMING = __("""Akkaunt: {sessionName}
 
 🟢 Jarayon boshlandi...""")
-COULD_NOT_PLAY_GAMES = __("""\n\n🔴 O'yinni o'ynab bo'lmadi! O'yin uchun mavjud biletlar soni: {playPasses}""")
+COULD_NOT_PLAY_GAMES = __("""\n\n🔴 O'yinni o'ynab bo'lmadi!""")
 DAILY_REWARD_CLAIM = __("""\n\n🟢 Kunlik blum olindi""")
 NO_DAILY_REWARD = __("""\n\n🔴 Kunlik blum olib bo'lingan!""")
 CLAIMED_FRIENDS_REWARD =__("\n\n🟢 Do'stlar bo'limidan {amount} blum olindi")
@@ -302,7 +302,9 @@ BAD_REQUEST = """Telegram bad request {errorMessage} - user id: {userId}"""
 ACCOUNT_NOT_FOUND = """Account not found"""
 SESSION_FILE_NOT_EXISTS = """Session file doesn't exists"""
 SESSION_EXPIRED = """Session expired - {e}"""
+BOT_BLOCKED = """Bot was blocked by {telegramId}"""
 SESSION_ENDED = __("""{sessionName} - sessiya tugatilgan!""")
+NUMBER_BLOCKED = __("Telefon nomer telegram tomonidan ban qilingan")
 
 ONLY_ACCEPTS_TEXT = "Faqatgina text turi qabul qilinadi!"
 PROXY_BUY_ERROR = """#proxy

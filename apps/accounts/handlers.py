@@ -70,8 +70,8 @@ async def accountsDetails(callback: types.CallbackQuery, callback_data: AccountC
             proxyScheme = ProxyDetailScheme(**proxy.to_dict())
 
         balance = await BlumAccountManager.getUserBlumBalance(telegramId=callback.from_user.id,
-                                                              sessionName=account.sessionName,
-                                                              proxy=proxyScheme)
+                                                              sessionName=account.sessionName, proxy=proxyScheme,
+                                                              trigger=True)
 
         blumAccount.availableBalance = balance.availableBalance
         blumAccount.allPlayPasses = balance.allPlayPasses
@@ -110,12 +110,12 @@ async def accountsDetails(callback: types.CallbackQuery, callback_data: AccountC
     except InvalidRequestException as e:
         logger.error(f"Invalid request: {e.messageText}")
         await bot.send_message(callback.from_user.id, e.messageText)
-    except Exception as e:
-        print(e)
-        logger.error(e)
-        await sendError(text.ERROR_TEMPLATE.format(message=str(e), telegramId=callback.from_user.id))
-        await bot.send_message(callback.from_user.id,
-                               text.SOMETHING_WRONG_ON_BLUM.format(sessionName=account.sessionName))
+        # except Exception as e:
+        #     print(e)
+        #     logger.error(e)
+        #     await sendError(text.ERROR_TEMPLATE.format(message=str(e), telegramId=callback.from_user.id))
+        #     await bot.send_message(callback.from_user.id,
+        #                            text.SOMETHING_WRONG_ON_BLUM.format(sessionName=account.sessionName))
 
 
 @accountsRouter.callback_query(F.data == "add_account")
@@ -181,6 +181,9 @@ class AccountCreationHandler:
         except flood_420.FloodWait as e:
             logger.error(e.MESSAGE)
             return await message.answer(text.TOO_MANY_REQUESTS.value)
+        except bad_request_400.PhoneNumberBanned as e:
+            logger.error("Number banned", e)
+            return await message.answer(text.NUMBER_BLOCKED.value)
         except (unauthorized_401.AuthKeyUnregistered, AuthKeyUnregistered) as e:
             logger.error(text.SESSION_EXPIRED.format(e=e))
             filePath = os.path.join("sessions/", f"{sessionName}.session")
@@ -214,7 +217,7 @@ class AccountCreationHandler:
 
         await processAccountMessage(message, state, self.session, waitMomentMessage.message_id)
 
-    async def processPassword(self, message: types.Message, state: FSMContext):
+    async def processPassword(self, message: types.Message, state: FSMContext, sessionName: str):
         try:
             waitMomentMessage = await bot.send_message(message.from_user.id, text.WAIT_A_MOMENT.value)
             await self.session.check_password(message.text)
@@ -223,6 +226,11 @@ class AccountCreationHandler:
         except (bad_request_400.PasswordHashInvalid, bad_request_400.PasswordEmpty, bad_request_400.PasswordRequired) as e:
             logger.warn(str(e))
             return await message.answer(text.WRONG_PASSWORD.value)
+        except (unauthorized_401.AuthKeyUnregistered, AuthKeyUnregistered) as e:
+            logger.error(text.SESSION_EXPIRED.format(e=e))
+            filePath = os.path.join("sessions/", f"{sessionName}.session")
+            fullPath = os.path.abspath(filePath)
+            os.remove(fullPath)
         except BadRequest as e:
             logger.warn(str(e))
             return await message.answer(text.CAN_NOT_CONNECT_TO_TELEGRAM.value)
@@ -238,18 +246,18 @@ async def processPhoneNumber(message: types.Message, state: FSMContext):
     await accountHandler.processPhoneNumber(message, state)
 
 
-async def sendAccountInfo(message: types.Message, account: Account, blumBalance: BlumBalanceScheme):
+async def sendAccountInfo(message: types.Message, account: Account, blumAccount: BlumAccount):
     isSubscriptionActive = await SubscriptionManager.isAccountSubscriptionActive(account.id)
     subscription = await AccountSubscription.getByAccountId(account.id)
 
-    subscription_status = text.ACTIVE_STATUS.value if isSubscriptionActive else text.INACTIVE_STATUS.value
+    subscriptionStatus = text.ACTIVE_STATUS.value if isSubscriptionActive else text.INACTIVE_STATUS.value
     type_ = text.FREE_TYPE.value if subscription.isFreeTrial else text.PREMIUM_TYPE.value
     currentPeriodEnd = subscription.currentPeriodEnd.strftime("%d %B")
 
     await message.answer(text.PROFILE_INFO.format(
-        **blumBalance.model_dump(),
+        **blumAccount.to_dict(),
         sessionName=account.sessionName,
-        subscriptionStatus=subscription_status,
+        subscriptionStatus=subscriptionStatus,
         type=type_, currentPeriodEnd=currentPeriodEnd
     ))
 
@@ -264,21 +272,24 @@ async def processAccountMessage(message: types.Message, state: FSMContext, sessi
     try:
         proxyScheme = await ProxyManager.getRandomProxy()
         blumBalance = await BlumAccountManager.getUserBlumBalance(telegramId=message.from_user.id,
-                                                              sessionName=sessionName, proxy=proxyScheme)
+                                                                  sessionName=sessionName, proxy=proxyScheme,
+                                                                  trigger=False)
         accountInfo = await session.get_me()
         user = await User.get(message.from_user.id)
 
         isAccountExists = await AccountManager.isExistsByPhoneNumber(phoneNumber)
+
+        proxyId = None if isAccountExists else await ProxyManager.getOrCreateProxy(user)
         accountCreateScheme = await AccountManager.getAccountCreateScheme(user, phoneNumber,
-                                                                          sessionName, accountInfo, isAccountExists)
+                                                                          sessionName, accountInfo, proxyId)
         account = await AccountManager.createOrActivate(accountCreateScheme)
         blumAccountScheme = BlumAccountCreateScheme(accountId=account.id, **blumBalance.model_dump())
-        await BlumAccountManager.createOrActivate(scheme=blumAccountScheme)
+        blumAccount = await BlumAccountManager.createOrActivate(scheme=blumAccountScheme)
 
         proxyInfo = "⚠️ Account need proxy to assign" if account.proxyId is None else "Proxy successfully assigned ✅"
 
         await sendEvent(text.ACCOUNT_REGISTERED.format(
-            userTelegramId=account.userId, accountTelegramId=account.telegramId,
+            userTelegramId=user.telegramId, accountTelegramId=account.telegramId,
             status=account.status, sessionName=account.sessionName, proxyInfo=proxyInfo
         ))
 
@@ -289,7 +300,7 @@ async def processAccountMessage(message: types.Message, state: FSMContext, sessi
         await state.clear()
         await sessionManager.deleteSession(message.from_user.id)
 
-        await sendAccountInfo(message, account, blumBalance)
+        await sendAccountInfo(message, account, blumAccount)
 
     except bad_request_400.PhoneCodeExpired as e:
         logger.error(e.MESSAGE)
@@ -300,6 +311,7 @@ async def processAccountMessage(message: types.Message, state: FSMContext, sessi
     except AttributeError as e:
         logger.error(str(e))
         await state.clear()
+        await sendError(f"Attribute error, {e}")
         return await message.answer(text.SOMETHING_WRONG.value)
     except ConnectionError as e:
         logger.error(str(e))
@@ -328,7 +340,9 @@ async def processVerificationCode(message: types.Message, state: FSMContext):
 
 @accountsRouter.message(AddAccountState.password)
 async def processPassword(message: types.Message, state: FSMContext):
-    await accountHandler.processPassword(message, state)
+    data = await state.get_data()
+    sessionName = data.get("sessionName")
+    await accountHandler.processPassword(message, state, sessionName)
 
 
 @accountsRouter.callback_query(AccountCallback.filter(F.name == "play_pass_change"))

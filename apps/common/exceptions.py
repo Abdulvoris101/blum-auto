@@ -28,6 +28,7 @@ class ForbiddenException(Exception):
 
 
 class InvalidRequestException(Exception):
-    def __init__(self, messageText: str, exceptionText: str = ''):
+    def __init__(self, messageText: str, exceptionText: str = '', trigger: bool = False):
         self.messageText = messageText
         self.exceptionText = exceptionText
+        self.trigger = trigger

@@ -106,9 +106,8 @@ class AccountManager:
         return accounts
 
     @classmethod
-    async def getAccountCreateScheme(cls, user, phoneNumber, sessionName, accountInfo, isAccountExists):
+    async def getAccountCreateScheme(cls, user, phoneNumber, sessionName, accountInfo, proxyId):
         # Assign none if account exists bcs account has already proxy assigned
-        proxyId = None if isAccountExists else await ProxyManager.getOrCreateProxy(user)
 
         return AccountCreateScheme(
             sessionName=sessionName, phoneNumber=phoneNumber,
@@ -279,16 +278,26 @@ class BlumAccountManager:
         return account
 
     @classmethod
-    async def getUserBlumBalance(cls, telegramId: int, sessionName, proxy):
+    async def getUserBlumBalance(cls, telegramId: int, sessionName: str, proxy, trigger: bool) -> BlumBalanceScheme:
         try:
             blum = BlumBot(sessionName=sessionName, proxy=proxy)
             await blum.initWebSession()
             await blum.login()
             return await blum.balance()
-        except (InvalidRequestException, JSONDecodeError) as e:
+        except InvalidRequestException as e:
+            if trigger:
+                raise InvalidRequestException(e.messageText, e.exceptionText)
+
+            logger.error(e)
+            await bot.send_message(telegramId, e.messageText)
+            return BlumBalanceScheme(availableBalance=0, playPasses=0, timestamp=datetime.datetime.now().timestamp())
+        except JSONDecodeError as e:
+            if trigger:
+                raise InvalidRequestException(text.CANT_GET_BLUM_BALANCE.value)
+
             logger.error(e)
             await bot.send_message(telegramId, text.CANT_GET_BLUM_BALANCE.value)
-            return BlumBalanceScheme(availableBalance=0, allPlayPasses=0, timestamp=datetime.datetime.timestamp())
+            return BlumBalanceScheme(availableBalance=0, playPasses=0, timestamp=datetime.datetime.now().timestamp())
 
 
 class ProxyManager:
@@ -361,7 +370,7 @@ class ProxyManager:
         return None
 
     @classmethod
-    async def assignProxy(cls, proxyId: int, user: User) -> int:
+    async def changeOwnerOfProxy(cls, proxyId: int, user: User) -> int:
         proxy = await Proxy.get(proxyId)
         proxy.telegramId = user.telegramId
         proxy.inUse = True
@@ -380,7 +389,7 @@ class ProxyManager:
         availableProxy = await ProxyManager.getNotUsingProxy()
 
         if availableProxy:
-            return await cls.assignProxy(availableProxy.id, user)
+            return await cls.changeOwnerOfProxy(availableProxy.id, user)
 
         return await cls.buyAndCreateProxy(user)
 
