@@ -1,5 +1,8 @@
+import aiogram.exceptions
+
 from apps.common.settings import settings
-from bot import bot
+from utils import text as texts
+from bot import bot, logger
 
 
 async def sendEvent(text: str):
@@ -7,7 +10,11 @@ async def sendEvent(text: str):
 
 
 async def sendToUser(telegramId: int, text):
-    await bot.send_message(telegramId, text)
+    try:
+        await bot.send_message(telegramId, text)
+    except aiogram.exceptions.TelegramForbiddenError as e:
+        logger.error(str(e.message))
+        await sendEvent(texts.BOT_BLOCKED.format(telegramId=telegramId))
 
 
 async def sendError(text: str):

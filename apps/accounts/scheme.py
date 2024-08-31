@@ -70,6 +70,7 @@ class ProxyBaseScheme(BaseModel):
     type: Optional[str]
     date: Optional[str] = datetime.now()
     dateEnd: Optional[str]
+    inUse: Optional[bool] = True
 
 
 class ProxyDetailScheme(ProxyBaseScheme):

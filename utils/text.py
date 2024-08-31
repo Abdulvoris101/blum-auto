@@ -120,7 +120,7 @@ SELECT_ALL = __("Barchasini tanlash")
 STARTED_FARMING = __("""Akkaunt: {sessionName}
 
 🟢 Jarayon boshlandi...""")
-COULD_NOT_PLAY_GAMES = __("""\n\n🔴 O'yinni o'ynab bo'lmadi! O'yin uchun mavjud biletlar soni: {playPasses}""")
+COULD_NOT_PLAY_GAMES = __("""\n\n🔴 O'yinni o'ynab bo'lmadi!""")
 DAILY_REWARD_CLAIM = __("""\n\n🟢 Kunlik blum olindi""")
 NO_DAILY_REWARD = __("""\n\n🔴 Kunlik blum olib bo'lingan!""")
 CLAIMED_FRIENDS_REWARD =__("\n\n🟢 Do'stlar bo'limidan {amount} blum olindi")
@@ -129,6 +129,7 @@ NO_ACTIVE_FARMS = __("🔍 Aktiv farming topilmadi")
 FARM_STOPPED = __("🔴 Farming toxtadi")
 PLAYING_GAME = __("""\n\n🟢 O'yin o'ynalmoqda...""")
 SUCCESSFULLY_PLAYED_GAMES = __("""\n\n🟢 O'yin muvaffiqiyatli o'ynaldi! Berilgan mukofot: {points}""")
+NOT_AVAILABLE_GAME_INTERNAL = __("\n\n🔴 O'yin o'ynab bo'lmadi! @blum bot javob bermadi")
 PLAYING_NOT_AVAILABLE = __("""\n\n🟡 Ushbu akkaunt uchun o'yin uchun ruxsat etilgan biletlar mavjud emas!""")
 FINISHED_FARM = __("""\n\n🟢 Farming tugadi.\n
 👤 Akkauntlar bo'limida bot sizning o'rningizda nechta o'yin o'ynashini o'zgartishingiz mumkin
@@ -141,8 +142,7 @@ FINISHED_FARM = __("""\n\n🟢 Farming tugadi.\n
 TIMER_FARMING_CLAIMED = __("""\n\n🟢 Farmingdan blum olindi""")
 IN_PROGRESS_FARMING = __("""\n\n🟢 Blum yig'ilmoqda. Qolgan vaqt: {sleepDuration} soat""")
 FARMING_STARTED = __("""\n\n🟢 Farming boshlandi...""")
-WAIT_UNTIL_NEXT_GAME = __("""\n\n🟡 Keyingi o'yin o'ynalishdan oldin 5 sekund kutamiz...""")
-LONG_INTERVAL_GAME = __("""\n\n🟡 Xar 5ta o'yindan keyin 30 sekund kutamiz...""")
+LONG_INTERVAL_GAME = __("""\n\n🟡 Xar 10ta o'yindan keyin 10 sekund kutamiz...""")
 WAIT_A_MOMENT = __("""Biroz kuting...""")
 LOADING_ACCOUNT_INFORMATION = __("""⏳ Akkaunt ma'lumotlari olinmoqda...""")
 
@@ -293,6 +293,8 @@ NO_ACCOUNTS_TO_FARM = __("""🔴 Blum farming mavjud emas
 
 Siz xali akkaunt qo'shmagansiz akkaunt qo'shish uchun "👥 Akkauntlar" bo'limiga o'ting""")
 SOMETHING_WRONG_ON_BLUM = __("{sessionName} | Akkauntda xatolik, iltimos qayta urinib ko'ring!")
+BLUM_NOT_WORKING = __("""@blum bot ishlamayapti! Xavotir olmang blum dasturchilari yaqin orada bu xatolikni bartaraf etishadi!""")
+CANT_GET_BLUM_BALANCE = __("@blum bot-da nosozliklar kuzatilmoqda shu sababli blum ma'lumotlarini olish imkoni bo'lmadi!")
 NON_ACCEPTABLE_STRING = __("""Iltimos to'g'ri raqam kiriting""")
 BLUM_ERROR = __("""Blumda xatolik iltimos qayta urinib ko'ring!""")
 CANCELED = __("Bekor qilindi")
@@ -300,7 +302,9 @@ BAD_REQUEST = """Telegram bad request {errorMessage} - user id: {userId}"""
 ACCOUNT_NOT_FOUND = """Account not found"""
 SESSION_FILE_NOT_EXISTS = """Session file doesn't exists"""
 SESSION_EXPIRED = """Session expired - {e}"""
+BOT_BLOCKED = """Bot was blocked by {telegramId}"""
 SESSION_ENDED = __("""{sessionName} - sessiya tugatilgan!""")
+NUMBER_BLOCKED = __("Telefon nomer telegram tomonidan ban qilingan")
 
 ONLY_ACCEPTS_TEXT = "Faqatgina text turi qabul qilinadi!"
 PROXY_BUY_ERROR = """#proxy
