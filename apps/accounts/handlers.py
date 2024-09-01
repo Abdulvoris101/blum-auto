@@ -110,12 +110,12 @@ async def accountsDetails(callback: types.CallbackQuery, callback_data: AccountC
     except InvalidRequestException as e:
         logger.error(f"Invalid request: {e.messageText}")
         await bot.send_message(callback.from_user.id, e.messageText)
-        # except Exception as e:
-        #     print(e)
-        #     logger.error(e)
-        #     await sendError(text.ERROR_TEMPLATE.format(message=str(e), telegramId=callback.from_user.id))
-        #     await bot.send_message(callback.from_user.id,
-        #                            text.SOMETHING_WRONG_ON_BLUM.format(sessionName=account.sessionName))
+    except Exception as e:
+        print(e)
+        logger.error(e)
+        await sendError(text.ERROR_TEMPLATE.format(message=str(e), telegramId=callback.from_user.id))
+        await bot.send_message(callback.from_user.id,
+                               text.SOMETHING_WRONG_ON_BLUM.format(sessionName=account.sessionName))
 
 
 @accountsRouter.callback_query(F.data == "add_account")
@@ -328,9 +328,9 @@ async def processAccountMessage(message: types.Message, state: FSMContext, sessi
     except InternalServerException as e:
         logger.warn(str(e.message_text))
         return await message.answer(e.message_text)
-    # except Exception as e:
-    #     logger.error(str(e))
-    #     return await message.answer(text.SOMETHING_WRONG.value)
+    except Exception as e:
+        logger.error(str(e))
+        return await message.answer(text.SOMETHING_WRONG.value)
 
 
 @accountsRouter.message(AddAccountState.verificationCode)
