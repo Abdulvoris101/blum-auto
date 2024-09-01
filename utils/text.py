@@ -257,6 +257,7 @@ Misol uchun\n <code>./Test-t.me//texnomasters\n./Test2-t.me//texnomasters</code>
 SELECT_MESSAGE_TYPE = "Xabar/Rasm/Video kiriting"
 MESSAGE_SENT = "Xabar yuborildi!"
 SEND_MESSAGE = "Xabar yuborish!"
+SELECT_AUDITION = "Auditioriyani tanlang: "
 ENTER_TYPE_MESSAGE = "Xabar turini kiriting"
 WELCOME_ADMIN = "Xush kelibsiz admin!"
 ENTER_USER_ID = "User id kiriting"

@@ -10,7 +10,7 @@ from utils.message import SendAny
 from .models import Admin
 from apps.core.managers import UserManager
 from .keyboards import (adminKeyboardsMarkup, cancelKeyboardsMarkup,
-                        sendMessageMarkup, getInlineMarkup)
+                        sendMessageMarkup, getInlineMarkup, selectAuditionMarkup)
 from utils import extractInlineButtonsFromText, text
 from utils.events import sendError
 from apps.common.filters import IsAdmin, checkPassword
@@ -87,8 +87,16 @@ async def sendTextToUser(message: types.Message, state: FSMContext):
 @adminRouter.callback_query(IsAdmin(), F.data == "send_message_to_users")
 async def initiateMessageSending(callback: types.CallbackQuery, state: FSMContext):
     await callback.answer("")
+    await state.set_state(SendMessageToUsers.audition)
+    return await bot.send_message(callback.from_user.id, text.SELECT_AUDITION,
+                                  reply_markup=selectAuditionMarkup)
+
+
+@adminRouter.message(SendMessageToUsers.audition)
+async def setAudition(message: types.Message, state: FSMContext):
+    await state.update_data(audition=message.text)
     await state.set_state(SendMessageToUsers.messageType)
-    return await bot.send_message(callback.from_user.id, text.ENTER_TYPE_MESSAGE,
+    return await bot.send_message(message.from_user.id, text.ENTER_TYPE_MESSAGE,
                                   reply_markup=sendMessageMarkup)
 
 
@@ -115,8 +123,13 @@ async def setInlineButtons(message: types.Message, state: FSMContext):
 @adminRouter.message(SendMessageToUsers.message)
 async def sendMessageToUsers(message: types.Message, state: FSMContext):
     data = await state.get_data()
+    audition = data.get("audition")
 
-    users = await UserManager.all()
+    if audition == "all":
+        users = await UserManager.all()
+    else:
+        users = await UserManager.getAuditionUser(audition)
+
     sendAny = SendAny(message=message)
 
     if data.get("messageType") == "Inline bilan":
