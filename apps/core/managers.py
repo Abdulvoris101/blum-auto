@@ -27,6 +27,12 @@ class UserManager:
             return result.scalars().all()
 
     @classmethod
+    async def getAuditionUser(cls, audition: str) -> List[User]:
+        async with AsyncSessionLocal() as session:
+            result = await session.execute(select(User).where(User.languageCode == audition))
+            return result.scalars().all()
+
+    @classmethod
     async def isExistsByUserId(cls, telegramId: int) -> bool:
         async with AsyncSessionLocal() as session:
             result = await session.execute(select(exists().where(User.telegramId == telegramId)))

@@ -26,6 +26,18 @@ sendMessageMarkup = ReplyKeyboardMarkup(keyboard=sendMessageBuilder.export(), re
                                         one_time_keyboard=True)
 
 
+selectAuditionBuilder = ReplyKeyboardBuilder()
+selectAuditionBuilder.button(text="en")
+selectAuditionBuilder.button(text="ru")
+selectAuditionBuilder.button(text="uz")
+selectAuditionBuilder.button(text="all")
+selectAuditionBuilder.button(text="⬅️ Bosh sahifa")
+selectAuditionBuilder.adjust(2, 2, 1)
+
+selectAuditionMarkup = ReplyKeyboardMarkup(keyboard=selectAuditionBuilder.export(), resize_keyboard=True,
+                                           one_time_keyboard=True)
+
+
 def getInlineMarkup(inline_keyboards):
     inlineBuilder = InlineKeyboardBuilder()
 
