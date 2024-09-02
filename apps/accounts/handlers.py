@@ -291,7 +291,7 @@ async def processAccountMessage(message: types.Message, state: FSMContext, sessi
         await sendEvent(text.ACCOUNT_REGISTERED.format(
             userTelegramId=user.telegramId, accountTelegramId=account.telegramId,
             status=account.status, sessionName=account.sessionName, proxyInfo=proxyInfo
-        ))
+        ), messageThreadId=2)
 
         await UserPaymentManager.chargeUserBalance(user=user, accountId=account.id)
 

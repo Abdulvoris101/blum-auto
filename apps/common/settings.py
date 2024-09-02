@@ -9,8 +9,8 @@ class Settings(BaseSettings):
     BOT_TOKEN: str
     PASSWORD: str
 
-    ERROR_CHANNEL_ID: int = -1001980262190
-    EVENT_CHANNEL_ID: int = -1002184967586
+    ERROR_CHANNEL_ID: int = -1002216942894
+    EVENT_CHANNEL_ID: int = -1002216942894
     WEB_URL: str
     DB_URL: str
     DB_ALEMBIC_URL: str

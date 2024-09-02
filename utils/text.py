@@ -221,6 +221,16 @@ NOT_ENOUGH_BALANCE = __("""Akkaunt qo'shish yoki yangilash uchun balansingizda m
 Akkaunt ulash oyiga - {price}$ yoki {stars} stars 🌟""")
 
 
+USER_TOPPED_STARS = """telegramId: {telegramId}
+username: {username}
+name: {name}
+amount: {amount} stars 🌟"""
+
+USER_TOPPED_CRYPTO = """telegramId: {telegramId}
+username: {username}
+name: {name}
+amount: {amount}$"""
+
 # Subscription
 SUBSCRIPTION_UPDATED = __("""Tabriklaymiz akkauntingiz obunasi yangilandi 🥳
 
