@@ -5,8 +5,13 @@ from utils import text as texts
 from bot import bot, logger
 
 
-async def sendEvent(text: str):
-    await bot.send_message(settings.EVENT_CHANNEL_ID, text)
+# Finance topic id - 4
+# Users topic id - 6
+# Accounts topic id - 2
+# Bot errors topic id - 18
+
+async def sendEvent(text: str, messageThreadId):
+    await bot.send_message(settings.EVENT_CHANNEL_ID, text, message_thread_id=messageThreadId)
 
 
 async def sendToUser(telegramId: int, text):
@@ -14,8 +19,8 @@ async def sendToUser(telegramId: int, text):
         await bot.send_message(telegramId, text)
     except aiogram.exceptions.TelegramForbiddenError as e:
         logger.error(str(e.message))
-        await sendEvent(texts.BOT_BLOCKED.format(telegramId=telegramId))
+        await sendError(texts.BOT_BLOCKED.format(telegramId=telegramId))
 
 
 async def sendError(text: str):
-    await bot.send_message(settings.ERROR_CHANNEL_ID, text)
+    await bot.send_message(settings.ERROR_CHANNEL_ID, text, message_thread_id=18)
