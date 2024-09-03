@@ -344,7 +344,7 @@ class ProxyManager:
 
     @classmethod
     async def buyProxy(cls, telegramId: int) -> dict:
-        url = f"{cls.baseUrl}/{cls.apiKey}/buy?count=1&period=30&version=3&type=socks&descr={telegramId}&country=ru"
+        url = f"{cls.baseUrl}/{cls.apiKey}/buy?count=1&period=30&version=4&type=socks&descr={telegramId}&country=pl"
 
         headers = {'User-Agent': UserAgent(os='android').random}
         webSession = httpx.AsyncClient(headers=headers, timeout=httpx.Timeout(timeout=60))

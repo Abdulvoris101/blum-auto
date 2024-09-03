@@ -173,7 +173,7 @@ BALANCE = __("""💵 Balans: {balance}$
 🌟 Stars: {stars}
 
 ⚡️ 1 akkaunt uchun 3 kunlik tekin obuna beriladi
-👤 Har bir akkauntni ulash oyiga: 1.99$ yoki 100 stars
+👤 Har bir akkauntni ulash oyiga: {price}$ yoki {starsPrice} stars
 
 Qabul qilinadigan to'lov turlari: 
 - 💳 visa/mastercard
