@@ -290,14 +290,14 @@ class BlumAccountManager:
 
             logger.error(e)
             await bot.send_message(telegramId, e.messageText)
-            return BlumBalanceScheme(availableBalance=0, playPasses=0, timestamp=datetime.datetime.now().timestamp())
+            return BlumBalanceScheme(availableBalance=0.0, playPasses=0, timestamp=datetime.datetime.now().timestamp())
         except JSONDecodeError as e:
             if trigger:
                 raise InvalidRequestException(text.CANT_GET_BLUM_BALANCE.value)
 
             logger.error(e)
             await bot.send_message(telegramId, text.CANT_GET_BLUM_BALANCE.value)
-            return BlumBalanceScheme(availableBalance=0, playPasses=0, timestamp=datetime.datetime.now().timestamp())
+            return BlumBalanceScheme(availableBalance=0.0, playPasses=0, timestamp=datetime.datetime.now().timestamp())
 
 
 class ProxyManager:
