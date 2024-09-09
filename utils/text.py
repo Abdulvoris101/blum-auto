@@ -316,7 +316,7 @@ SESSION_EXPIRED = """Session expired - {e}"""
 BOT_BLOCKED = """Bot was blocked by {telegramId}"""
 SESSION_ENDED = __("""{sessionName} - sessiya tugatilgan!""")
 NUMBER_BLOCKED = __("Telefon nomer telegram tomonidan ban qilingan")
-
+CONNECTION_TIMEOUT = __("""So'rov vaqti tugadi. Qayta urinilmoqda - {retries}""")
 ONLY_ACCEPTS_TEXT = "Faqatgina text turi qabul qilinadi!"
 PROXY_BUY_ERROR = """#proxy
 error: {error}

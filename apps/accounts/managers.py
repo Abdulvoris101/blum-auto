@@ -279,25 +279,40 @@ class BlumAccountManager:
 
     @classmethod
     async def getUserBlumBalance(cls, telegramId: int, sessionName: str, proxy, trigger: bool) -> BlumBalanceScheme:
-        try:
-            blum = BlumBot(sessionName=sessionName, proxy=proxy)
-            await blum.initWebSession()
-            await blum.login()
-            return await blum.balance()
-        except InvalidRequestException as e:
-            if trigger:
-                raise InvalidRequestException(e.messageText, e.exceptionText)
+        retries = 0
+        maxRetries = 3
 
-            logger.error(e)
-            await bot.send_message(telegramId, e.messageText)
-            return BlumBalanceScheme(availableBalance=0.0, playPasses=0, timestamp=datetime.datetime.now().timestamp())
-        except JSONDecodeError as e:
-            if trigger:
-                raise InvalidRequestException(text.CANT_GET_BLUM_BALANCE.value)
+        while retries < maxRetries:
+            try:
+                blum = BlumBot(sessionName=sessionName, proxy=proxy)
+                await blum.initWebSession()
+                await blum.login()
+                return await blum.balance()
+            except InvalidRequestException as e:
+                if trigger:
+                    raise InvalidRequestException(e.messageText, e.exceptionText)
 
-            logger.error(e)
-            await bot.send_message(telegramId, text.CANT_GET_BLUM_BALANCE.value)
-            return BlumBalanceScheme(availableBalance=0.0, playPasses=0, timestamp=datetime.datetime.now().timestamp())
+                logger.error(e)
+                await bot.send_message(telegramId, e.messageText)
+                return BlumBalanceScheme(availableBalance=0.0, playPasses=0, timestamp=datetime.datetime.now().timestamp())
+            except JSONDecodeError as e:
+                if trigger:
+                    raise InvalidRequestException(text.CANT_GET_BLUM_BALANCE.value)
+
+                logger.error(e)
+                await bot.send_message(telegramId, text.CANT_GET_BLUM_BALANCE.value)
+                return BlumBalanceScheme(availableBalance=0.0, playPasses=0, timestamp=datetime.datetime.now().timestamp())
+
+            except httpx.TimeoutException as e:
+                logger.error(f"Attempt {retries + 1}/{maxRetries} failed: {e}")
+                retries += 1
+
+                await bot.send_message(telegramId, text.CONNECTION_TIMEOUT.format(retries=retries))
+
+                if retries >= 3:
+                    if trigger:
+                        raise InvalidRequestException(text.CANT_GET_BLUM_BALANCE.value)
+                    return BlumBalanceScheme(availableBalance=0.0, playPasses=0, timestamp=datetime.datetime.now().timestamp())
 
 
 class ProxyManager:
