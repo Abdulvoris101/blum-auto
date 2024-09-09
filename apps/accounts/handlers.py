@@ -5,6 +5,7 @@ from datetime import datetime
 from json import JSONDecodeError
 from urllib.parse import urlparse
 
+import httpx
 from aiogram import Router, types, F
 from aiogram.exceptions import TelegramBadRequest
 from pydantic import ValidationError
@@ -110,6 +111,9 @@ async def accountsDetails(callback: types.CallbackQuery, callback_data: AccountC
     except InvalidRequestException as e:
         logger.error(f"Invalid request: {e.messageText}")
         await bot.send_message(callback.from_user.id, e.messageText)
+    except httpx.ConnectTimeout as e:
+        logger.error(e)
+
     except Exception as e:
         print(e)
         logger.error(e)

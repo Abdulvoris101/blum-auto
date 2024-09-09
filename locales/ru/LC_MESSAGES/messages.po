@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-08-31 15:25+0500\n"
-"PO-Revision-Date: 2024-08-31 15:29+0500\n"
+"POT-Creation-Date: 2024-09-10 00:03+0500\n"
+"PO-Revision-Date: 2024-09-10 00:05+0500\n"
 "Last-Translator: \n"
 "Language-Team: ru <LL@li.org>\n"
 "Language: ru\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Generated-By: Babel 2.15.0\n"
 "X-Generator: Poedit 3.5\n"
 
-#: apps/accounts/handlers.py:40 apps/core/keyboards.py:25
+#: apps/accounts/handlers.py:41 apps/core/keyboards.py:25
 msgid "👥 Akkauntlar"
 msgstr "👥 Аккаунты"
 
@@ -58,6 +58,7 @@ msgid "🌐 Tilni o'zgartirish"
 msgstr "🌐 Изменить язык"
 
 #: apps/core/handlers.py:34 apps/core/keyboards.py:15
+#: apps/payment/keyboards.py:1
 msgid "❌ Bekor qilish"
 msgstr "❌ Отмена"
 
@@ -544,7 +545,7 @@ msgid "💵 Balans: {balance}$\n"
 "🌟 Stars: {stars}\n"
 "\n"
 "⚡️ 1 akkaunt uchun 3 kunlik tekin obuna beriladi\n"
-"👤 Har bir akkauntni ulash oyiga: 1.99$ yoki 100 stars\n"
+"👤 Har bir akkauntni ulash oyiga: {price}$ yoki {starsPrice} stars\n"
 "\n"
 "Qabul qilinadigan to'lov turlari: \n"
 "- 💳 visa/mastercard\n"
@@ -554,15 +555,15 @@ msgid "💵 Balans: {balance}$\n"
 "💡 Kripto haqida bilmasangiz qo'llanma - /help"
 msgstr "💵 Баланс: {balance}$\n"
 "\n"
-"🌟 Stars: {stars}\n"
+"🌟 Старс: {stars}\n"
 "\n"
 "⚡️ На 1 аккаунт предоставляется бесплатная подписка на 3 дня.\n"
-"👤 Подключения аккаунт в месяц: 1,99$ или 100 звезд.\n"
+"👤 Подключения аккаунта: {price}$ или {starsPrice} старс.\n"
 "\n"
 "Принимаемые виды оплаты:\n"
 "- 💳 виза/мастеркард\n"
 "- 🪙 крипто\n"
-"- 🌟 телеграмм старс\n"
+"- 🌟 телеграм старс\n"
 "\n"
 "💡 Руководство, если вы не знаете о криптовалюте - /help"
 
@@ -655,7 +656,7 @@ msgstr "На вашем балансе нет средств для добавл
 "\n"
 "Подключения аккаунта на месяц — {price}$ или {stars} stars 🌟"
 
-#: utils/text.py:225
+#: utils/text.py:235
 msgid "Tabriklaymiz akkauntingiz obunasi yangilandi 🥳\n"
 "\n"
 "Bizni tanlaganiz uchun tashakkur 🌟"
@@ -663,7 +664,7 @@ msgstr "Поздравляем, подписка на ваш аккаунт об
 "\n"
 "Спасибо, что выбрали нас 🌟"
 
-#: utils/text.py:229
+#: utils/text.py:239
 msgid "Salom Qadrli Foydalanuvchi 👋, \n"
 "\n"
 "{sessionName} akkauntingiz obunasi yangilandi\n"
@@ -675,7 +676,7 @@ msgstr "Здравствуйте, уважаемый пользователь �
 "\n"
 "Спасибо, что выбрали нас 🌟"
 
-#: utils/text.py:235
+#: utils/text.py:245
 msgid "🚀 Obunani yangilash vaqti keldi!\n"
 "\n"
 "Salom Qadrli Foydalanuvchi 👋\n"
@@ -691,7 +692,7 @@ msgstr "🚀 Пришло время продлить подписку!\n"
 "\n"
 "Спасибо, что выбрали нас 🌟\n"
 
-#: utils/text.py:244
+#: utils/text.py:254
 msgid "{sessionName} akkaunt uchun obuna mudati tugagan yoki mavjud emas! 🙁\n"
 "\n"
 "🔄 Obunani qayta aktivlashtirish uchun akkauntlar bo'limiga o'ting"
@@ -699,7 +700,7 @@ msgstr "Срок действия подписки для учетной зап�
 "\n"
 "🔄 Чтобы повторно активировать подписку, перейдите в раздел «Аккаунты»."
 
-#: utils/text.py:248
+#: utils/text.py:258
 msgid "⭕️ Bepul obunada siz bot orqali 5tadan ortiq o'yin o'ynolmaysiz. Botdan to'liq foydalanib xoxlagancha o'yin o'ynash uchun pullik obunani aktivlashtiring\n"
 "\n"
 "Pullik obunani aktivlashtirish uchun akkauntlar bo'limiga o'tib akkauntingizni tanlang va obunani yangilash tugmasini bosing!"
@@ -707,63 +708,63 @@ msgstr "⭕️ По бесплатной подписке вы не сможет
 "\n"
 "Чтобы активировать платную подписку, зайдите в раздел аккаунты, выберите свою учетную запись и нажмите кнопку продлить подписку!"
 
-#: utils/text.py:268
+#: utils/text.py:279
 msgid "Akkauntingizda blum ishga tushirilmagan, @BlumCryptoBot botga kirib ro'yxatdan o'ting"
 msgstr "Вы не запускали blum в этого тг аккаунте, войдите в бот @BlumCryptoBot и зарегистрируйтесь."
 
-#: utils/text.py:276
+#: utils/text.py:287
 msgid "To'lov tizimida xatolik yuz bermoqda, to'lov uchun bizga yozing - @aerkinov1"
 msgstr "В платежной системе произошла ошибка, для оплаты напишите нам - @aerkinov1"
 
-#: utils/text.py:279
+#: utils/text.py:290
 msgid "#error\n"
 "orderId: {orderId}\n"
 "message: {message}"
 msgstr ""
 
-#: utils/text.py:281
+#: utils/text.py:292
 msgid "Nimadir xatolik ketdi. Iltimos qayta urinib ko'ring!"
 msgstr "Что-то пошло не так. Пожалуйста, попробуйте еще раз!"
 
-#: utils/text.py:282
+#: utils/text.py:293
 msgid "Nomerni ushbu formatda kiriting +99890103xxxx!"
 msgstr "Введите номер в формате +99890103xxxx!"
 
-#: utils/text.py:283
+#: utils/text.py:294
 msgid "Notog'ri telefon raqam!"
 msgstr "Неправильный номер телефона!"
 
-#: utils/text.py:284
+#: utils/text.py:295
 msgid "Notog'ri tasdiqlash kodi"
 msgstr "Неверный код подтверждения"
 
-#: utils/text.py:285
+#: utils/text.py:296
 msgid "🔴 Tasdiqlash kodi eskirgan"
 msgstr "🔴 Код подтверждения устарел."
 
-#: utils/text.py:286
+#: utils/text.py:297
 msgid "Tasdiqlash kodi eskirgan. Qayta urinib ko'ring"
 msgstr "Код подтверждения устарел. Попробуйте еще раз"
 
-#: utils/text.py:287
+#: utils/text.py:298
 msgid "⚠️ Agar o'zingizning akkauntingizni ulashga uringan bo'lsangiz, Telegram ruxsat bermaydi. Iltimos, boshqa akkauntingizni ulang yoki bizdan sotib oling: @aerkinov1."
 msgstr "⚠️ Если вы попытались подключить свой аккаунт, телеграм не позволит этого сделать. Пожалуйста, подключите другой аккаунт или купите у нас: @aerkinov1."
 
-#: utils/text.py:288
+#: utils/text.py:299
 msgid "Nimadir xato ketdi, Iltimos qayta urinib ko'ring!"
 msgstr "Что-то пошло не так. Пожалуйста, попробуйте еще раз!"
 
-#: utils/text.py:289
+#: utils/text.py:300
 msgid "Telegramga bog'lanib bo'lmadi, qayta urinib ko'ring"
 msgstr "Не удалось подключиться к Telegram, попробуйте еще раз."
 
-#: utils/text.py:290
+#: utils/text.py:301
 msgid "Telegramingizga juda xam ko'p so'rovlar bo'lgani uchun telegram 15 soatlik tannafusga tushdi. \n"
 "Iltimos 15 soatdan so'ng qayta urinib ko'ring!"
 msgstr "Поскольку запросов на ваш телеграмм было слишком много, телеграм сделала 15-часовой перерыв.\n"
 "Пожалуйста, повторите попытку через 15 часов!"
 
-#: utils/text.py:292
+#: utils/text.py:303
 msgid "🔴 Blum farming mavjud emas \n"
 "\n"
 "Siz xali akkaunt qo'shmagansiz akkaunt qo'shish uchun \"👥 Akkauntlar\" bo'limiga o'ting"
@@ -771,37 +772,41 @@ msgstr "🔴 Блум фарминг недоступно.\n"
 "\n"
 "Вы еще не добавили аккаунт. Чтобы добавить аккаунт, перейдите в раздел «👥 Аккаунты»."
 
-#: utils/text.py:295
+#: utils/text.py:306
 msgid "{sessionName} | Akkauntda xatolik, iltimos qayta urinib ko'ring!"
 msgstr "{sessionName} | Ошибка аккаунта, попробуйте еще раз!"
 
-#: utils/text.py:296
+#: utils/text.py:307
 msgid "@blum bot ishlamayapti! Xavotir olmang blum dasturchilari yaqin orada bu xatolikni bartaraf etishadi!"
 msgstr "@blum не работает! Не волнуйтесь, разработчики блум скоро исправят эту ошибку!"
 
-#: utils/text.py:297
+#: utils/text.py:308
 msgid "@blum bot-da nosozliklar kuzatilmoqda shu sababli blum ma'lumotlarini olish imkoni bo'lmadi!"
 msgstr "У бота @blum возникают ошибки, поэтому мы не могли получить данные аккаунта!"
 
-#: utils/text.py:298
+#: utils/text.py:309
 msgid "Iltimos to'g'ri raqam kiriting"
 msgstr "Пожалуйста, введите корректное номер"
 
-#: utils/text.py:299
+#: utils/text.py:310
 msgid "Blumda xatolik iltimos qayta urinib ko'ring!"
 msgstr "Ошибка Блума. Пожалуйста, попробуйте еще раз!"
 
-#: utils/text.py:300
+#: utils/text.py:311
 msgid "Bekor qilindi"
 msgstr "Отменено"
 
-#: utils/text.py:306
+#: utils/text.py:317
 msgid "{sessionName} - sessiya tugatilgan!"
 msgstr "{sessionName} - сессия завершен!"
 
-#: utils/text.py:307
+#: utils/text.py:318
 msgid "Telefon nomer telegram tomonidan ban qilingan"
 msgstr "Телефон заблокирован от telegram."
+
+#: utils/text.py:319
+msgid "So'rov vaqti tugadi. Qayta urinilmoqda - {retries}"
+msgstr "Время запроса истекло. Повторные попытки – {retries}"
 
 #~ msgid ""
 #~ "👋 Salom fren ushbu bot bilan siz"
