@@ -9,6 +9,7 @@ from typing import Dict, List, Tuple, Any
 from urllib.parse import urlparse
 
 import httpx
+import pyrogram.errors.exceptions.unauthorized_401
 from fake_useragent import UserAgent
 from pyrogram import Client
 from pyrogram.errors import SessionExpired, Unauthorized, AuthKeyUnregistered
@@ -197,6 +198,7 @@ class AccountManager:
                     await bot.send_message(user.telegramId, text.SUBSCRIPTION_INACTIVE.format(sessionName=account.sessionName))
 
                 if await client.connect() and await SubscriptionManager.isAccountSubscriptionActive(account.id):
+                    await client.get_me()
                     account.status = Status.ACTIVE
                     validAccounts.append(account)
                 else:
@@ -204,7 +206,12 @@ class AccountManager:
 
                 await account.save()
 
+            except pyrogram.errors.exceptions.unauthorized_401.SessionRevoked as e:
+                logger.error("Session revoked")
+                await bot.send_message(user.telegramId, text.SESSION_ENDED.format(sessionName=account.sessionName))
+                continue
             except Exception as e:
+                logger.error(e)
                 await bot.send_message(user.telegramId, text.SESSION_ENDED.format(sessionName=account.sessionName))
                 continue
             finally:
