@@ -1,1 +1,1 @@
-socks5://JJZXkw:bbh3Kv@147.45.53.125:9160socks5://JJZXkw:bbh3Kv@31.44.190.229:9650socks5://JJZXkw:bbh3Kv@5.8.15.52:9438
+socks5://JJZXkw:bbh3Kv@147.45.53.125:9160socks5://JJZXkw:bbh3Kv@5.8.15.52:9438socks5://5FB556:rUZnwU@45.158.196.99:8000socks5://Exer6L:4juKd9@168.81.73.188:8000socks5://Exer6L:4juKd9@168.81.74.154:8000
