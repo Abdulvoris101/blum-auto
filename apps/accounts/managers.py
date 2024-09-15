@@ -14,7 +14,7 @@ from fake_useragent import UserAgent
 from pyrogram import Client
 from pyrogram.errors import SessionExpired, Unauthorized, AuthKeyUnregistered
 from pyrogram.errors.exceptions import unauthorized_401
-from sqlalchemy import exists, select, and_, Column
+from sqlalchemy import exists, select, and_, Column, func
 
 from apps.accounts.models import Account, BlumAccount, Proxy
 from apps.accounts.scheme import AccountCreateScheme, Status, BlumAccountCreateScheme, ProxyDetailScheme
@@ -327,6 +327,14 @@ class ProxyManager:
     baseUrl = settings.PROXY_BASE_URL
 
     @classmethod
+    async def isExistsByHostAndPort(cls, host: str, port: int) -> bool:
+        async with AsyncSessionLocal() as session:
+            result = await session.execute(
+                select(exists().where((Proxy.host == host) & (Proxy.port == port)))
+            )
+            return result.scalar()
+
+    @classmethod
     def getProxies(cls):
         proxies = []
 
@@ -357,7 +365,7 @@ class ProxyManager:
         proxyDetail = proxyResponse.list[firstKey]
         proxyDetail.port = int(proxyDetail.port)
         proxyDetail.type = 'socks5' if proxyDetail.type == 'socks' else 'http'
-        proxyCreateScheme = ProxyCreateScheme(telegramId=telegramId, **proxyDetail.model_dump())
+        proxyCreateScheme = ProxyCreateScheme(telegramId=telegramId, phoneCode=48, **proxyDetail.model_dump())
 
         proxy = Proxy(**proxyCreateScheme.model_dump())
         await proxy.save()
@@ -418,7 +426,7 @@ class ProxyManager:
     @classmethod
     async def getNotUsingProxy(cls) -> Proxy:
         async with AsyncSessionLocal() as session:
-            query = select(Proxy).where(Proxy.inUse == False).limit(1)
+            query = select(Proxy).where((Proxy.inUse == False) & (Proxy.isCommon == False)).limit(1)
             result = await session.execute(query)
             return result.scalar_one_or_none()
 
@@ -433,6 +441,25 @@ class ProxyManager:
             host=proxy_parsed.hostname, port=str(proxy_parsed.port),
             user=proxy_parsed.username, password=proxy_parsed.password, type=proxy_parsed.scheme
         )
+
+    @classmethod
+    async def getGhostProxyByPhoneCode(cls, phoneCode: int) -> ProxyDetailScheme:
+        async with AsyncSessionLocal() as session:
+            result = await session.execute(
+                select(Proxy).where((Proxy.phoneCode == phoneCode) & (Proxy.isCommon == True))
+            )
+
+            proxies = result.scalars().all()
+
+            if proxies:
+                randomProxy = random.choice(proxies)
+                return ProxyDetailScheme(**randomProxy.to_dict())
+
+            randomResult = await session.execute(
+                select(Proxy).where(Proxy.isCommon == True).order_by(func.random()).limit(1)
+            )
+            randomProxy = randomResult.scalar_one_or_none()
+            return ProxyDetailScheme(**randomProxy.to_dict())
 
 
 class UserTaskManager:
