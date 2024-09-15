@@ -55,5 +55,5 @@ async def paymentWebhook(request: Request):
 
 
 if __name__ == "__main__":
-    asyncio.run(ProxyDbUtils().dumpProxiesToDb())
+    # asyncio.run(ProxyDbUtils().dumpProxiesToDb())
     uvicorn.run("app:app", host='0.0.0.0', port=3030, reload=False, workers=2)
