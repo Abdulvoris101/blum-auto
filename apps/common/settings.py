@@ -28,14 +28,13 @@ class Settings(BaseSettings):
     API_ID: int = 27079535
     API_HASH: str = "73f9a52dddb9472709de963aa68aa0ed"
 
-    REFERRAL_PRICE: float = 0.72
-    PRICE: float = 2.99
-    STARS_PRICE: int = 150
+    REFERRAL_PRICE: float = 0.66
+    PRICE: float = 1.99
+    STARS_PRICE: int = 100
     ALLOWED_FREE_GAMES: int = 5
     CLIENT_ID: str
     CLIENT_SECRET: str
     APP_ID: str
-
 
     PROXY_KEY: str
     PROXY_BASE_URL: str = "https://proxy6.net/api"
