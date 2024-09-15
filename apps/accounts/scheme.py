@@ -68,14 +68,17 @@ class ProxyBaseScheme(BaseModel):
     user: Optional[str]
     password: Optional[str]
     type: Optional[str]
-    date: Optional[str] = datetime.now()
+    date: Optional[str] = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     dateEnd: Optional[str]
+    isCommon: Optional[bool] = False
+    phoneCode: Optional[int] = 48
     inUse: Optional[bool] = True
 
 
 class ProxyDetailScheme(ProxyBaseScheme):
     id: Optional[int]
     proxyId: Optional[str]
+
 
 class ProxyCreateScheme(ProxyBaseScheme):
     proxyId: Optional[str] = Field(alias="id")

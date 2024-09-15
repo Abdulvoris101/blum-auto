@@ -31,6 +31,7 @@ from pyrogram import Client
 from pyrogram.errors.exceptions import bad_request_400, not_acceptable_406, flood_420, unauthorized_401
 
 from utils.events import sendEvent, sendError
+from utils.phone_number import getPhoneNumberCode
 from utils.validator import validatePhoneNumber
 from aiogram.utils.i18n import lazy_gettext as __
 from aiogram.utils.i18n import gettext as _
@@ -151,17 +152,19 @@ class AccountCreationHandler:
 
         try:
             await validatePhoneNumber(phoneNumber)
+            phoneCode = getPhoneNumberCode(phoneNumber)
+            print(phoneCode)
 
-            proxies = ProxyManager.getProxies()
-            proxy = random.choice(proxies)
-            proxyParsed = urlparse(proxy)
+            proxyScheme = await ProxyManager.getGhostProxyByPhoneCode(phoneCode)
+
+            print(proxyScheme.model_dump())
 
             proxy = {
-                "scheme": proxyParsed.scheme,
-                "hostname": proxyParsed.hostname,
-                "port": proxyParsed.port,
-                "username": proxyParsed.username,
-                "password": proxyParsed.password
+                "scheme": proxyScheme.type,
+                "hostname": proxyScheme.host,
+                "port": int(proxyScheme.port),
+                "username": proxyScheme.user,
+                "password": proxyScheme.password
             }
 
             self.session = Client(name=sessionName, api_id=settings.API_ID, api_hash=settings.API_HASH,
@@ -274,7 +277,11 @@ async def processAccountMessage(message: types.Message, state: FSMContext, sessi
     sessionName = data.get("sessionName")
 
     try:
-        proxyScheme = await ProxyManager.getRandomProxy()
+        phoneCode = getPhoneNumberCode(phoneNumber)
+        print(phoneCode)
+        proxyScheme = await ProxyManager.getGhostProxyByPhoneCode(phoneCode)
+        print(proxyScheme)
+
         blumBalance = await BlumAccountManager.getUserBlumBalance(telegramId=message.from_user.id,
                                                                   sessionName=sessionName, proxy=proxyScheme,
                                                                   trigger=False)

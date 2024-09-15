@@ -7,7 +7,7 @@ from sqlalchemy.orm import relationship, class_mapper
 class Proxy(Base):
     __tablename__ = 'proxy'
     id = Column(Integer, primary_key=True)
-    telegramId = Column(BigInteger)
+    telegramId = Column(BigInteger, nullable=True)
     proxyId = Column(String, nullable=True)
     ip = Column(String, nullable=True)
     host = Column(String)
@@ -17,10 +17,12 @@ class Proxy(Base):
     type = Column(String)
     date = Column(String)
     inUse = Column(Boolean, default=True)
+    isCommon = Column(Boolean, default=False)
+    phoneCode = Column(Integer, nullable=True)
     dateEnd = Column(String, nullable=True)
 
     def __init__(self, telegramId, proxyId,
-                 ip, host, port, user, password, type, inUse, date, dateEnd):
+                 ip, host, port, user, password, type, inUse, date, isCommon, phoneCode, dateEnd):
         self.telegramId = telegramId
         self.proxyId = proxyId
         self.ip = ip
@@ -32,6 +34,8 @@ class Proxy(Base):
         self.date = date
         self.inUse = inUse
         self.dateEnd = dateEnd
+        self.isCommon = isCommon
+        self.phoneCode = phoneCode
         super().__init__()
 
     async def save(self):
