@@ -30,7 +30,9 @@ from bot import bot, i18n, logger
 from db.setup import AsyncSessionLocal
 from utils import text
 from utils.events import sendError, sendToUser
+from asyncio import Lock
 
+dbLock = Lock()
 
 class AccountManager:
     def __init__(self):
@@ -117,7 +119,6 @@ class AccountManager:
 
     @classmethod
     async def isActiveAccount(cls, account: Account):
-        global client
         if account is None:
             logger.error(text.ACCOUNT_NOT_FOUND)
             return False
@@ -141,10 +142,13 @@ class AccountManager:
                     "password": proxy.password
                 }
 
-            client = Client(name=account.sessionName, api_id=settings.API_ID, api_hash=settings.API_HASH,
-                            workdir=settings.WORKDIR, proxy=proxy)
-            await client.connect()
-            await client.get_me()
+            async with dbLock:
+                client = Client(name=account.sessionName, api_id=settings.API_ID, api_hash=settings.API_HASH,
+                                workdir=settings.WORKDIR, proxy=proxy)
+                await client.connect()
+                await client.get_me()
+                await client.disconnect()
+
             return True
 
         except (SessionExpired) as e:
@@ -165,15 +169,9 @@ class AccountManager:
         except ConnectionError as e:
             logger.error(f"Connection error: {e}")
             return False
-        finally:
-            try:
-                await client.disconnect()
-            except Exception:
-                pass
 
     @classmethod
     async def getValidAccounts(cls, user: User):
-        global client
         validAccounts = []
         accounts = await cls.getUserAccounts(user.id)
 
@@ -191,19 +189,21 @@ class AccountManager:
                         "password": proxy.password
                     }
 
-                client = Client(name=account.sessionName, api_id=settings.API_ID, api_hash=settings.API_HASH,
-                                workdir=settings.WORKDIR, proxy=proxy)
+                async with dbLock:
+                    client = Client(name=account.sessionName, api_id=settings.API_ID, api_hash=settings.API_HASH,
+                                    workdir=settings.WORKDIR, proxy=proxy)
 
-                if not await SubscriptionManager.isAccountSubscriptionActive(account.id):
-                    await bot.send_message(user.telegramId, text.SUBSCRIPTION_INACTIVE.format(sessionName=account.sessionName))
+                    if not await SubscriptionManager.isAccountSubscriptionActive(account.id):
+                        await bot.send_message(user.telegramId, text.SUBSCRIPTION_INACTIVE.format(sessionName=account.sessionName))
 
-                if await client.connect() and await SubscriptionManager.isAccountSubscriptionActive(account.id):
-                    await client.get_me()
-                    account.status = Status.ACTIVE
-                    validAccounts.append(account)
-                else:
-                    account.status = Status.INACTIVE
+                    if await client.connect() and await SubscriptionManager.isAccountSubscriptionActive(account.id):
+                        await client.get_me()
+                        account.status = Status.ACTIVE
+                        validAccounts.append(account)
+                    else:
+                        account.status = Status.INACTIVE
 
+                    await client.disconnect()
                 await account.save()
 
             except pyrogram.errors.exceptions.unauthorized_401.SessionRevoked as e:
@@ -214,8 +214,6 @@ class AccountManager:
                 logger.error(e)
                 await bot.send_message(user.telegramId, text.SESSION_ENDED.format(sessionName=account.sessionName))
                 continue
-            finally:
-                await client.disconnect()
 
         return validAccounts
 

@@ -1,3 +1,4 @@
+import asyncio
 import os
 import pickle
 import random
@@ -137,6 +138,7 @@ async def addAccount(callback: types.CallbackQuery, state: FSMContext):
 class AccountCreationHandler:
     def __init__(self):
         self.session = None
+        self.lock = asyncio.Lock()
 
     async def processPhoneNumber(self, message: types.Message, state: FSMContext):
         global inWaitMessage
@@ -153,11 +155,7 @@ class AccountCreationHandler:
         try:
             await validatePhoneNumber(phoneNumber)
             phoneCode = getPhoneNumberCode(phoneNumber)
-            print(phoneCode)
-
             proxyScheme = await ProxyManager.getGhostProxyByPhoneCode(phoneCode)
-
-            print(proxyScheme.model_dump())
 
             proxy = {
                 "scheme": proxyScheme.type,
@@ -167,12 +165,13 @@ class AccountCreationHandler:
                 "password": proxyScheme.password
             }
 
-            self.session = Client(name=sessionName, api_id=settings.API_ID, api_hash=settings.API_HASH,
-                                  workdir=settings.WORKDIR, proxy=proxy, device_model="Blum auto", app_version="2v")
-            await bot.delete_message(message.from_user.id, message_id=waitMomentMessage.message_id)
-            inWaitMessage = await message.answer(text.SMS_SENDING.value)
-            await self.session.connect()
-            sentCode = await self.session.send_code(phoneNumber)
+            async with self.lock:
+                self.session = Client(name=sessionName, api_id=settings.API_ID, api_hash=settings.API_HASH,
+                                      workdir=settings.WORKDIR, proxy=proxy, device_model="Blum auto", app_version="2v")
+                await bot.delete_message(message.from_user.id, message_id=waitMomentMessage.message_id)
+                inWaitMessage = await message.answer(text.SMS_SENDING.value)
+                await self.session.connect()
+                sentCode = await self.session.send_code(phoneNumber)
             await state.update_data(sentCode=sentCode.phone_code_hash)
             await bot.delete_message(message.from_user.id, inWaitMessage.message_id)
 
@@ -278,9 +277,7 @@ async def processAccountMessage(message: types.Message, state: FSMContext, sessi
 
     try:
         phoneCode = getPhoneNumberCode(phoneNumber)
-        print(phoneCode)
         proxyScheme = await ProxyManager.getGhostProxyByPhoneCode(phoneCode)
-        print(proxyScheme)
 
         blumBalance = await BlumAccountManager.getUserBlumBalance(telegramId=message.from_user.id,
                                                                   sessionName=sessionName, proxy=proxyScheme,
