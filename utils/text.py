@@ -3,13 +3,13 @@ from aiogram.utils.i18n import gettext as _
 
 START_WELCOME = __("""👋 Salom fren, bot bilan pul ishlab topishga tayyormisiz?
 
+🚀 <b>Minglab foydalanuvchilar</b> allaqachon ushbu bot yordamida 100 000 dan ortiq blum ishlab topishgan!
+
 Bot imkoniyatlari:
 1. Barcha blum akkauntlarni birgina botdan boshqarish 
 2. Kunlik va do'stlar bo'limidan yeg'ilgan blumlarni avtomatik olish
 3. O'yinlarni avtomatik va aniqlik bilan o'ynash
 4. Xar bir akkaunt uchun shaxsiy proksi 🔒
-
-ℹ️ Proksi ma'lumotlarini akkaunt bo'limida ko'rishingiz mumkin
 
 💰 Botdan qancha soqqa ko'tarish mumkinligini /help kommandasi orqali bilib oling""")
 
@@ -29,6 +29,12 @@ BOT_OPPORTUNITY = __("""<b>Nega blum topishni avtomatlashtirishim kerak?</b>
 Bu juda qulay! Siz barcha akkauntlaringizdan bir buyruq orqali blumni avtomatik farm qilishingiz mumkin. 
 Bot kunlik blumni, do'stlar bo'limidan blumni yig'adi va o'yin o'ynab vaqtingizni tejaydi. Eng katta imkoniyati  esa 
 o'yinlarni aniqlik bilan o'ynashidir.""")
+
+RESULTS_OF_BOT = __("""📈 <b>Bot natijalari:</b>
+
+- Bu oyda foydalanuvchilar tomonidan 100 000 dan ortiq blum ishlab topildi!
+
+- Minglab baxtli foydalanuvchilar o'zlarining blum airdropini avtomatlashtirdilar.""")
 
 PRICE_BLUM = __("""<b>Bot bilan qancha pul ishlashim mumkin?</b>
 
@@ -72,7 +78,7 @@ ENTER_2FA_PASSWORD = __("""🔒 2-bosqichli parolingizni kiriting: """)
 SMS_SENDING = __("Telegram kod yuborilmoqda....")
 SUCCESSFUL_ADDED_ACCOUNT = __("""Akkauntingiz muvaffiqiyatli qo'shildi 🎉. 
 
-Akkaunt haqida to'liq ma'lumot uchun 👥 Akkauntlar bo'limiga o'ting""")
+✅ <b>Fakt:</b> Bir nechta akkauntga ega foydalanuvchilarning 90% yuqori daromad topishmoqda!""")
 ALREADY_ADDED = __("Bu akkaunt allaqachon qo'shilgan!")
 USER_REGISTERED_EVENT_TEMPLATE = __("""#new\nid: {id}\ntelegramId: {telegramId}
 \nusername: @{username}\nlanguage: {languageCode}\nname: {firstName}""")

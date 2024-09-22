@@ -408,9 +408,10 @@ class ProxyManager:
     @classmethod
     async def activateProxyInUse(cls, proxyId: int) -> int:
         proxy = await Proxy.get(proxyId)
-        proxy.inUse = True
-        await proxy.save()
-        return proxy.id
+        if proxy is not None:
+            proxy.inUse = True
+            await proxy.save()
+            return proxy.id
 
     @classmethod
     async def getOrCreateProxy(cls, user) -> int:

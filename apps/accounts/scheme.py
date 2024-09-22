@@ -50,6 +50,7 @@ class BlumAccountBase(BaseModel):
     needRemind: Optional[bool] = True
     playedGames: Optional[int] = 0
     status: Status = Status.ACTIVE
+    earnedBlumCoins: Optional[int] = 0
 
 
 class BlumAccountScheme(BlumAccountBase):

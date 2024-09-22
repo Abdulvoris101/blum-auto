@@ -48,6 +48,7 @@ def helperMenuMarkup():
     helperMenuBuilder.button(text=_("🪄 Bot imkoniyatlari"))
     helperMenuBuilder.button(text=_("💸 Bot bilan qancha ishlashim mumkin?"))
     helperMenuBuilder.button(text=_("🎱 Kriptoni qayerdan olaman?"))
+    helperMenuBuilder.button(text=_("⚡️ Bot natijalari"))
     helperMenuBuilder.button(text=_("⬅️ Bosh sahifa"))
     helperMenuBuilder.adjust(2, 2, 1)
     return keyboard.ReplyKeyboardMarkup(keyboard=helperMenuBuilder.export(),
