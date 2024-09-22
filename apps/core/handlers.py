@@ -164,6 +164,11 @@ async def helpHandler(message: types.Message):
     await message.answer(text.BOT_OPPORTUNITY.value, disable_web_page_preview=True)
 
 
+@coreRouter.message(F.text == __("⚡️ Bot natijalari"))
+async def helpHandler(message: types.Message):
+    await message.answer(text.RESULTS_OF_BOT.value, disable_web_page_preview=True)
+
+
 @coreRouter.message(F.text == __("💸 Bot bilan qancha ishlashim mumkin?"))
 async def helpHandler(message: types.Message):
     await message.answer(text.PRICE_BLUM.value, disable_web_page_preview=True)
