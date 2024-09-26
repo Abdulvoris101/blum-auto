@@ -64,8 +64,8 @@ class BlumBalanceScheme(BaseModel):
 
 
 class FriendBalanceScheme(BaseModel):
-    limitInvitation: str
-    usedInvitation: str
+    limitInvitation: int
+    usedInvitation: int
     amountForClaim: str
     referralToken: str
     percentFromFriends: int
