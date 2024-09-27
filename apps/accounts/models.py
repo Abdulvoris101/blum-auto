@@ -18,11 +18,12 @@ class Proxy(Base):
     date = Column(String)
     inUse = Column(Boolean, default=True)
     isCommon = Column(Boolean, default=False)
+    isCanceled = Column(Boolean, default=False)
     phoneCode = Column(Integer, nullable=True)
     dateEnd = Column(String, nullable=True)
 
     def __init__(self, telegramId, proxyId,
-                 ip, host, port, user, password, type, inUse, date, isCommon, phoneCode, dateEnd):
+                 ip, host, port, user, password, type, inUse, date, isCommon, phoneCode, isCanceled, dateEnd):
         self.telegramId = telegramId
         self.proxyId = proxyId
         self.ip = ip
@@ -36,6 +37,7 @@ class Proxy(Base):
         self.dateEnd = dateEnd
         self.isCommon = isCommon
         self.phoneCode = phoneCode
+        self.isCanceled = isCanceled
         super().__init__()
 
     async def save(self):
@@ -198,7 +200,7 @@ class BlumAccount(Base):
             if blumAccount is None:
                 blumAccount = BlumAccount(accountId=accountId, availableBalance=0.0, availablePlayPasses=0,
                                           farmingFreezeHours=8, needRemind=True, allPlayPasses=0, status="INACTIVE",
-                                          playedGames=0)
+                                          playedGames=0, earnedBlumCoins=0)
                 await blumAccount.save()
 
             return blumAccount
