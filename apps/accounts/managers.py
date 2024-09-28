@@ -468,6 +468,25 @@ class ProxyManager:
             return ProxyDetailScheme(**randomProxy.to_dict())
 
     @classmethod
+    async def changeAccountCanceledProxy(cls):
+        async with AsyncSessionLocal() as session:
+            result = await session.execute(
+                select(Proxy).where(Proxy.isCanceled == True)
+            )
+            canceledProxies = result.scalars().all()
+
+            for proxy in canceledProxies:
+                accountResult = await session.execute(select(Account).where(Account.proxyId == proxy.id))
+                account = accountResult.scalar_one_or_none()
+                if account is not None:
+                    userResult = await session.execute(select(User).where(User.id == account.userId))
+                    user = userResult.scalar_one_or_none()
+                    account.proxyId = await cls.getOrCreateProxy(user)
+                    session.add(account)
+
+            await session.commit()
+
+    @classmethod
     async def cancelOutDatedProxies(cls):
         async with AsyncSessionLocal() as session:
             result = await session.execute(

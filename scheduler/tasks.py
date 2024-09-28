@@ -27,6 +27,11 @@ async def cancelOutDatedProxies():
     logger.info("cancelOutDatedProxies!")
 
 
+async def changeAccountCanceledProxy():
+    await ProxyManager.changeAccountCanceledProxy()
+    logger.info("changeAccountCanceledProxy!")
+
+
 async def reminderNotUsingAccounts():
     accounts = await AccountManager.getNotUsingAccounts()
 
