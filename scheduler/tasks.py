@@ -3,7 +3,7 @@ import asyncio
 
 import aiogram.exceptions
 
-from apps.accounts.managers import AccountManager
+from apps.accounts.managers import AccountManager, ProxyManager
 from apps.core.models import User
 from apps.payment.managers import SubscriptionManager
 from bot import logger, bot, i18n, _, __
@@ -20,6 +20,16 @@ async def reminderFarmingAvailable():
 async def cancelOrUpdateSubscriptions():
     await SubscriptionManager.cancelOrUpdateSubscriptions()
     logger.info("Canceled Expired Subscriptions!")
+
+
+async def cancelOutDatedProxies():
+    await ProxyManager.cancelOutDatedProxies()
+    logger.info("cancelOutDatedProxies!")
+
+
+async def changeAccountCanceledProxy():
+    await ProxyManager.changeAccountCanceledProxy()
+    logger.info("changeAccountCanceledProxy!")
 
 
 async def reminderNotUsingAccounts():

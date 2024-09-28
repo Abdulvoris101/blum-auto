@@ -23,7 +23,6 @@ from apps.common.settings import settings
 from apps.core.models import User
 from apps.accounts.scheme import ProxyResponseScheme, ProxyCreateScheme
 from apps.core.scheme import BlumBalanceScheme
-from apps.payment.managers import SubscriptionManager
 from apps.payment.models import AccountSubscription
 from apps.scripts.blum.blum_bot import BlumBot
 from bot import bot, i18n, logger
@@ -76,22 +75,28 @@ class AccountManager:
         return True
 
     @classmethod
-    async def createOrActivate(cls, scheme: AccountCreateScheme) -> Account:
+    async def createOrActivate(cls, scheme: AccountCreateScheme, user: User) -> Account:
         isAccount = await cls.isExistsByPhoneNumber(scheme.phoneNumber)
 
         if isAccount:
             account = await Account.getByPhoneNumber(scheme.phoneNumber)
             account.status = Status.ACTIVE
             account.telegramId = scheme.telegramId
-            await account.save()
+            proxy = await Proxy.get(account.proxyId)
 
             # Set account's proxy inUse to true
-            await ProxyManager.activateProxyInUse(account.proxyId)
+            if proxy is not None:
+                if proxy.isCanceled:
+                    account.proxyId = await ProxyManager.getOrCreateProxy(user)
+                else:
+                    proxy.inUse = True
+                    await proxy.save()
+
+            await account.save()
             return account
 
         account = Account(**scheme.model_dump())
         await account.save()
-
         return account
 
     @classmethod
@@ -172,6 +177,8 @@ class AccountManager:
 
     @classmethod
     async def getValidAccounts(cls, user: User):
+        from apps.payment.managers import SubscriptionManager
+
         validAccounts = []
         accounts = await cls.getUserAccounts(user.id)
 
@@ -425,7 +432,7 @@ class ProxyManager:
     @classmethod
     async def getNotUsingProxy(cls) -> Proxy:
         async with AsyncSessionLocal() as session:
-            query = select(Proxy).where((Proxy.inUse == False) & (Proxy.isCommon == False)).limit(1)
+            query = select(Proxy).where((Proxy.inUse == False) & (Proxy.isCommon == False) & (Proxy.isCanceled == False)).limit(1)
             result = await session.execute(query)
             return result.scalar_one_or_none()
 
@@ -459,6 +466,49 @@ class ProxyManager:
             )
             randomProxy = randomResult.scalar_one_or_none()
             return ProxyDetailScheme(**randomProxy.to_dict())
+
+    @classmethod
+    async def changeAccountCanceledProxy(cls):
+        async with AsyncSessionLocal() as session:
+            result = await session.execute(
+                select(Proxy).where(Proxy.isCanceled == True)
+            )
+            canceledProxies = result.scalars().all()
+
+            for proxy in canceledProxies:
+                accountResult = await session.execute(select(Account).where(Account.proxyId == proxy.id))
+                account = accountResult.scalar_one_or_none()
+                if account is not None:
+                    userResult = await session.execute(select(User).where(User.id == account.userId))
+                    user = userResult.scalar_one_or_none()
+                    account.proxyId = await cls.getOrCreateProxy(user)
+                    session.add(account)
+
+            await session.commit()
+
+    @classmethod
+    async def cancelOutDatedProxies(cls):
+        async with AsyncSessionLocal() as session:
+            result = await session.execute(
+                select(Proxy).where((Proxy.isCommon == False) & (Proxy.isCanceled == False))
+            )
+            proxies = result.scalars().all()
+
+            for proxy in proxies:
+
+                try:
+                    date_end_as_datetime = datetime.datetime.strptime(proxy.dateEnd, '%Y-%m-%d %H:%M:%S')
+                except ValueError:
+                    continue
+
+                if date_end_as_datetime <= datetime.datetime.now():
+                    await sendError(text.ERROR_TEMPLATE.format(message=f"Proxy outDated.\n\n#Id - {proxy.proxyId}\n\n#TG-ID - {proxy.telegramId}",
+                                                               telegramId=proxy.telegramId))
+                    proxy.isCanceled = True
+                    proxy.inUse = False
+                    session.add(proxy)
+
+            await session.commit()
 
 
 class UserTaskManager:

@@ -12,6 +12,7 @@ from apps.common.settings import settings
 from apps.core.handlers import coreRouter
 from apps.payment.api import PaymentProcessor
 from apps.payment.handlers import paymentRouter
+from apps.payment.unipayment.uni_payment_client import UniPayment
 from bot import bot, dp
 from utils.proxies import ProxyDbUtils
 
@@ -55,5 +56,7 @@ async def paymentWebhook(request: Request):
 
 
 if __name__ == "__main__":
-    asyncio.run(ProxyDbUtils().dumpProxiesToDb())
+    proxy_utils = ProxyDbUtils()
+    asyncio.run(proxy_utils.dumpProxiesToDb())
+
     uvicorn.run("app:app", host='0.0.0.0', port=3030, reload=False, workers=2)

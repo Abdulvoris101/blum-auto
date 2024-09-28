@@ -290,7 +290,7 @@ async def processAccountMessage(message: types.Message, state: FSMContext, sessi
         proxyId = None if isAccountExists else await ProxyManager.getOrCreateProxy(user)
         accountCreateScheme = await AccountManager.getAccountCreateScheme(user, phoneNumber,
                                                                           sessionName, accountInfo, proxyId)
-        account = await AccountManager.createOrActivate(accountCreateScheme)
+        account = await AccountManager.createOrActivate(accountCreateScheme, user)
         blumAccountScheme = BlumAccountCreateScheme(accountId=account.id, **blumBalance.model_dump())
         blumAccount = await BlumAccountManager.createOrActivate(scheme=blumAccountScheme)
 

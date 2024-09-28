@@ -74,6 +74,7 @@ class ProxyBaseScheme(BaseModel):
     isCommon: Optional[bool] = False
     phoneCode: Optional[int] = 48
     inUse: Optional[bool] = True
+    isCanceled: Optional[bool] = False
 
 
 class ProxyDetailScheme(ProxyBaseScheme):
