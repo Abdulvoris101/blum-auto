@@ -78,9 +78,10 @@ class Account(Base):
     proxyId = Column(BigInteger, nullable=True)
     createdAt = Column(DateTime, nullable=True)
     lastUpdated = Column(DateTime, nullable=True)
+    isOver = Column(Boolean, nullable=True)
 
     def __init__(self, telegramId, userId, sessionName,
-                 phoneNumber, status, proxyId, createdAt):
+                 phoneNumber, status, proxyId, isOver, createdAt):
         self.userId = userId
         self.telegramId = telegramId
         self.sessionName = sessionName
@@ -89,6 +90,7 @@ class Account(Base):
         self.lastUpdated = createdAt
         self.status = status
         self.proxyId = proxyId
+        self.isOver = isOver
 
         super().__init__()
 
