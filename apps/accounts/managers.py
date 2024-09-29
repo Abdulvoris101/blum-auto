@@ -83,15 +83,18 @@ class AccountManager:
             account = await Account.getByPhoneNumber(scheme.phoneNumber)
             account.status = Status.ACTIVE
             account.telegramId = scheme.telegramId
-            proxy = await Proxy.get(account.proxyId)
 
             # Set account's proxy inUse to true
-            if proxy is not None:
+            if account.proxyId is not None:
+                proxy = await Proxy.get(account.proxyId)
+
                 if proxy.isCanceled:
                     account.proxyId = await ProxyManager.getOrCreateProxy(user)
                 else:
                     proxy.inUse = True
                     await proxy.save()
+            else:
+                account.proxyId = await ProxyManager.getOrCreateProxy(user)
 
             await account.save()
             return account
@@ -479,7 +482,7 @@ class ProxyManager:
             for proxy in canceledProxies:
                 accountResult = await session.execute(select(Account).where(Account.proxyId == proxy.id))
                 account = accountResult.scalar_one_or_none()
-                if account is not None:
+                if account is not None and not account.isOver:
                     userResult = await session.execute(select(User).where(User.id == account.userId))
                     user = userResult.scalar_one_or_none()
                     account.proxyId = await cls.getOrCreateProxy(user)

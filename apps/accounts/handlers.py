@@ -386,7 +386,7 @@ async def updateSubscription(callback: types.CallbackQuery, callback_data: Accou
                                       text.NOT_ENOUGH_BALANCE.format(price=settings.PRICE,
                                                                      stars=settings.STARS_PRICE))
 
-    await SubscriptionManager.updateSubscription(accountId=account.id)
+    await SubscriptionManager.updateSubscription(account=account)
     return await bot.send_message(callback.from_user.id, text.SUBSCRIPTION_UPDATED.format(
         sessionName=account.sessionName))
 

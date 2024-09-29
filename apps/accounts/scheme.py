@@ -19,6 +19,7 @@ class AccountBase(BaseModel):
     status: Status = Status.ACTIVE
     proxyId: Optional[int]
     createdAt: datetime = datetime.now()
+    isOver: bool = False
 
 
 class AccountScheme(AccountBase):
