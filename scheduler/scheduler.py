@@ -12,10 +12,10 @@ rq_queue = Queue(connection=redis_conn)
 
 schedule.every().day.do(rq_queue.enqueue, reminderNotUsingAccounts)
 schedule.every().hour.do(rq_queue.enqueue, reminderFarmingAvailable)
+schedule.every().seconds.do(rq_queue.enqueue, cancelOutDatedProxies)
+schedule.every().hour.do(rq_queue.enqueue, changeAccountCanceledProxy)
 schedule.every().day.at("00:00").do(rq_queue.enqueue, cancelOrUpdateSubscriptions)
 schedule.every().day.at("20:00").do(rq_queue.enqueue, cancelOrUpdateSubscriptions)
-schedule.every().day.at("23:55").do(rq_queue.enqueue, cancelOutDatedProxies)
-schedule.every().day.at("00:00").do(rq_queue.enqueue, changeAccountCanceledProxy)
 
 while True:
     rq_queue.empty()
