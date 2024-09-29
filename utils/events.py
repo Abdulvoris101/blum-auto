@@ -1,3 +1,5 @@
+import asyncio
+
 import aiogram.exceptions
 
 from apps.common.settings import settings
@@ -23,4 +25,7 @@ async def sendToUser(telegramId: int, text):
 
 
 async def sendError(text: str):
-    await bot.send_message(settings.ERROR_CHANNEL_ID, text, message_thread_id=18)
+    try:
+        await bot.send_message(settings.ERROR_CHANNEL_ID, text, message_thread_id=18)
+    except aiogram.exceptions.TelegramRetryAfter as e:
+        await asyncio.sleep(10)

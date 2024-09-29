@@ -8,6 +8,7 @@ from multiprocessing.managers import BaseManager
 from typing import Dict, List, Tuple, Any
 from urllib.parse import urlparse
 
+import aiogram
 import httpx
 import pyrogram.errors.exceptions.unauthorized_401
 from fake_useragent import UserAgent
@@ -498,15 +499,12 @@ class ProxyManager:
 
                 try:
                     date_end_as_datetime = datetime.datetime.strptime(proxy.dateEnd, '%Y-%m-%d %H:%M:%S')
+                    if date_end_as_datetime <= datetime.datetime.now():
+                        proxy.isCanceled = True
+                        proxy.inUse = False
+                        session.add(proxy)
                 except ValueError:
                     continue
-
-                if date_end_as_datetime <= datetime.datetime.now():
-                    await sendError(text.ERROR_TEMPLATE.format(message=f"Proxy outDated.\n\n#Id - {proxy.proxyId}\n\n#TG-ID - {proxy.telegramId}",
-                                                               telegramId=proxy.telegramId))
-                    proxy.isCanceled = True
-                    proxy.inUse = False
-                    session.add(proxy)
 
             await session.commit()
 
