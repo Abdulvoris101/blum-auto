@@ -154,7 +154,9 @@ class AccountCreationHandler:
 
         try:
             await validatePhoneNumber(phoneNumber)
+            logger.info(f"Trying - {phoneNumber}")
             phoneCode = getPhoneNumberCode(phoneNumber)
+            logger.info(f"Phone code - {phoneCode}")
             proxyScheme = await ProxyManager.getGhostProxyByPhoneCode(phoneCode)
 
             proxy = {
