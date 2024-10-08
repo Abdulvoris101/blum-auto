@@ -139,7 +139,7 @@ async def addAccount(callback: types.CallbackQuery, state: FSMContext):
 
 class AccountCreationHandler:
     def __init__(self):
-        self.session = None
+        self.session: Client = None
         self.lock = asyncio.Lock()
 
     async def processPhoneNumber(self, message: types.Message, state: FSMContext):
@@ -215,9 +215,8 @@ class AccountCreationHandler:
             pattern = r"^\d(\.\d)*$"
 
             if not verificationCode or not re.match(pattern, verificationCode):
-                await message.answer(text.INVALID_FORMAT_VERIFICATION_CODE.value)
-                await self.session.disconnect()
-                return await processPhoneNumber(message, state)
+                await self.session.resend_code(phone_number=phoneNumber, phone_code_hash=sentCode)
+                return await message.answer(text.INVALID_FORMAT_VERIFICATION_CODE.value)
 
             waitMomentMessage = await bot.send_message(message.from_user.id, text.WAIT_A_MOMENT.value)
             await self.session.sign_in(phoneNumber, sentCode, verificationCode)
