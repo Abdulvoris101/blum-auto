@@ -153,7 +153,7 @@ class AccountManager:
 
             async with dbLock:
                 client = Client(name=account.sessionName, api_id=settings.API_ID, api_hash=settings.API_HASH,
-                                workdir=settings.WORKDIR, proxy=proxy)
+                                workdir=settings.WORKDIR, proxy=proxy, in_memory=True)
                 await client.connect()
                 await client.get_me()
                 await client.disconnect()

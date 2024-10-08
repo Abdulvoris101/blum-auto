@@ -2,6 +2,7 @@ import asyncio
 import os
 import pickle
 import random
+import re
 from datetime import datetime
 from json import JSONDecodeError
 from urllib.parse import urlparse
@@ -10,7 +11,9 @@ import httpx
 from aiogram import Router, types, F
 from aiogram.exceptions import TelegramBadRequest
 from pydantic import ValidationError
-from pyrogram.errors import BadRequest, SessionPasswordNeeded, AuthKeyUnregistered
+from pyrogram.errors import BadRequest, SessionPasswordNeeded, AuthKeyUnregistered, SessionExpired, Unauthorized
+from watchfiles import awatch
+
 from apps.accounts.keyboards import accountsMarkup, AccountCallback, accountParamsMarkup
 from apps.accounts.managers import AccountManager, BlumAccountManager, sessionManager, ProxyManager
 from apps.accounts.models import Account, BlumAccount, Proxy
@@ -131,7 +134,6 @@ async def addAccount(callback: types.CallbackQuery, state: FSMContext):
                                                                                             stars=settings.STARS_PRICE))
 
     await state.set_state(AddAccountState.phoneNumber)
-    await bot.send_message(callback.from_user.id, text.DISCLAIMER_OF_ADDING_ACCOUNT.value)
     await bot.send_message(callback.from_user.id, text.ENTER_PHONE_NUMBER.value, reply_markup=cancelMenuMarkup())
 
 
@@ -210,6 +212,13 @@ class AccountCreationHandler:
         try:
             phoneNumber = data.get('phoneNumber')
             sentCode = data.get("sentCode")
+            pattern = r"^\d(\.\d)*$"
+
+            if not verificationCode or not re.match(pattern, verificationCode):
+                await message.answer(text.INVALID_FORMAT_VERIFICATION_CODE.value)
+                await self.session.disconnect()
+                return await processPhoneNumber(message, state)
+
             waitMomentMessage = await bot.send_message(message.from_user.id, text.WAIT_A_MOMENT.value)
             await self.session.sign_in(phoneNumber, sentCode, verificationCode)
         except SessionPasswordNeeded:
@@ -280,13 +289,11 @@ async def processAccountMessage(message: types.Message, state: FSMContext, sessi
     try:
         phoneCode = getPhoneNumberCode(phoneNumber)
         proxyScheme = await ProxyManager.getGhostProxyByPhoneCode(phoneCode)
-
         blumBalance = await BlumAccountManager.getUserBlumBalance(telegramId=message.from_user.id,
                                                                   sessionName=sessionName, proxy=proxyScheme,
                                                                   trigger=False)
         accountInfo = await session.get_me()
         user = await User.get(message.from_user.id)
-
         isAccountExists = await AccountManager.isExistsByPhoneNumber(phoneNumber)
 
         proxyId = None if isAccountExists else await ProxyManager.getOrCreateProxy(user)
@@ -338,9 +345,19 @@ async def processAccountMessage(message: types.Message, state: FSMContext, sessi
     except InternalServerException as e:
         logger.warn(str(e.message_text))
         return await message.answer(e.message_text)
-    except Exception as e:
-        logger.error(str(e))
+    except (unauthorized_401.AuthKeyInvalid, Unauthorized) as e:
+        logger.error(text.SESSION_EXPIRED.format(e=e))
         return await message.answer(text.SOMETHING_WRONG.value)
+    except (unauthorized_401.AuthKeyUnregistered, AuthKeyUnregistered) as e:
+        logger.error(text.SESSION_EXPIRED.format(e=e))
+        filePath = os.path.join("sessions/", f"{sessionName}.session")
+        fullPath = os.path.abspath(filePath)
+        os.remove(fullPath)
+        return await message.answer(text.SOMETHING_WRONG.value)
+
+    # except Exception as e:
+    #     logger.error(str(e))
+    #     return await message.answer(text.SOMETHING_WRONG.value)
 
 
 @accountsRouter.message(AddAccountState.verificationCode)

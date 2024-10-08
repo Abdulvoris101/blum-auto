@@ -63,9 +63,7 @@ O'zingiz qiziqtirgan mavzuni tanlang: """)
 # Accounts
 ACCOUNTS_TEXT = __("""Ulangan akkauntlar soni - {accountsCount}""")
 
-DISCLAIMER_OF_ADDING_ACCOUNT = __("""⚠️ Telegram aynan shu akkauntni ulashga ruxsat bermaydi! Boshqa akkauntingizni 
-ulang.
-
+DISCLAIMER_OF_ADDING_ACCOUNT = __("""
 Agar boshqa akkauntingiz bo'lmasa, bizdan arzon narxda sotib olishingiz mumkin: @aerkinov1.
 """)
 
@@ -73,7 +71,15 @@ ENTER_PHONE_NUMBER = __("""<b>Ulamoqchi bo'lgan telefon raqamingizni kiriting:</
 
 Telefon raqam formati: +99890xxxxxxx""")
 
-ENTER_VERIFICATION_CODE = __("""Telegramingizga kelgan tasdiqlash kodini kiriting: """)
+ENTER_VERIFICATION_CODE = __("""Telegramingizga kelgan tasdiqlash kodini orasiga tochkalar qo'yib yuboring:
+
+⚠️ Masalan sizga 12345 kod kelgan bo'lsa botga 1.2.3.4.5 deb yuboring!""")
+
+INVALID_FORMAT_VERIFICATION_CODE = __("""Notog'ri tasdiqlash kod formati!
+⚠️ Masalan - 12345 tasdiqlash kodini 1.2.3.4.5 deb botga yuboring!
+
+Qayta urining 🔄""")
+
 ENTER_2FA_PASSWORD = __("""🔒 2-bosqichli parolingizni kiriting: """)
 SMS_SENDING = __("Telegram kod yuborilmoqda....")
 SUCCESSFUL_ADDED_ACCOUNT = __("""Akkauntingiz muvaffiqiyatli qo'shildi 🎉. 
