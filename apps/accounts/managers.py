@@ -499,17 +499,19 @@ class ProxyManager:
             proxies = result.scalars().all()
 
             for proxy in proxies:
-
                 try:
                     date_end_as_datetime = datetime.datetime.strptime(proxy.dateEnd, '%Y-%m-%d %H:%M:%S')
-                    if date_end_as_datetime <= datetime.datetime.now():
+                    if date_end_as_datetime < datetime.datetime.now():
                         proxy.isCanceled = True
                         proxy.inUse = False
                         session.add(proxy)
+                        logger.debug(f"Proxy fetched - {proxy.id}")
                 except ValueError:
+                    logger.warning(f"Date format error for proxy id {proxy.id}: {proxy.dateEnd}")
                     continue
 
             await session.commit()
+
 
 
 class UserTaskManager:
