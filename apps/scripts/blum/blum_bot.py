@@ -1,8 +1,10 @@
 import datetime
+import logging
 import random
 from asyncio import Lock
 from typing import Optional
 
+import requests
 from fake_useragent import UserAgent
 from pydantic import ValidationError
 
@@ -207,24 +209,40 @@ class BlumBot:
         elif "message" in data:
             return data.get("message")
 
+    async def getDataPayload(self):
+        url = 'https://raw.githubusercontent.com/zuydd/database/main/blum.json'
+        data = requests.get(url=url)
+        return data.json()
+
+    async def createPayload(self, gameId, points):
+        data = await self.getDataPayload()
+        payloadServer = data.get('payloadServer', [])
+        filteredData = [item for item in payloadServer if item['status'] == 1]
+        randomId = random.choice([item['id'] for item in filteredData])
+        resp = await self.webSession.post(f'https://{randomId}.vercel.app/api/blum',
+                                          json={'game_id': gameId, 'points': points})
+
+        if resp is not None:
+            data = await resp.json()
+            if "payload" in data:
+                return data["payload"]
+            return None
+
     async def claimGame(self, gameId: str):
-        """
-        Claim the reward for a completed game.
-        """
-        points = random.randint(200, 280)
-        json_data = {"gameId": gameId, "points": points}
         try:
-            response = await self.webSession.post("https://game-domain.blum.codes/api/v2/game/claim", json=json_data)
-        except httpx.TimeoutException as e:
-            logger.error(f"Timout exception - {e.request}")
-            return "internal", 0
+            points = random.randint(190, 230)
+            data = await self.createPayload(gameId=gameId, points=points)
+            resp = await self.webSession.post(f"https://game-domain.blum.codes/api/v2/game/claim",
+                                              json={'payload': data}, ssl=False)
+            if resp.status != 200:
+                resp = await self.webSession.post(f"https://game-domain.blum.codes/api/v2/game/claim",
+                                                  json={'payload': data}, ssl=False)
 
-        if response.status_code in range(500, 600):
-            return "internal", 0
+            txt = await resp.text()
 
-        text = response.text
-
-        return True if text == 'OK' else False, points
+            return True if txt == 'OK' else False, points
+        except Exception as e:
+            logger.error(e)
 
     async def getTgWebData(self):
         """

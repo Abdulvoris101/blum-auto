@@ -8058,3 +8058,629 @@ TypeError: unsupported operand type(s) for &: 'bool' and 'InstrumentedAttribute'
 2024-10-15 01:44:09,716 - httpx - INFO - HTTP Request: POST https://game-domain.blum.codes/api/v2/game/play "HTTP/1.1 200 OK"
 2024-10-15 01:44:42,648 - httpx - INFO - HTTP Request: POST https://game-domain.blum.codes/api/v2/game/claim "HTTP/1.1 500 Internal Server Error"
 2024-10-15 01:44:43,252 - httpx - INFO - HTTP Request: GET https://game-domain.blum.codes/api/v1/user/balance "HTTP/1.1 200 OK"
+2024-10-23 22:29:52,040 - aiogram.event - INFO - Update id=53310685 is not handled. Duration 1 ms by bot id=7144434947
+2024-10-23 22:29:52,366 - aiogram.event - INFO - Update id=53310685 is not handled. Duration 1 ms by bot id=7144434947
+2024-10-23 22:29:55,026 - aiogram.event - INFO - Update id=53310685 is not handled. Duration 2 ms by bot id=7144434947
+2024-10-23 22:30:16,272 - aiogram.event - INFO - Update id=53310686 is handled. Duration 476 ms by bot id=7144434947
+2024-10-23 22:30:19,989 - aiogram.event - INFO - Update id=53310687 is handled. Duration 1125 ms by bot id=7144434947
+2024-10-23 22:30:23,367 - aiogram.event - INFO - Update id=53310688 is handled. Duration 820 ms by bot id=7144434947
+2024-10-23 22:30:25,217 - bot - ERROR - Session file doesn't exists
+2024-10-23 22:30:25,825 - aiogram.event - INFO - Update id=53310689 is handled. Duration 915 ms by bot id=7144434947
+2024-10-23 22:30:28,364 - aiogram.event - INFO - Update id=53310690 is handled. Duration 270 ms by bot id=7144434947
+2024-10-23 22:30:33,459 - aiogram.event - INFO - Update id=53310691 is handled. Duration 256 ms by bot id=7144434947
+2024-10-23 22:30:35,020 - aiogram.event - INFO - Update id=53310692 is handled. Duration 483 ms by bot id=7144434947
+2024-10-23 22:30:36,910 - aiogram.event - INFO - Update id=53310693 is handled. Duration 530 ms by bot id=7144434947
+2024-10-23 22:30:38,643 - aiogram.event - INFO - Update id=53310694 is handled. Duration 527 ms by bot id=7144434947
+2024-10-23 22:31:29,848 - aiogram.event - INFO - Update id=53310695 is handled. Duration 732 ms by bot id=7144434947
+2024-10-23 22:31:32,258 - aiogram.event - INFO - Update id=53310696 is handled. Duration 585 ms by bot id=7144434947
+2024-10-23 22:31:35,995 - bot - ERROR - Session file doesn't exists
+2024-10-23 22:31:35,996 - bot - INFO - Trying - +998909174227
+2024-10-23 22:31:35,998 - bot - INFO - Phone code - 71
+2024-10-23 22:31:37,300 - pyrogram.session.auth - INFO - Start creating a new auth key on DC2
+2024-10-23 22:31:37,300 - pyrogram.connection.transport.tcp.tcp - INFO - Using proxy 213.139.222.115
+2024-10-23 22:31:37,300 - pyrogram.connection.connection - INFO - Connecting...
+2024-10-23 22:31:37,679 - pyrogram.connection.connection - INFO - Connected! Production DC2 - IPv4
+2024-10-23 22:31:39,184 - pyrogram.session.auth - INFO - Done auth key exchange: DhGenOk
+2024-10-23 22:31:39,184 - pyrogram.connection.connection - INFO - Disconnected
+2024-10-23 22:31:39,275 - pyrogram.connection.transport.tcp.tcp - INFO - Using proxy 213.139.222.115
+2024-10-23 22:31:39,275 - pyrogram.connection.connection - INFO - Connecting...
+2024-10-23 22:31:39,772 - pyrogram.connection.connection - INFO - Connected! Production DC2 - IPv4
+2024-10-23 22:31:39,773 - pyrogram.session.session - INFO - NetworkTask started
+2024-10-23 22:31:40,339 - pyrogram.session.session - INFO - Session initialized: Layer 158
+2024-10-23 22:31:40,339 - pyrogram.session.session - INFO - Device: Blum auto - 2v
+2024-10-23 22:31:40,339 - pyrogram.session.session - INFO - System: Linux 6.2.0-76060200-generic (en)
+2024-10-23 22:31:40,339 - pyrogram.session.session - INFO - Session started
+2024-10-23 22:31:40,362 - pyrogram.session.session - INFO - PingTask started
+2024-10-23 22:31:41,137 - aiogram.event - INFO - Update id=53310697 is handled. Duration 5472 ms by bot id=7144434947
+2024-10-23 22:31:48,267 - aiogram.event - INFO - Update id=53310698 is handled. Duration 1928 ms by bot id=7144434947
+2024-10-23 22:31:54,298 - bot - WARNING - Telegram says: [400 PASSWORD_HASH_INVALID] - The two-step verification password is invalid (caused by "auth.CheckPassword")
+2024-10-23 22:31:54,542 - aiogram.event - INFO - Update id=53310699 is handled. Duration 4730 ms by bot id=7144434947
+2024-10-23 22:32:01,240 - pyrogram.connection.transport.tcp.tcp - INFO - Using proxy 213.139.222.115
+2024-10-23 22:32:01,240 - pyrogram.connection.connection - INFO - Connecting...
+2024-10-23 22:32:01,586 - pyrogram.connection.connection - INFO - Connected! Production DC2 - IPv4
+2024-10-23 22:32:01,587 - pyrogram.session.session - INFO - NetworkTask started
+2024-10-23 22:32:01,978 - pyrogram.session.session - INFO - Session initialized: Layer 158
+2024-10-23 22:32:01,978 - pyrogram.session.session - INFO - Device: CPython 3.10.6 - Pyrogram 2.0.106
+2024-10-23 22:32:01,978 - pyrogram.session.session - INFO - System: Linux 6.2.0-76060200-generic (en)
+2024-10-23 22:32:01,979 - pyrogram.session.session - INFO - Session started
+2024-10-23 22:32:02,028 - pyrogram.session.session - INFO - PingTask started
+2024-10-23 22:32:02,303 - pyrogram.session.session - INFO - PingTask stopped
+2024-10-23 22:32:02,303 - pyrogram.connection.connection - INFO - Disconnected
+2024-10-23 22:32:02,303 - pyrogram.session.session - INFO - NetworkTask stopped
+2024-10-23 22:32:02,303 - pyrogram.session.session - INFO - Session stopped
+2024-10-23 22:32:03,107 - httpx - INFO - HTTP Request: POST https://user-domain.blum.codes/api/v1/auth/provider/PROVIDER_TELEGRAM_MINI_APP "HTTP/1.1 200 OK"
+2024-10-23 22:32:04,033 - httpx - INFO - HTTP Request: GET https://game-domain.blum.codes/api/v1/user/balance "HTTP/1.1 200 OK"
+2024-10-23 22:32:06,872 - httpx - INFO - HTTP Request: POST https://proxy6.net/api/d295f6a3b4-8afc130914-3d89b54f57/buy?count=1&period=30&version=4&type=socks&descr=5069155115&country=pl "HTTP/1.1 200 OK"
+2024-10-23 22:32:08,364 - httpx - INFO - HTTP Request: POST https://proxy6.net/api/d295f6a3b4-8afc130914-3d89b54f57/buy?count=1&period=30&version=4&type=socks&descr=5069155115&country=pl "HTTP/1.1 200 OK"
+2024-10-23 22:32:08,966 - pyrogram.session.session - INFO - PingTask stopped
+2024-10-23 22:32:08,967 - pyrogram.connection.connection - INFO - Disconnected
+2024-10-23 22:32:08,967 - pyrogram.session.session - INFO - NetworkTask stopped
+2024-10-23 22:32:08,967 - pyrogram.session.session - INFO - Session stopped
+2024-10-23 22:32:09,591 - aiogram.event - INFO - Update id=53310700 is handled. Duration 10573 ms by bot id=7144434947
+2024-10-23 22:32:12,544 - aiogram.event - INFO - Update id=53310701 is handled. Duration 1144 ms by bot id=7144434947
+2024-10-23 22:32:14,788 - pyrogram.connection.connection - INFO - Connecting...
+2024-10-23 22:32:14,892 - pyrogram.connection.connection - INFO - Connected! Production DC2 - IPv4
+2024-10-23 22:32:14,892 - pyrogram.session.session - INFO - NetworkTask started
+2024-10-23 22:32:15,293 - pyrogram.session.session - INFO - Session initialized: Layer 158
+2024-10-23 22:32:15,293 - pyrogram.session.session - INFO - Device: CPython 3.10.6 - Pyrogram 2.0.106
+2024-10-23 22:32:15,293 - pyrogram.session.session - INFO - System: Linux 6.2.0-76060200-generic (en)
+2024-10-23 22:32:15,293 - pyrogram.session.session - INFO - Session started
+2024-10-23 22:32:15,315 - pyrogram.session.session - INFO - PingTask started
+2024-10-23 22:32:15,455 - pyrogram.session.session - INFO - PingTask stopped
+2024-10-23 22:32:15,455 - pyrogram.connection.connection - INFO - Disconnected
+2024-10-23 22:32:15,455 - pyrogram.session.session - INFO - NetworkTask stopped
+2024-10-23 22:32:15,455 - pyrogram.session.session - INFO - Session stopped
+2024-10-23 22:32:15,469 - aiogram.event - INFO - Update id=53310702 is handled. Duration 1097 ms by bot id=7144434947
+2024-10-23 22:32:16,039 - pyrogram.connection.connection - INFO - Connecting...
+2024-10-23 22:32:16,143 - pyrogram.connection.connection - INFO - Connected! Production DC2 - IPv4
+2024-10-23 22:32:16,144 - pyrogram.session.session - INFO - NetworkTask started
+2024-10-23 22:32:16,635 - pyrogram.session.session - INFO - Session initialized: Layer 158
+2024-10-23 22:32:16,635 - pyrogram.session.session - INFO - Device: CPython 3.10.6 - Pyrogram 2.0.106
+2024-10-23 22:32:16,635 - pyrogram.session.session - INFO - System: Linux 6.2.0-76060200-generic (en)
+2024-10-23 22:32:16,635 - pyrogram.session.session - INFO - Session started
+2024-10-23 22:32:16,654 - pyrogram.session.session - INFO - PingTask started
+2024-10-23 22:32:17,034 - pyrogram.session.session - INFO - PingTask stopped
+2024-10-23 22:32:17,034 - pyrogram.connection.connection - INFO - Disconnected
+2024-10-23 22:32:17,035 - pyrogram.session.session - INFO - NetworkTask stopped
+2024-10-23 22:32:17,035 - pyrogram.session.session - INFO - Session stopped
+2024-10-23 22:32:17,545 - httpx - INFO - HTTP Request: POST https://user-domain.blum.codes/api/v1/auth/provider/PROVIDER_TELEGRAM_MINI_APP "HTTP/1.1 200 OK"
+2024-10-23 22:32:18,443 - httpx - INFO - HTTP Request: GET https://game-domain.blum.codes/api/v1/user/balance "HTTP/1.1 200 OK"
+2024-10-23 22:32:20,593 - httpx - INFO - HTTP Request: POST https://game-domain.blum.codes/api/v1/daily-reward?offset=-180 "HTTP/1.1 400 Bad Request"
+2024-10-23 22:32:21,156 - httpx - INFO - HTTP Request: GET https://user-domain.blum.codes/api/v1/friends/balance "HTTP/1.1 200 OK"
+2024-10-23 22:32:23,383 - httpx - INFO - HTTP Request: POST https://user-domain.blum.codes/api/v1/friends/claim "HTTP/1.1 200 OK"
+2024-10-23 22:32:23,897 - httpx - INFO - HTTP Request: POST https://game-domain.blum.codes/api/v1/farming/start "HTTP/1.1 200 OK"
+2024-10-23 22:32:24,836 - httpx - INFO - HTTP Request: GET https://game-domain.blum.codes/api/v1/user/balance "HTTP/1.1 200 OK"
+2024-10-23 22:43:49,827 - aiogram.event - INFO - Update id=53310703 is handled. Duration 1226 ms by bot id=7144434947
+2024-10-23 22:43:53,801 - pyrogram.connection.connection - INFO - Connecting...
+2024-10-23 22:43:53,973 - pyrogram.connection.connection - INFO - Connected! Production DC2 - IPv4
+2024-10-23 22:43:53,974 - pyrogram.session.session - INFO - NetworkTask started
+2024-10-23 22:43:54,423 - pyrogram.session.session - INFO - Session initialized: Layer 158
+2024-10-23 22:43:54,423 - pyrogram.session.session - INFO - Device: CPython 3.10.6 - Pyrogram 2.0.106
+2024-10-23 22:43:54,423 - pyrogram.session.session - INFO - System: Linux 6.2.0-76060200-generic (en)
+2024-10-23 22:43:54,423 - pyrogram.session.session - INFO - Session started
+2024-10-23 22:43:54,445 - pyrogram.session.session - INFO - PingTask started
+2024-10-23 22:43:54,567 - pyrogram.session.session - INFO - PingTask stopped
+2024-10-23 22:43:54,568 - pyrogram.connection.connection - INFO - Disconnected
+2024-10-23 22:43:54,568 - pyrogram.session.session - INFO - NetworkTask stopped
+2024-10-23 22:43:54,568 - pyrogram.session.session - INFO - Session stopped
+2024-10-23 22:43:54,799 - pyrogram.connection.connection - INFO - Connecting...
+2024-10-23 22:43:54,904 - pyrogram.connection.connection - INFO - Connected! Production DC2 - IPv4
+2024-10-23 22:43:54,905 - pyrogram.session.session - INFO - NetworkTask started
+2024-10-23 22:43:55,409 - pyrogram.session.session - INFO - Session initialized: Layer 158
+2024-10-23 22:43:55,409 - pyrogram.session.session - INFO - Device: CPython 3.10.6 - Pyrogram 2.0.106
+2024-10-23 22:43:55,409 - pyrogram.session.session - INFO - System: Linux 6.2.0-76060200-generic (en)
+2024-10-23 22:43:55,409 - pyrogram.session.session - INFO - Session started
+2024-10-23 22:43:55,432 - pyrogram.session.session - INFO - PingTask started
+2024-10-23 22:43:55,827 - pyrogram.session.session - INFO - PingTask stopped
+2024-10-23 22:43:55,827 - pyrogram.connection.connection - INFO - Disconnected
+2024-10-23 22:43:55,827 - pyrogram.session.session - INFO - NetworkTask stopped
+2024-10-23 22:43:55,827 - pyrogram.session.session - INFO - Session stopped
+2024-10-23 22:43:56,579 - httpx - INFO - HTTP Request: POST https://user-domain.blum.codes/api/v1/auth/provider/PROVIDER_TELEGRAM_MINI_APP "HTTP/1.1 200 OK"
+2024-10-23 22:43:57,045 - httpx - INFO - HTTP Request: GET https://game-domain.blum.codes/api/v1/user/balance "HTTP/1.1 200 OK"
+2024-10-23 22:43:59,607 - aiogram.event - INFO - Update id=53310704 is handled. Duration 6567 ms by bot id=7144434947
+2024-10-23 22:52:14,195 - aiogram.event - INFO - Update id=53310705 is handled. Duration 768 ms by bot id=7144434947
+2024-10-23 22:52:15,328 - aiogram.event - INFO - Update id=53310706 is handled. Duration 292 ms by bot id=7144434947
+2024-10-23 22:52:17,545 - aiogram.event - INFO - Update id=53310707 is handled. Duration 783 ms by bot id=7144434947
+2024-10-23 22:52:19,787 - pyrogram.connection.connection - INFO - Connecting...
+2024-10-23 22:52:19,898 - pyrogram.connection.connection - INFO - Connected! Production DC2 - IPv4
+2024-10-23 22:52:19,898 - pyrogram.session.session - INFO - NetworkTask started
+2024-10-23 22:52:20,242 - pyrogram.session.session - INFO - Session initialized: Layer 158
+2024-10-23 22:52:20,242 - pyrogram.session.session - INFO - Device: CPython 3.10.6 - Pyrogram 2.0.106
+2024-10-23 22:52:20,242 - pyrogram.session.session - INFO - System: Linux 6.2.0-76060200-generic (en)
+2024-10-23 22:52:20,242 - pyrogram.session.session - INFO - Session started
+2024-10-23 22:52:20,272 - pyrogram.session.session - INFO - PingTask started
+2024-10-23 22:52:20,523 - pyrogram.session.session - INFO - PingTask stopped
+2024-10-23 22:52:20,524 - pyrogram.connection.connection - INFO - Disconnected
+2024-10-23 22:52:20,524 - pyrogram.session.session - INFO - NetworkTask stopped
+2024-10-23 22:52:20,524 - pyrogram.session.session - INFO - Session stopped
+2024-10-23 22:52:20,536 - aiogram.event - INFO - Update id=53310708 is handled. Duration 1148 ms by bot id=7144434947
+2024-10-23 22:52:21,009 - pyrogram.connection.connection - INFO - Connecting...
+2024-10-23 22:52:21,113 - pyrogram.connection.connection - INFO - Connected! Production DC2 - IPv4
+2024-10-23 22:52:21,113 - pyrogram.session.session - INFO - NetworkTask started
+2024-10-23 22:52:21,576 - pyrogram.session.session - INFO - Session initialized: Layer 158
+2024-10-23 22:52:21,576 - pyrogram.session.session - INFO - Device: CPython 3.10.6 - Pyrogram 2.0.106
+2024-10-23 22:52:21,576 - pyrogram.session.session - INFO - System: Linux 6.2.0-76060200-generic (en)
+2024-10-23 22:52:21,577 - pyrogram.session.session - INFO - Session started
+2024-10-23 22:52:21,600 - pyrogram.session.session - INFO - PingTask started
+2024-10-23 22:52:21,882 - pyrogram.session.session - INFO - PingTask stopped
+2024-10-23 22:52:21,883 - pyrogram.connection.connection - INFO - Disconnected
+2024-10-23 22:52:21,883 - pyrogram.session.session - INFO - NetworkTask stopped
+2024-10-23 22:52:21,883 - pyrogram.session.session - INFO - Session stopped
+2024-10-23 22:52:22,341 - httpx - INFO - HTTP Request: POST https://user-domain.blum.codes/api/v1/auth/provider/PROVIDER_TELEGRAM_MINI_APP "HTTP/1.1 200 OK"
+2024-10-23 22:52:22,876 - httpx - INFO - HTTP Request: GET https://game-domain.blum.codes/api/v1/user/balance "HTTP/1.1 200 OK"
+2024-10-23 22:52:25,057 - httpx - INFO - HTTP Request: POST https://game-domain.blum.codes/api/v1/daily-reward?offset=-180 "HTTP/1.1 400 Bad Request"
+2024-10-23 22:52:25,593 - httpx - INFO - HTTP Request: GET https://user-domain.blum.codes/api/v1/friends/balance "HTTP/1.1 200 OK"
+2024-10-23 22:52:28,433 - httpx - INFO - HTTP Request: POST https://user-domain.blum.codes/api/v1/auth/refresh "HTTP/1.1 200 OK"
+2024-10-23 22:52:29,510 - httpx - INFO - HTTP Request: POST https://game-domain.blum.codes/api/v2/game/play "HTTP/1.1 200 OK"
+2024-10-23 22:53:00,117 - root - ERROR - 'coroutine' object has no attribute 'json'
+2024-10-23 22:53:00,121 - bot - ERROR - cannot unpack non-iterable NoneType object
+2024-10-23 23:05:29,277 - aiogram.event - INFO - Update id=53310709 is handled. Duration 1055 ms by bot id=7144434947
+2024-10-23 23:05:32,933 - pyrogram.connection.connection - INFO - Connecting...
+2024-10-23 23:05:33,039 - pyrogram.connection.connection - INFO - Connected! Production DC2 - IPv4
+2024-10-23 23:05:33,039 - pyrogram.session.session - INFO - NetworkTask started
+2024-10-23 23:05:33,647 - pyrogram.session.session - INFO - Session initialized: Layer 158
+2024-10-23 23:05:33,647 - pyrogram.session.session - INFO - Device: CPython 3.10.6 - Pyrogram 2.0.106
+2024-10-23 23:05:33,647 - pyrogram.session.session - INFO - System: Linux 6.2.0-76060200-generic (en)
+2024-10-23 23:05:33,647 - pyrogram.session.session - INFO - Session started
+2024-10-23 23:05:33,667 - pyrogram.session.session - INFO - PingTask started
+2024-10-23 23:05:33,852 - pyrogram.session.session - INFO - PingTask stopped
+2024-10-23 23:05:33,853 - pyrogram.connection.connection - INFO - Disconnected
+2024-10-23 23:05:33,853 - pyrogram.session.session - INFO - NetworkTask stopped
+2024-10-23 23:05:33,853 - pyrogram.session.session - INFO - Session stopped
+2024-10-23 23:05:33,872 - aiogram.event - INFO - Update id=53310710 is handled. Duration 1657 ms by bot id=7144434947
+2024-10-23 23:05:34,332 - pyrogram.connection.connection - INFO - Connecting...
+2024-10-23 23:05:34,439 - pyrogram.connection.connection - INFO - Connected! Production DC2 - IPv4
+2024-10-23 23:05:34,440 - pyrogram.session.session - INFO - NetworkTask started
+2024-10-23 23:05:34,881 - pyrogram.session.session - INFO - Session initialized: Layer 158
+2024-10-23 23:05:34,881 - pyrogram.session.session - INFO - Device: CPython 3.10.6 - Pyrogram 2.0.106
+2024-10-23 23:05:34,881 - pyrogram.session.session - INFO - System: Linux 6.2.0-76060200-generic (en)
+2024-10-23 23:05:34,881 - pyrogram.session.session - INFO - Session started
+2024-10-23 23:05:34,899 - pyrogram.session.session - INFO - PingTask started
+2024-10-23 23:05:35,370 - pyrogram.session.session - INFO - PingTask stopped
+2024-10-23 23:05:35,371 - pyrogram.connection.connection - INFO - Disconnected
+2024-10-23 23:05:35,371 - pyrogram.session.session - INFO - NetworkTask stopped
+2024-10-23 23:05:35,371 - pyrogram.session.session - INFO - Session stopped
+2024-10-23 23:05:37,641 - httpx - INFO - HTTP Request: POST https://user-domain.blum.codes/api/v1/auth/provider/PROVIDER_TELEGRAM_MINI_APP "HTTP/1.1 200 OK"
+2024-10-23 23:05:38,206 - httpx - INFO - HTTP Request: GET https://game-domain.blum.codes/api/v1/user/balance "HTTP/1.1 200 OK"
+2024-10-23 23:05:40,359 - httpx - INFO - HTTP Request: POST https://game-domain.blum.codes/api/v1/daily-reward?offset=-180 "HTTP/1.1 400 Bad Request"
+2024-10-23 23:05:40,916 - httpx - INFO - HTTP Request: GET https://user-domain.blum.codes/api/v1/friends/balance "HTTP/1.1 200 OK"
+2024-10-23 23:05:43,376 - httpx - INFO - HTTP Request: POST https://user-domain.blum.codes/api/v1/auth/refresh "HTTP/1.1 200 OK"
+2024-10-23 23:05:44,698 - httpx - INFO - HTTP Request: POST https://game-domain.blum.codes/api/v2/game/play "HTTP/1.1 200 OK"
+2024-10-23 23:06:18,506 - httpx - INFO - HTTP Request: GET https://raw.githubusercontent.com/zuydd/database/main/blum.json "HTTP/1.1 404 Not Found"
+2024-10-23 23:06:18,507 - bot - ERROR - Extra data: line 1 column 4 (char 3)
+2024-10-23 23:06:18,508 - bot - ERROR - cannot unpack non-iterable NoneType object
+2024-10-23 23:07:05,296 - aiogram.event - INFO - Update id=53310711 is handled. Duration 1020 ms by bot id=7144434947
+2024-10-23 23:07:07,797 - pyrogram.connection.connection - INFO - Connecting...
+2024-10-23 23:07:07,957 - pyrogram.connection.connection - INFO - Connected! Production DC2 - IPv4
+2024-10-23 23:07:07,957 - pyrogram.session.session - INFO - NetworkTask started
+2024-10-23 23:07:08,420 - pyrogram.session.session - INFO - Session initialized: Layer 158
+2024-10-23 23:07:08,420 - pyrogram.session.session - INFO - Device: CPython 3.10.6 - Pyrogram 2.0.106
+2024-10-23 23:07:08,420 - pyrogram.session.session - INFO - System: Linux 6.2.0-76060200-generic (en)
+2024-10-23 23:07:08,420 - pyrogram.session.session - INFO - Session started
+2024-10-23 23:07:08,435 - pyrogram.session.session - INFO - PingTask started
+2024-10-23 23:07:08,562 - pyrogram.session.session - INFO - PingTask stopped
+2024-10-23 23:07:08,563 - pyrogram.connection.connection - INFO - Disconnected
+2024-10-23 23:07:08,563 - pyrogram.session.session - INFO - NetworkTask stopped
+2024-10-23 23:07:08,563 - pyrogram.session.session - INFO - Session stopped
+2024-10-23 23:07:08,575 - aiogram.event - INFO - Update id=53310712 is handled. Duration 1638 ms by bot id=7144434947
+2024-10-23 23:07:09,135 - pyrogram.connection.connection - INFO - Connecting...
+2024-10-23 23:07:09,243 - pyrogram.connection.connection - INFO - Connected! Production DC2 - IPv4
+2024-10-23 23:07:09,244 - pyrogram.session.session - INFO - NetworkTask started
+2024-10-23 23:07:09,638 - pyrogram.session.session - INFO - Session initialized: Layer 158
+2024-10-23 23:07:09,638 - pyrogram.session.session - INFO - Device: CPython 3.10.6 - Pyrogram 2.0.106
+2024-10-23 23:07:09,638 - pyrogram.session.session - INFO - System: Linux 6.2.0-76060200-generic (en)
+2024-10-23 23:07:09,639 - pyrogram.session.session - INFO - Session started
+2024-10-23 23:07:09,655 - pyrogram.session.session - INFO - PingTask started
+2024-10-23 23:07:10,005 - pyrogram.session.session - INFO - PingTask stopped
+2024-10-23 23:07:10,006 - pyrogram.connection.connection - INFO - Disconnected
+2024-10-23 23:07:10,006 - pyrogram.session.session - INFO - NetworkTask stopped
+2024-10-23 23:07:10,006 - pyrogram.session.session - INFO - Session stopped
+2024-10-23 23:07:10,432 - httpx - INFO - HTTP Request: POST https://user-domain.blum.codes/api/v1/auth/provider/PROVIDER_TELEGRAM_MINI_APP "HTTP/1.1 200 OK"
+2024-10-23 23:07:10,869 - httpx - INFO - HTTP Request: GET https://game-domain.blum.codes/api/v1/user/balance "HTTP/1.1 200 OK"
+2024-10-23 23:07:13,185 - httpx - INFO - HTTP Request: POST https://game-domain.blum.codes/api/v1/daily-reward?offset=-180 "HTTP/1.1 400 Bad Request"
+2024-10-23 23:07:13,716 - httpx - INFO - HTTP Request: GET https://user-domain.blum.codes/api/v1/friends/balance "HTTP/1.1 200 OK"
+2024-10-23 23:07:16,252 - httpx - INFO - HTTP Request: POST https://user-domain.blum.codes/api/v1/auth/refresh "HTTP/1.1 200 OK"
+2024-10-23 23:07:16,692 - httpx - INFO - HTTP Request: POST https://game-domain.blum.codes/api/v2/game/play "HTTP/1.1 200 OK"
+2024-10-23 23:07:50,422 - httpx - INFO - HTTP Request: GET https://raw.githubusercontent.com/zuydd/database/main/blum.json "HTTP/1.1 404 Not Found"
+2024-10-23 23:07:50,423 - bot - ERROR - Extra data: line 1 column 4 (char 3)
+2024-10-23 23:10:33,653 - aiogram.event - INFO - Update id=53310713 is handled. Duration 1040 ms by bot id=7144434947
+2024-10-23 23:10:35,895 - pyrogram.connection.connection - INFO - Connecting...
+2024-10-23 23:10:36,029 - pyrogram.connection.connection - INFO - Connected! Production DC2 - IPv4
+2024-10-23 23:10:36,029 - pyrogram.session.session - INFO - NetworkTask started
+2024-10-23 23:10:36,591 - pyrogram.session.session - INFO - Session initialized: Layer 158
+2024-10-23 23:10:36,591 - pyrogram.session.session - INFO - Device: CPython 3.10.6 - Pyrogram 2.0.106
+2024-10-23 23:10:36,591 - pyrogram.session.session - INFO - System: Linux 6.2.0-76060200-generic (en)
+2024-10-23 23:10:36,591 - pyrogram.session.session - INFO - Session started
+2024-10-23 23:10:36,605 - pyrogram.session.session - INFO - PingTask started
+2024-10-23 23:10:36,857 - pyrogram.session.session - INFO - PingTask stopped
+2024-10-23 23:10:36,857 - pyrogram.connection.connection - INFO - Disconnected
+2024-10-23 23:10:36,857 - pyrogram.session.session - INFO - NetworkTask stopped
+2024-10-23 23:10:36,857 - pyrogram.session.session - INFO - Session stopped
+2024-10-23 23:10:36,870 - aiogram.event - INFO - Update id=53310714 is handled. Duration 1672 ms by bot id=7144434947
+2024-10-23 23:10:37,402 - pyrogram.connection.connection - INFO - Connecting...
+2024-10-23 23:10:37,514 - pyrogram.connection.connection - INFO - Connected! Production DC2 - IPv4
+2024-10-23 23:10:37,514 - pyrogram.session.session - INFO - NetworkTask started
+2024-10-23 23:10:37,983 - pyrogram.session.session - INFO - Session initialized: Layer 158
+2024-10-23 23:10:37,983 - pyrogram.session.session - INFO - Device: CPython 3.10.6 - Pyrogram 2.0.106
+2024-10-23 23:10:37,983 - pyrogram.session.session - INFO - System: Linux 6.2.0-76060200-generic (en)
+2024-10-23 23:10:37,983 - pyrogram.session.session - INFO - Session started
+2024-10-23 23:10:37,998 - pyrogram.session.session - INFO - PingTask started
+2024-10-23 23:10:38,312 - pyrogram.session.session - INFO - PingTask stopped
+2024-10-23 23:10:38,313 - pyrogram.connection.connection - INFO - Disconnected
+2024-10-23 23:10:38,313 - pyrogram.session.session - INFO - NetworkTask stopped
+2024-10-23 23:10:38,313 - pyrogram.session.session - INFO - Session stopped
+2024-10-23 23:10:38,752 - httpx - INFO - HTTP Request: POST https://user-domain.blum.codes/api/v1/auth/provider/PROVIDER_TELEGRAM_MINI_APP "HTTP/1.1 200 OK"
+2024-10-23 23:10:40,549 - httpx - INFO - HTTP Request: GET https://game-domain.blum.codes/api/v1/user/balance "HTTP/1.1 200 OK"
+2024-10-23 23:10:42,690 - httpx - INFO - HTTP Request: POST https://game-domain.blum.codes/api/v1/daily-reward?offset=-180 "HTTP/1.1 400 Bad Request"
+2024-10-23 23:10:43,084 - httpx - INFO - HTTP Request: GET https://user-domain.blum.codes/api/v1/friends/balance "HTTP/1.1 200 OK"
+2024-10-23 23:10:45,467 - httpx - INFO - HTTP Request: POST https://user-domain.blum.codes/api/v1/auth/refresh "HTTP/1.1 200 OK"
+2024-10-23 23:10:46,167 - httpx - INFO - HTTP Request: POST https://game-domain.blum.codes/api/v2/game/play "HTTP/1.1 200 OK"
+2024-10-23 23:11:18,201 - httpx - INFO - HTTP Request: GET https://raw.githubusercontent.com/zuydd/database/main/blum.json "HTTP/1.1 404 Not Found"
+2024-10-23 23:11:18,202 - bot - ERROR - Extra data: line 1 column 4 (char 3)
+2024-10-23 23:12:09,938 - aiogram.event - INFO - Update id=53310715 is handled. Duration 1146 ms by bot id=7144434947
+2024-10-23 23:12:11,995 - pyrogram.connection.connection - INFO - Connecting...
+2024-10-23 23:12:12,190 - pyrogram.connection.connection - INFO - Connected! Production DC2 - IPv4
+2024-10-23 23:12:12,190 - pyrogram.session.session - INFO - NetworkTask started
+2024-10-23 23:12:12,558 - pyrogram.session.session - INFO - Session initialized: Layer 158
+2024-10-23 23:12:12,558 - pyrogram.session.session - INFO - Device: CPython 3.10.6 - Pyrogram 2.0.106
+2024-10-23 23:12:12,558 - pyrogram.session.session - INFO - System: Linux 6.2.0-76060200-generic (en)
+2024-10-23 23:12:12,559 - pyrogram.session.session - INFO - Session started
+2024-10-23 23:12:12,581 - pyrogram.session.session - INFO - PingTask started
+2024-10-23 23:12:12,722 - pyrogram.session.session - INFO - PingTask stopped
+2024-10-23 23:12:12,723 - pyrogram.connection.connection - INFO - Disconnected
+2024-10-23 23:12:12,723 - pyrogram.session.session - INFO - NetworkTask stopped
+2024-10-23 23:12:12,723 - pyrogram.session.session - INFO - Session stopped
+2024-10-23 23:12:12,745 - aiogram.event - INFO - Update id=53310716 is handled. Duration 1524 ms by bot id=7144434947
+2024-10-23 23:12:13,477 - pyrogram.connection.connection - INFO - Connecting...
+2024-10-23 23:12:13,585 - pyrogram.connection.connection - INFO - Connected! Production DC2 - IPv4
+2024-10-23 23:12:13,586 - pyrogram.session.session - INFO - NetworkTask started
+2024-10-23 23:12:14,150 - pyrogram.session.session - INFO - Session initialized: Layer 158
+2024-10-23 23:12:14,150 - pyrogram.session.session - INFO - Device: CPython 3.10.6 - Pyrogram 2.0.106
+2024-10-23 23:12:14,150 - pyrogram.session.session - INFO - System: Linux 6.2.0-76060200-generic (en)
+2024-10-23 23:12:14,151 - pyrogram.session.session - INFO - Session started
+2024-10-23 23:12:14,167 - pyrogram.session.session - INFO - PingTask started
+2024-10-23 23:12:14,448 - pyrogram.session.session - INFO - PingTask stopped
+2024-10-23 23:12:14,449 - pyrogram.connection.connection - INFO - Disconnected
+2024-10-23 23:12:14,449 - pyrogram.session.session - INFO - NetworkTask stopped
+2024-10-23 23:12:14,449 - pyrogram.session.session - INFO - Session stopped
+2024-10-23 23:12:14,860 - httpx - INFO - HTTP Request: POST https://user-domain.blum.codes/api/v1/auth/provider/PROVIDER_TELEGRAM_MINI_APP "HTTP/1.1 200 OK"
+2024-10-23 23:12:15,366 - httpx - INFO - HTTP Request: GET https://game-domain.blum.codes/api/v1/user/balance "HTTP/1.1 200 OK"
+2024-10-23 23:12:17,618 - httpx - INFO - HTTP Request: POST https://game-domain.blum.codes/api/v1/daily-reward?offset=-180 "HTTP/1.1 400 Bad Request"
+2024-10-23 23:12:18,131 - httpx - INFO - HTTP Request: GET https://user-domain.blum.codes/api/v1/friends/balance "HTTP/1.1 200 OK"
+2024-10-23 23:12:20,589 - httpx - INFO - HTTP Request: POST https://user-domain.blum.codes/api/v1/auth/refresh "HTTP/1.1 200 OK"
+2024-10-23 23:12:21,410 - httpx - INFO - HTTP Request: POST https://game-domain.blum.codes/api/v2/game/play "HTTP/1.1 200 OK"
+2024-10-23 23:12:55,859 - httpx - INFO - HTTP Request: GET https://raw.githubusercontent.com/zuydd/database/main/blum.json "HTTP/1.1 404 Not Found"
+2024-10-23 23:12:55,860 - bot - ERROR - Extra data: line 1 column 4 (char 3)
+2024-10-23 23:14:34,169 - aiogram.event - INFO - Update id=53310717 is handled. Duration 1581 ms by bot id=7144434947
+2024-10-23 23:14:36,246 - pyrogram.connection.connection - INFO - Connecting...
+2024-10-23 23:14:36,354 - pyrogram.connection.connection - INFO - Connected! Production DC2 - IPv4
+2024-10-23 23:14:36,355 - pyrogram.session.session - INFO - NetworkTask started
+2024-10-23 23:14:36,784 - pyrogram.session.session - INFO - Session initialized: Layer 158
+2024-10-23 23:14:36,784 - pyrogram.session.session - INFO - Device: CPython 3.10.6 - Pyrogram 2.0.106
+2024-10-23 23:14:36,784 - pyrogram.session.session - INFO - System: Linux 6.2.0-76060200-generic (en)
+2024-10-23 23:14:36,784 - pyrogram.session.session - INFO - Session started
+2024-10-23 23:14:36,799 - pyrogram.session.session - INFO - PingTask started
+2024-10-23 23:14:37,011 - pyrogram.session.session - INFO - PingTask stopped
+2024-10-23 23:14:37,012 - pyrogram.connection.connection - INFO - Disconnected
+2024-10-23 23:14:37,012 - pyrogram.session.session - INFO - NetworkTask stopped
+2024-10-23 23:14:37,012 - pyrogram.session.session - INFO - Session stopped
+2024-10-23 23:14:37,034 - aiogram.event - INFO - Update id=53310718 is handled. Duration 1482 ms by bot id=7144434947
+2024-10-23 23:14:37,605 - pyrogram.connection.connection - INFO - Connecting...
+2024-10-23 23:14:37,708 - pyrogram.connection.connection - INFO - Connected! Production DC2 - IPv4
+2024-10-23 23:14:37,708 - pyrogram.session.session - INFO - NetworkTask started
+2024-10-23 23:14:38,318 - pyrogram.session.session - INFO - Session initialized: Layer 158
+2024-10-23 23:14:38,318 - pyrogram.session.session - INFO - Device: CPython 3.10.6 - Pyrogram 2.0.106
+2024-10-23 23:14:38,318 - pyrogram.session.session - INFO - System: Linux 6.2.0-76060200-generic (en)
+2024-10-23 23:14:38,319 - pyrogram.session.session - INFO - Session started
+2024-10-23 23:14:38,338 - pyrogram.session.session - INFO - PingTask started
+2024-10-23 23:14:38,651 - pyrogram.session.session - INFO - PingTask stopped
+2024-10-23 23:14:38,652 - pyrogram.connection.connection - INFO - Disconnected
+2024-10-23 23:14:38,652 - pyrogram.session.session - INFO - NetworkTask stopped
+2024-10-23 23:14:38,652 - pyrogram.session.session - INFO - Session stopped
+2024-10-23 23:14:39,137 - httpx - INFO - HTTP Request: POST https://user-domain.blum.codes/api/v1/auth/provider/PROVIDER_TELEGRAM_MINI_APP "HTTP/1.1 200 OK"
+2024-10-23 23:14:39,566 - httpx - INFO - HTTP Request: GET https://game-domain.blum.codes/api/v1/user/balance "HTTP/1.1 200 OK"
+2024-10-23 23:14:41,723 - httpx - INFO - HTTP Request: POST https://game-domain.blum.codes/api/v1/daily-reward?offset=-180 "HTTP/1.1 400 Bad Request"
+2024-10-23 23:14:42,155 - httpx - INFO - HTTP Request: GET https://user-domain.blum.codes/api/v1/friends/balance "HTTP/1.1 200 OK"
+2024-10-23 23:14:45,047 - httpx - INFO - HTTP Request: POST https://user-domain.blum.codes/api/v1/auth/refresh "HTTP/1.1 200 OK"
+2024-10-23 23:14:45,894 - httpx - INFO - HTTP Request: POST https://game-domain.blum.codes/api/v2/game/play "HTTP/1.1 200 OK"
+2024-10-23 23:15:19,870 - bot - ERROR - object dict can't be used in 'await' expression
+2024-10-23 23:16:00,545 - aiogram.event - INFO - Update id=53310719 is handled. Duration 1119 ms by bot id=7144434947
+2024-10-23 23:16:02,853 - pyrogram.connection.connection - INFO - Connecting...
+2024-10-23 23:16:03,115 - pyrogram.connection.connection - INFO - Connected! Production DC2 - IPv4
+2024-10-23 23:16:03,115 - pyrogram.session.session - INFO - NetworkTask started
+2024-10-23 23:16:03,793 - pyrogram.session.session - INFO - Session initialized: Layer 158
+2024-10-23 23:16:03,794 - pyrogram.session.session - INFO - Device: CPython 3.10.6 - Pyrogram 2.0.106
+2024-10-23 23:16:03,794 - pyrogram.session.session - INFO - System: Linux 6.2.0-76060200-generic (en)
+2024-10-23 23:16:03,794 - pyrogram.session.session - INFO - Session started
+2024-10-23 23:16:03,816 - pyrogram.session.session - INFO - PingTask started
+2024-10-23 23:16:04,412 - pyrogram.session.session - INFO - PingTask stopped
+2024-10-23 23:16:04,412 - pyrogram.connection.connection - INFO - Disconnected
+2024-10-23 23:16:04,413 - pyrogram.session.session - INFO - NetworkTask stopped
+2024-10-23 23:16:04,413 - pyrogram.session.session - INFO - Session stopped
+2024-10-23 23:16:04,430 - aiogram.event - INFO - Update id=53310720 is handled. Duration 2448 ms by bot id=7144434947
+2024-10-23 23:16:04,994 - pyrogram.connection.connection - INFO - Connecting...
+2024-10-23 23:16:05,274 - pyrogram.connection.connection - INFO - Connected! Production DC2 - IPv4
+2024-10-23 23:16:05,274 - pyrogram.session.session - INFO - NetworkTask started
+2024-10-23 23:16:05,943 - pyrogram.session.session - INFO - Session initialized: Layer 158
+2024-10-23 23:16:05,943 - pyrogram.session.session - INFO - Device: CPython 3.10.6 - Pyrogram 2.0.106
+2024-10-23 23:16:05,943 - pyrogram.session.session - INFO - System: Linux 6.2.0-76060200-generic (en)
+2024-10-23 23:16:05,943 - pyrogram.session.session - INFO - Session started
+2024-10-23 23:16:05,970 - pyrogram.session.session - INFO - PingTask started
+2024-10-23 23:16:06,531 - pyrogram.session.session - INFO - PingTask stopped
+2024-10-23 23:16:06,532 - pyrogram.connection.connection - INFO - Disconnected
+2024-10-23 23:16:06,532 - pyrogram.session.session - INFO - NetworkTask stopped
+2024-10-23 23:16:06,532 - pyrogram.session.session - INFO - Session stopped
+2024-10-23 23:16:07,028 - httpx - INFO - HTTP Request: POST https://user-domain.blum.codes/api/v1/auth/provider/PROVIDER_TELEGRAM_MINI_APP "HTTP/1.1 200 OK"
+2024-10-23 23:16:07,610 - httpx - INFO - HTTP Request: GET https://game-domain.blum.codes/api/v1/user/balance "HTTP/1.1 200 OK"
+2024-10-23 23:16:09,863 - httpx - INFO - HTTP Request: POST https://game-domain.blum.codes/api/v1/daily-reward?offset=-180 "HTTP/1.1 400 Bad Request"
+2024-10-23 23:16:10,376 - httpx - INFO - HTTP Request: GET https://user-domain.blum.codes/api/v1/friends/balance "HTTP/1.1 200 OK"
+2024-10-23 23:16:13,727 - httpx - INFO - HTTP Request: POST https://user-domain.blum.codes/api/v1/auth/refresh "HTTP/1.1 200 OK"
+2024-10-23 23:16:14,397 - httpx - INFO - HTTP Request: POST https://game-domain.blum.codes/api/v2/game/play "HTTP/1.1 200 OK"
+2024-10-23 23:16:50,337 - httpx - INFO - HTTP Request: POST https://ytlbpmzsiqjv14.vercel.app/api/blum "HTTP/1.1 402 Payment Required"
+2024-10-23 23:16:50,338 - bot - ERROR - Expecting value: line 1 column 1 (char 0)
+2024-10-23 23:17:57,802 - aiogram.event - INFO - Update id=53310721 is handled. Duration 1171 ms by bot id=7144434947
+2024-10-23 23:18:00,169 - pyrogram.connection.connection - INFO - Connecting...
+2024-10-23 23:18:00,276 - pyrogram.connection.connection - INFO - Connected! Production DC2 - IPv4
+2024-10-23 23:18:00,277 - pyrogram.session.session - INFO - NetworkTask started
+2024-10-23 23:18:00,689 - pyrogram.session.session - INFO - Session initialized: Layer 158
+2024-10-23 23:18:00,689 - pyrogram.session.session - INFO - Device: CPython 3.10.6 - Pyrogram 2.0.106
+2024-10-23 23:18:00,690 - pyrogram.session.session - INFO - System: Linux 6.2.0-76060200-generic (en)
+2024-10-23 23:18:00,690 - pyrogram.session.session - INFO - Session started
+2024-10-23 23:18:00,715 - pyrogram.session.session - INFO - PingTask started
+2024-10-23 23:18:00,840 - pyrogram.session.session - INFO - PingTask stopped
+2024-10-23 23:18:00,840 - pyrogram.connection.connection - INFO - Disconnected
+2024-10-23 23:18:00,841 - pyrogram.session.session - INFO - NetworkTask stopped
+2024-10-23 23:18:00,841 - pyrogram.session.session - INFO - Session stopped
+2024-10-23 23:18:00,873 - aiogram.event - INFO - Update id=53310722 is handled. Duration 1565 ms by bot id=7144434947
+2024-10-23 23:18:01,428 - pyrogram.connection.connection - INFO - Connecting...
+2024-10-23 23:18:01,538 - pyrogram.connection.connection - INFO - Connected! Production DC2 - IPv4
+2024-10-23 23:18:01,539 - pyrogram.session.session - INFO - NetworkTask started
+2024-10-23 23:18:01,877 - pyrogram.session.session - INFO - Session initialized: Layer 158
+2024-10-23 23:18:01,877 - pyrogram.session.session - INFO - Device: CPython 3.10.6 - Pyrogram 2.0.106
+2024-10-23 23:18:01,878 - pyrogram.session.session - INFO - System: Linux 6.2.0-76060200-generic (en)
+2024-10-23 23:18:01,878 - pyrogram.session.session - INFO - Session started
+2024-10-23 23:18:01,896 - pyrogram.session.session - INFO - PingTask started
+2024-10-23 23:18:02,166 - pyrogram.session.session - INFO - PingTask stopped
+2024-10-23 23:18:02,167 - pyrogram.connection.connection - INFO - Disconnected
+2024-10-23 23:18:02,167 - pyrogram.session.session - INFO - NetworkTask stopped
+2024-10-23 23:18:02,167 - pyrogram.session.session - INFO - Session stopped
+2024-10-23 23:18:02,930 - httpx - INFO - HTTP Request: POST https://user-domain.blum.codes/api/v1/auth/provider/PROVIDER_TELEGRAM_MINI_APP "HTTP/1.1 200 OK"
+2024-10-23 23:18:03,397 - httpx - INFO - HTTP Request: GET https://game-domain.blum.codes/api/v1/user/balance "HTTP/1.1 200 OK"
+2024-10-23 23:18:05,553 - httpx - INFO - HTTP Request: POST https://game-domain.blum.codes/api/v1/daily-reward?offset=-180 "HTTP/1.1 400 Bad Request"
+2024-10-23 23:18:06,052 - httpx - INFO - HTTP Request: GET https://user-domain.blum.codes/api/v1/friends/balance "HTTP/1.1 200 OK"
+2024-10-23 23:18:08,445 - httpx - INFO - HTTP Request: POST https://user-domain.blum.codes/api/v1/auth/refresh "HTTP/1.1 200 OK"
+2024-10-23 23:18:08,842 - httpx - INFO - HTTP Request: POST https://game-domain.blum.codes/api/v2/game/play "HTTP/1.1 200 OK"
+2024-10-23 23:18:40,116 - httpx - INFO - HTTP Request: POST https://ytlbpmzsiqjv14.vercel.app/api/blum "HTTP/1.1 402 Payment Required"
+2024-10-23 23:18:40,116 - bot - ERROR - 'str' object is not callable
+2024-10-23 23:21:18,075 - aiogram.event - INFO - Update id=53310724 is handled. Duration 993 ms by bot id=7144434947
+2024-10-23 23:21:20,847 - pyrogram.connection.connection - INFO - Connecting...
+2024-10-23 23:21:20,977 - pyrogram.connection.connection - INFO - Connected! Production DC2 - IPv4
+2024-10-23 23:21:20,978 - pyrogram.session.session - INFO - NetworkTask started
+2024-10-23 23:21:21,517 - pyrogram.session.session - INFO - Session initialized: Layer 158
+2024-10-23 23:21:21,517 - pyrogram.session.session - INFO - Device: CPython 3.10.6 - Pyrogram 2.0.106
+2024-10-23 23:21:21,517 - pyrogram.session.session - INFO - System: Linux 6.2.0-76060200-generic (en)
+2024-10-23 23:21:21,517 - pyrogram.session.session - INFO - Session started
+2024-10-23 23:21:21,536 - pyrogram.session.session - INFO - PingTask started
+2024-10-23 23:21:21,713 - pyrogram.session.session - INFO - PingTask stopped
+2024-10-23 23:21:21,713 - pyrogram.connection.connection - INFO - Disconnected
+2024-10-23 23:21:21,713 - pyrogram.session.session - INFO - NetworkTask stopped
+2024-10-23 23:21:21,713 - pyrogram.session.session - INFO - Session stopped
+2024-10-23 23:21:21,721 - aiogram.event - INFO - Update id=53310725 is handled. Duration 1740 ms by bot id=7144434947
+2024-10-23 23:21:22,689 - pyrogram.connection.connection - INFO - Connecting...
+2024-10-23 23:21:22,917 - pyrogram.connection.connection - INFO - Connected! Production DC2 - IPv4
+2024-10-23 23:21:22,918 - pyrogram.session.session - INFO - NetworkTask started
+2024-10-23 23:21:23,503 - pyrogram.session.session - INFO - Session initialized: Layer 158
+2024-10-23 23:21:23,504 - pyrogram.session.session - INFO - Device: CPython 3.10.6 - Pyrogram 2.0.106
+2024-10-23 23:21:23,504 - pyrogram.session.session - INFO - System: Linux 6.2.0-76060200-generic (en)
+2024-10-23 23:21:23,504 - pyrogram.session.session - INFO - Session started
+2024-10-23 23:21:23,517 - pyrogram.session.session - INFO - PingTask started
+2024-10-23 23:21:24,454 - pyrogram.session.session - INFO - PingTask stopped
+2024-10-23 23:21:24,454 - pyrogram.connection.connection - INFO - Disconnected
+2024-10-23 23:21:24,454 - pyrogram.session.session - INFO - NetworkTask stopped
+2024-10-23 23:21:24,454 - pyrogram.session.session - INFO - Session stopped
+2024-10-23 23:21:25,350 - httpx - INFO - HTTP Request: POST https://user-domain.blum.codes/api/v1/auth/provider/PROVIDER_TELEGRAM_MINI_APP "HTTP/1.1 200 OK"
+2024-10-23 23:21:25,792 - httpx - INFO - HTTP Request: GET https://game-domain.blum.codes/api/v1/user/balance "HTTP/1.1 200 OK"
+2024-10-23 23:21:27,938 - httpx - INFO - HTTP Request: POST https://game-domain.blum.codes/api/v1/daily-reward?offset=-180 "HTTP/1.1 400 Bad Request"
+2024-10-23 23:21:28,347 - httpx - INFO - HTTP Request: GET https://user-domain.blum.codes/api/v1/friends/balance "HTTP/1.1 200 OK"
+2024-10-23 23:21:31,275 - httpx - INFO - HTTP Request: POST https://user-domain.blum.codes/api/v1/auth/refresh "HTTP/1.1 200 OK"
+2024-10-23 23:21:31,676 - httpx - INFO - HTTP Request: POST https://game-domain.blum.codes/api/v2/game/play "HTTP/1.1 200 OK"
+2024-10-23 23:22:06,158 - httpx - INFO - HTTP Request: POST https://phusuuarieff15.vercel.app/api/blum "HTTP/1.1 402 Payment Required"
+2024-10-23 23:22:06,159 - bot - ERROR - 'str' object is not callable
+2024-10-23 23:23:28,913 - aiogram.event - INFO - Update id=53310726 is handled. Duration 2021 ms by bot id=7144434947
+2024-10-23 23:23:30,531 - pyrogram.connection.connection - INFO - Connecting...
+2024-10-23 23:23:30,807 - pyrogram.connection.connection - INFO - Connected! Production DC2 - IPv4
+2024-10-23 23:23:30,808 - pyrogram.session.session - INFO - NetworkTask started
+2024-10-23 23:23:31,417 - pyrogram.session.session - INFO - Session initialized: Layer 158
+2024-10-23 23:23:31,418 - pyrogram.session.session - INFO - Device: CPython 3.10.6 - Pyrogram 2.0.106
+2024-10-23 23:23:31,418 - pyrogram.session.session - INFO - System: Linux 6.2.0-76060200-generic (en)
+2024-10-23 23:23:31,418 - pyrogram.session.session - INFO - Session started
+2024-10-23 23:23:31,439 - pyrogram.session.session - INFO - PingTask started
+2024-10-23 23:23:31,622 - pyrogram.session.session - INFO - PingTask stopped
+2024-10-23 23:23:31,622 - pyrogram.connection.connection - INFO - Disconnected
+2024-10-23 23:23:31,622 - pyrogram.session.session - INFO - NetworkTask stopped
+2024-10-23 23:23:31,623 - pyrogram.session.session - INFO - Session stopped
+2024-10-23 23:23:31,645 - aiogram.event - INFO - Update id=53310727 is handled. Duration 1756 ms by bot id=7144434947
+2024-10-23 23:23:32,121 - pyrogram.connection.connection - INFO - Connecting...
+2024-10-23 23:23:32,234 - pyrogram.connection.connection - INFO - Connected! Production DC2 - IPv4
+2024-10-23 23:23:32,235 - pyrogram.session.session - INFO - NetworkTask started
+2024-10-23 23:23:32,645 - pyrogram.session.session - INFO - Session initialized: Layer 158
+2024-10-23 23:23:32,645 - pyrogram.session.session - INFO - Device: CPython 3.10.6 - Pyrogram 2.0.106
+2024-10-23 23:23:32,645 - pyrogram.session.session - INFO - System: Linux 6.2.0-76060200-generic (en)
+2024-10-23 23:23:32,645 - pyrogram.session.session - INFO - Session started
+2024-10-23 23:23:32,665 - pyrogram.session.session - INFO - PingTask started
+2024-10-23 23:23:33,059 - pyrogram.session.session - INFO - PingTask stopped
+2024-10-23 23:23:33,059 - pyrogram.connection.connection - INFO - Disconnected
+2024-10-23 23:23:33,060 - pyrogram.session.session - INFO - NetworkTask stopped
+2024-10-23 23:23:33,060 - pyrogram.session.session - INFO - Session stopped
+2024-10-23 23:23:33,611 - httpx - INFO - HTTP Request: POST https://user-domain.blum.codes/api/v1/auth/provider/PROVIDER_TELEGRAM_MINI_APP "HTTP/1.1 200 OK"
+2024-10-23 23:23:34,231 - httpx - INFO - HTTP Request: GET https://game-domain.blum.codes/api/v1/user/balance "HTTP/1.1 200 OK"
+2024-10-23 23:23:36,373 - httpx - INFO - HTTP Request: POST https://game-domain.blum.codes/api/v1/daily-reward?offset=-180 "HTTP/1.1 400 Bad Request"
+2024-10-23 23:23:36,809 - httpx - INFO - HTTP Request: GET https://user-domain.blum.codes/api/v1/friends/balance "HTTP/1.1 200 OK"
+2024-10-23 23:23:39,288 - httpx - INFO - HTTP Request: POST https://user-domain.blum.codes/api/v1/auth/refresh "HTTP/1.1 200 OK"
+2024-10-23 23:23:39,788 - httpx - INFO - HTTP Request: POST https://game-domain.blum.codes/api/v2/game/play "HTTP/1.1 200 OK"
+2024-10-23 23:24:14,187 - httpx - INFO - HTTP Request: POST https://iwsluybtbdix12.vercel.app/api/blum "HTTP/1.1 402 Payment Required"
+2024-10-23 23:24:14,188 - bot - ERROR - Expecting value: line 1 column 1 (char 0)
+2024-10-23 23:29:09,427 - aiogram.event - INFO - Update id=53310728 is handled. Duration 1021 ms by bot id=7144434947
+2024-10-23 23:29:11,724 - pyrogram.connection.connection - INFO - Connecting...
+2024-10-23 23:29:11,831 - pyrogram.connection.connection - INFO - Connected! Production DC2 - IPv4
+2024-10-23 23:29:11,832 - pyrogram.session.session - INFO - NetworkTask started
+2024-10-23 23:29:12,309 - pyrogram.session.session - INFO - Session initialized: Layer 158
+2024-10-23 23:29:12,309 - pyrogram.session.session - INFO - Device: CPython 3.10.6 - Pyrogram 2.0.106
+2024-10-23 23:29:12,309 - pyrogram.session.session - INFO - System: Linux 6.2.0-76060200-generic (en)
+2024-10-23 23:29:12,309 - pyrogram.session.session - INFO - Session started
+2024-10-23 23:29:12,330 - pyrogram.session.session - INFO - PingTask started
+2024-10-23 23:29:12,482 - pyrogram.session.session - INFO - PingTask stopped
+2024-10-23 23:29:12,483 - pyrogram.connection.connection - INFO - Disconnected
+2024-10-23 23:29:12,483 - pyrogram.session.session - INFO - NetworkTask stopped
+2024-10-23 23:29:12,483 - pyrogram.session.session - INFO - Session stopped
+2024-10-23 23:29:12,504 - aiogram.event - INFO - Update id=53310729 is handled. Duration 1589 ms by bot id=7144434947
+2024-10-23 23:29:13,259 - pyrogram.connection.connection - INFO - Connecting...
+2024-10-23 23:29:13,446 - pyrogram.connection.connection - INFO - Connected! Production DC2 - IPv4
+2024-10-23 23:29:13,446 - pyrogram.session.session - INFO - NetworkTask started
+2024-10-23 23:29:14,128 - pyrogram.session.session - INFO - Session initialized: Layer 158
+2024-10-23 23:29:14,128 - pyrogram.session.session - INFO - Device: CPython 3.10.6 - Pyrogram 2.0.106
+2024-10-23 23:29:14,128 - pyrogram.session.session - INFO - System: Linux 6.2.0-76060200-generic (en)
+2024-10-23 23:29:14,128 - pyrogram.session.session - INFO - Session started
+2024-10-23 23:29:14,147 - pyrogram.session.session - INFO - PingTask started
+2024-10-23 23:29:14,787 - pyrogram.session.session - INFO - PingTask stopped
+2024-10-23 23:29:14,787 - pyrogram.connection.connection - INFO - Disconnected
+2024-10-23 23:29:14,787 - pyrogram.session.session - INFO - NetworkTask stopped
+2024-10-23 23:29:14,787 - pyrogram.session.session - INFO - Session stopped
+2024-10-23 23:29:15,411 - httpx - INFO - HTTP Request: POST https://user-domain.blum.codes/api/v1/auth/provider/PROVIDER_TELEGRAM_MINI_APP "HTTP/1.1 200 OK"
+2024-10-23 23:29:15,836 - httpx - INFO - HTTP Request: GET https://game-domain.blum.codes/api/v1/user/balance "HTTP/1.1 200 OK"
+2024-10-23 23:29:18,207 - httpx - INFO - HTTP Request: POST https://game-domain.blum.codes/api/v1/daily-reward?offset=-180 "HTTP/1.1 400 Bad Request"
+2024-10-23 23:29:19,073 - httpx - INFO - HTTP Request: GET https://user-domain.blum.codes/api/v1/friends/balance "HTTP/1.1 200 OK"
+2024-10-23 23:29:21,458 - httpx - INFO - HTTP Request: POST https://user-domain.blum.codes/api/v1/auth/refresh "HTTP/1.1 200 OK"
+2024-10-23 23:29:21,889 - httpx - INFO - HTTP Request: POST https://game-domain.blum.codes/api/v2/game/play "HTTP/1.1 200 OK"
+2024-10-23 23:29:55,865 - bot - ERROR - object Headers can't be used in 'await' expression
+2024-10-23 23:30:42,240 - aiogram.event - INFO - Update id=53310730 is handled. Duration 1416 ms by bot id=7144434947
+2024-10-23 23:30:44,644 - pyrogram.connection.connection - INFO - Connecting...
+2024-10-23 23:30:44,754 - pyrogram.connection.connection - INFO - Connected! Production DC2 - IPv4
+2024-10-23 23:30:44,754 - pyrogram.session.session - INFO - NetworkTask started
+2024-10-23 23:30:45,188 - pyrogram.session.session - INFO - Session initialized: Layer 158
+2024-10-23 23:30:45,188 - pyrogram.session.session - INFO - Device: CPython 3.10.6 - Pyrogram 2.0.106
+2024-10-23 23:30:45,188 - pyrogram.session.session - INFO - System: Linux 6.2.0-76060200-generic (en)
+2024-10-23 23:30:45,188 - pyrogram.session.session - INFO - Session started
+2024-10-23 23:30:45,213 - pyrogram.session.session - INFO - PingTask started
+2024-10-23 23:30:45,370 - pyrogram.session.session - INFO - PingTask stopped
+2024-10-23 23:30:45,370 - pyrogram.connection.connection - INFO - Disconnected
+2024-10-23 23:30:45,370 - pyrogram.session.session - INFO - NetworkTask stopped
+2024-10-23 23:30:45,370 - pyrogram.session.session - INFO - Session stopped
+2024-10-23 23:30:45,385 - aiogram.event - INFO - Update id=53310731 is handled. Duration 1425 ms by bot id=7144434947
+2024-10-23 23:30:45,837 - pyrogram.connection.connection - INFO - Connecting...
+2024-10-23 23:30:45,954 - pyrogram.connection.connection - INFO - Connected! Production DC2 - IPv4
+2024-10-23 23:30:45,955 - pyrogram.session.session - INFO - NetworkTask started
+2024-10-23 23:30:46,420 - pyrogram.session.session - INFO - Session initialized: Layer 158
+2024-10-23 23:30:46,420 - pyrogram.session.session - INFO - Device: CPython 3.10.6 - Pyrogram 2.0.106
+2024-10-23 23:30:46,420 - pyrogram.session.session - INFO - System: Linux 6.2.0-76060200-generic (en)
+2024-10-23 23:30:46,420 - pyrogram.session.session - INFO - Session started
+2024-10-23 23:30:46,440 - pyrogram.session.session - INFO - PingTask started
+2024-10-23 23:30:46,743 - pyrogram.session.session - INFO - PingTask stopped
+2024-10-23 23:30:46,744 - pyrogram.connection.connection - INFO - Disconnected
+2024-10-23 23:30:46,744 - pyrogram.session.session - INFO - NetworkTask stopped
+2024-10-23 23:30:46,744 - pyrogram.session.session - INFO - Session stopped
+2024-10-23 23:30:48,233 - httpx - INFO - HTTP Request: POST https://user-domain.blum.codes/api/v1/auth/provider/PROVIDER_TELEGRAM_MINI_APP "HTTP/1.1 200 OK"
+2024-10-23 23:30:48,674 - httpx - INFO - HTTP Request: GET https://game-domain.blum.codes/api/v1/user/balance "HTTP/1.1 200 OK"
+2024-10-23 23:30:50,921 - httpx - INFO - HTTP Request: POST https://game-domain.blum.codes/api/v1/daily-reward?offset=-180 "HTTP/1.1 400 Bad Request"
+2024-10-23 23:30:51,330 - httpx - INFO - HTTP Request: GET https://user-domain.blum.codes/api/v1/friends/balance "HTTP/1.1 200 OK"
+2024-10-23 23:30:53,696 - httpx - INFO - HTTP Request: POST https://user-domain.blum.codes/api/v1/auth/refresh "HTTP/1.1 200 OK"
+2024-10-23 23:30:54,097 - httpx - INFO - HTTP Request: POST https://game-domain.blum.codes/api/v2/game/play "HTTP/1.1 200 OK"
+2024-10-23 23:31:28,257 - httpx - INFO - HTTP Request: POST https://ytlbpmzsiqjv14.vercel.app/api/blum "HTTP/1.1 402 Payment Required"
+2024-10-23 23:31:28,258 - bot - ERROR - Expecting value: line 1 column 1 (char 0)
+2024-10-23 23:32:23,337 - aiogram.event - INFO - Update id=53310732 is handled. Duration 1211 ms by bot id=7144434947
+2024-10-23 23:32:25,377 - pyrogram.connection.connection - INFO - Connecting...
+2024-10-23 23:32:25,481 - pyrogram.connection.connection - INFO - Connected! Production DC2 - IPv4
+2024-10-23 23:32:25,482 - pyrogram.session.session - INFO - NetworkTask started
+2024-10-23 23:32:25,825 - pyrogram.session.session - INFO - Session initialized: Layer 158
+2024-10-23 23:32:25,825 - pyrogram.session.session - INFO - Device: CPython 3.10.6 - Pyrogram 2.0.106
+2024-10-23 23:32:25,825 - pyrogram.session.session - INFO - System: Linux 6.2.0-76060200-generic (en)
+2024-10-23 23:32:25,825 - pyrogram.session.session - INFO - Session started
+2024-10-23 23:32:25,836 - pyrogram.session.session - INFO - PingTask started
+2024-10-23 23:32:25,958 - pyrogram.session.session - INFO - PingTask stopped
+2024-10-23 23:32:25,958 - pyrogram.connection.connection - INFO - Disconnected
+2024-10-23 23:32:25,958 - pyrogram.session.session - INFO - NetworkTask stopped
+2024-10-23 23:32:25,958 - pyrogram.session.session - INFO - Session stopped
+2024-10-23 23:32:25,972 - aiogram.event - INFO - Update id=53310733 is handled. Duration 1595 ms by bot id=7144434947
+2024-10-23 23:32:26,410 - pyrogram.connection.connection - INFO - Connecting...
+2024-10-23 23:32:26,512 - pyrogram.connection.connection - INFO - Connected! Production DC2 - IPv4
+2024-10-23 23:32:26,512 - pyrogram.session.session - INFO - NetworkTask started
+2024-10-23 23:32:26,974 - pyrogram.session.session - INFO - Session initialized: Layer 158
+2024-10-23 23:32:26,974 - pyrogram.session.session - INFO - Device: CPython 3.10.6 - Pyrogram 2.0.106
+2024-10-23 23:32:26,974 - pyrogram.session.session - INFO - System: Linux 6.2.0-76060200-generic (en)
+2024-10-23 23:32:26,974 - pyrogram.session.session - INFO - Session started
+2024-10-23 23:32:26,990 - pyrogram.session.session - INFO - PingTask started
+2024-10-23 23:32:27,382 - pyrogram.session.session - INFO - PingTask stopped
+2024-10-23 23:32:27,382 - pyrogram.connection.connection - INFO - Disconnected
+2024-10-23 23:32:27,382 - pyrogram.session.session - INFO - NetworkTask stopped
+2024-10-23 23:32:27,382 - pyrogram.session.session - INFO - Session stopped
+2024-10-23 23:32:27,895 - httpx - INFO - HTTP Request: POST https://user-domain.blum.codes/api/v1/auth/provider/PROVIDER_TELEGRAM_MINI_APP "HTTP/1.1 200 OK"
+2024-10-23 23:32:28,457 - httpx - INFO - HTTP Request: GET https://game-domain.blum.codes/api/v1/user/balance "HTTP/1.1 200 OK"
+2024-10-23 23:32:30,604 - httpx - INFO - HTTP Request: POST https://game-domain.blum.codes/api/v1/daily-reward?offset=-180 "HTTP/1.1 400 Bad Request"
+2024-10-23 23:32:31,002 - httpx - INFO - HTTP Request: GET https://user-domain.blum.codes/api/v1/friends/balance "HTTP/1.1 200 OK"
+2024-10-23 23:32:33,621 - httpx - INFO - HTTP Request: POST https://user-domain.blum.codes/api/v1/auth/refresh "HTTP/1.1 200 OK"
+2024-10-23 23:32:34,028 - httpx - INFO - HTTP Request: POST https://game-domain.blum.codes/api/v2/game/play "HTTP/1.1 200 OK"
+2024-10-23 23:33:06,241 - httpx - INFO - HTTP Request: POST https://iwsluybtbdix12.vercel.app/api/blum "HTTP/1.1 402 Payment Required"
+2024-10-23 23:33:06,242 - bot - ERROR - Expecting value: line 1 column 1 (char 0)
+2024-10-23 23:44:48,791 - aiogram.event - INFO - Update id=53310734 is handled. Duration 737 ms by bot id=7144434947
+2024-10-23 23:44:52,702 - aiogram.event - INFO - Update id=53310735 is handled. Duration 660 ms by bot id=7144434947
+2024-10-23 23:44:55,034 - pyrogram.connection.connection - INFO - Connecting...
+2024-10-23 23:44:55,136 - pyrogram.connection.connection - INFO - Connected! Production DC2 - IPv4
+2024-10-23 23:44:55,137 - pyrogram.session.session - INFO - NetworkTask started
+2024-10-23 23:44:55,728 - pyrogram.session.session - INFO - Session initialized: Layer 158
+2024-10-23 23:44:55,728 - pyrogram.session.session - INFO - Device: CPython 3.10.6 - Pyrogram 2.0.106
+2024-10-23 23:44:55,728 - pyrogram.session.session - INFO - System: Linux 6.2.0-76060200-generic (en)
+2024-10-23 23:44:55,728 - pyrogram.session.session - INFO - Session started
+2024-10-23 23:44:55,738 - pyrogram.session.session - INFO - PingTask started
+2024-10-23 23:44:55,934 - pyrogram.session.session - INFO - PingTask stopped
+2024-10-23 23:44:55,935 - pyrogram.connection.connection - INFO - Disconnected
+2024-10-23 23:44:55,935 - pyrogram.session.session - INFO - NetworkTask stopped
+2024-10-23 23:44:55,935 - pyrogram.session.session - INFO - Session stopped
+2024-10-23 23:44:56,131 - pyrogram.connection.connection - INFO - Connecting...
+2024-10-23 23:44:56,239 - pyrogram.connection.connection - INFO - Connected! Production DC2 - IPv4
+2024-10-23 23:44:56,239 - pyrogram.session.session - INFO - NetworkTask started
+2024-10-23 23:44:56,661 - pyrogram.session.session - INFO - Session initialized: Layer 158
+2024-10-23 23:44:56,661 - pyrogram.session.session - INFO - Device: CPython 3.10.6 - Pyrogram 2.0.106
+2024-10-23 23:44:56,661 - pyrogram.session.session - INFO - System: Linux 6.2.0-76060200-generic (en)
+2024-10-23 23:44:56,661 - pyrogram.session.session - INFO - Session started
+2024-10-23 23:44:56,673 - pyrogram.session.session - INFO - PingTask started
+2024-10-23 23:44:56,929 - pyrogram.session.session - INFO - PingTask stopped
+2024-10-23 23:44:56,929 - pyrogram.connection.connection - INFO - Disconnected
+2024-10-23 23:44:56,929 - pyrogram.session.session - INFO - NetworkTask stopped
+2024-10-23 23:44:56,929 - pyrogram.session.session - INFO - Session stopped
+2024-10-23 23:44:57,367 - httpx - INFO - HTTP Request: POST https://user-domain.blum.codes/api/v1/auth/provider/PROVIDER_TELEGRAM_MINI_APP "HTTP/1.1 200 OK"
+2024-10-23 23:44:57,778 - httpx - INFO - HTTP Request: GET https://game-domain.blum.codes/api/v1/user/balance "HTTP/1.1 200 OK"
+2024-10-23 23:45:00,280 - aiogram.event - INFO - Update id=53310736 is handled. Duration 5980 ms by bot id=7144434947
+2024-10-23 23:45:02,397 - aiogram.event - INFO - Update id=53310737 is handled. Duration 521 ms by bot id=7144434947
+2024-10-23 23:45:03,898 - aiogram.event - INFO - Update id=53310738 is handled. Duration 408 ms by bot id=7144434947
+2024-10-23 23:45:05,980 - aiogram.event - INFO - Update id=53310739 is handled. Duration 1137 ms by bot id=7144434947
+2024-10-23 23:45:07,771 - pyrogram.connection.connection - INFO - Connecting...
+2024-10-23 23:45:07,878 - pyrogram.connection.connection - INFO - Connected! Production DC2 - IPv4
+2024-10-23 23:45:07,879 - pyrogram.session.session - INFO - NetworkTask started
+2024-10-23 23:45:08,359 - pyrogram.session.session - INFO - Session initialized: Layer 158
+2024-10-23 23:45:08,360 - pyrogram.session.session - INFO - Device: CPython 3.10.6 - Pyrogram 2.0.106
+2024-10-23 23:45:08,360 - pyrogram.session.session - INFO - System: Linux 6.2.0-76060200-generic (en)
+2024-10-23 23:45:08,360 - pyrogram.session.session - INFO - Session started
+2024-10-23 23:45:08,379 - pyrogram.session.session - INFO - PingTask started
+2024-10-23 23:45:08,620 - pyrogram.session.session - INFO - PingTask stopped
+2024-10-23 23:45:08,621 - pyrogram.connection.connection - INFO - Disconnected
+2024-10-23 23:45:08,621 - pyrogram.session.session - INFO - NetworkTask stopped
+2024-10-23 23:45:08,621 - pyrogram.session.session - INFO - Session stopped
+2024-10-23 23:45:08,632 - aiogram.event - INFO - Update id=53310740 is handled. Duration 1327 ms by bot id=7144434947
+2024-10-23 23:45:09,138 - pyrogram.connection.connection - INFO - Connecting...
+2024-10-23 23:45:09,245 - pyrogram.connection.connection - INFO - Connected! Production DC2 - IPv4
+2024-10-23 23:45:09,245 - pyrogram.session.session - INFO - NetworkTask started
+2024-10-23 23:45:09,657 - pyrogram.session.session - INFO - Session initialized: Layer 158
+2024-10-23 23:45:09,657 - pyrogram.session.session - INFO - Device: CPython 3.10.6 - Pyrogram 2.0.106
+2024-10-23 23:45:09,657 - pyrogram.session.session - INFO - System: Linux 6.2.0-76060200-generic (en)
+2024-10-23 23:45:09,657 - pyrogram.session.session - INFO - Session started
+2024-10-23 23:45:09,671 - pyrogram.session.session - INFO - PingTask started
+2024-10-23 23:45:10,066 - pyrogram.session.session - INFO - PingTask stopped
+2024-10-23 23:45:10,066 - pyrogram.connection.connection - INFO - Disconnected
+2024-10-23 23:45:10,066 - pyrogram.session.session - INFO - NetworkTask stopped
+2024-10-23 23:45:10,067 - pyrogram.session.session - INFO - Session stopped
+2024-10-23 23:45:10,680 - httpx - INFO - HTTP Request: POST https://user-domain.blum.codes/api/v1/auth/provider/PROVIDER_TELEGRAM_MINI_APP "HTTP/1.1 200 OK"
+2024-10-23 23:45:11,094 - httpx - INFO - HTTP Request: GET https://game-domain.blum.codes/api/v1/user/balance "HTTP/1.1 200 OK"
+2024-10-23 23:45:13,343 - httpx - INFO - HTTP Request: POST https://game-domain.blum.codes/api/v1/daily-reward?offset=-180 "HTTP/1.1 400 Bad Request"
+2024-10-23 23:45:13,871 - httpx - INFO - HTTP Request: GET https://user-domain.blum.codes/api/v1/friends/balance "HTTP/1.1 200 OK"
+2024-10-23 23:45:16,358 - httpx - INFO - HTTP Request: POST https://user-domain.blum.codes/api/v1/auth/refresh "HTTP/1.1 200 OK"
+2024-10-23 23:45:16,964 - httpx - INFO - HTTP Request: GET https://game-domain.blum.codes/api/v1/user/balance "HTTP/1.1 200 OK"

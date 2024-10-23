@@ -501,7 +501,7 @@ class ProxyManager:
             for proxy in proxies:
                 try:
                     date_end_as_datetime = datetime.datetime.strptime(proxy.dateEnd, '%Y-%m-%d %H:%M:%S')
-                    if date_end_as_datetime < datetime.datetime.now():
+                    if date_end_as_datetime < datetime.datetime.now(datetime.timezone.utc):
                         proxy.isCanceled = True
                         proxy.inUse = False
                         session.add(proxy)
