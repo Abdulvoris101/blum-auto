@@ -94,7 +94,7 @@ This bot is ideal for:
 
 ## 📝 Feedback & Support
 
-Your feedback is invaluable! If you encounter any issues or have suggestions, please contact us directly through the bot or email us at [support@blum-auto-bot.com](mailto:support@blum-auto-bot.com).
+Your feedback is invaluable! If you encounter any issues or have suggestions, please contact us directly through the bot or email us at [blum](mailto:erkinovabdulvoris101@gmail.com).
 
 ---
 
@@ -104,5 +104,6 @@ Many users have earned significant Blum coins with the bot. Join the community a
 
 ---
 
+Feel free to contribute 
 Enjoy earning Blum coins effortlessly! 🚀
 
