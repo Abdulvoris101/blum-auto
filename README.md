@@ -55,10 +55,6 @@
 
 ---
 
-# Way to Improvements and Bugs
-  1. Need to implement connecting accounts via web url rather than authenticating telegram account to bot
-  2. Fix playing games (rn can't play games caused by new blum update
-
 ## 📋 Commands
 
 - `/start` - Welcome and setup introduction for the bot.
@@ -91,6 +87,11 @@ This bot is ideal for:
 3. **Referral Rewards:** Invite friends and earn extra benefits.
 
 ---
+
+# Way to Improvements and Bugs
+  1. Need to implement connecting accounts via web url rather than authenticating telegram account to bot
+  2. Fix playing games (rn can't play games caused by new blum update
+
 
 ## 📝 Feedback & Support
 
